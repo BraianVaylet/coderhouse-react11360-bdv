@@ -1,25 +1,22 @@
+// react
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useTranslation } from 'react-i18next'
+// chakra-ui
+import { Text, Flex } from '@chakra-ui/react'
 
-function App () {
+const App = () => {
+  // hooks
+  const [t] = useTranslation('global')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Flex
+      direction="column"
+      justify="flex-start"
+      align="center"
+      minH="100vh"
+    >
+      <Text>{t('App.helloWorld')}</Text>
+    </Flex>
   )
 }
 
