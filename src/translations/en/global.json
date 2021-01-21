@@ -1,0 +1,16 @@
+{
+  "App": {
+    "helloWorld": "Hello World!"
+  },
+  "NavBar": {
+    "constructionTools": "Construction tools",
+    "sports": "Sports",
+    "entertainment": "Entertainment",
+    "estate": "Estate",
+    "mobility": "Mobility"
+  },
+  "ChangeLanguage": {
+    "es": "ES",
+    "en": "EN"
+  }
+}
