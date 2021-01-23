@@ -89,7 +89,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 // chakra-ui
-import { Flex, Text, Link } from '@chakra-ui/react'
+import { Flex, Box, Text, Link } from '@chakra-ui/react'
 import { LogoIcon } from '../assets/icons'
 // components
 import ChangeTheme from './ChangeTheme'
@@ -138,8 +138,10 @@ const NavBar = () => {
         &lt;Link ml={2}>{t('NavBar.entertainment')}&lt;/Link>
         &lt;Link ml={2}>{t('NavBar.estate')}&lt;/Link>
         &lt;Link ml={2}>{t('NavBar.mobility')}&lt;/Link>
-        &lt;ChangeLanguage />
-        &lt;ChangeTheme />
+        &lt;Box ml={4}>
+          &lt;ChangeLanguage />
+          &lt;ChangeTheme />
+        &lt;/Box>
       &lt;/Flex>
     &lt;/Flex>
   )

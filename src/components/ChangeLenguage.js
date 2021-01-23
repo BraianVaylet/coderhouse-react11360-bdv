@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { useState, useEffect } from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button } from '@chakra-ui/react'
+import { Button } from "@chakra-ui/react"
 
 /**
  * ChangeLanguage Component
@@ -9,14 +9,17 @@ import { Button } from '@chakra-ui/react'
  */
 const ChangeLanguage = () => {
   // hooks
-  const [t, i18n] = useTranslation('global')
+  const [t, i18n] = useTranslation("global")
   const [spanish, setSpanish] = useState(false)
 
-  useEffect(() => spanish ? i18n.changeLanguage('es') : i18n.changeLanguage('en'), [spanish])
+  useEffect(
+    () => (spanish ? i18n.changeLanguage("es") : i18n.changeLanguage("en")),
+    [spanish]
+  )
 
   return (
     <Button size="lg" variant="ghost" onClick={() => setSpanish(!spanish)}>
-      {spanish ? t('ChangeLanguage.en') : t('ChangeLanguage.es')}
+      {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
     </Button>
   )
 }

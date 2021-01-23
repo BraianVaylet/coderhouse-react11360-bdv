@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 // chakra-ui
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react"
 // components
-import NavBar from './NavBar'
+import NavBar from "./NavBar"
 
 /**
  * Layout Component
@@ -11,11 +11,7 @@ import NavBar from './NavBar'
  */
 const Layout = ({ children }) => {
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      align="center"
-    >
+    <Flex direction="column" justify="flex-start" align="center">
       <NavBar />
       {children}
     </Flex>
@@ -24,7 +20,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   /** children component */
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 }
 
 export default Layout
