@@ -4,14 +4,14 @@ import ReactDOM from "react-dom"
 import reportWebVitals from "./reportWebVitals"
 // translations
 import { I18nextProvider } from "react-i18next"
-import i18next from "./translations"
+import i18next from "translations"
 // chakra-ui
 import { ChakraProvider, ColorModeScript, CSSReset } from "@chakra-ui/react"
 // components
-import Layout from "./components/Layout"
+import Layout from "components/Layout"
 import App from "./App"
 // styles
-import theme from "./styles/theme"
+import theme from "styles/theme"
 
 ReactDOM.render(
   <React.StrictMode>

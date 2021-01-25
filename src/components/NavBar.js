@@ -3,7 +3,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex, Box, Text, Link } from "@chakra-ui/react"
-import { LogoIcon } from "../assets/icons"
+import { LogoIcon } from "assets/icons"
 // components
 import ChangeTheme from "./ChangeTheme"
 import ChangeLanguage from "./ChangeLenguage"
