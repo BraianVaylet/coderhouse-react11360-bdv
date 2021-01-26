@@ -1,35 +1,41 @@
 
-    import React from "react";
+    window.reactComponents = {};
+
+    window.vueComponents = {};
+
+  
+      import React from "react";
 
       import ReactDOM from "react-dom";
 
 
       import ReactWrapper from '../node_modules/better-docs/lib/react-wrapper.js';
 
-    
-    import './styles/reset.css';
-
-    import './styles/iframe.css';
-
-  import Component0 from '../src/components/ChangeLenguage.js';
-
-import Component1 from '../src/components/ChangeTheme.js';
-
-import Component2 from '../src/components/Layout.js';
-
-import Component3 from '../src/components/NavBar.js';
-
-  
-      window.reactComponents = {};
-
-    window.vueComponents = {};
-
       window.React = React;
 
       window.ReactDOM = ReactDOM;
 
       window.ReactWrapper = ReactWrapper;
-reactComponents.ChangeLanguage = Component0;
-reactComponents.ChangeTheme = Component1;
-reactComponents.Layout = Component2;
-reactComponents.NavBar = Component3;
+
+    
+    import './styles/reset.css';
+
+    import './styles/iframe.css';
+
+  import Component0 from '../src/components/CartWidget/index.js';
+reactComponents['CartWidget'] = Component0;
+
+import Component1 from '../src/components/ChangeLenguage/index.js';
+reactComponents['ChangeLanguage'] = Component1;
+
+import Component2 from '../src/components/ChangeTheme/index.js';
+reactComponents['ChangeTheme'] = Component2;
+
+import Component3 from '../src/components/ItemList/index.js';
+reactComponents['ItemList'] = Component3;
+
+import Component4 from '../src/containers/Layout/index.js';
+reactComponents['Layout'] = Component4;
+
+import Component5 from '../src/components/NavBar/index.js';
+reactComponents['NavBar'] = Component5;

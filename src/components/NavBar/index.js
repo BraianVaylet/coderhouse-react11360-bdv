@@ -5,8 +5,9 @@ import { useTranslation } from "react-i18next"
 import { Flex, Box, Text, Link } from "@chakra-ui/react"
 import { LogoIcon } from "assets/icons"
 // components
-import ChangeTheme from "../ChangeTheme"
-import ChangeLanguage from "../ChangeLenguage"
+import ChangeTheme from "components/ChangeTheme"
+import ChangeLanguage from "components/ChangeLenguage"
+import CartWidget from "components/CartWidget"
 
 /**
  * NavBar Component
@@ -39,6 +40,7 @@ const NavBar = () => {
         <Link ml={2}>{t("NavBar.estate")}</Link>
         <Link ml={2}>{t("NavBar.mobility")}</Link>
         <Box ml={4}>
+          <CartWidget />
           <ChangeLanguage />
           <ChangeTheme />
         </Box>

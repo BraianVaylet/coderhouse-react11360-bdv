@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ChangeLanguage</title>
+  <title> components/ChangeLenguage/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,164 +75,46 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>ChangeLanguage</h1>
+                    <p>Source</p>
+                    <h1>components/ChangeLenguage/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltChangeLanguage  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="ChangeLanguage">
-        <a class="href-link" href="#ChangeLanguage">#</a>
-        
-        <span class="code-name">
-            
-                &ltChangeLanguage  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>ChangeLanguage Component</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ChangeLenguage_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ChangeLenguage_index.js.html">components/ChangeLenguage/index.js</a>, <a href="components_ChangeLenguage_index.js.html#line10">line 10</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
+import { useTranslation } from "react-i18next"
+// chakra-ui
+import { Button } from "@chakra-ui/react"
+
+/**
+ * ChangeLanguage Component
+ * @component
+ */
+const ChangeLanguage = () => {
+  // hooks
+  const [t, i18n] = useTranslation("global")
+  const [spanish, setSpanish] = useState(false)
+
+  useEffect(
+    () => (spanish ? i18n.changeLanguage("es") : i18n.changeLanguage("en")),
+    [spanish]
+  )
+
+  return (
+    &lt;Button size="lg" variant="ghost" onClick={() => setSpanish(!spanish)}>
+      {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+    &lt;/Button>
+  )
+}
+
+export default ChangeLanguage
+</code></pre>
+        </article>
+    </section>
 
 
 

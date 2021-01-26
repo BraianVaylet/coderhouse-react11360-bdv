@@ -2,14 +2,16 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Text, Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
+// components
+import ItemList from "components/ItemList"
 
 const App = () => {
   const [t] = useTranslation("global")
 
   return (
     <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-      <Text>{t("App.helloWorld")}</Text>
+      <ItemList greeting={t("App.helloWorld")} />
     </Flex>
   )
 }
