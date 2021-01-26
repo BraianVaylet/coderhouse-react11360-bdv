@@ -32,6 +32,13 @@ const theme = extendTheme({
   icons: {
     ...chakraTheme.icons,
   },
+  size: {
+    xs: 16,
+    sm: 25,
+    md: 35,
+    l: 45,
+    xl: 50,
+  },
 })
 
 export default theme

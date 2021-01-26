@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next"
 import { Flex, Box, Text, Link } from "@chakra-ui/react"
 import { LogoIcon } from "assets/icons"
 // components
-import ChangeTheme from "./ChangeTheme"
-import ChangeLanguage from "./ChangeLenguage"
+import ChangeTheme from "../ChangeTheme"
+import ChangeLanguage from "../ChangeLenguage"
 
 /**
  * NavBar Component

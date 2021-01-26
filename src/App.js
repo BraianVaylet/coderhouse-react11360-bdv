@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next"
 import { Text, Flex } from "@chakra-ui/react"
 
 const App = () => {
-  // hooks
   const [t] = useTranslation("global")
 
   return (

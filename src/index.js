@@ -8,7 +8,7 @@ import i18next from "translations"
 // chakra-ui
 import { ChakraProvider, ColorModeScript, CSSReset } from "@chakra-ui/react"
 // components
-import Layout from "components/Layout"
+import Layout from "containers/Layout"
 import App from "./App"
 // styles
 import theme from "styles/theme"
