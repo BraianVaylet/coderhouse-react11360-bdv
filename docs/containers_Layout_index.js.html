@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="MyButton.html">MyButton</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -96,14 +96,23 @@ import NavBar from "../../components/NavBar"
  * Layout Container
  * @component
  */
-const Layout = ({ children }) => {
-  return (
-    &lt;Flex direction="column" justify="flex-start" align="center">
-      &lt;NavBar />
+const Layout = ({ children }) => (
+  &lt;Flex direction="column" justify="flex-start" align="center">
+    &lt;NavBar />
+    &lt;Flex
+      w="100%"
+      h="100vh"
+      mt="5rem"
+      p="1rem"
+      zIndex="10"
+      align="center"
+      direction="column"
+      justify="center"
+    >
       {children}
     &lt;/Flex>
-  )
-}
+  &lt;/Flex>
+)
 
 Layout.propTypes = {
   /** children component */

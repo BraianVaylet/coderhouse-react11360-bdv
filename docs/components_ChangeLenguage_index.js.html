@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="MyButton.html">MyButton</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -88,7 +88,7 @@
             <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button } from "@chakra-ui/react"
+import { Button, Text } from "@chakra-ui/react"
 
 /**
  * ChangeLanguage Component
@@ -105,8 +105,10 @@ const ChangeLanguage = () => {
   )
 
   return (
-    &lt;Button size="lg" variant="ghost" onClick={() => setSpanish(!spanish)}>
-      {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+    &lt;Button variant="ghost" onClick={() => setSpanish(!spanish)}>
+      &lt;Text fontSize="1rem">
+        {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+      &lt;/Text>
     &lt;/Button>
   )
 }

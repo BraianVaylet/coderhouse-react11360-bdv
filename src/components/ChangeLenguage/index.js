@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button } from "@chakra-ui/react"
+import { Button, Text } from "@chakra-ui/react"
 
 /**
  * ChangeLanguage Component
@@ -18,8 +18,10 @@ const ChangeLanguage = () => {
   )
 
   return (
-    <Button size="lg" variant="ghost" onClick={() => setSpanish(!spanish)}>
-      {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+    <Button variant="ghost" onClick={() => setSpanish(!spanish)}>
+      <Text fontSize="1rem">
+        {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+      </Text>
     </Button>
   )
 }

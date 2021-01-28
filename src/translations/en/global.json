@@ -7,7 +7,8 @@
     "sports": "Sports",
     "entertainment": "Entertainment",
     "estate": "Estate",
-    "mobility": "Mobility"
+    "mobility": "Mobility",
+    "logout": "Logout"
   },
   "ChangeLanguage": {
     "es": "ES",

@@ -37,5 +37,11 @@ reactComponents['ItemList'] = Component3;
 import Component4 from '../src/containers/Layout/index.js';
 reactComponents['Layout'] = Component4;
 
-import Component5 from '../src/components/NavBar/index.js';
-reactComponents['NavBar'] = Component5;
+import Component5 from '../src/components/Logo/index.js';
+reactComponents['Logo'] = Component5;
+
+import Component6 from '../src/components/MyButton/index.js';
+reactComponents['MyButton'] = Component6;
+
+import Component7 from '../src/components/NavBar/index.js';
+reactComponents['NavBar'] = Component7;

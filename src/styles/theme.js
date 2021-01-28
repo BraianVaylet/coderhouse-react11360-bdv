@@ -7,7 +7,7 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       "html, body": {
-        fontSize: "sm",
+        fontSize: "2vh",
         color: props.colorMode === "dark" ? "white" : "gray.600",
         lineHeight: "tall",
         scrollBehavior: "smooth",
@@ -33,11 +33,17 @@ const theme = extendTheme({
     ...chakraTheme.icons,
   },
   size: {
-    xs: 16,
-    sm: 25,
-    md: 35,
-    l: 45,
-    xl: 50,
+    xs: "0.5rem",
+    sm: "1rem",
+    md: "2rem",
+    l: "2.5rem",
+    xl: "3rem",
+  },
+  colors: {
+    brand: {
+      primary: "#2564f7",
+      secundary: "#67a9f0",
+    },
   },
 })
 

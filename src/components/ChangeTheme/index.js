@@ -2,7 +2,7 @@
 import React from "react"
 import { WiHorizon, WiMoonrise } from "react-icons/wi"
 // chakra-ui
-import { Button, useColorMode, Icon } from "@chakra-ui/react"
+import { useColorMode, Icon, IconButton } from "@chakra-ui/react"
 
 /**
  * ChangeTheme Component
@@ -10,14 +10,20 @@ import { Button, useColorMode, Icon } from "@chakra-ui/react"
  */
 const ChangeTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+
   return (
-    <Button size="lg" variant="ghost" onClick={toggleColorMode}>
-      {colorMode === "light" ? (
-        <Icon boxSize="32px" as={WiMoonrise} />
-      ) : (
-        <Icon boxSize="32px" as={WiHorizon} />
-      )}
-    </Button>
+    <IconButton
+      variant="ghost"
+      onClick={toggleColorMode}
+      size="lg"
+      icon={
+        colorMode === "light" ? (
+          <Icon boxSize="2rem" as={WiMoonrise} />
+        ) : (
+          <Icon boxSize="2rem" as={WiHorizon} />
+        )
+      }
+    />
   )
 }
 

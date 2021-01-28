@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="MyButton.html">MyButton</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,12 +89,27 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, Box, Text, Link } from "@chakra-ui/react"
-import { LogoIcon } from "assets/icons"
+import {
+  Flex,
+  Box,
+  Link,
+  useColorMode,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  DrawerFooter,
+  DrawerCloseButton,
+  Button,
+} from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
 import ChangeLanguage from "components/ChangeLenguage"
 import CartWidget from "components/CartWidget"
+import Logo from "components/Logo"
+import MyButton from "components/MyButton"
 
 /**
  * NavBar Component
@@ -102,37 +117,85 @@ import CartWidget from "components/CartWidget"
  */
 const NavBar = () => {
   const [t] = useTranslation("global")
+  const { colorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  /**
+   * renderLinks
+   * @function
+   * @returns {undefined} component
+   */
+  const renderLinks = () => (
+    &lt;>
+      &lt;Link ml={2}>{t("NavBar.constructionTools")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.sports")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.entertainment")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.estate")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.mobility")}&lt;/Link>
+    &lt;/>
+  )
 
   return (
-    &lt;Flex
-      w="100%"
-      p={2}
-      mb={2}
-      direction="row"
-      justify="space-between"
-      align="center"
-      borderTop="3px solid cyan"
-      boxShadow="lg"
-    >
-      &lt;Flex direction="row" justify="flex-start" align="center">
-        &lt;Flex ml={2} direction="row" align="center" justify="space-between">
-          &lt;LogoIcon boxSize="32px" mr={2} />
-          &lt;Text fontSize="lg">Aquila&lt;/Text>
+    &lt;>
+      &lt;Flex
+        w="100%"
+        p={2}
+        mb={2}
+        direction="row"
+        justify="space-between"
+        align="center"
+        borderTopWidth="0.25rem"
+        borderColor="brand.primary"
+        boxShadow="lg"
+        position="fixed"
+        bg={colorMode === "light" ? "white" : "gray.800"}
+        top="0"
+        zIndex="1000"
+      >
+        &lt;Flex direction="row" justify="flex-start" align="center">
+          &lt;Flex ml={2} direction="row" align="center" justify="space-between">
+            &lt;Button variant="ghost" onClick={onOpen}>
+              &lt;Logo />
+            &lt;/Button>
+          &lt;/Flex>
+        &lt;/Flex>
+        &lt;Flex direction="row" justify="flex-start" align="center">
+          {renderLinks()}
+          &lt;Box ml={4}>
+            &lt;CartWidget />
+          &lt;/Box>
         &lt;/Flex>
       &lt;/Flex>
-      &lt;Flex direction="row" justify="flex-start" align="center">
-        &lt;Link ml={2}>{t("NavBar.constructionTools")}&lt;/Link>
-        &lt;Link ml={2}>{t("NavBar.sports")}&lt;/Link>
-        &lt;Link ml={2}>{t("NavBar.entertainment")}&lt;/Link>
-        &lt;Link ml={2}>{t("NavBar.estate")}&lt;/Link>
-        &lt;Link ml={2}>{t("NavBar.mobility")}&lt;/Link>
-        &lt;Box ml={4}>
-          &lt;CartWidget />
-          &lt;ChangeLanguage />
-          &lt;ChangeTheme />
-        &lt;/Box>
-      &lt;/Flex>
-    &lt;/Flex>
+      &lt;Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        &lt;DrawerOverlay>
+          &lt;DrawerContent h="100vh">
+            &lt;DrawerCloseButton />
+            &lt;DrawerHeader
+              borderBottomWidth="0.25rem"
+              borderColor="brand.primary"
+            >
+              &lt;Logo />
+            &lt;/DrawerHeader>
+            &lt;DrawerBody>
+              &lt;Flex
+                direction="column"
+                align="space-between"
+                justify="flex-start"
+              >
+                {renderLinks()}
+              &lt;/Flex>
+            &lt;/DrawerBody>
+            &lt;DrawerFooter>
+              &lt;Flex align="center" justify="space-between">
+                &lt;ChangeLanguage />
+                &lt;ChangeTheme />
+                &lt;MyButton onClick={onClose}>{t("NavBar.logout")}&lt;/MyButton>
+              &lt;/Flex>
+            &lt;/DrawerFooter>
+          &lt;/DrawerContent>
+        &lt;/DrawerOverlay>
+      &lt;/Drawer>
+    &lt;/>
   )
 }
 

@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="MyButton.html">MyButton</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -87,18 +87,26 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
 import { MdShoppingCart } from "react-icons/md"
+import PropTypes from "prop-types"
 // chakra-ui
-import { Button, Icon } from "@chakra-ui/react"
+import { Icon, IconButton } from "@chakra-ui/react"
 
 /**
  * CartWidget Component
  * @component
  */
-const CartWidget = () => (
-  &lt;Button size="lg" variant="ghost">
-    &lt;Icon as={MdShoppingCart} boxSize="20px" />
-  &lt;/Button>
+const CartWidget = ({ onClick = () => {} }) => (
+  &lt;IconButton
+    variant="ghost"
+    size="lg"
+    onClick={onClick}
+    icon={&lt;Icon as={MdShoppingCart} boxSize="1.5rem" />}
+  />
 )
+
+CartWidget.propTypes = {
+  onClick: PropTypes.func,
+}
 
 export default CartWidget
 </code></pre>

@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="MyButton.html">MyButton</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,7 +89,7 @@
 import React from "react"
 import { WiHorizon, WiMoonrise } from "react-icons/wi"
 // chakra-ui
-import { Button, useColorMode, Icon } from "@chakra-ui/react"
+import { useColorMode, Icon, IconButton } from "@chakra-ui/react"
 
 /**
  * ChangeTheme Component
@@ -97,14 +97,20 @@ import { Button, useColorMode, Icon } from "@chakra-ui/react"
  */
 const ChangeTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+
   return (
-    &lt;Button size="lg" variant="ghost" onClick={toggleColorMode}>
-      {colorMode === "light" ? (
-        &lt;Icon boxSize="32px" as={WiMoonrise} />
-      ) : (
-        &lt;Icon boxSize="32px" as={WiHorizon} />
-      )}
-    &lt;/Button>
+    &lt;IconButton
+      variant="ghost"
+      onClick={toggleColorMode}
+      size="lg"
+      icon={
+        colorMode === "light" ? (
+          &lt;Icon boxSize="2rem" as={WiMoonrise} />
+        ) : (
+          &lt;Icon boxSize="2rem" as={WiHorizon} />
+        )
+      }
+    />
   )
 }
 

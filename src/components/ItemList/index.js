@@ -7,9 +7,7 @@ import { Text } from "@chakra-ui/react"
  * ItemList Component
  * @component
  */
-const ItemList = ({ greeting }) => {
-  return <Text>{greeting}</Text>
-}
+const ItemList = ({ greeting }) => <Text>{greeting}</Text>
 
 ItemList.propTypes = {
   /** greeting */
