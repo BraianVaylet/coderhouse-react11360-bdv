@@ -13,5 +13,10 @@
   "ChangeLanguage": {
     "es": "ES",
     "en": "EN"
+  },
+  "ItemCount": {
+    "noStock": "No stock",
+    "available": "Available",
+    "addToCart": "Add to cart"
   }
 }

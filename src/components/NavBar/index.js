@@ -22,7 +22,6 @@ import ChangeTheme from "components/ChangeTheme"
 import ChangeLanguage from "components/ChangeLenguage"
 import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
-import MyButton from "components/MyButton"
 
 /**
  * NavBar Component
@@ -104,7 +103,9 @@ const NavBar = () => {
                   <ChangeTheme />
                   <ChangeLanguage />
                 </Box>
-                <MyButton onClick={onClose}>{t("NavBar.logout")}</MyButton>
+                <Button variant="solid" onClick={onClose}>
+                  {t("NavBar.logout")}
+                </Button>
               </Flex>
             </DrawerFooter>
           </DrawerContent>

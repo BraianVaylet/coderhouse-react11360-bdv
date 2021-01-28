@@ -15,7 +15,7 @@ const theme = extendTheme({
         minWidth: "100wh",
       },
       a: {
-        color: props.colorMode === "dark" ? "teal.300" : "teal.500",
+        color: props.colorMode === "dark" ? "blue.300" : "blue.500",
       },
     }),
   },
