@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ChangeLanguage</title>
+  <title> containers/Layout/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,164 +75,54 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>ChangeLanguage</h1>
+                    <p>Source</p>
+                    <h1>containers/Layout/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltChangeLanguage  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="ChangeLanguage">
-        <a class="href-link" href="#ChangeLanguage">#</a>
-        
-        <span class="code-name">
-            
-                &ltChangeLanguage  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>ChangeLanguage Component</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ChangeLenguage_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ChangeLenguage_index.js.html">components/ChangeLenguage/index.js</a>, <a href="components_ChangeLenguage_index.js.html#line10">line 10</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react"
+import PropTypes from "prop-types"
+// chakra-ui
+import { Flex } from "@chakra-ui/react"
+// components
+import NavBar from "../../components/NavBar"
+
+/**
+ * Layout Container
+ * @component
+ */
+const Layout = ({ children }) => (
+  &lt;Flex direction="column" justify="flex-start" align="center">
+    &lt;NavBar />
+    &lt;Flex
+      w="100%"
+      h="100vh"
+      mt="5rem"
+      p="1rem"
+      zIndex="10"
+      align="center"
+      direction="column"
+      justify="center"
+    >
+      {children}
+    &lt;/Flex>
+  &lt;/Flex>
+)
+
+Layout.propTypes = {
+  /** children component */
+  children: PropTypes.element.isRequired,
+}
+
+export default Layout
+</code></pre>
+        </article>
+    </section>
 
 
 

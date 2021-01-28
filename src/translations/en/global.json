@@ -7,10 +7,16 @@
     "sports": "Sports",
     "entertainment": "Entertainment",
     "estate": "Estate",
-    "mobility": "Mobility"
+    "mobility": "Mobility",
+    "logout": "Logout"
   },
   "ChangeLanguage": {
     "es": "ES",
     "en": "EN"
+  },
+  "ItemCount": {
+    "noStock": "No stock",
+    "available": "Available",
+    "addToCart": "Add to cart"
   }
 }

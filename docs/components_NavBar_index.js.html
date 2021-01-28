@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ChangeLanguage</title>
+  <title> components/NavBar/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,164 +75,137 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>ChangeLanguage</h1>
+                    <p>Source</p>
+                    <h1>components/NavBar/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltChangeLanguage  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="ChangeLanguage">
-        <a class="href-link" href="#ChangeLanguage">#</a>
-        
-        <span class="code-name">
-            
-                &ltChangeLanguage  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>ChangeLanguage Component</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ChangeLenguage_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ChangeLenguage_index.js.html">components/ChangeLenguage/index.js</a>, <a href="components_ChangeLenguage_index.js.html#line10">line 10</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// react
+import React from "react"
+import { useTranslation } from "react-i18next"
+// chakra-ui
+import {
+  Flex,
+  Box,
+  Link,
+  useColorMode,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  DrawerFooter,
+  DrawerCloseButton,
+  Button,
+} from "@chakra-ui/react"
+// components
+import ChangeTheme from "components/ChangeTheme"
+import ChangeLanguage from "components/ChangeLenguage"
+import CartWidget from "components/CartWidget"
+import Logo from "components/Logo"
+
+/**
+ * NavBar Component
+ * @component
+ */
+const NavBar = () => {
+  const [t] = useTranslation("global")
+  const { colorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  /**
+   * renderLinks
+   * @function
+   * @returns {undefined} component
+   */
+  const renderLinks = () => (
+    &lt;>
+      &lt;Link ml={2}>{t("NavBar.constructionTools")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.sports")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.entertainment")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.estate")}&lt;/Link>
+      &lt;Link ml={2}>{t("NavBar.mobility")}&lt;/Link>
+    &lt;/>
+  )
+
+  return (
+    &lt;>
+      &lt;Flex
+        w="100%"
+        p={2}
+        mb={2}
+        direction="row"
+        justify="space-between"
+        align="center"
+        borderTopWidth="0.25rem"
+        borderColor="brand.primary"
+        boxShadow="lg"
+        position="fixed"
+        bg={colorMode === "light" ? "white" : "gray.800"}
+        top="0"
+        zIndex="1000"
+      >
+        &lt;Flex direction="row" justify="flex-start" align="center">
+          &lt;Flex ml={2} direction="row" align="center" justify="space-between">
+            &lt;Button variant="ghost" onClick={onOpen}>
+              &lt;Logo />
+            &lt;/Button>
+          &lt;/Flex>
+        &lt;/Flex>
+        &lt;Flex direction="row" justify="flex-start" align="center">
+          {renderLinks()}
+          &lt;Box ml={4}>
+            &lt;CartWidget />
+          &lt;/Box>
+        &lt;/Flex>
+      &lt;/Flex>
+      &lt;Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        &lt;DrawerOverlay>
+          &lt;DrawerContent h="100vh">
+            &lt;DrawerCloseButton />
+            &lt;DrawerHeader
+              borderBottomWidth="0.25rem"
+              borderColor="brand.primary"
+            >
+              &lt;Logo />
+            &lt;/DrawerHeader>
+            &lt;DrawerBody>
+              &lt;Flex
+                direction="column"
+                align="space-between"
+                justify="flex-start"
+              >
+                {renderLinks()}
+              &lt;/Flex>
+            &lt;/DrawerBody>
+            &lt;DrawerFooter>
+              &lt;Flex align="center" justify="space-between" w="100%">
+                &lt;Box>
+                  &lt;ChangeTheme />
+                  &lt;ChangeLanguage />
+                &lt;/Box>
+                &lt;Button variant="solid" onClick={onClose}>
+                  {t("NavBar.logout")}
+                &lt;/Button>
+              &lt;/Flex>
+            &lt;/DrawerFooter>
+          &lt;/DrawerContent>
+        &lt;/DrawerOverlay>
+      &lt;/Drawer>
+    &lt;/>
+  )
+}
+
+export default NavBar
+</code></pre>
+        </article>
+    </section>
 
 
 

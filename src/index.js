@@ -1,17 +1,17 @@
 // react
-import React from 'react'
-import ReactDOM from 'react-dom'
-import reportWebVitals from './reportWebVitals'
+import React from "react"
+import ReactDOM from "react-dom"
+import reportWebVitals from "./reportWebVitals"
 // translations
-import { I18nextProvider } from 'react-i18next'
-import i18next from './translations'
+import { I18nextProvider } from "react-i18next"
+import i18next from "translations"
 // chakra-ui
-import { ChakraProvider, ColorModeScript, CSSReset } from '@chakra-ui/react'
+import { ChakraProvider, ColorModeScript, CSSReset } from "@chakra-ui/react"
 // components
-import Layout from './components/Layout'
-import App from './App'
+import Layout from "containers/Layout"
+import App from "./App"
 // styles
-import theme from './styles/theme'
+import theme from "styles/theme"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,7 +25,7 @@ ReactDOM.render(
       </ChakraProvider>
     </I18nextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 )
 
 // If you want to start measuring performance in your app, pass a function

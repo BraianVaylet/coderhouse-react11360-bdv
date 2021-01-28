@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ChangeLanguage</title>
+  <title> components/ItemCount/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,164 +75,111 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>ChangeLanguage</h1>
+                    <p>Source</p>
+                    <h1>components/ItemCount/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltChangeLanguage  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="ChangeLanguage">
-        <a class="href-link" href="#ChangeLanguage">#</a>
-        
-        <span class="code-name">
-            
-                &ltChangeLanguage  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>ChangeLanguage Component</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ChangeLenguage_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ChangeLenguage_index.js.html">components/ChangeLenguage/index.js</a>, <a href="components_ChangeLenguage_index.js.html#line10">line 10</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types"
+import { useTranslation } from "react-i18next"
+// chakra-ui
+import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+
+/**
+ * ItemCount Component
+ * @component
+ */
+const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
+  const { colorMode } = useColorMode()
+  const [t] = useTranslation("global")
+  const [count, setCount] = useState(initial)
+  const [noStock, setNoStock] = useState(false)
+
+  useEffect(() => setNoStock(count >= stock), [count])
+
+  /**
+   * handleIncrementConuter
+   * @function
+   * @returns {number} count++
+   */
+  const handleIncrementConuter = () =>
+    setCount(count &lt; stock &amp;&amp; count >= 0 ? count + 1 : count)
+
+  /**
+   * handleDecrementConuter
+   * @function
+   * @returns {number} count--
+   */
+  const handleDecrementConuter = () =>
+    setCount(count &lt;= stock &amp;&amp; count > 0 ? count - 1 : count)
+
+  return (
+    &lt;Flex
+      justify="space-between"
+      direction="column"
+      align="center"
+      w="200px"
+      borderWidth="1px"
+      borderRadius="5px"
+      p="20px"
+      boxShadow="lg"
+    >
+      &lt;Flex
+        justify="space-between"
+        direction="row"
+        align="center"
+        w="100%"
+        h="40px"
+        m="10px 0px"
+        bg={colorMode === "light" ? "gray.200" : "gray.900"}
+      >
+        &lt;Button w="25%" h="100%" onClick={handleDecrementConuter}>
+          -
+        &lt;/Button>
+        &lt;Text w="50%" textAlign="center">
+          {count}
+        &lt;/Text>
+        &lt;Button w="25%" h="100%" onClick={handleIncrementConuter}>
+          +
+        &lt;/Button>
+      &lt;/Flex>
+      {noStock ? (
+        &lt;Text color="red.500" fontWeight="600">
+          {t("ItemCount.noStock")}
+        &lt;/Text>
+      ) : (
+        &lt;Text fontWeight="600">
+          {t("ItemCount.available")} {stock - count}u.
+        &lt;/Text>
+      )}
+      &lt;Button
+        w="100%"
+        mt="20px"
+        disabled={noStock}
+        onClick={() => onAdd(count)}
+      >
+        {t("ItemCount.addToCart")}
+      &lt;/Button>
+    &lt;/Flex>
+  )
+}
+
+ItemCount.propTypes = {
+  stock: PropTypes.number.isRequired,
+  initial: PropTypes.number,
+  onAdd: PropTypes.func,
+}
+
+export default ItemCount
+</code></pre>
+        </article>
+    </section>
 
 
 
