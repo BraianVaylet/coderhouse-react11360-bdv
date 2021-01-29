@@ -18,7 +18,18 @@ const ChangeLanguage = () => {
   )
 
   return (
-    <Button variant="ghost" onClick={() => setSpanish(!spanish)}>
+    <Button
+      variant="ghost"
+      transitionDuration="0.75s"
+      transitionProperty="transform"
+      _hover={{
+        transform: "scale(1.25)",
+      }}
+      _focus={{
+        borderStyle: "none",
+      }}
+      onClick={() => setSpanish(!spanish)}
+    >
       <Text fontSize="1rem">
         {spanish ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
       </Text>

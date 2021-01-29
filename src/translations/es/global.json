@@ -1,6 +1,8 @@
 {
   "App": {
-    "helloWorld": "Hola Mundo!"
+    "helloWorld": "Hola Mundo!",
+    "addToCart": "Se agrego al carrito con éxito",
+    "addToCartDescriptio": "Productos agregados:"
   },
   "NavBar": {
     "constructionTools": "Herramientas de construcción",

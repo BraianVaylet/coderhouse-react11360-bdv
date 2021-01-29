@@ -12,6 +12,14 @@ const CartWidget = ({ onClick = () => {} }) => (
   <IconButton
     variant="ghost"
     size="lg"
+    transitionDuration="0.75s"
+    transitionProperty="transform"
+    _hover={{
+      transform: "scale(1.25)",
+    }}
+    _focus={{
+      borderStyle: "none",
+    }}
     onClick={onClick}
     icon={<Icon as={MdShoppingCart} boxSize="1.5rem" />}
   />

@@ -1,7 +1,7 @@
 import React from "react"
 // chakra-ui
 import { Flex, Text } from "@chakra-ui/react"
-import { LogoIcon } from "assets/icons"
+import { LogoIconColor } from "assets/icons"
 
 /**
  * Logo Component
@@ -9,7 +9,7 @@ import { LogoIcon } from "assets/icons"
  */
 const Logo = () => (
   <Flex justify="row" align="center" direction="row">
-    <LogoIcon boxSize="2rem" mr={2} />
+    <LogoIconColor boxSize="2rem" mr={2} />
     <Text fontSize="lg" color="primary">
       Aquila
     </Text>

@@ -66,7 +66,14 @@ const NavBar = () => {
       >
         <Flex direction="row" justify="flex-start" align="center">
           <Flex ml={2} direction="row" align="center" justify="space-between">
-            <Button variant="ghost" onClick={onOpen}>
+            <Button
+              variant="none"
+              _focus={{
+                borderStyle: "none",
+                backgroundColor: "transparent",
+              }}
+              onClick={onOpen}
+            >
               <Logo />
             </Button>
           </Flex>
