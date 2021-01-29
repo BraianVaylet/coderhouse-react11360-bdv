@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 
 /**
  * ItemCount Component
@@ -53,13 +54,13 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
         bg={colorMode === "light" ? "gray.200" : "gray.900"}
       >
         <Button w="25%" h="100%" onClick={handleDecrementConuter}>
-          -
+          <MinusIcon w={5} h={5} />
         </Button>
         <Text w="50%" textAlign="center">
           {count}
         </Text>
         <Button w="25%" h="100%" onClick={handleIncrementConuter}>
-          +
+          <AddIcon w={5} h={5} />
         </Button>
       </Flex>
       {noStock ? (
