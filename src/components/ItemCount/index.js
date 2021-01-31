@@ -75,7 +75,7 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
       <Button
         w="100%"
         mt="20px"
-        disabled={noStock}
+        disabled={noStock || count === 0}
         onClick={() => onAdd(count)}
       >
         {t("ItemCount.addToCart")}

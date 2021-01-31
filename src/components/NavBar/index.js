@@ -1,6 +1,7 @@
 // react
 import React from "react"
 import { useTranslation } from "react-i18next"
+import styles from "./styles.module.css"
 // chakra-ui
 import {
   Flex,
@@ -19,7 +20,7 @@ import {
 } from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
-import ChangeLanguage from "components/ChangeLenguage"
+import ChangeLanguage from "components/ChangeLanguage"
 import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
 
@@ -60,9 +61,13 @@ const NavBar = () => {
         borderColor="brand.primary"
         boxShadow="lg"
         position="fixed"
-        bg={colorMode === "light" ? "white" : "gray.800"}
+        bg={
+          colorMode === "light" ? "withOpacity.white" : "withOpacity.gray.800"
+        }
+        opacity="0.95"
         top="0"
         zIndex="1000"
+        className={styles.NavBarContainer}
       >
         <Flex direction="row" justify="flex-start" align="center">
           <Flex ml={2} direction="row" align="center" justify="space-between">
@@ -88,7 +93,21 @@ const NavBar = () => {
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay>
           <DrawerContent h="100vh">
-            <DrawerCloseButton />
+            <DrawerCloseButton
+              variant="none"
+              transitionDuration="1s"
+              transitionProperty="transform"
+              transform="scale(0.5)"
+              _hover={{
+                transform: "scale(1.25)",
+                color: "red.300",
+              }}
+              _focus={{
+                transform: "scale(1)",
+                borderStyle: "none",
+                backgroundColor: "transparent",
+              }}
+            />
             <DrawerHeader
               borderBottomWidth="0.25rem"
               borderColor="brand.primary"

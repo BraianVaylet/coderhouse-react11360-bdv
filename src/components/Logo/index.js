@@ -1,6 +1,6 @@
 import React from "react"
 // chakra-ui
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex, Text, Box } from "@chakra-ui/react"
 import { LogoIconColor } from "assets/icons"
 
 /**
@@ -9,7 +9,16 @@ import { LogoIconColor } from "assets/icons"
  */
 const Logo = () => (
   <Flex justify="row" align="center" direction="row">
-    <LogoIconColor boxSize="2rem" mr={2} />
+    <Box
+      transitionDuration="0.5s"
+      transitionProperty="transform"
+      transform="scale(1)"
+      _hover={{
+        transform: "scale(1.25) rotate(10deg)",
+      }}
+    >
+      <LogoIconColor boxSize="2rem" mr={2} />
+    </Box>
     <Text fontSize="lg" color="primary">
       Aquila
     </Text>

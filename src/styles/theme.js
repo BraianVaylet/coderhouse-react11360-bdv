@@ -1,4 +1,5 @@
 import { theme as chakraTheme, extendTheme } from "@chakra-ui/react"
+import { addOpacityToColor } from "./utils"
 
 const theme = extendTheme({
   ...chakraTheme,
@@ -40,6 +41,12 @@ const theme = extendTheme({
     xl: "3rem",
   },
   colors: {
+    withOpacity: {
+      gray: {
+        800: addOpacityToColor("#1A202C", 0.3),
+      },
+      white: addOpacityToColor("#FFFFFF", 0.3),
+    },
     brand: {
       primary: "#2564f7",
       secundary: "#67a9f0",

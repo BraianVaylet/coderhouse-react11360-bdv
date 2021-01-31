@@ -19,7 +19,7 @@ const ChangeLanguage = () => {
 
   return (
     <Button
-      variant="ghost"
+      variant="none"
       transitionDuration="0.75s"
       transitionProperty="transform"
       _hover={{
@@ -27,6 +27,7 @@ const ChangeLanguage = () => {
       }}
       _focus={{
         borderStyle: "none",
+        backgroundColor: "transparent",
       }}
       onClick={() => setSpanish(!spanish)}
     >

@@ -14,7 +14,8 @@ const ChangeTheme = () => {
 
   return (
     <IconButton
-      variant="ghost"
+      data-testid="ChangeTheme"
+      variant="none"
       onClick={toggleColorMode}
       size="lg"
       transitionDuration="0.75s"
@@ -25,6 +26,7 @@ const ChangeTheme = () => {
       }}
       _focus={{
         borderStyle: "none",
+        backgroundColor: "transparent",
       }}
       icon={
         colorMode === "light" ? (

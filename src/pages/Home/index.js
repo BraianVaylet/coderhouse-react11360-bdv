@@ -7,9 +7,11 @@ import { Flex, useToast } from "@chakra-ui/react"
 import ItemList from "components/ItemList"
 import ItemCount from "components/ItemCount"
 
-const App = () => {
-  const [t] = useTranslation("global")
+const Home = () => {
+  const [t, i18n, ready] = useTranslation("global", { useSuspense: false })
   const toast = useToast()
+
+  console.log("ready", i18n, ready)
 
   return (
     <Flex direction="column" justify="flex-start" align="center" minH="100vh">
@@ -17,6 +19,7 @@ const App = () => {
       <ItemCount
         stock={10}
         onAdd={(value) =>
+          ready &&
           toast({
             title: t("App.addToCart"),
             description: t("App.addToCartDescriptio") + " " + value,
@@ -30,4 +33,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Home

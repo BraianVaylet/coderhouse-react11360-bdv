@@ -28,7 +28,6 @@ const Layout = ({ children }) => (
 )
 
 Layout.propTypes = {
-  /** children component */
   children: PropTypes.element.isRequired,
 }
 
