@@ -1,34 +1,26 @@
 // react
-import React from "react"
-import { useTranslation } from "react-i18next"
+import React, { useState, useEffect } from "react"
 // chakra-ui
-import { Flex, useToast } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
-import ItemCount from "components/ItemCount"
+// fake data
+import { PRODUCTS } from "test"
 
 const Home = () => {
-  const [t, i18n, ready] = useTranslation("global", { useSuspense: false })
-  const toast = useToast()
+  // ! inicio simulacion de data fetch ---
+  const [data, setData] = useState(null)
 
-  console.log("ready", i18n, ready)
+  useEffect(() => {
+    setTimeout(() => {
+      setData(PRODUCTS)
+    }, 5000)
+  }, [])
+  // ! fin ---
 
   return (
     <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-      <ItemList greeting={t("App.helloWorld")} />
-      <ItemCount
-        stock={10}
-        onAdd={(value) =>
-          ready &&
-          toast({
-            title: t("App.addToCart"),
-            description: t("App.addToCartDescriptio") + " " + value,
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          })
-        }
-      />
+      <ItemList data={data} />
     </Flex>
   )
 }

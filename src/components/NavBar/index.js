@@ -17,12 +17,17 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Button,
+  useMediaQuery,
 } from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
 import ChangeLanguage from "components/ChangeLanguage"
 import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
+import Logout from "components/Logout"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
+import Favorites from "components/Favorites"
 
 /**
  * NavBar Component
@@ -32,6 +37,7 @@ const NavBar = () => {
   const [t] = useTranslation("global")
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
 
   /**
    * renderLinks
@@ -84,8 +90,9 @@ const NavBar = () => {
           </Flex>
         </Flex>
         <Flex direction="row" justify="flex-start" align="center">
-          {renderLinks()}
+          {mediaQueryMin1280 && renderLinks()}
           <Box ml={4}>
+            <Favorites />
             <CartWidget />
           </Box>
         </Flex>
@@ -93,21 +100,7 @@ const NavBar = () => {
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay>
           <DrawerContent h="100vh">
-            <DrawerCloseButton
-              variant="none"
-              transitionDuration="1s"
-              transitionProperty="transform"
-              transform="scale(0.5)"
-              _hover={{
-                transform: "scale(1.25)",
-                color: "red.300",
-              }}
-              _focus={{
-                transform: "scale(1)",
-                borderStyle: "none",
-                backgroundColor: "transparent",
-              }}
-            />
+            <DrawerCloseButton variant="none" />
             <DrawerHeader
               borderBottomWidth="0.25rem"
               borderColor="brand.primary"
@@ -129,9 +122,7 @@ const NavBar = () => {
                   <ChangeTheme />
                   <ChangeLanguage />
                 </Box>
-                <Button variant="solid" onClick={onClose}>
-                  {t("NavBar.logout")}
-                </Button>
+                <Logout />
               </Flex>
             </DrawerFooter>
           </DrawerContent>

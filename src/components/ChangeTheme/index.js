@@ -1,9 +1,8 @@
 // react
 import React from "react"
-// import { WiHorizon, WiMoonrise } from "react-icons/wi"
-import { CgSun, CgMoon } from "react-icons/cg"
 // chakra-ui
-import { useColorMode, Icon, IconButton } from "@chakra-ui/react"
+import { useColorMode, IconButton } from "@chakra-ui/react"
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 /**
  * ChangeTheme Component
@@ -20,6 +19,7 @@ const ChangeTheme = () => {
       size="lg"
       transitionDuration="0.75s"
       transitionProperty="transform"
+      borderRadius="9999px"
       _hover={{
         transform: "rotate(360deg) scale(1.25)",
         cursor: "pointer",
@@ -30,9 +30,9 @@ const ChangeTheme = () => {
       }}
       icon={
         colorMode === "light" ? (
-          <Icon boxSize="1.5rem" as={CgMoon} />
+          <MoonIcon boxSize="1.5rem" />
         ) : (
-          <Icon boxSize="1.5rem" as={CgSun} />
+          <SunIcon boxSize="1.5rem" />
         )
       }
     />

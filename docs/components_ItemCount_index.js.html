@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
                 
             </nav>
         </div>
@@ -90,6 +90,7 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 
 /**
  * ItemCount Component
@@ -125,10 +126,7 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
       direction="column"
       align="center"
       w="200px"
-      borderWidth="1px"
-      borderRadius="5px"
       p="20px"
-      boxShadow="lg"
     >
       &lt;Flex
         justify="space-between"
@@ -140,13 +138,13 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
         bg={colorMode === "light" ? "gray.200" : "gray.900"}
       >
         &lt;Button w="25%" h="100%" onClick={handleDecrementConuter}>
-          -
+          &lt;MinusIcon w={5} h={5} />
         &lt;/Button>
         &lt;Text w="50%" textAlign="center">
           {count}
         &lt;/Text>
         &lt;Button w="25%" h="100%" onClick={handleIncrementConuter}>
-          +
+          &lt;AddIcon w={5} h={5} />
         &lt;/Button>
       &lt;/Flex>
       {noStock ? (
@@ -161,7 +159,7 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
       &lt;Button
         w="100%"
         mt="20px"
-        disabled={noStock}
+        disabled={noStock || count === 0}
         onClick={() => onAdd(count)}
       >
         {t("ItemCount.addToCart")}

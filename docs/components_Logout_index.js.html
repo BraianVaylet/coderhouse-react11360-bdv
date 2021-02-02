@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Logo/index.js</title>
+  <title> components/Logout/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Logo/index.js</h1>
+                    <h1>components/Logout/index.js</h1>
                 </header>
                 
 
@@ -86,33 +86,86 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, Text, Box } from "@chakra-ui/react"
-import { LogoIconColor } from "assets/icons"
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  Text,
+  useMediaQuery,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+} from "@chakra-ui/react"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
 
 /**
- * Logo Component
+ * Logout Component
  * @component
  */
-const Logo = () => (
-  &lt;Flex justify="row" align="center" direction="row">
-    &lt;Box
-      transitionDuration="0.5s"
-      transitionProperty="transform"
-      transform="scale(1)"
-      _hover={{
-        transform: "scale(1.25) rotate(10deg)",
-      }}
-    >
-      &lt;LogoIconColor boxSize="2rem" mr={2} />
-    &lt;/Box>
-    &lt;Text fontSize="lg" color="primary">
-      Aquila
-    &lt;/Text>
-  &lt;/Flex>
-)
+const Logout = () => {
+  const [t] = useTranslation("global")
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
 
-export default Logo
+  const renderTitle = () => t("Logout.logout")
+  const renderBody = () => &lt;Text>{t("Logout.doYouWantToLogout")}&lt;/Text>
+  const renderButtons = () => (
+    &lt;>
+      &lt;Button mr={3} onClick={onClose}>
+        {t("Logout.close")}
+      &lt;/Button>
+      &lt;Button variant="ghost">{t("Logout.ok")}&lt;/Button>
+    &lt;/>
+  )
+
+  return (
+    &lt;>
+      &lt;Button onClick={onOpen}>{t("Logout.logout")}&lt;/Button>
+      {mediaQueryMax400 ? (
+        &lt;Drawer
+          placement="bottom"
+          onClose={onClose}
+          isOpen={isOpen}
+          size="full"
+        >
+          &lt;DrawerOverlay>
+            &lt;DrawerContent>
+              &lt;DrawerHeader borderBottomWidth="1px">
+                {renderTitle()}
+              &lt;/DrawerHeader>
+              &lt;DrawerBody>{renderBody()}&lt;/DrawerBody>
+              &lt;DrawerFooter>{renderButtons()}&lt;/DrawerFooter>
+            &lt;/DrawerContent>
+          &lt;/DrawerOverlay>
+        &lt;/Drawer>
+      ) : (
+        &lt;Modal isOpen={isOpen} onClose={onClose}>
+          &lt;ModalOverlay />
+          &lt;ModalContent>
+            &lt;ModalHeader>{renderTitle()}&lt;/ModalHeader>
+            &lt;ModalCloseButton />
+            &lt;ModalBody>{renderBody()}&lt;/ModalBody>
+            &lt;ModalFooter>{renderButtons()}&lt;/ModalFooter>
+          &lt;/ModalContent>
+        &lt;/Modal>
+      )}
+    &lt;/>
+  )
+}
+
+export default Logout
 </code></pre>
         </article>
     </section>

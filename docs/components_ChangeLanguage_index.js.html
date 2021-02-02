@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Logo/index.js</title>
+  <title> components/ChangeLanguage/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Logo/index.js</h1>
+                    <h1>components/ChangeLanguage/index.js</h1>
                 </header>
                 
 
@@ -85,34 +85,52 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, Text, Box } from "@chakra-ui/react"
-import { LogoIconColor } from "assets/icons"
+import { Button, Text } from "@chakra-ui/react"
+// hooks
+import { useLocalStorage } from "hooks/useLocalStorage"
 
 /**
- * Logo Component
+ * ChangeLanguage Component
  * @component
  */
-const Logo = () => (
-  &lt;Flex justify="row" align="center" direction="row">
-    &lt;Box
-      transitionDuration="0.5s"
-      transitionProperty="transform"
-      transform="scale(1)"
-      _hover={{
-        transform: "scale(1.25) rotate(10deg)",
-      }}
-    >
-      &lt;LogoIconColor boxSize="2rem" mr={2} />
-    &lt;/Box>
-    &lt;Text fontSize="lg" color="primary">
-      Aquila
-    &lt;/Text>
-  &lt;/Flex>
-)
+const ChangeLanguage = () => {
+  // hooks
+  const [t, i18n] = useTranslation("global")
+  const [storedValue, setLocalStorage] = useLocalStorage("language", null)
+  const [spanish, setSpanish] = useState(storedValue === "es")
 
-export default Logo
+  useEffect(() => i18n.changeLanguage(storedValue), [])
+  useEffect(() => i18n.changeLanguage(storedValue), [storedValue])
+  useEffect(() => setLocalStorage(spanish ? "es" : "en"), [spanish])
+
+  const handleLanguage = () => setSpanish(!spanish)
+
+  return (
+    &lt;Button
+      variant="none"
+      transitionDuration="0.75s"
+      transitionProperty="transform"
+      borderRadius="9999px"
+      _hover={{
+        transform: "scale(1.25)",
+      }}
+      _focus={{
+        borderStyle: "none",
+        backgroundColor: "transparent",
+      }}
+      onClick={handleLanguage}
+    >
+      &lt;Text fontSize="1rem">
+        {storedValue === "es" ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+      &lt;/Text>
+    &lt;/Button>
+  )
+}
+
+export default ChangeLanguage
 </code></pre>
         </article>
     </section>

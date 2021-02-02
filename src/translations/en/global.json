@@ -1,8 +1,6 @@
 {
   "App": {
-    "helloWorld": "Hello World!",
-    "addToCart": "Added to cart successfully",
-    "addToCartDescriptio": "Added Products:"
+    "helloWorld": "Hello World!"
   },
   "NavBar": {
     "constructionTools": "Construction tools",
@@ -20,5 +18,16 @@
     "noStock": "No stock",
     "available": "Available",
     "addToCart": "Add to cart"
+  },
+  "Logout": {
+    "logout": "Logout",
+    "doYouWantToLogout": "Do you want to log out?",
+    "close": "Close",
+    "ok": "Ok"
+  },
+  "ItemList": {
+    "productsList": "Products list 🔥🔥🔥",
+    "noProductsYet": "No products yet 😔"
   }
+
 }

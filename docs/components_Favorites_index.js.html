@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Logo/index.js</title>
+  <title> components/Favorites/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Logo/index.js</h1>
+                    <h1>components/Favorites/index.js</h1>
                 </header>
                 
 
@@ -86,33 +86,49 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
+import PropTypes from "prop-types"
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 // chakra-ui
-import { Flex, Text, Box } from "@chakra-ui/react"
-import { LogoIconColor } from "assets/icons"
+import { Flex, Icon, IconButton, Text } from "@chakra-ui/react"
 
 /**
- * Logo Component
- * @component
+ * Favorites Component
+ * @components
  */
-const Logo = () => (
-  &lt;Flex justify="row" align="center" direction="row">
-    &lt;Box
-      transitionDuration="0.5s"
+const Favorites = ({ onClick }) => {
+  const countFavs = 0
+  return (
+    &lt;IconButton
+      variant="ghost"
+      size="lg"
+      transitionDuration="0.75s"
       transitionProperty="transform"
-      transform="scale(1)"
       _hover={{
-        transform: "scale(1.25) rotate(10deg)",
+        transform: "scale(1.1)",
       }}
-    >
-      &lt;LogoIconColor boxSize="2rem" mr={2} />
-    &lt;/Box>
-    &lt;Text fontSize="lg" color="primary">
-      Aquila
-    &lt;/Text>
-  &lt;/Flex>
-)
+      _focus={{
+        borderStyle: "none",
+      }}
+      onClick={onClick}
+      icon={
+        &lt;Flex direction="row" align="center">
+          {countFavs > 0 ? (
+            &lt;Icon as={MdFavorite} boxSize="1.5rem" />
+          ) : (
+            &lt;Icon as={MdFavoriteBorder} boxSize="1.5rem" />
+          )}
+          &lt;Text>{countFavs}&lt;/Text>
+        &lt;/Flex>
+      }
+    />
+  )
+}
 
-export default Logo
+Favorites.propTypes = {
+  onClick: PropTypes.func,
+}
+
+export default Favorites
 </code></pre>
         </article>
     </section>

@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
                 
             </nav>
         </div>
@@ -88,6 +88,7 @@
             <pre class="prettyprint source linenums"><code>// react
 import React from "react"
 import { useTranslation } from "react-i18next"
+import styles from "./styles.module.css"
 // chakra-ui
 import {
   Flex,
@@ -103,12 +104,17 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Button,
+  useMediaQuery,
 } from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
-import ChangeLanguage from "components/ChangeLenguage"
+import ChangeLanguage from "components/ChangeLanguage"
 import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
+import Logout from "components/Logout"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
+import Favorites from "components/Favorites"
 
 /**
  * NavBar Component
@@ -118,6 +124,7 @@ const NavBar = () => {
   const [t] = useTranslation("global")
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
 
   /**
    * renderLinks
@@ -147,20 +154,32 @@ const NavBar = () => {
         borderColor="brand.primary"
         boxShadow="lg"
         position="fixed"
-        bg={colorMode === "light" ? "white" : "gray.800"}
+        bg={
+          colorMode === "light" ? "withOpacity.white" : "withOpacity.gray.800"
+        }
+        opacity="0.95"
         top="0"
         zIndex="1000"
+        className={styles.NavBarContainer}
       >
         &lt;Flex direction="row" justify="flex-start" align="center">
           &lt;Flex ml={2} direction="row" align="center" justify="space-between">
-            &lt;Button variant="ghost" onClick={onOpen}>
+            &lt;Button
+              variant="none"
+              _focus={{
+                borderStyle: "none",
+                backgroundColor: "transparent",
+              }}
+              onClick={onOpen}
+            >
               &lt;Logo />
             &lt;/Button>
           &lt;/Flex>
         &lt;/Flex>
         &lt;Flex direction="row" justify="flex-start" align="center">
-          {renderLinks()}
+          {mediaQueryMin1280 &amp;&amp; renderLinks()}
           &lt;Box ml={4}>
+            &lt;Favorites />
             &lt;CartWidget />
           &lt;/Box>
         &lt;/Flex>
@@ -168,7 +187,7 @@ const NavBar = () => {
       &lt;Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         &lt;DrawerOverlay>
           &lt;DrawerContent h="100vh">
-            &lt;DrawerCloseButton />
+            &lt;DrawerCloseButton variant="none" />
             &lt;DrawerHeader
               borderBottomWidth="0.25rem"
               borderColor="brand.primary"
@@ -190,9 +209,7 @@ const NavBar = () => {
                   &lt;ChangeTheme />
                   &lt;ChangeLanguage />
                 &lt;/Box>
-                &lt;Button variant="solid" onClick={onClose}>
-                  {t("NavBar.logout")}
-                &lt;/Button>
+                &lt;Logout />
               &lt;/Flex>
             &lt;/DrawerFooter>
           &lt;/DrawerContent>

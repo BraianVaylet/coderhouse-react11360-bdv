@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Logo/index.js</title>
+  <title> components/Skeleton/Item.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Logo/index.js</h1>
+                    <h1>components/Skeleton/Item.js</h1>
                 </header>
                 
 
@@ -87,32 +87,74 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
 // chakra-ui
-import { Flex, Text, Box } from "@chakra-ui/react"
-import { LogoIconColor } from "assets/icons"
+import { Flex, useColorMode, Skeleton } from "@chakra-ui/react"
 
 /**
- * Logo Component
+ * SkeletonItem Component
  * @component
  */
-const Logo = () => (
-  &lt;Flex justify="row" align="center" direction="row">
-    &lt;Box
-      transitionDuration="0.5s"
-      transitionProperty="transform"
-      transform="scale(1)"
-      _hover={{
-        transform: "scale(1.25) rotate(10deg)",
-      }}
-    >
-      &lt;LogoIconColor boxSize="2rem" mr={2} />
-    &lt;/Box>
-    &lt;Text fontSize="lg" color="primary">
-      Aquila
-    &lt;/Text>
-  &lt;/Flex>
-)
+const SkeletonItem = () => {
+  const { colorMode } = useColorMode()
 
-export default Logo
+  // const
+  const backgroundColorMode = colorMode === "dark" ? "gray.700" : "white"
+  const MAX_HEIGHT = "80vh"
+  const IMG_SIZE = "40vh"
+
+  return (
+    &lt;Flex
+      direction="column"
+      align="center"
+      justify="flex-start"
+      borderRadius="2.5px"
+      backgroundColor={backgroundColorMode}
+      boxShadow="0.75rem 0.75rem #2564f7"
+      position="relative"
+      m="15px"
+      minH={MAX_HEIGHT}
+      maxH={MAX_HEIGHT}
+      h={MAX_HEIGHT}
+    >
+      &lt;Skeleton
+        w={IMG_SIZE}
+        minW={IMG_SIZE}
+        maxW={IMG_SIZE}
+        h={IMG_SIZE}
+        minH={IMG_SIZE}
+        maxH={IMG_SIZE}
+      />
+      &lt;Flex
+        p="10px 20px"
+        direction="column"
+        justify="center"
+        align="center"
+        w="100%"
+        h={IMG_SIZE}
+      >
+        &lt;Flex
+          direction="column"
+          align="flex-start"
+          justify="center"
+          w="100%"
+          h="50%"
+        >
+          {/* &lt;Heading fontSize="2.5rem" mb="10px">
+            ${price}
+          &lt;/Heading> */}
+          &lt;Skeleton h="2.5rem" w="100%" />
+          {/* &lt;Text fontSize="1.25rem">{title}&lt;/Text> */}
+
+          {/* &lt;Text fontSize=".75rem">{description}&lt;/Text> */}
+          &lt;Skeleton h=".75rem" w="100%" />
+        &lt;/Flex>
+        &lt;Skeleton h="50%" w="100%" />
+        {/* &lt;ItemCount stock={stock} onAdd={onAdd} /> */}
+      &lt;/Flex>
+    &lt;/Flex>
+  )
+}
+
+export default SkeletonItem
 </code></pre>
         </article>
     </section>

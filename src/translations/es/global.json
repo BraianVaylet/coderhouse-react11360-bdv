@@ -1,8 +1,6 @@
 {
   "App": {
-    "helloWorld": "Hola Mundo!",
-    "addToCart": "Se agrego al carrito con éxito",
-    "addToCartDescriptio": "Productos agregados:"
+    "helloWorld": "Hola Mundo!"
   },
   "NavBar": {
     "constructionTools": "Herramientas de construcción",
@@ -20,5 +18,15 @@
     "noStock": "No hay stock",
     "available": "Disponible",
     "addToCart": "Agregar al carrito"
+  },
+  "Logout": {
+    "logout": "Cerrar sesión",
+    "doYouWantToLogout": "¿Quiere cerrar su sesión?",
+    "close": "Cerrar",
+    "ok": "Ok"
+  },
+  "ItemList": {
+    "productsList": "Listado de productos 🔥🔥🔥",
+    "noProductsYet": "No hay productos todavía 😔"
   }
 }

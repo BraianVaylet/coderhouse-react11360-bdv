@@ -39,10 +39,7 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
       direction="column"
       align="center"
       w="200px"
-      borderWidth="1px"
-      borderRadius="5px"
       p="20px"
-      boxShadow="lg"
     >
       <Flex
         justify="space-between"
