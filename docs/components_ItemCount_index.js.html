@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,15 +89,17 @@
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+import { Box, Button, Flex, Text } from "@chakra-ui/react"
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 
 /**
  * ItemCount Component
  * @component
  */
 const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
-  const { colorMode } = useColorMode()
+  const backgroundColor = useBackgroundColorTheme("gray.900", "gray.200")
   const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
@@ -122,20 +124,22 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
 
   return (
     &lt;Flex
-      justify="space-between"
       direction="column"
       align="center"
-      w="200px"
-      p="20px"
+      justify="space-between"
+      w="100%"
+      h="100%"
+      p="5px"
     >
       &lt;Flex
         justify="space-between"
         direction="row"
         align="center"
+        borderRadius="5px"
         w="100%"
-        h="40px"
-        m="10px 0px"
-        bg={colorMode === "light" ? "gray.200" : "gray.900"}
+        h="30%"
+        m="5px 0px"
+        bg={backgroundColor}
       >
         &lt;Button w="25%" h="100%" onClick={handleDecrementConuter}>
           &lt;MinusIcon w={5} h={5} />
@@ -147,23 +151,26 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
           &lt;AddIcon w={5} h={5} />
         &lt;/Button>
       &lt;/Flex>
-      {noStock ? (
-        &lt;Text color="red.500" fontWeight="600">
-          {t("ItemCount.noStock")}
-        &lt;/Text>
-      ) : (
-        &lt;Text fontWeight="600">
-          {t("ItemCount.available")} {stock - count}u.
-        &lt;/Text>
-      )}
-      &lt;Button
-        w="100%"
-        mt="20px"
-        disabled={noStock || count === 0}
-        onClick={() => onAdd(count)}
-      >
-        {t("ItemCount.addToCart")}
-      &lt;/Button>
+      &lt;Box>
+        {noStock ? (
+          &lt;Text color="red.500" fontWeight="600">
+            {t("ItemCount.noStock")}
+          &lt;/Text>
+        ) : (
+          &lt;Text fontWeight="600">
+            {t("ItemCount.available")} {stock - count}u.
+          &lt;/Text>
+        )}
+      &lt;/Box>
+      &lt;Box>
+        &lt;Button
+          w="100%"
+          disabled={noStock || count === 0}
+          onClick={() => onAdd(count)}
+        >
+          {t("ItemCount.addToCart")}
+        &lt;/Button>
+      &lt;/Box>
     &lt;/Flex>
   )
 }

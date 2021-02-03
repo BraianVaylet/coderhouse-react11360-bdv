@@ -6,7 +6,7 @@ import { Flex, Icon, IconButton, Text } from "@chakra-ui/react"
 
 /**
  * Favorites Component
- * @components
+ * @component
  */
 const Favorites = ({ onClick }) => {
   const countFavs = 0

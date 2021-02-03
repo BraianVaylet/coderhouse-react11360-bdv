@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul></div>
                 
             </nav>
         </div>
@@ -87,19 +87,20 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
 // chakra-ui
-import { Flex, useColorMode, Skeleton } from "@chakra-ui/react"
+import { Flex, Skeleton } from "@chakra-ui/react"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+
+// const
+const MAX_HEIGHT = "70vh"
+const IMG_SIZE = "35vh"
 
 /**
  * SkeletonItem Component
  * @component
  */
 const SkeletonItem = () => {
-  const { colorMode } = useColorMode()
-
-  // const
-  const backgroundColorMode = colorMode === "dark" ? "gray.700" : "white"
-  const MAX_HEIGHT = "80vh"
-  const IMG_SIZE = "40vh"
+  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
 
   return (
     &lt;Flex
@@ -107,10 +108,10 @@ const SkeletonItem = () => {
       align="center"
       justify="flex-start"
       borderRadius="2.5px"
-      backgroundColor={backgroundColorMode}
+      backgroundColor={backgroundColor}
       boxShadow="0.75rem 0.75rem #2564f7"
       position="relative"
-      m="15px"
+      m="1.5rem"
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}

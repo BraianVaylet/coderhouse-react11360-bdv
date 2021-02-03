@@ -2,10 +2,20 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Center, Flex, Text, useToast } from "@chakra-ui/react"
+import {
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Text,
+  useMediaQuery,
+  useToast,
+} from "@chakra-ui/react"
 // components
 import Item from "components/Item"
 import SkeletonItem from "components/Skeleton/Item"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
 
 /**
  * ItemList Component
@@ -14,6 +24,10 @@ import SkeletonItem from "components/Skeleton/Item"
 const ItemList = ({ data }) => {
   const toast = useToast()
   const [t] = useTranslation("global")
+  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+
+  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
 
   /**
    * renderItems
@@ -24,25 +38,26 @@ const ItemList = ({ data }) => {
     return data !== null && data.length > 0 ? (
       data.map(
         ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          <Item
-            key={id}
-            id={id}
-            title={title}
-            description={description}
-            price={price}
-            pictureName={pictureName}
-            pictureUrl={pictureUrl}
-            stock={stock}
-            onAdd={(value) =>
-              toast({
-                title: title + " X" + value,
-                description: description,
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-              })
-            }
-          />
+          <GridItem key={id} colSpan={1}>
+            <Item
+              id={id}
+              title={title}
+              description={description}
+              price={price}
+              pictureName={pictureName}
+              pictureUrl={pictureUrl}
+              stock={stock}
+              onAdd={(value) =>
+                toast({
+                  title: title + " X" + value,
+                  description: description,
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true,
+                })
+              }
+            />
+          </GridItem>
         )
       )
     ) : (
@@ -54,10 +69,12 @@ const ItemList = ({ data }) => {
 
   const renderSkeletons = () => {
     const counter = [1, 2, 3, 4, 5, 6, 7, 8]
-    return counter.map((index) => <SkeletonItem key={index} />)
+    return counter.map((index) => (
+      <GridItem key={index} colSpan={1}>
+        <SkeletonItem />
+      </GridItem>
+    ))
   }
-
-  console.log("renderItems()", renderItems())
 
   return (
     <Flex
@@ -70,21 +87,15 @@ const ItemList = ({ data }) => {
       <Text fontSize="2rem" mb="10px">
         {t("ItemList.productsList")}
       </Text>
-      <Flex
-        direction="row"
-        justify="space-between"
-        align="center"
-        wrap="wrap"
-        w="100%"
-      >
+      <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
         {data === null ? renderSkeletons() : renderItems()}
-      </Flex>
+      </Grid>
     </Flex>
   )
 }
 
 ItemList.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 }
 
 export default ItemList

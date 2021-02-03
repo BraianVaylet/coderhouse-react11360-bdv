@@ -1,18 +1,19 @@
 import React from "react"
 // chakra-ui
-import { Flex, useColorMode, Skeleton } from "@chakra-ui/react"
+import { Flex, Skeleton } from "@chakra-ui/react"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+
+// const
+const MAX_HEIGHT = "70vh"
+const IMG_SIZE = "35vh"
 
 /**
  * SkeletonItem Component
  * @component
  */
 const SkeletonItem = () => {
-  const { colorMode } = useColorMode()
-
-  // const
-  const backgroundColorMode = colorMode === "dark" ? "gray.700" : "white"
-  const MAX_HEIGHT = "80vh"
-  const IMG_SIZE = "40vh"
+  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
 
   return (
     <Flex
@@ -20,10 +21,10 @@ const SkeletonItem = () => {
       align="center"
       justify="flex-start"
       borderRadius="2.5px"
-      backgroundColor={backgroundColorMode}
+      backgroundColor={backgroundColor}
       boxShadow="0.75rem 0.75rem #2564f7"
       position="relative"
-      m="15px"
+      m="1.5rem"
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}

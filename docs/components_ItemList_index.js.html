@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,10 +89,20 @@
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Center, Flex, Text, useToast } from "@chakra-ui/react"
+import {
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Text,
+  useMediaQuery,
+  useToast,
+} from "@chakra-ui/react"
 // components
 import Item from "components/Item"
 import SkeletonItem from "components/Skeleton/Item"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
 
 /**
  * ItemList Component
@@ -101,6 +111,10 @@ import SkeletonItem from "components/Skeleton/Item"
 const ItemList = ({ data }) => {
   const toast = useToast()
   const [t] = useTranslation("global")
+  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+
+  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
 
   /**
    * renderItems
@@ -111,25 +125,26 @@ const ItemList = ({ data }) => {
     return data !== null &amp;&amp; data.length > 0 ? (
       data.map(
         ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          &lt;Item
-            key={id}
-            id={id}
-            title={title}
-            description={description}
-            price={price}
-            pictureName={pictureName}
-            pictureUrl={pictureUrl}
-            stock={stock}
-            onAdd={(value) =>
-              toast({
-                title: title + " X" + value,
-                description: description,
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-              })
-            }
-          />
+          &lt;GridItem key={id} colSpan={1}>
+            &lt;Item
+              id={id}
+              title={title}
+              description={description}
+              price={price}
+              pictureName={pictureName}
+              pictureUrl={pictureUrl}
+              stock={stock}
+              onAdd={(value) =>
+                toast({
+                  title: title + " X" + value,
+                  description: description,
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true,
+                })
+              }
+            />
+          &lt;/GridItem>
         )
       )
     ) : (
@@ -141,10 +156,12 @@ const ItemList = ({ data }) => {
 
   const renderSkeletons = () => {
     const counter = [1, 2, 3, 4, 5, 6, 7, 8]
-    return counter.map((index) => &lt;SkeletonItem key={index} />)
+    return counter.map((index) => (
+      &lt;GridItem key={index} colSpan={1}>
+        &lt;SkeletonItem />
+      &lt;/GridItem>
+    ))
   }
-
-  console.log("renderItems()", renderItems())
 
   return (
     &lt;Flex
@@ -157,21 +174,15 @@ const ItemList = ({ data }) => {
       &lt;Text fontSize="2rem" mb="10px">
         {t("ItemList.productsList")}
       &lt;/Text>
-      &lt;Flex
-        direction="row"
-        justify="space-between"
-        align="center"
-        wrap="wrap"
-        w="100%"
-      >
+      &lt;Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
         {data === null ? renderSkeletons() : renderItems()}
-      &lt;/Flex>
+      &lt;/Grid>
     &lt;/Flex>
   )
 }
 
 ItemList.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 }
 
 export default ItemList

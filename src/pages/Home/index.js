@@ -11,10 +11,29 @@ const Home = () => {
   // ! inicio simulacion de data fetch ---
   const [data, setData] = useState(null)
 
+  const getDataTest = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(PRODUCTS)
+      }, 2000)
+    })
+  }
+
+  // * OPC1: con async-await
+  useEffect(async () => {
+    try {
+      const data = await getDataTest()
+      setData(data)
+    } catch (error) {
+      console.log("error", error)
+    }
+  }, [])
+
+  // * OPC2: con promesas
   useEffect(() => {
-    setTimeout(() => {
-      setData(PRODUCTS)
-    }, 5000)
+    getDataTest()
+      .then((res) => setData(res))
+      .catch((error) => console.log("error", error))
   }, [])
   // ! fin ---
 

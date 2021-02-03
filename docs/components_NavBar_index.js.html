@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Favorites">Favorites</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul></div>
                 
             </nav>
         </div>
@@ -94,7 +94,6 @@ import {
   Flex,
   Box,
   Link,
-  useColorMode,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -104,6 +103,7 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Button,
+  Text,
   useMediaQuery,
 } from "@chakra-ui/react"
 // components
@@ -115,6 +115,8 @@ import Logout from "components/Logout"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
 import Favorites from "components/Favorites"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 
 /**
  * NavBar Component
@@ -122,22 +124,40 @@ import Favorites from "components/Favorites"
  */
 const NavBar = () => {
   const [t] = useTranslation("global")
-  const { colorMode } = useColorMode()
+  const backgroundColor = useBackgroundColorTheme(
+    "withOpacity.gray.800",
+    "withOpacity.white"
+  )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
+
+  /**
+   * renderLinkSeparator
+   * @function
+   * @returns {undefined} component
+   */
+  const renderLinkSeparator = (withSeparator) => (
+    &lt;Text ml={2} mr={2}>
+      {withSeparator &amp;&amp; "|"}
+    &lt;/Text>
+  )
 
   /**
    * renderLinks
    * @function
    * @returns {undefined} component
    */
-  const renderLinks = () => (
+  const renderLinks = (withSeparator = false) => (
     &lt;>
-      &lt;Link ml={2}>{t("NavBar.constructionTools")}&lt;/Link>
-      &lt;Link ml={2}>{t("NavBar.sports")}&lt;/Link>
-      &lt;Link ml={2}>{t("NavBar.entertainment")}&lt;/Link>
-      &lt;Link ml={2}>{t("NavBar.estate")}&lt;/Link>
-      &lt;Link ml={2}>{t("NavBar.mobility")}&lt;/Link>
+      &lt;Link>{t("NavBar.constructionTools")}&lt;/Link>
+      {renderLinkSeparator(withSeparator)}
+      &lt;Link>{t("NavBar.sports")}&lt;/Link>
+      {renderLinkSeparator(withSeparator)}
+      &lt;Link>{t("NavBar.entertainment")}&lt;/Link>
+      {renderLinkSeparator(withSeparator)}
+      &lt;Link>{t("NavBar.estate")}&lt;/Link>
+      {renderLinkSeparator(withSeparator)}
+      &lt;Link>{t("NavBar.mobility")}&lt;/Link>
     &lt;/>
   )
 
@@ -154,9 +174,7 @@ const NavBar = () => {
         borderColor="brand.primary"
         boxShadow="lg"
         position="fixed"
-        bg={
-          colorMode === "light" ? "withOpacity.white" : "withOpacity.gray.800"
-        }
+        bg={backgroundColor}
         opacity="0.95"
         top="0"
         zIndex="1000"
@@ -177,8 +195,8 @@ const NavBar = () => {
           &lt;/Flex>
         &lt;/Flex>
         &lt;Flex direction="row" justify="flex-start" align="center">
-          {mediaQueryMin1280 &amp;&amp; renderLinks()}
-          &lt;Box ml={4}>
+          {mediaQueryMin1280 &amp;&amp; renderLinks(true)}
+          &lt;Box ml={4} mr={4}>
             &lt;Favorites />
             &lt;CartWidget />
           &lt;/Box>

@@ -2,20 +2,17 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 // chakra-ui
-import {
-  Flex,
-  Text,
-  Heading,
-  useColorMode,
-  IconButton,
-  Icon,
-  Button,
-  Box,
-} from "@chakra-ui/react"
+import { Flex, Text, Heading, IconButton, Icon, Box } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
 // constants
 import { IMG } from "utils/constants"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+
+// const
+const MAX_HEIGHT = "70vh"
+const IMG_SIZE = "35vh"
 
 /**
  * Item Component
@@ -30,12 +27,8 @@ const Item = ({
   stock,
   onAdd = () => {},
 }) => {
-  const { colorMode } = useColorMode()
+  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
   const [favActive, setFavActive] = useState(false)
-
-  const backgroundColorMode = colorMode === "dark" ? "gray.700" : "white"
-  const MAX_HEIGHT = "500px"
-  const IMG_SIZE = "250px"
 
   /**
    * handleFavActive
@@ -50,10 +43,10 @@ const Item = ({
       align="center"
       justify="flex-start"
       borderRadius="2.5px"
-      backgroundColor={backgroundColorMode}
+      backgroundColor={backgroundColor}
       boxShadow="0.75rem 0.75rem #2564f7"
       position="relative"
-      m="15px"
+      m="1.5rem"
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}
@@ -74,14 +67,14 @@ const Item = ({
         position="absolute"
         top="3"
         right="3"
+        onClick={handleFavActive}
         icon={
-          <Button
-            onClick={handleFavActive}
+          <Box
             p="2.5px"
-            backgroundColor={backgroundColorMode}
+            backgroundColor={backgroundColor}
             borderRadius="5px"
             _hover={{
-              backgroundColor: backgroundColorMode,
+              backgroundColor: backgroundColor,
             }}
           >
             {favActive ? (
@@ -105,17 +98,26 @@ const Item = ({
                 }}
               />
             )}
-          </Button>
+          </Box>
         }
       />
       <Flex
-        p="10px 20px"
+        p="10px"
         direction="column"
-        justify="center"
+        justify="space-between"
         align="center"
         w="100%"
+        h={IMG_SIZE}
+        minH={IMG_SIZE}
+        maxH={IMG_SIZE}
       >
-        <Flex direction="column" align="flex-start" justify="center" w="100%">
+        <Flex
+          direction="column"
+          align="flex-start"
+          justify="center"
+          w="100%"
+          h="40%"
+        >
           <Heading fontSize="2.5rem" mb="10px">
             ${price}
           </Heading>
@@ -123,7 +125,9 @@ const Item = ({
 
           <Text fontSize=".75rem">{description}</Text>
         </Flex>
-        <ItemCount stock={stock} onAdd={onAdd} />
+        <Box w="80%" h="60%">
+          <ItemCount stock={stock} onAdd={onAdd} />
+        </Box>
       </Flex>
     </Flex>
   )

@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+import { Box, Button, Flex, Text } from "@chakra-ui/react"
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 
 /**
  * ItemCount Component
  * @component
  */
 const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
-  const { colorMode } = useColorMode()
+  const backgroundColor = useBackgroundColorTheme("gray.900", "gray.200")
   const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
@@ -35,20 +37,22 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
 
   return (
     <Flex
-      justify="space-between"
       direction="column"
       align="center"
-      w="200px"
-      p="20px"
+      justify="space-between"
+      w="100%"
+      h="100%"
+      p="5px"
     >
       <Flex
         justify="space-between"
         direction="row"
         align="center"
+        borderRadius="5px"
         w="100%"
-        h="40px"
-        m="10px 0px"
-        bg={colorMode === "light" ? "gray.200" : "gray.900"}
+        h="30%"
+        m="5px 0px"
+        bg={backgroundColor}
       >
         <Button w="25%" h="100%" onClick={handleDecrementConuter}>
           <MinusIcon w={5} h={5} />
@@ -60,23 +64,26 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
           <AddIcon w={5} h={5} />
         </Button>
       </Flex>
-      {noStock ? (
-        <Text color="red.500" fontWeight="600">
-          {t("ItemCount.noStock")}
-        </Text>
-      ) : (
-        <Text fontWeight="600">
-          {t("ItemCount.available")} {stock - count}u.
-        </Text>
-      )}
-      <Button
-        w="100%"
-        mt="20px"
-        disabled={noStock || count === 0}
-        onClick={() => onAdd(count)}
-      >
-        {t("ItemCount.addToCart")}
-      </Button>
+      <Box>
+        {noStock ? (
+          <Text color="red.500" fontWeight="600">
+            {t("ItemCount.noStock")}
+          </Text>
+        ) : (
+          <Text fontWeight="600">
+            {t("ItemCount.available")} {stock - count}u.
+          </Text>
+        )}
+      </Box>
+      <Box>
+        <Button
+          w="100%"
+          disabled={noStock || count === 0}
+          onClick={() => onAdd(count)}
+        >
+          {t("ItemCount.addToCart")}
+        </Button>
+      </Box>
     </Flex>
   )
 }

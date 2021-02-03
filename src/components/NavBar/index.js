@@ -7,7 +7,6 @@ import {
   Flex,
   Box,
   Link,
-  useColorMode,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -17,6 +16,7 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Button,
+  Text,
   useMediaQuery,
 } from "@chakra-ui/react"
 // components
@@ -28,6 +28,8 @@ import Logout from "components/Logout"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
 import Favorites from "components/Favorites"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 
 /**
  * NavBar Component
@@ -35,22 +37,40 @@ import Favorites from "components/Favorites"
  */
 const NavBar = () => {
   const [t] = useTranslation("global")
-  const { colorMode } = useColorMode()
+  const backgroundColor = useBackgroundColorTheme(
+    "withOpacity.gray.800",
+    "withOpacity.white"
+  )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
+
+  /**
+   * renderLinkSeparator
+   * @function
+   * @returns {undefined} component
+   */
+  const renderLinkSeparator = (withSeparator) => (
+    <Text ml={2} mr={2}>
+      {withSeparator && "|"}
+    </Text>
+  )
 
   /**
    * renderLinks
    * @function
    * @returns {undefined} component
    */
-  const renderLinks = () => (
+  const renderLinks = (withSeparator = false) => (
     <>
-      <Link ml={2}>{t("NavBar.constructionTools")}</Link>
-      <Link ml={2}>{t("NavBar.sports")}</Link>
-      <Link ml={2}>{t("NavBar.entertainment")}</Link>
-      <Link ml={2}>{t("NavBar.estate")}</Link>
-      <Link ml={2}>{t("NavBar.mobility")}</Link>
+      <Link>{t("NavBar.constructionTools")}</Link>
+      {renderLinkSeparator(withSeparator)}
+      <Link>{t("NavBar.sports")}</Link>
+      {renderLinkSeparator(withSeparator)}
+      <Link>{t("NavBar.entertainment")}</Link>
+      {renderLinkSeparator(withSeparator)}
+      <Link>{t("NavBar.estate")}</Link>
+      {renderLinkSeparator(withSeparator)}
+      <Link>{t("NavBar.mobility")}</Link>
     </>
   )
 
@@ -67,9 +87,7 @@ const NavBar = () => {
         borderColor="brand.primary"
         boxShadow="lg"
         position="fixed"
-        bg={
-          colorMode === "light" ? "withOpacity.white" : "withOpacity.gray.800"
-        }
+        bg={backgroundColor}
         opacity="0.95"
         top="0"
         zIndex="1000"
@@ -90,8 +108,8 @@ const NavBar = () => {
           </Flex>
         </Flex>
         <Flex direction="row" justify="flex-start" align="center">
-          {mediaQueryMin1280 && renderLinks()}
-          <Box ml={4}>
+          {mediaQueryMin1280 && renderLinks(true)}
+          <Box ml={4} mr={4}>
             <Favorites />
             <CartWidget />
           </Box>
