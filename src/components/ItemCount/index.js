@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Button, Flex, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react"
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 // hooks
 import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
@@ -11,8 +11,14 @@ import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
  * ItemCount Component
  * @component
  */
-const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
+const ItemCount = ({
+  initial = 1,
+  stock,
+  onAdd = () => {},
+  onBuy = () => {},
+}) => {
   const backgroundColor = useBackgroundColorTheme("gray.900", "gray.200")
+  const toast = useToast()
   const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
@@ -34,6 +40,39 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
    */
   const handleDecrementConuter = () =>
     setCount(count <= stock && count > 0 ? count - 1 : count)
+
+  /**
+   * handleOnBuyClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnBuyClick = () => {
+    return (
+      onBuy() ||
+      toast({
+        title: t("ItemCount.canNotBuy"),
+        description: t("ItemCount.canNotBuyDescription"),
+        status: "info",
+        duration: 5000,
+        isClosable: true,
+      })
+    )
+  }
+
+  /**
+   * handleOnAddClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnAddClick = () =>
+    onAdd(count) ||
+    toast({
+      title: t("ItemCount.canNotAdd"),
+      description: t("ItemCount.canNotAddDescription"),
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    })
 
   return (
     <Flex
@@ -75,15 +114,24 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
           </Text>
         )}
       </Box>
-      <Box>
+      <Flex justify="center" align="center" direction="column" w="100%">
         <Button
           w="100%"
+          mt={4}
           disabled={noStock || count === 0}
-          onClick={() => onAdd(count)}
+          onClick={handleOnAddClick}
         >
           {t("ItemCount.addToCart")}
         </Button>
-      </Box>
+        <Button
+          w="100%"
+          mt={4}
+          disabled={noStock || count === 0}
+          onClick={handleOnBuyClick}
+        >
+          {t("ItemCount.buyNow")}
+        </Button>
+      </Flex>
     </Flex>
   )
 }
@@ -92,6 +140,7 @@ ItemCount.propTypes = {
   stock: PropTypes.number.isRequired,
   initial: PropTypes.number,
   onAdd: PropTypes.func,
+  onBuy: PropTypes.func,
 }
 
 export default ItemCount

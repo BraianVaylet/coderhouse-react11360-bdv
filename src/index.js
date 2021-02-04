@@ -7,12 +7,16 @@ import Wrapper from "containers/Wrapper"
 import Layout from "containers/Layout"
 // pages
 import Home from "./pages/Home"
+import ItemDetail from "components/ItemDetail"
+
+const active = false
 
 ReactDOM.render(
   <React.StrictMode>
     <Wrapper>
       <Layout>
-        <Home />
+        {active && <Home />}
+        {!active && <ItemDetail />}
       </Layout>
     </Wrapper>
   </React.StrictMode>,

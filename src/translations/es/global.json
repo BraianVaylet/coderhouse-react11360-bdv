@@ -17,7 +17,12 @@
   "ItemCount": {
     "noStock": "No hay stock",
     "available": "Disponible",
-    "addToCart": "Agregar al carrito"
+    "addToCart": "Agregar al carrito",
+    "buyNow": "Comprar ahora",
+    "canNotBuy": "Las compras estan desactivadas 💔",
+    "canNotBuyDescription": "No es posible comprar este artículo en este momento.",
+    "canNotAdd": "Las compras estan desactivadas 💔",
+    "canNotAddDescription": "No es posible agregar este artículo a su carrito en este momento."
   },
   "Logout": {
     "logout": "Cerrar sesión",

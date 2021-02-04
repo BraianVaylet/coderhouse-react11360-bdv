@@ -17,7 +17,12 @@
   "ItemCount": {
     "noStock": "No stock",
     "available": "Available",
-    "addToCart": "Add to cart"
+    "addToCart": "Add to cart",
+    "boyNow": "Buy now",
+    "canNotBuy": "Purchases are disabled",
+    "canNotBuyDescription": "It is not possible to buy this item at this time",
+    "canNotAdd": "Purchases are disabled",
+    "canNotAddDescription": "It is not possible to add this item to your cart at this time."
   },
   "Logout": {
     "logout": "Logout",

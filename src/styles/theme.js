@@ -29,7 +29,7 @@ const theme = extendTheme({
         backgroundSize: "50px 50px",
         padding: "0",
         margin: "0",
-        backgroundColor: props.colorMode === "dark" ? "gray.800" : "gray.100",
+        backgroundColor: props.colorMode === "dark" ? "gray.800" : "gray.200",
       },
       a: {
         color: props.colorMode === "dark" ? "blue.300" : "blue.500",
@@ -59,9 +59,9 @@ const theme = extendTheme({
   colors: {
     withOpacity: {
       gray: {
-        800: addOpacityToColor("#1A202C", 0.3),
+        800: addOpacityToColor("#1A202C", 0.75),
       },
-      white: addOpacityToColor("#FFFFFF", 0.3),
+      white: addOpacityToColor("#FFFFFF", 0.75),
     },
     brand: {
       primary: "#2564f7",

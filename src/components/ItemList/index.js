@@ -9,7 +9,6 @@ import {
   GridItem,
   Text,
   useMediaQuery,
-  useToast,
 } from "@chakra-ui/react"
 // components
 import Item from "components/Item"
@@ -22,11 +21,15 @@ import { MY_BREAKPOINTS } from "styles/theme"
  * @component
  */
 const ItemList = ({ data }) => {
-  const toast = useToast()
   const [t] = useTranslation("global")
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
 
+  /**
+   * handleRows
+   * @function
+   * @returns {number} number of columns
+   */
   const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
 
   /**
@@ -47,15 +50,6 @@ const ItemList = ({ data }) => {
               pictureName={pictureName}
               pictureUrl={pictureUrl}
               stock={stock}
-              onAdd={(value) =>
-                toast({
-                  title: title + " X" + value,
-                  description: description,
-                  status: "success",
-                  duration: 3000,
-                  isClosable: true,
-                })
-              }
             />
           </GridItem>
         )
@@ -67,6 +61,11 @@ const ItemList = ({ data }) => {
     )
   }
 
+  /**
+   * renderSkeletons
+   * @function
+   * @returns {undefined} list of SkeletonItems components
+   */
   const renderSkeletons = () => {
     const counter = [1, 2, 3, 4, 5, 6, 7, 8]
     return counter.map((index) => (

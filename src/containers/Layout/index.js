@@ -15,7 +15,7 @@ const Layout = ({ children }) => (
     <Flex
       w="100%"
       h="100vh"
-      mt="5rem"
+      mt="4.5rem"
       p="1rem"
       zIndex="10"
       align="center"

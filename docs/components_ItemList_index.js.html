@@ -114,6 +114,11 @@ const ItemList = ({ data }) => {
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
 
+  /**
+   * handleRows
+   * @function
+   * @returns {number} number of columns
+   */
   const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
 
   /**
@@ -154,6 +159,11 @@ const ItemList = ({ data }) => {
     )
   }
 
+  /**
+   * renderSkeletons
+   * @function
+   * @returns {undefined} list of SkeletonItems components
+   */
   const renderSkeletons = () => {
     const counter = [1, 2, 3, 4, 5, 6, 7, 8]
     return counter.map((index) => (

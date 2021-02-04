@@ -1,17 +1,17 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 // chakra-ui
-import { Flex, Text, Heading, IconButton, Icon, Box } from "@chakra-ui/react"
+import { Flex, Text, Heading, Box } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
 // constants
 import { IMG } from "utils/constants"
 // hooks
 import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import FavouriteButton from "components/FavouriteButton"
 
 // const
-const MAX_HEIGHT = "70vh"
+const MAX_HEIGHT = "75vh"
 const IMG_SIZE = "35vh"
 
 /**
@@ -27,15 +27,7 @@ const Item = ({
   stock,
   onAdd = () => {},
 }) => {
-  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
-  const [favActive, setFavActive] = useState(false)
-
-  /**
-   * handleFavActive
-   * @function
-   * @returns {boolean} favActive
-   */
-  const handleFavActive = () => setFavActive(!favActive)
+  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
 
   return (
     <Flex
@@ -63,44 +55,7 @@ const Item = ({
         minH={IMG_SIZE}
         maxH={IMG_SIZE}
       />
-      <IconButton
-        position="absolute"
-        top="3"
-        right="3"
-        onClick={handleFavActive}
-        icon={
-          <Box
-            p="2.5px"
-            backgroundColor={backgroundColor}
-            borderRadius="5px"
-            _hover={{
-              backgroundColor: backgroundColor,
-            }}
-          >
-            {favActive ? (
-              <Icon
-                as={MdFavorite}
-                boxSize="2rem"
-                borderRadius="9999px"
-                fill="brand.primary"
-                _hover={{
-                  fill: "brand.secundary",
-                }}
-              />
-            ) : (
-              <Icon
-                as={MdFavoriteBorder}
-                boxSize="2rem"
-                borderRadius="9999px"
-                fill="brand.secundary"
-                _hover={{
-                  fill: "brand.primary",
-                }}
-              />
-            )}
-          </Box>
-        }
-      />
+      <FavouriteButton />
       <Flex
         p="10px"
         direction="column"
