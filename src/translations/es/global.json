@@ -33,5 +33,14 @@
   "ItemList": {
     "productsList": "Listado de productos 🔥🔥🔥",
     "noProductsYet": "No hay productos todavía 😔"
+  },
+  "ItemDetailQuestionsAndAnswers": {
+    "title": "Preguntas y respuestas"
+  },
+  "ItemDetailDescription": {
+    "title": "Descripción"
+  },
+  "ItemDetailCharacteristics": {
+    "title": "Caracteristicas"
   }
 }

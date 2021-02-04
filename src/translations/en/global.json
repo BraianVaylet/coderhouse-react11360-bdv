@@ -33,6 +33,15 @@
   "ItemList": {
     "productsList": "Products list 🔥🔥🔥",
     "noProductsYet": "No products yet 😔"
+  },
+  "ItemDetailQuestionsAndAnswers": {
+    "title": "Questions and answers"
+  },
+  "ItemDetailDescription": {
+    "title": "Description"
+  },
+  "ItemDetailCharacteristics": {
+    "title": "Characteristics"
   }
 
 }

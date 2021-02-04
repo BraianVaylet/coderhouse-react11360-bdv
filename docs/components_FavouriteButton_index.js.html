@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ItemList/index.js</title>
+  <title> components/FavouriteButton/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/ItemList/index.js</h1>
+                    <h1>components/FavouriteButton/index.js</h1>
                 </header>
                 
 
@@ -85,106 +85,71 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-import { useTranslation } from "react-i18next"
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react"
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 // chakra-ui
-import {
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react"
-// components
-import Item from "components/Item"
-import SkeletonItem from "components/Skeleton/Item"
-// styles
-import { MY_BREAKPOINTS } from "styles/theme"
+import { Box, Icon, IconButton } from "@chakra-ui/react"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 
 /**
- * ItemList Component
+ * FavouriteButton Component
  * @component
  */
-const ItemList = ({ data }) => {
-  const [t] = useTranslation("global")
-  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+const FavouriteButton = () => {
+  const [favActive, setFavActive] = useState(false)
+  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
 
   /**
-   * handleRows
+   * handleFavActive
    * @function
-   * @returns {number} number of columns
+   * @returns {boolean} favActive
    */
-  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
-
-  /**
-   * renderItems
-   * @function
-   * @returns {undefined} list of Items components
-   */
-  const renderItems = () => {
-    return data !== null &amp;&amp; data.length > 0 ? (
-      data.map(
-        ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          &lt;GridItem key={id} colSpan={1}>
-            &lt;Item
-              id={id}
-              title={title}
-              description={description}
-              price={price}
-              pictureName={pictureName}
-              pictureUrl={pictureUrl}
-              stock={stock}
-            />
-          &lt;/GridItem>
-        )
-      )
-    ) : (
-      &lt;Center w="100%" h="80vh">
-        &lt;Text fontSize="3rem">{t("ItemList.noProductsYet")} 😔 &lt;/Text>
-      &lt;/Center>
-    )
-  }
-
-  /**
-   * renderSkeletons
-   * @function
-   * @returns {undefined} list of SkeletonItems components
-   */
-  const renderSkeletons = () => {
-    const counter = [1, 2, 3, 4, 5, 6, 7, 8]
-    return counter.map((index) => (
-      &lt;GridItem key={index} colSpan={1}>
-        &lt;SkeletonItem />
-      &lt;/GridItem>
-    ))
-  }
+  const handleFavActive = () => setFavActive(!favActive)
 
   return (
-    &lt;Flex
-      direction="column"
-      justify="flex-start"
-      align="center"
-      p="10px"
-      w="100%"
-    >
-      &lt;Text fontSize="2rem" mb="10px">
-        {t("ItemList.productsList")}
-      &lt;/Text>
-      &lt;Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
-        {data === null ? renderSkeletons() : renderItems()}
-      &lt;/Grid>
-    &lt;/Flex>
+    &lt;IconButton
+      position="absolute"
+      top="3"
+      right="3"
+      onClick={handleFavActive}
+      icon={
+        &lt;Box
+          p="2.5px"
+          backgroundColor={backgroundColor}
+          borderRadius="5px"
+          _hover={{
+            backgroundColor: backgroundColor,
+          }}
+        >
+          {favActive ? (
+            &lt;Icon
+              as={MdFavorite}
+              boxSize="2rem"
+              borderRadius="9999px"
+              fill="brand.primary"
+              _hover={{
+                fill: "brand.secundary",
+              }}
+            />
+          ) : (
+            &lt;Icon
+              as={MdFavoriteBorder}
+              boxSize="2rem"
+              borderRadius="9999px"
+              fill="brand.secundary"
+              _hover={{
+                fill: "brand.primary",
+              }}
+            />
+          )}
+        &lt;/Box>
+      }
+    />
   )
 }
 
-ItemList.propTypes = {
-  data: PropTypes.array,
-}
-
-export default ItemList
+export default FavouriteButton
 </code></pre>
         </article>
     </section>

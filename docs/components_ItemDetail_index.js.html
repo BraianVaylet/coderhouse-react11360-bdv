@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ItemList/index.js</title>
+  <title> components/ItemDetail/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/ItemList/index.js</h1>
+                    <h1>components/ItemDetail/index.js</h1>
                 </header>
                 
 
@@ -86,105 +86,91 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-import { useTranslation } from "react-i18next"
-// chakra-ui
-import {
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react"
+// material-ui
+import { Divider, Flex } from "@chakra-ui/react"
 // components
-import Item from "components/Item"
-import SkeletonItem from "components/Skeleton/Item"
+import ItemDetailImgBox from "./ItemDetailImgBox"
+import ItemDetailAction from "./ItemDetailAction"
+import ItemDetailCharacteristics from "./ItemDetailCharacteristics"
+import ItemDetailDescription from "./ItemDetailDescription"
+import ItemDetailQuestionsAndAnswers from "./ItemDetailQuestionsAndAnswers"
+// hooks
+import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 // styles
-import { MY_BREAKPOINTS } from "styles/theme"
+import { setValueResponsiveMin1280 } from "styles/utils"
 
 /**
- * ItemList Component
- * @component
+ * ItemDetail Component
+ * @Component
  */
-const ItemList = ({ data }) => {
-  const [t] = useTranslation("global")
-  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
-
-  /**
-   * handleRows
-   * @function
-   * @returns {number} number of columns
-   */
-  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
-
-  /**
-   * renderItems
-   * @function
-   * @returns {undefined} list of Items components
-   */
-  const renderItems = () => {
-    return data !== null &amp;&amp; data.length > 0 ? (
-      data.map(
-        ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          &lt;GridItem key={id} colSpan={1}>
-            &lt;Item
-              id={id}
-              title={title}
-              description={description}
-              price={price}
-              pictureName={pictureName}
-              pictureUrl={pictureUrl}
-              stock={stock}
-            />
-          &lt;/GridItem>
-        )
-      )
-    ) : (
-      &lt;Center w="100%" h="80vh">
-        &lt;Text fontSize="3rem">{t("ItemList.noProductsYet")} 😔 &lt;/Text>
-      &lt;/Center>
-    )
-  }
-
-  /**
-   * renderSkeletons
-   * @function
-   * @returns {undefined} list of SkeletonItems components
-   */
-  const renderSkeletons = () => {
-    const counter = [1, 2, 3, 4, 5, 6, 7, 8]
-    return counter.map((index) => (
-      &lt;GridItem key={index} colSpan={1}>
-        &lt;SkeletonItem />
-      &lt;/GridItem>
-    ))
-  }
+const ItemDetail = () => {
+  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
 
   return (
     &lt;Flex
       direction="column"
       justify="flex-start"
       align="center"
-      p="10px"
       w="100%"
+      p={setValueResponsiveMin1280("100px", "10px")}
     >
-      &lt;Text fontSize="2rem" mb="10px">
-        {t("ItemList.productsList")}
-      &lt;/Text>
-      &lt;Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
-        {data === null ? renderSkeletons() : renderItems()}
-      &lt;/Grid>
+      &lt;Flex
+        direction="row"
+        justify="space-between"
+        align="center"
+        w="100%"
+        wrap="wrap"
+        mb={10}
+      >
+        {/* image */}
+        &lt;Flex
+          w={setValueResponsiveMin1280("72.5%", "100%")}
+          minH={setValueResponsiveMin1280("80vh", "100%")}
+          bgColor={backgroundColor}
+          boxShadow="0.75rem 0.75rem #2564f7"
+        >
+          &lt;ItemDetailImgBox />
+        &lt;/Flex>
+
+        {/* right :: info item */}
+        &lt;Flex
+          w={setValueResponsiveMin1280("25%", "100%")}
+          minH={"80vh"}
+          p="20px"
+          bgColor={backgroundColor}
+          boxShadow="0.75rem 0.75rem #2564f7"
+        >
+          &lt;ItemDetailAction />
+        &lt;/Flex>
+      &lt;/Flex>
+
+      {/* bottom :: info item */}
+      &lt;Flex
+        direction="column"
+        justify="flex-start"
+        center="flex-start"
+        w="100%"
+        minH="20vh"
+        p="20px"
+        bgColor={backgroundColor}
+        boxShadow="0.75rem 0.75rem #2564f7"
+      >
+        &lt;Flex direction="column" justify="flex-start" center="flex-start">
+          {/* characteristics */}
+          &lt;ItemDetailCharacteristics />
+          &lt;Divider mt={10} mb={10} />
+          {/* description */}
+          &lt;ItemDetailDescription />
+          &lt;Divider mt={10} mb={10} />
+          {/* comments */}
+          &lt;ItemDetailQuestionsAndAnswers />
+        &lt;/Flex>
+      &lt;/Flex>
     &lt;/Flex>
   )
 }
 
-ItemList.propTypes = {
-  data: PropTypes.array,
-}
-
-export default ItemList
+export default ItemDetail
 </code></pre>
         </article>
     </section>

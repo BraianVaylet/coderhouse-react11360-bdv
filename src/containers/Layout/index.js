@@ -14,8 +14,8 @@ const Layout = ({ children }) => (
     <NavBar />
     <Flex
       w="100%"
-      h="100vh"
-      mt="4.5rem"
+      minH="100vh"
+      mt="3.5rem"
       p="1rem"
       zIndex="10"
       align="center"

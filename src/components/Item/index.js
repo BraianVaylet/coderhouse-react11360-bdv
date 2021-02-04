@@ -76,9 +76,8 @@ const Item = ({
           <Heading fontSize="2.5rem" mb="10px">
             ${price}
           </Heading>
-          {/* <Text fontSize="1.25rem">{title}</Text> */}
-
-          <Text fontSize=".75rem">{description}</Text>
+          <Text fontSize=".75rem">{title}</Text>
+          {/* <Text fontSize=".75rem">{description}</Text> */}
         </Flex>
         <Box w="80%" h="60%">
           <ItemCount stock={stock} onAdd={onAdd} />
