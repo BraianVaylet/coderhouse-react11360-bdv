@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react"
 // components
 import Item from "components/Item"
-import SkeletonItem from "components/Skeleton/Item"
+import SkeletonItem from "components/Skeleton/Item/SkItem"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
 

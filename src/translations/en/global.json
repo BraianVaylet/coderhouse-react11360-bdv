@@ -41,7 +41,9 @@
     "title": "Description"
   },
   "ItemDetailCharacteristics": {
-    "title": "Characteristics"
+    "title": "Characteristics",
+    "brand": "Brand",
+    "model": "Model"
   }
 
 }

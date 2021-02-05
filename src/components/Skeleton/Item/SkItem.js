@@ -9,7 +9,7 @@ const MAX_HEIGHT = "70vh"
 const IMG_SIZE = "35vh"
 
 /**
- * SkeletonItem Component
+ * Skeleton/Item/SkeletonItem Component
  * @component
  */
 const SkeletonItem = () => {

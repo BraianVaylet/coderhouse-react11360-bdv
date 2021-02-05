@@ -4,20 +4,13 @@ import ReactDOM from "react-dom"
 import reportWebVitals from "./reportWebVitals"
 // containers
 import Wrapper from "containers/Wrapper"
-import Layout from "containers/Layout"
-// pages
-import Home from "./pages/Home"
-import ItemDetail from "components/ItemDetail"
-
-const active = false
+// routes
+import Routes from "routes"
 
 ReactDOM.render(
   <React.StrictMode>
     <Wrapper>
-      <Layout>
-        {active && <Home />}
-        {!active && <ItemDetail />}
-      </Layout>
+      <Routes />
     </Wrapper>
   </React.StrictMode>,
   document.getElementById("root")

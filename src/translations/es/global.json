@@ -41,6 +41,8 @@
     "title": "Descripción"
   },
   "ItemDetailCharacteristics": {
-    "title": "Caracteristicas"
+    "title": "Caracteristicas",
+    "brand": "Marca",
+    "model": "Modelo"
   }
 }

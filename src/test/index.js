@@ -10,6 +10,8 @@ export const PRODUCTS = [
       "https://assets.adidas.com/images/w_600,f_auto,q_auto/4976b06da55d4f5bbe92aac5015e519a_9366/Buzo_con_Capucha_Linear_Negro_FM0772_01_laydown.jpg",
     price: 3000,
     stock: 10,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "2",
@@ -20,6 +22,8 @@ export const PRODUCTS = [
       "https://i.pinimg.com/236x/7a/b9/46/7ab946a32295b20e547078c5f5578c05.jpg",
     price: 2000,
     stock: 20,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "3",
@@ -30,6 +34,8 @@ export const PRODUCTS = [
       "https://www.ropadetrabajohernandez.com/392-home_default/casaca-cuello-pico-velilla-sanitario-limpieza.jpg",
     price: 3000,
     stock: 30,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "4",
@@ -40,6 +46,8 @@ export const PRODUCTS = [
       "https://i.pinimg.com/originals/5d/32/e0/5d32e0686d553746b55ffe6df1e2a752.jpg",
     price: 4000,
     stock: 40,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "5",
@@ -50,6 +58,8 @@ export const PRODUCTS = [
       "https://s1.eestatic.com/2019/08/15/omicrono/omicrono_421718717_132328427_1024x576.jpg",
     price: 5000,
     stock: 50,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "6",
@@ -60,6 +70,8 @@ export const PRODUCTS = [
       "https://i.pinimg.com/originals/f1/ae/04/f1ae0491447558a46a3bede6df69934a.jpg",
     price: 6000,
     stock: 60,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "7",
@@ -69,6 +81,8 @@ export const PRODUCTS = [
     pictureUrl: "",
     price: 7000,
     stock: 7,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
   {
     id: "8",
@@ -78,5 +92,7 @@ export const PRODUCTS = [
     pictureUrl: "",
     price: 8000,
     stock: 8,
+    brand: "Marca del producto",
+    model: "Modelo del producto",
   },
 ]

@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
                 
             </nav>
         </div>
@@ -87,6 +87,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
 import { useTranslation } from "react-i18next"
+import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Center, Flex, Text } from "@chakra-ui/react"
 // styles
@@ -99,7 +100,7 @@ import {
  * ItemDetail/ItemDetailCharacteristics Component
  * @component
  */
-const ItemDetailCharacteristics = () => {
+const ItemDetailCharacteristics = ({ brand, model }) => {
   const [t] = useTranslation("global")
 
   return (
@@ -116,23 +117,28 @@ const ItemDetailCharacteristics = () => {
       >
         &lt;Flex direction="row" justify="flex-start" center="flex-start" w="100%">
           &lt;Center w="25%" p="10px" bg="brand.primary" borderRadius="5px 0 0 0">
-            &lt;Text>Marca&lt;/Text>
+            &lt;Text>{t("ItemDetailCharacteristics.brand")}&lt;/Text>
           &lt;/Center>
           &lt;Box w="75%" p="10px" bg="brand.secundary" borderRadius="0 5px 0 0">
-            &lt;Text>valor marca&lt;/Text>
+            &lt;Text>{brand}&lt;/Text>
           &lt;/Box>
         &lt;/Flex>
         &lt;Flex direction="row" justify="flex-start" center="flex-start" w="100%">
           &lt;Center w="25%" p="10px" bg="brand.primary" borderRadius="0 0 0 5px">
-            &lt;Text>Modelo&lt;/Text>
+            &lt;Text>{t("ItemDetailCharacteristics.model")}&lt;/Text>
           &lt;/Center>
           &lt;Box w="75%" p="10px" bg="brand.secundary" borderRadius="0 0 5px 0">
-            &lt;Text>valor modelo&lt;/Text>
+            &lt;Text>{model}&lt;/Text>
           &lt;/Box>
         &lt;/Flex>
       &lt;/Flex>
     &lt;/>
   )
+}
+
+ItemDetailCharacteristics.propTypes = {
+  brand: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
 }
 
 export default ItemDetailCharacteristics

@@ -43,7 +43,7 @@ reactComponents['Item'] = Component5;
 import Component6 from '../src/components/ItemCount/index.js';
 reactComponents['ItemCount'] = Component6;
 
-import Component7 from '../src/components/ItemDetail/index.js';
+import Component7 from '../src/pages/ItemDetail/index.js';
 reactComponents['ItemDetail'] = Component7;
 
 import Component8 from '../src/components/ItemDetail/ItemDetailAction.js';
@@ -76,8 +76,20 @@ reactComponents['Logout'] = Component16;
 import Component17 from '../src/components/NavBar/index.js';
 reactComponents['NavBar'] = Component17;
 
-import Component18 from '../src/components/Skeleton/Item.js';
-reactComponents['SkeletonItem'] = Component18;
+import Component18 from '../src/routes/index.js';
+reactComponents['Routes'] = Component18;
 
-import Component19 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component19;
+import Component19 from '../src/components/Skeleton/Item/SkItem.js';
+reactComponents['SkeletonItem'] = Component19;
+
+import Component20 from '../src/components/Skeleton/ItemDetail/SkItemDetailAction.js';
+reactComponents['SkeletonItemDetailAction'] = Component20;
+
+import Component21 from '../src/components/Skeleton/ItemDetail/SkItemDetailContent.js';
+reactComponents['SkeletonItemDetailContent'] = Component21;
+
+import Component22 from '../src/components/Skeleton/ItemDetail/SkItemDetailImgBox.js';
+reactComponents['SkeletonItemDetailImgBox'] = Component22;
+
+import Component23 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component23;

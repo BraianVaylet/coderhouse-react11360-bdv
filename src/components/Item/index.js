@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link as RouterLink } from "react-router-dom"
 // chakra-ui
-import { Flex, Text, Heading, Box } from "@chakra-ui/react"
+import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
 // constants
@@ -9,6 +10,8 @@ import { IMG } from "utils/constants"
 // hooks
 import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 import FavouriteButton from "components/FavouriteButton"
+// routes
+import { ROUTES } from "routes"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -19,6 +22,7 @@ const IMG_SIZE = "35vh"
  * @component
  */
 const Item = ({
+  id,
   title,
   description,
   pictureName,
@@ -43,18 +47,21 @@ const Item = ({
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}
     >
-      <Box
-        bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
-        bgPosition="center"
-        bgSize="cover"
-        bgRepeat="no-repeat"
-        w={IMG_SIZE}
-        minW={IMG_SIZE}
-        maxW={IMG_SIZE}
-        h={IMG_SIZE}
-        minH={IMG_SIZE}
-        maxH={IMG_SIZE}
-      />
+      <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + id}>
+        <Box
+          title={pictureName}
+          bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
+          bgPosition="center"
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          w={IMG_SIZE}
+          minW={IMG_SIZE}
+          maxW={IMG_SIZE}
+          h={IMG_SIZE}
+          minH={IMG_SIZE}
+          maxH={IMG_SIZE}
+        />
+      </Link>
       <FavouriteButton />
       <Flex
         p="10px"
@@ -88,6 +95,7 @@ const Item = ({
 }
 
 Item.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   pictureName: PropTypes.string.isRequired,

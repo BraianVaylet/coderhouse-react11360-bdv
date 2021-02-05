@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Flex, Text } from "@chakra-ui/react"
 // component
@@ -11,7 +12,7 @@ import { titleSizeResponsiveMin1280 } from "styles/utils"
  * ItemDetail/ItemDetailAction Component
  * @component
  */
-const ItemDetailAction = () => {
+const ItemDetailAction = ({ title, price, stock }) => {
   return (
     <>
       <Flex
@@ -31,11 +32,11 @@ const ItemDetailAction = () => {
             <Text fontSize="1rem">Status | Vendidos</Text>
             <FavouriteButton />
           </Flex>
-          <Text fontSize={titleSizeResponsiveMin1280(3)}>Titulo</Text>
+          <Text fontSize={titleSizeResponsiveMin1280(3)}>{title}</Text>
           <Text fontSize={titleSizeResponsiveMin1280(4)} fontWeight="bold">
-            $Precio
+            ${price}
           </Text>
-          <Text>Envío</Text>
+          <Text>(envío gratis)</Text>
         </Flex>
 
         {/* action */}
@@ -47,12 +48,18 @@ const ItemDetailAction = () => {
           h="40%"
         >
           <Box w="100%">
-            <ItemCount stock={5} />
+            <ItemCount stock={stock} />
           </Box>
         </Flex>
       </Flex>
     </>
   )
+}
+
+ItemDetailAction.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  stock: PropTypes.number.isRequired,
 }
 
 export default ItemDetailAction

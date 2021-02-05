@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Center } from "@chakra-ui/react"
 // constants
@@ -8,11 +9,13 @@ import { IMG } from "utils/constants"
  * ItemDetail/ItemDetailImgBox Component
  * @component
  */
-const ItemDetailImgBox = () => {
+const ItemDetailImgBox = ({ pictureName, pictureUrl, pictureId }) => {
   return (
     <Center p="20px" w="100%">
       <Box
-        bgImage={`url(${IMG.NO_IMG})`}
+        key={pictureId}
+        title={pictureName}
+        bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
         bgPosition="center"
         bgSize="cover"
         bgRepeat="no-repeat"
@@ -27,6 +30,12 @@ const ItemDetailImgBox = () => {
       />
     </Center>
   )
+}
+
+ItemDetailImgBox.propTypes = {
+  pictureName: PropTypes.string,
+  pictureUrl: PropTypes.string,
+  pictureId: PropTypes.string.isRequired,
 }
 
 export default ItemDetailImgBox
