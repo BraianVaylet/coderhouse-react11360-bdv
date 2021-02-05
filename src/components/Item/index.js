@@ -20,6 +20,8 @@ const IMG_SIZE = "35vh"
 /**
  * Item Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente Item para ser listado, con link a ItemDetail
  */
 const Item = ({
   id,
@@ -62,7 +64,9 @@ const Item = ({
           maxH={IMG_SIZE}
         />
       </Link>
-      <FavouriteButton />
+      <Box position="absolute" top="3" right="3">
+        <FavouriteButton />
+      </Box>
       <Flex
         p="10px"
         direction="column"

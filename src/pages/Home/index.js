@@ -7,8 +7,14 @@ import ItemList from "components/ItemList"
 // fake data
 import { PRODUCTS } from "test"
 
+/**
+ * Home Page
+ * @component
+ * @author Braian D. Vaylet
+ * @description Page Home
+ */
 const Home = () => {
-  // ! inicio simulacion de data fetch ---
+  // ! Desafío: Catálogo con MAPS y Promises ---
   const [data, setData] = useState(null)
 
   const getDataTest = () => {

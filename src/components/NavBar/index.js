@@ -34,6 +34,8 @@ import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 /**
  * NavBar Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente NavBar con Drawer
  */
 const NavBar = () => {
   const [t] = useTranslation("global")

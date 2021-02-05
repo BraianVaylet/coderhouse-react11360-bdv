@@ -12,6 +12,7 @@ export const PRODUCTS = [
     stock: 10,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 10,
   },
   {
     id: "2",
@@ -24,6 +25,7 @@ export const PRODUCTS = [
     stock: 20,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 20,
   },
   {
     id: "3",
@@ -36,6 +38,7 @@ export const PRODUCTS = [
     stock: 30,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 30,
   },
   {
     id: "4",
@@ -48,6 +51,7 @@ export const PRODUCTS = [
     stock: 40,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 40,
   },
   {
     id: "5",
@@ -60,6 +64,7 @@ export const PRODUCTS = [
     stock: 50,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 50,
   },
   {
     id: "6",
@@ -72,6 +77,7 @@ export const PRODUCTS = [
     stock: 60,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 60,
   },
   {
     id: "7",
@@ -83,6 +89,7 @@ export const PRODUCTS = [
     stock: 7,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 70,
   },
   {
     id: "8",
@@ -94,5 +101,6 @@ export const PRODUCTS = [
     stock: 8,
     brand: "Marca del producto",
     model: "Modelo del producto",
+    calification: 80,
   },
 ]

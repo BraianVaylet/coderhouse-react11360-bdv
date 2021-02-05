@@ -10,6 +10,8 @@ import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 /**
  * ItemCount Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente ItemCount para seleccionar items validando el stock y con acción de agregar al carrito o comprar.
  */
 const ItemCount = ({
   initial = 1,

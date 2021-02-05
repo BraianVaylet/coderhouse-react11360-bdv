@@ -26,6 +26,8 @@ import { MY_BREAKPOINTS } from "styles/theme"
 /**
  * Logout Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente Logout con Modal para desktop y Drawer para movile
  */
 const Logout = () => {
   const [t] = useTranslation("global")

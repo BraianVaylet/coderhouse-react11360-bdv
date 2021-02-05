@@ -11,6 +11,8 @@ const IMG_SIZE = "35vh"
 /**
  * Skeleton/Item/SkeletonItem Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente Skeleton para los items
  */
 const SkeletonItem = () => {
   const backgroundColor = useBackgroundColorTheme("gray.700", "white")

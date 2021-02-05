@@ -19,6 +19,8 @@ import { MY_BREAKPOINTS } from "styles/theme"
 /**
  * ItemList Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente con el listado de items.
  */
 const ItemList = ({ data }) => {
   const [t] = useTranslation("global")

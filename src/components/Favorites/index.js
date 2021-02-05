@@ -7,6 +7,8 @@ import { Flex, Icon, IconButton, Text } from "@chakra-ui/react"
 /**
  * Favorites Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente botón Favoritos con contador
  */
 const Favorites = ({ onClick }) => {
   const countFavs = 0

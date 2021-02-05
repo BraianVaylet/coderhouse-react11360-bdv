@@ -9,6 +9,8 @@ import { titleSizeResponsiveMin1280 } from "styles/utils"
 /**
  * ItemDetail/ItemDetailDescription Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente con la descripción del producto, es una sección del componente ItemDetial.
  */
 const ItemDetailDescription = ({ description }) => {
   const [t] = useTranslation("global")

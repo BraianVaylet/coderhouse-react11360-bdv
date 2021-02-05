@@ -5,14 +5,17 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 // component
 import FavouriteButton from "components/FavouriteButton"
 import ItemCount from "components/ItemCount"
+import Calification from "components/Calification"
 // styles
 import { titleSizeResponsiveMin1280 } from "styles/utils"
 
 /**
  * ItemDetail/ItemDetailAction Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente información principal y acciones del producto, es una seccion del componente ItemDetail.
  */
-const ItemDetailAction = ({ title, price, stock }) => {
+const ItemDetailAction = ({ title, price, stock, calification }) => {
   return (
     <>
       <Flex
@@ -33,6 +36,7 @@ const ItemDetailAction = ({ title, price, stock }) => {
             <FavouriteButton />
           </Flex>
           <Text fontSize={titleSizeResponsiveMin1280(3)}>{title}</Text>
+          <Calification value={calification} />
           <Text fontSize={titleSizeResponsiveMin1280(4)} fontWeight="bold">
             ${price}
           </Text>
@@ -60,6 +64,7 @@ ItemDetailAction.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   stock: PropTypes.number.isRequired,
+  calification: PropTypes.number.isRequired,
 }
 
 export default ItemDetailAction

@@ -6,6 +6,8 @@ import { LogoIconColor } from "assets/icons"
 /**
  * Logo Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente Logo de la plataforma
  */
 const Logo = () => (
   <Flex justify="row" align="center" direction="row">

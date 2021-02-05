@@ -8,6 +8,8 @@ import { IMG } from "utils/constants"
 /**
  * ItemDetail/ItemDetailImgBox Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente con la imagen del producto, es una sección del componente ItemDetial.
  */
 const ItemDetailImgBox = ({ pictureName, pictureUrl, pictureId }) => {
   return (
@@ -25,8 +27,6 @@ const ItemDetailImgBox = ({ pictureName, pictureUrl, pictureId }) => {
         h="300px"
         minH="300px"
         maxH="300px"
-        borderWidth="2px"
-        borderColor="black"
       />
     </Center>
   )

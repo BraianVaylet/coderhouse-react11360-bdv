@@ -8,6 +8,8 @@ import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 /**
  * FavouriteButton Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente botón Favoritos con acción onClick y cambio de icono.
  */
 const FavouriteButton = () => {
   const [favActive, setFavActive] = useState(false)
@@ -22,9 +24,6 @@ const FavouriteButton = () => {
 
   return (
     <IconButton
-      position="absolute"
-      top="3"
-      right="3"
       onClick={handleFavActive}
       icon={
         <Box

@@ -8,6 +8,8 @@ import NavBar from "../../components/NavBar"
 /**
  * Layout Container
  * @component
+ * @author Braian D. Vaylet
+ * @description Contenedor Layout, incluye la NavBar y contiene al router
  */
 const Layout = ({ children }) => (
   <Flex direction="column" justify="flex-start" align="center">

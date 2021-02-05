@@ -5,6 +5,8 @@ import { Center, Skeleton } from "@chakra-ui/react"
 /**
  * Skeleton/ItemDetail/SkeletonItemDetailContent Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente Skeleton para la sección content de ItemDetail
  */
 const SkeletonItemDetailContent = () => {
   return (

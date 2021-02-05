@@ -8,6 +8,8 @@ import { useLocalStorage } from "hooks/useLocalStorage"
 /**
  * ChangeLanguage Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente botón para cambiar el idioma Español-Inglés
  */
 const ChangeLanguage = () => {
   // hooks
@@ -19,6 +21,11 @@ const ChangeLanguage = () => {
   useEffect(() => i18n.changeLanguage(storedValue), [storedValue])
   useEffect(() => setLocalStorage(spanish ? "es" : "en"), [spanish])
 
+  /**
+   * handleLanguage
+   * @function
+   * @returns {boolean} change spanish state
+   */
   const handleLanguage = () => setSpanish(!spanish)
 
   return (

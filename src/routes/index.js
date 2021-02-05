@@ -19,6 +19,8 @@ export const ROUTES = {
 /**
  * Routes Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Router con React-Router
  */
 const Routes = () => {
   return (

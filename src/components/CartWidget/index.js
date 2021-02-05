@@ -7,6 +7,8 @@ import { Icon, IconButton, Flex, Text } from "@chakra-ui/react"
 /**
  * CartWidget Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente carrito con contador
  */
 const CartWidget = ({ onClick = () => {} }) => (
   <IconButton

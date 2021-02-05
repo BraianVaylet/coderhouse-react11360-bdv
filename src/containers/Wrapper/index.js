@@ -11,6 +11,8 @@ import theme from "styles/theme"
 /**
  * Wrapper Container
  * @component
+ * @author Braian D. Vaylet
+ * @description Contenedor Wrapper, da acceso a I18Next y ChakraProvider
  */
 const Wrapper = ({ children }) => {
   return (

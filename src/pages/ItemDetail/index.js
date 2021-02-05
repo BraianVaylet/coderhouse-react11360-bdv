@@ -15,19 +15,25 @@ import SkeletonItemDetailContent from "components/Skeleton/ItemDetail/SkItemDeta
 import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
+// routes
+import { ROUTES } from "routes"
 // fake data
 import { PRODUCTS } from "test"
+import Header from "components/Header"
 
 /**
- * ItemDetail Component
+ * ItemDetail Page
  * @Component
+ * @author Braian D. Vaylet
+ * @description Page ItemDetail, detalle del producto seleccionado
  */
 const ItemDetail = () => {
   const backgroundColor = useBackgroundColorTheme("gray.900", "white")
   const { id } = useParams()
   const routerHistory = useHistory()
+
+  // ! Desafío: Detalle de Producto
   const [item, setItem] = useState(null)
-  console.log("item", item)
 
   useEffect(async () => {
     try {
@@ -47,10 +53,12 @@ const ItemDetail = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const item = PRODUCTS.filter((product) => product.id === id)
-        item.length ? resolve(item[0]) : routerHistory.push("/home")
+        item.length ? resolve(item[0]) : routerHistory.push(ROUTES.HOME)
       }, 2000)
     })
   }
+
+  // ! end
 
   return (
     <Flex
@@ -58,8 +66,9 @@ const ItemDetail = () => {
       justify="flex-start"
       align="center"
       w="100%"
-      p={setValueResponsiveMin1280("100px", "10px")}
+      p={setValueResponsiveMin1280("20px 100px", "10px")}
     >
+      <Header />
       <Flex
         direction="row"
         justify="space-between"
@@ -101,6 +110,7 @@ const ItemDetail = () => {
               title={item.title}
               price={item.price}
               stock={item.stock}
+              calification={item.calification}
             />
           ) : (
             <SkeletonItemDetailAction />
@@ -123,18 +133,18 @@ const ItemDetail = () => {
           {item !== null ? (
             <>
               {/* characteristics */}
-              {item !== null && (
-                <ItemDetailCharacteristics
-                  brand={item.brand}
-                  model={item.model}
-                />
-              )}
+              <ItemDetailCharacteristics
+                brand={item.brand}
+                model={item.model}
+              />
+
               <Divider mt={10} mb={10} />
+
               {/* description */}
-              {item !== null && (
-                <ItemDetailDescription description={item.description} />
-              )}
+              <ItemDetailDescription description={item.description} />
+
               <Divider mt={10} mb={10} />
+
               {/* comments */}
               <ItemDetailQuestionsAndAnswers />
             </>

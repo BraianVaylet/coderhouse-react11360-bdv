@@ -8,6 +8,8 @@ import { titleSizeResponsiveMin1280 } from "styles/utils"
 /**
  * ItemDetail/ItemDetailQuestionsAndAnswers Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente con preguntas y respuestas para el producto, es una seccion de ItemDetail
  */
 const ItemDetailQuestionsAndAnswers = () => {
   const [t] = useTranslation("global")
@@ -18,7 +20,7 @@ const ItemDetailQuestionsAndAnswers = () => {
         {t("ItemDetailQuestionsAndAnswers.title")}
       </Text>
       <Flex></Flex>
-      <Text>esta es una descripción</Text>
+      <Text>Próximamente ⌛</Text>
     </Flex>
   )
 }

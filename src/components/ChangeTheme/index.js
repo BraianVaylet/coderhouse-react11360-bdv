@@ -7,6 +7,8 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 /**
  * ChangeTheme Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente botón para cambiar el theme del proyecto Dark-Light
  */
 const ChangeTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode()

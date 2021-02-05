@@ -12,6 +12,8 @@ import {
 /**
  * ItemDetail/ItemDetailCharacteristics Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente las caracteristicas del producto, es una seccion del componente ItemDetail.
  */
 const ItemDetailCharacteristics = ({ brand, model }) => {
   const [t] = useTranslation("global")
@@ -30,18 +32,18 @@ const ItemDetailCharacteristics = ({ brand, model }) => {
       >
         <Flex direction="row" justify="flex-start" center="flex-start" w="100%">
           <Center w="25%" p="10px" bg="brand.primary" borderRadius="5px 0 0 0">
-            <Text>{t("ItemDetailCharacteristics.brand")}</Text>
+            <Text color="white">{t("ItemDetailCharacteristics.brand")}</Text>
           </Center>
           <Box w="75%" p="10px" bg="brand.secundary" borderRadius="0 5px 0 0">
-            <Text>{brand}</Text>
+            <Text color="white">{brand}</Text>
           </Box>
         </Flex>
         <Flex direction="row" justify="flex-start" center="flex-start" w="100%">
           <Center w="25%" p="10px" bg="brand.primary" borderRadius="0 0 0 5px">
-            <Text>{t("ItemDetailCharacteristics.model")}</Text>
+            <Text color="white">{t("ItemDetailCharacteristics.model")}</Text>
           </Center>
           <Box w="75%" p="10px" bg="brand.secundary" borderRadius="0 0 5px 0">
-            <Text>{model}</Text>
+            <Text color="white">{model}</Text>
           </Box>
         </Flex>
       </Flex>

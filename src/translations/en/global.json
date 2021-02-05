@@ -44,6 +44,8 @@
     "title": "Characteristics",
     "brand": "Brand",
     "model": "Model"
+  },
+  "Header": {
+    "back": "👈 Back"
   }
-
 }

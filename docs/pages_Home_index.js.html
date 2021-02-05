@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Item/index.js</title>
+  <title> pages/Home/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Item/index.js</h1>
+                    <h1>pages/Home/index.js</h1>
                 </header>
                 
 
@@ -85,116 +85,59 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-import { Link as RouterLink } from "react-router-dom"
+            <pre class="prettyprint source linenums"><code>// react
+import React, { useState, useEffect } from "react"
 // chakra-ui
-import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 // components
-import ItemCount from "components/ItemCount"
-// constants
-import { IMG } from "utils/constants"
-// hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
-import FavouriteButton from "components/FavouriteButton"
-// routes
-import { ROUTES } from "routes"
-
-// const
-const MAX_HEIGHT = "75vh"
-const IMG_SIZE = "35vh"
+import ItemList from "components/ItemList"
+// fake data
+import { PRODUCTS } from "test"
 
 /**
- * Item Component
+ * Home Page
  * @component
  * @author Braian D. Vaylet
- * @description Componente Item para ser listado, con link a ItemDetail
+ * @description Page Home
  */
-const Item = ({
-  id,
-  title,
-  description,
-  pictureName,
-  pictureUrl = null,
-  price,
-  stock,
-  onAdd = () => {},
-}) => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
+const Home = () => {
+  // ! Desafío: Catálogo con MAPS y Promises ---
+  const [data, setData] = useState(null)
+
+  const getDataTest = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(PRODUCTS)
+      }, 2000)
+    })
+  }
+
+  // * OPC1: con async-await
+  useEffect(async () => {
+    try {
+      const data = await getDataTest()
+      setData(data)
+    } catch (error) {
+      console.log("error", error)
+    }
+  }, [])
+
+  // * OPC2: con promesas
+  useEffect(() => {
+    getDataTest()
+      .then((res) => setData(res))
+      .catch((error) => console.log("error", error))
+  }, [])
+  // ! fin ---
 
   return (
-    &lt;Flex
-      direction="column"
-      align="center"
-      justify="flex-start"
-      borderRadius="2.5px"
-      backgroundColor={backgroundColor}
-      boxShadow="0.75rem 0.75rem #2564f7"
-      position="relative"
-      m="1.5rem"
-      minH={MAX_HEIGHT}
-      maxH={MAX_HEIGHT}
-      h={MAX_HEIGHT}
-    >
-      &lt;Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + id}>
-        &lt;Box
-          title={pictureName}
-          bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
-          bgPosition="center"
-          bgSize="cover"
-          bgRepeat="no-repeat"
-          w={IMG_SIZE}
-          minW={IMG_SIZE}
-          maxW={IMG_SIZE}
-          h={IMG_SIZE}
-          minH={IMG_SIZE}
-          maxH={IMG_SIZE}
-        />
-      &lt;/Link>
-      &lt;FavouriteButton />
-      &lt;Flex
-        p="10px"
-        direction="column"
-        justify="space-between"
-        align="center"
-        w="100%"
-        h={IMG_SIZE}
-        minH={IMG_SIZE}
-        maxH={IMG_SIZE}
-      >
-        &lt;Flex
-          direction="column"
-          align="flex-start"
-          justify="center"
-          w="100%"
-          h="40%"
-        >
-          &lt;Heading fontSize="2.5rem" mb="10px">
-            ${price}
-          &lt;/Heading>
-          &lt;Text fontSize=".75rem">{title}&lt;/Text>
-          {/* &lt;Text fontSize=".75rem">{description}&lt;/Text> */}
-        &lt;/Flex>
-        &lt;Box w="80%" h="60%">
-          &lt;ItemCount stock={stock} onAdd={onAdd} />
-        &lt;/Box>
-      &lt;/Flex>
+    &lt;Flex direction="column" justify="flex-start" align="center" minH="100vh">
+      &lt;ItemList data={data} />
     &lt;/Flex>
   )
 }
 
-Item.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  pictureName: PropTypes.string.isRequired,
-  pictureUrl: PropTypes.string,
-  price: PropTypes.number.isRequired,
-  stock: PropTypes.number.isRequired,
-  onAdd: PropTypes.func,
-}
-
-export default Item
+export default Home
 </code></pre>
         </article>
     </section>
