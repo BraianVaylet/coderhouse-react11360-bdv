@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react"
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 
 /**
  * ItemCount Component
@@ -19,7 +19,7 @@ const ItemCount = ({
   onAdd = () => {},
   onBuy = () => {},
 }) => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "gray.200")
+  const backgroundColor = useSetColorTheme("gray.900", "gray.200")
   const toast = useToast()
   const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)

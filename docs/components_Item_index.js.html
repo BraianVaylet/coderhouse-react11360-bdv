@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
                 
             </nav>
         </div>
@@ -95,7 +95,7 @@ import ItemCount from "components/ItemCount"
 // constants
 import { IMG } from "utils/constants"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 import FavouriteButton from "components/FavouriteButton"
 // routes
 import { ROUTES } from "routes"
@@ -120,7 +120,7 @@ const Item = ({
   stock,
   onAdd = () => {},
 }) => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
+  const backgroundColor = useSetColorTheme("gray.900", "white")
 
   return (
     &lt;Flex
@@ -151,7 +151,9 @@ const Item = ({
           maxH={IMG_SIZE}
         />
       &lt;/Link>
-      &lt;FavouriteButton />
+      &lt;Box position="absolute" top="3" right="3">
+        &lt;FavouriteButton item={{ title, pictureUrl, price, id }} />
+      &lt;/Box>
       &lt;Flex
         p="10px"
         direction="column"

@@ -40,62 +40,65 @@ reactComponents['Favorites'] = Component4;
 import Component5 from '../src/components/FavouriteButton/index.js';
 reactComponents['FavouriteButton'] = Component5;
 
-import Component6 from '../src/pages/Home/index.js';
-reactComponents['Home'] = Component6;
+import Component6 from '../src/components/Header/index.js';
+reactComponents['Header'] = Component6;
 
-import Component7 from '../src/components/Item/index.js';
-reactComponents['Item'] = Component7;
+import Component7 from '../src/pages/Home/index.js';
+reactComponents['Home'] = Component7;
 
-import Component8 from '../src/components/ItemCount/index.js';
-reactComponents['ItemCount'] = Component8;
+import Component8 from '../src/components/Item/index.js';
+reactComponents['Item'] = Component8;
 
-import Component9 from '../src/pages/ItemDetail/index.js';
-reactComponents['ItemDetail'] = Component9;
+import Component9 from '../src/components/ItemCount/index.js';
+reactComponents['ItemCount'] = Component9;
 
-import Component10 from '../src/components/ItemDetail/ItemDetailAction.js';
-reactComponents['ItemDetailAction'] = Component10;
+import Component10 from '../src/pages/ItemDetail/index.js';
+reactComponents['ItemDetail'] = Component10;
 
-import Component11 from '../src/components/ItemDetail/ItemDetailCharacteristics.js';
-reactComponents['ItemDetailCharacteristics'] = Component11;
+import Component11 from '../src/components/ItemDetail/ItemDetailAction.js';
+reactComponents['ItemDetailAction'] = Component11;
 
-import Component12 from '../src/components/ItemDetail/ItemDetailDescription.js';
-reactComponents['ItemDetailDescription'] = Component12;
+import Component12 from '../src/components/ItemDetail/ItemDetailCharacteristics.js';
+reactComponents['ItemDetailCharacteristics'] = Component12;
 
-import Component13 from '../src/components/ItemDetail/ItemDetailImgBox.js';
-reactComponents['ItemDetailImgBox'] = Component13;
+import Component13 from '../src/components/ItemDetail/ItemDetailDescription.js';
+reactComponents['ItemDetailDescription'] = Component13;
 
-import Component14 from '../src/components/ItemDetail/ItemDetailQuestionsAndAnswers.js';
-reactComponents['ItemDetailQuestionsAndAnswers'] = Component14;
+import Component14 from '../src/components/ItemDetail/ItemDetailImgBox.js';
+reactComponents['ItemDetailImgBox'] = Component14;
 
-import Component15 from '../src/components/ItemList/index.js';
-reactComponents['ItemList'] = Component15;
+import Component15 from '../src/components/ItemDetail/ItemDetailQuestionsAndAnswers.js';
+reactComponents['ItemDetailQuestionsAndAnswers'] = Component15;
 
-import Component16 from '../src/containers/Layout/index.js';
-reactComponents['Layout'] = Component16;
+import Component16 from '../src/components/ItemList/index.js';
+reactComponents['ItemList'] = Component16;
 
-import Component17 from '../src/components/Logo/index.js';
-reactComponents['Logo'] = Component17;
+import Component17 from '../src/containers/Layout/index.js';
+reactComponents['Layout'] = Component17;
 
-import Component18 from '../src/components/Logout/index.js';
-reactComponents['Logout'] = Component18;
+import Component18 from '../src/components/Logo/index.js';
+reactComponents['Logo'] = Component18;
 
-import Component19 from '../src/components/NavBar/index.js';
-reactComponents['NavBar'] = Component19;
+import Component19 from '../src/components/Logout/index.js';
+reactComponents['Logout'] = Component19;
 
-import Component20 from '../src/routes/index.js';
-reactComponents['Routes'] = Component20;
+import Component20 from '../src/components/NavBar/index.js';
+reactComponents['NavBar'] = Component20;
 
-import Component21 from '../src/components/Skeleton/Item/SkItem.js';
-reactComponents['SkeletonItem'] = Component21;
+import Component21 from '../src/routes/index.js';
+reactComponents['Routes'] = Component21;
 
-import Component22 from '../src/components/Skeleton/ItemDetail/SkItemDetailAction.js';
-reactComponents['SkeletonItemDetailAction'] = Component22;
+import Component22 from '../src/components/Skeleton/Item/SkItem.js';
+reactComponents['SkeletonItem'] = Component22;
 
-import Component23 from '../src/components/Skeleton/ItemDetail/SkItemDetailContent.js';
-reactComponents['SkeletonItemDetailContent'] = Component23;
+import Component23 from '../src/components/Skeleton/ItemDetail/SkItemDetailAction.js';
+reactComponents['SkeletonItemDetailAction'] = Component23;
 
-import Component24 from '../src/components/Skeleton/ItemDetail/SkItemDetailImgBox.js';
-reactComponents['SkeletonItemDetailImgBox'] = Component24;
+import Component24 from '../src/components/Skeleton/ItemDetail/SkItemDetailContent.js';
+reactComponents['SkeletonItemDetailContent'] = Component24;
 
-import Component25 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component25;
+import Component25 from '../src/components/Skeleton/ItemDetail/SkItemDetailImgBox.js';
+reactComponents['SkeletonItemDetailImgBox'] = Component25;
+
+import Component26 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component26;

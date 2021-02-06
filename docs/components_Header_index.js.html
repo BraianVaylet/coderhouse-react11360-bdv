@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Logout</title>
+  <title> components/Header/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,171 +75,47 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Logout</h1>
+                    <p>Source</p>
+                    <h1>components/Header/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltLogout  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Logout">
-        <a class="href-link" href="#Logout">#</a>
-        
-        <span class="code-name">
-            
-                &ltLogout  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Componente Logout con Modal para desktop y Drawer para movile</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Braian D. Vaylet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_Logout_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_Logout_index.js.html">components/Logout/index.js</a>, <a href="components_Logout_index.js.html#line32">line 32</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react"
+import { useTranslation } from "react-i18next"
+import { useHistory } from "react-router-dom"
+// chakra-ui
+import { Flex, Text, Button } from "@chakra-ui/react"
+// routes
+import { ROUTES } from "routes"
+
+/**
+ * Header Component
+ * @component
+ * @author Braian D. Vaylet
+ * @description Componente Header con info y opcion de back
+ */
+const Header = () => {
+  const [t] = useTranslation("global")
+  const routerHistory = useHistory()
+
+  return (
+    &lt;Flex direction="row" align="center" justify="flex-start" w="100%" pb={4}>
+      &lt;Button onClick={() => routerHistory.push(ROUTES.HOME)}>
+        &lt;Text>{t("Header.back")}&lt;/Text>
+      &lt;/Button>
+    &lt;/Flex>
+  )
+}
+
+export default Header
+</code></pre>
+        </article>
+    </section>
 
 
 

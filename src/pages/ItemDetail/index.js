@@ -12,7 +12,7 @@ import SkeletonItemDetailImgBox from "components/Skeleton/ItemDetail/SkItemDetai
 import SkeletonItemDetailAction from "components/Skeleton/ItemDetail/SkItemDetailAction"
 import SkeletonItemDetailContent from "components/Skeleton/ItemDetail/SkItemDetailContent"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 // routes
@@ -28,7 +28,7 @@ import Header from "components/Header"
  * @description Page ItemDetail, detalle del producto seleccionado
  */
 const ItemDetail = () => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
+  const backgroundColor = useSetColorTheme("gray.900", "white")
   const { id } = useParams()
   const routerHistory = useHistory()
 
@@ -107,10 +107,12 @@ const ItemDetail = () => {
         >
           {item !== null ? (
             <ItemDetailAction
+              id={item.id}
               title={item.title}
               price={item.price}
               stock={item.stock}
               calification={item.calification}
+              pictureUrl={item.pictureUrl}
             />
           ) : (
             <SkeletonItemDetailAction />

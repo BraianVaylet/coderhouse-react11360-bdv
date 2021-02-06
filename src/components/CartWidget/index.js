@@ -14,14 +14,7 @@ const CartWidget = ({ onClick = () => {} }) => (
   <IconButton
     variant="ghost"
     size="lg"
-    transitionDuration="0.75s"
-    transitionProperty="transform"
-    _hover={{
-      transform: "scale(1.1)",
-    }}
-    _focus={{
-      borderStyle: "none",
-    }}
+    p="0 5px"
     onClick={onClick}
     icon={
       <Flex direction="row" align="center">

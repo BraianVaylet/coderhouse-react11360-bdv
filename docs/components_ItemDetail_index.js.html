@@ -95,7 +95,7 @@ import ItemDetailCharacteristics from "./ItemDetailCharacteristics"
 import ItemDetailDescription from "./ItemDetailDescription"
 import ItemDetailQuestionsAndAnswers from "./ItemDetailQuestionsAndAnswers"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 
@@ -104,7 +104,7 @@ import { setValueResponsiveMin1280 } from "styles/utils"
  * @Component
  */
 const ItemDetail = () => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
+  const backgroundColor = useSetColorTheme("gray.900", "white")
 
   return (
     &lt;Flex

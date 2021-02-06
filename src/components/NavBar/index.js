@@ -29,7 +29,7 @@ import Logout from "components/Logout"
 import { MY_BREAKPOINTS } from "styles/theme"
 import Favorites from "components/Favorites"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 
 /**
  * NavBar Component
@@ -39,7 +39,7 @@ import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
  */
 const NavBar = () => {
   const [t] = useTranslation("global")
-  const backgroundColor = useBackgroundColorTheme(
+  const backgroundColor = useSetColorTheme(
     "withOpacity.gray.800",
     "withOpacity.white"
   )

@@ -2,7 +2,7 @@ import React from "react"
 // chakra-ui
 import { Flex, Skeleton } from "@chakra-ui/react"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 
 // const
 const MAX_HEIGHT = "70vh"
@@ -15,7 +15,7 @@ const IMG_SIZE = "35vh"
  * @description Componente Skeleton para los items
  */
 const SkeletonItem = () => {
-  const backgroundColor = useBackgroundColorTheme("gray.700", "white")
+  const backgroundColor = useSetColorTheme("gray.700", "white")
 
   return (
     <Flex

@@ -1,10 +1,10 @@
-import React from "react"
+import React, { lazy } from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 // containers
 import Layout from "containers/Layout"
-// pages
-import Home from "pages/Home"
-import ItemDetail from "pages/ItemDetail"
+// pages lazy load
+const Home = lazy(() => import("pages/Home"))
+const ItemDetail = lazy(() => import("pages/ItemDetail"))
 
 /**
  * Project routes

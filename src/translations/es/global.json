@@ -47,5 +47,12 @@
   },
   "Header": {
     "back": "👈 Volver"
+  },
+  "FavouriteButton": {
+    "deleteFromFavourites": "Eliminar de favoritos 💔",
+    "addToFavourites": "Agregar a favoritos 😍"
+  },
+  "Favourites": {
+    "clean": "Limpiar favoritos"
   }
 }

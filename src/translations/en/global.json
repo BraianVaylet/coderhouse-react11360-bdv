@@ -47,5 +47,12 @@
   },
   "Header": {
     "back": "👈 Back"
+  },
+  "FavouriteButton": {
+    "deleteFromFavourites": "Delete from favourites 💔",
+    "addToFavourites": "Add to favourites 😍"
+  },
+  "Favourites": {
+    "clean": "Clean favourites"
   }
 }

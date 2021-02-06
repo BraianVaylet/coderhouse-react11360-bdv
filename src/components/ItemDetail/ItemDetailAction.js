@@ -15,7 +15,14 @@ import { titleSizeResponsiveMin1280 } from "styles/utils"
  * @author Braian D. Vaylet
  * @description Componente información principal y acciones del producto, es una seccion del componente ItemDetail.
  */
-const ItemDetailAction = ({ title, price, stock, calification }) => {
+const ItemDetailAction = ({
+  title,
+  price,
+  stock,
+  calification,
+  pictureUrl,
+  id,
+}) => {
   return (
     <>
       <Flex
@@ -33,7 +40,7 @@ const ItemDetailAction = ({ title, price, stock, calification }) => {
         >
           <Flex direction="row" align="center" justify="space-between" w="100%">
             <Text fontSize="1rem">Status | Vendidos</Text>
-            <FavouriteButton />
+            <FavouriteButton item={{ title, pictureUrl, price, id }} />
           </Flex>
           <Text fontSize={titleSizeResponsiveMin1280(3)}>{title}</Text>
           <Calification value={calification} />
@@ -65,6 +72,8 @@ ItemDetailAction.propTypes = {
   price: PropTypes.number.isRequired,
   stock: PropTypes.number.isRequired,
   calification: PropTypes.number.isRequired,
+  pictureUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 }
 
 export default ItemDetailAction

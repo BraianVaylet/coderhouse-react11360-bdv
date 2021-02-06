@@ -8,7 +8,7 @@ import ItemCount from "components/ItemCount"
 // constants
 import { IMG } from "utils/constants"
 // hooks
-import useBackgroundColorTheme from "hooks/useBackgroundColorTheme"
+import useSetColorTheme from "hooks/useSetColorTheme"
 import FavouriteButton from "components/FavouriteButton"
 // routes
 import { ROUTES } from "routes"
@@ -33,7 +33,7 @@ const Item = ({
   stock,
   onAdd = () => {},
 }) => {
-  const backgroundColor = useBackgroundColorTheme("gray.900", "white")
+  const backgroundColor = useSetColorTheme("gray.900", "white")
 
   return (
     <Flex
@@ -65,7 +65,7 @@ const Item = ({
         />
       </Link>
       <Box position="absolute" top="3" right="3">
-        <FavouriteButton />
+        <FavouriteButton item={{ title, pictureUrl, price, id }} />
       </Box>
       <Flex
         p="10px"

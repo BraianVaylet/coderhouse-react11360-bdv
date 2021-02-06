@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
                 
             </nav>
         </div>
@@ -85,11 +85,28 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
+            <pre class="prettyprint source linenums"><code>import React, { useContext } from "react"
 import PropTypes from "prop-types"
+import { useTranslation } from "react-i18next"
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
+import { ChevronDownIcon } from "@chakra-ui/icons"
 // chakra-ui
-import { Flex, Icon, IconButton, Text } from "@chakra-ui/react"
+import {
+  Flex,
+  Icon,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+  Image,
+  Button,
+  MenuDivider,
+  Center,
+} from "@chakra-ui/react"
+// context
+import { FavouriteContext } from "context"
 
 /**
  * Favorites Component
@@ -98,31 +115,65 @@ import { Flex, Icon, IconButton, Text } from "@chakra-ui/react"
  * @description Componente botón Favoritos con contador
  */
 const Favorites = ({ onClick }) => {
-  const countFavs = 0
+  const { favourites, cleanFavourites } = useContext(FavouriteContext)
+  const [t] = useTranslation("global")
+  const countFavs = favourites.length
+
+  /**
+   * renderFavourites
+   * @function
+   * @returns {undefined} MenuItem components
+   * @description Retorna una lista de favoritos seleccionados en como un item del menú
+   */
+  const renderFavourites = () => {
+    return favourites.map((fav) => {
+      return (
+        &lt;MenuItem key={fav.id} minH="48px">
+          &lt;Image
+            boxSize="2rem"
+            borderRadius="full"
+            src={fav.pictureUrl}
+            alt={fav.title}
+            mr="12px"
+          />
+          &lt;Text>
+            &lt;b>${fav.price}&lt;/b> | {fav.title}
+          &lt;/Text>
+        &lt;/MenuItem>
+      )
+    })
+  }
+
   return (
-    &lt;IconButton
-      variant="ghost"
-      size="lg"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      _hover={{
-        transform: "scale(1.1)",
-      }}
-      _focus={{
-        borderStyle: "none",
-      }}
-      onClick={onClick}
-      icon={
-        &lt;Flex direction="row" align="center">
-          {countFavs > 0 ? (
-            &lt;Icon as={MdFavorite} boxSize="1.5rem" />
-          ) : (
-            &lt;Icon as={MdFavoriteBorder} boxSize="1.5rem" />
-          )}
-          &lt;Text>{countFavs}&lt;/Text>
-        &lt;/Flex>
-      }
-    />
+    &lt;Menu>
+      &lt;MenuButton
+        as={IconButton}
+        variant="ghost"
+        rightIcon={countFavs > 0 &amp;&amp; &lt;ChevronDownIcon />}
+        size="lg"
+        p="0 5px"
+        onClick={onClick}
+        leftIcon={
+          &lt;Flex direction="row" align="center">
+            {countFavs > 0 ? (
+              &lt;Icon as={MdFavorite} boxSize="1.5rem" />
+            ) : (
+              &lt;Icon as={MdFavoriteBorder} boxSize="1.5rem" />
+            )}
+            &lt;Text>({countFavs})&lt;/Text>
+          &lt;/Flex>
+        }
+      />
+      {countFavs > 0 &amp;&amp; (
+        &lt;MenuList>
+          {renderFavourites()}
+          &lt;MenuDivider />
+          &lt;Center>
+            &lt;Button onClick={cleanFavourites}>{t("Favourites.clean")}&lt;/Button>
+          &lt;/Center>
+        &lt;/MenuList>
+      )}
+    &lt;/Menu>
   )
 }
 
