@@ -18,6 +18,7 @@
     "noStock": "No hay stock",
     "available": "Disponible",
     "addToCart": "Agregar al carrito",
+    "addedToCart": "Se agrego al carrito 👍",
     "buyNow": "Comprar ahora",
     "canNotBuy": "Las compras estan desactivadas 💔",
     "canNotBuyDescription": "No es posible comprar este artículo en este momento.",
@@ -54,5 +55,13 @@
   },
   "Favourites": {
     "clean": "Limpiar favoritos"
+  },
+  "CartWidget": {
+    "clean": "Limpiar carrito",
+    "goToCart": "Ir al carrito",
+    "deleteItem": "Quitar del carrito"
+  },
+  "MenuItemProduct": {
+    "deleteItem": "Quitar producto"
   }
 }

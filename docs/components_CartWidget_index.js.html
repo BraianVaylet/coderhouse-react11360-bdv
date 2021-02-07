@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
                 
             </nav>
         </div>
@@ -85,11 +85,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
+            <pre class="prettyprint source linenums"><code>import React, { useContext, useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 import { MdShoppingCart } from "react-icons/md"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Icon, IconButton, Flex, Text } from "@chakra-ui/react"
+import {
+  Icon,
+  IconButton,
+  Flex,
+  Text,
+  MenuButton,
+  Menu,
+  MenuList,
+  MenuDivider,
+  Button,
+  Tooltip,
+  Center,
+  Link,
+} from "@chakra-ui/react"
+import { ChevronDownIcon } from "@chakra-ui/icons"
+// context
+import { CartContext } from "context"
+// hooks
+import useSetColorTheme from "hooks/useSetColorTheme"
+// routes
+import { ROUTES } from "routes"
+// styles
+import { TOOLTIP_TIME } from "styles/theme"
+import MenuItemProduct from "components/MenuItemProduct"
 
 /**
  * CartWidget Component
@@ -97,20 +121,137 @@ import { Icon, IconButton, Flex, Text } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description Componente carrito con contador
  */
-const CartWidget = ({ onClick = () => {} }) => (
-  &lt;IconButton
-    variant="ghost"
-    size="lg"
-    p="0 5px"
-    onClick={onClick}
-    icon={
-      &lt;Flex direction="row" align="center">
-        &lt;Icon as={MdShoppingCart} boxSize="1.5rem" />
-        &lt;Text>(0)&lt;/Text>
-      &lt;/Flex>
+const CartWidget = ({ onClick = () => {} }) => {
+  const { cartItems, cleanCart, deleteItemFromCart } = useContext(CartContext)
+  const [t] = useTranslation("global")
+  const backgroundColorTooltip = useSetColorTheme("black", "white")
+  const [items, setItems] = useState([])
+
+  const cartCount = cartItems.length
+
+  useEffect(() => {
+    handleItemCount()
+  }, [cartItems])
+
+  /**
+   * handleTotalPrice
+   * @function
+   * @description Calculo el total del carrito
+   */
+  const handleTotalPrice = () => {
+    let total = 0
+    for (let i = 0; i &lt; cartItems.length; i++) {
+      total = total + cartItems[i].price
     }
-  />
-)
+    return total
+  }
+
+  /**
+   * handleItemCount
+   * @function
+   * @description cuento cuantos elemntos como item hay en el carrito
+   */
+  const handleItemCount = () => {
+    // obtengo contadores de elementos repetidos
+    const counters = cartItems.reduce((acc, item) => {
+      acc[item.id] = ++acc[item.id] || 1
+      return acc
+    }, {})
+
+    // elimino repetidos
+    const idArr = cartItems.map((item) => item.id)
+    const newArr = new Set(idArr)
+    const idArrNoRepeat = [...newArr]
+
+    // nuevo array con info y contador
+    const auxArr = []
+    for (let i = 0; i &lt; idArrNoRepeat.length; i++) {
+      const data = cartItems.find((itemCart) => {
+        return itemCart.id === idArrNoRepeat[i]
+      })
+      let newData = data
+      newData = { ...data, count: counters[data.id] }
+      data &amp;&amp; auxArr.push(newData)
+    }
+
+    setItems(auxArr)
+  }
+
+  /**
+   * renderCartItems
+   * @function
+   * @returns {undefined} MenuItem components
+   * @description Retorna los productos agregados al carrito como un item del menú
+   */
+  const renderCartItems = () => {
+    return items.map((item, index) => {
+      return (
+        &lt;MenuItemProduct
+          key={index}
+          item={item}
+          onDelete={() => deleteItemFromCart(item)}
+        />
+      )
+    })
+  }
+
+  return (
+    &lt;Menu>
+      &lt;MenuButton
+        as={IconButton}
+        variant="ghost"
+        rightIcon={cartCount > 0 &amp;&amp; &lt;ChevronDownIcon />}
+        size="lg"
+        p="0 5px"
+        onClick={onClick}
+        icon={
+          &lt;Flex direction="row" align="center">
+            &lt;Icon as={MdShoppingCart} boxSize="1.5rem" />
+            &lt;Text>({cartCount})&lt;/Text>
+          &lt;/Flex>
+        }
+      />
+      {cartCount > 0 &amp;&amp; (
+        &lt;MenuList>
+          {renderCartItems()}
+          &lt;MenuDivider />
+          &lt;Center>
+            &lt;Text fontSize="1.25rem" fontWeight="bold">
+              TOTAL: ${handleTotalPrice()}
+            &lt;/Text>
+          &lt;/Center>
+          &lt;MenuDivider />
+          &lt;Flex direction="row" align="center" justify="flex-end">
+            &lt;Tooltip
+              hasArrow
+              label={t("CartWidget.goToCart")}
+              bg={backgroundColorTooltip}
+              fontSize="md"
+              openDelay={TOOLTIP_TIME}
+              color
+            >
+              &lt;Button as={Link} mr={2} size="lg" to={ROUTES.CART}>
+                🛒
+              &lt;/Button>
+            &lt;/Tooltip>
+            &lt;Tooltip
+              hasArrow
+              label={t("CartWidget.clean")}
+              bg={backgroundColorTooltip}
+              fontSize="md"
+              openDelay={TOOLTIP_TIME}
+              color
+            >
+              &lt;Button mr={2} size="lg" onClick={cleanCart}>
+                🗑
+              &lt;/Button>
+            &lt;/Tooltip>
+          &lt;/Flex>
+        &lt;/MenuList>
+      )}
+    &lt;/Menu>
+  )
+}
 
 CartWidget.propTypes = {
   onClick: PropTypes.func,

@@ -7,6 +7,8 @@ export const MY_BREAKPOINTS = {
   BREAK_MIN_1280: "(min-width: 1280px)",
 }
 
+export const TOOLTIP_TIME = 250
+
 // my chakra theme
 const theme = extendTheme({
   ...chakraTheme,

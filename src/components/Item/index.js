@@ -12,6 +12,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import FavouriteButton from "components/FavouriteButton"
 // routes
 import { ROUTES } from "routes"
+import CartCount from "components/CartCount"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -83,15 +84,21 @@ const Item = ({
           justify="center"
           w="100%"
           h="40%"
+          // position="relative"
         >
-          <Heading fontSize="2.5rem" mb="10px">
-            ${price}
-          </Heading>
-          <Text fontSize=".75rem">{title}</Text>
+          <Flex w="100%" direction="row" align="center" justify="space-between">
+            <Heading fontSize="2.5rem" mb="10px">
+              ${price}
+            </Heading>
+            <Box mb={2} mr={2}>
+              <CartCount item={{ title, pictureUrl, price, id }} />
+            </Box>
+          </Flex>
+          <Text fontSize="1rem">{title}</Text>
           {/* <Text fontSize=".75rem">{description}</Text> */}
         </Flex>
         <Box w="80%" h="60%">
-          <ItemCount stock={stock} onAdd={onAdd} />
+          <ItemCount stock={stock} item={{ id, title, price, pictureUrl }} />
         </Box>
       </Flex>
     </Flex>

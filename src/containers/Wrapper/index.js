@@ -5,10 +5,10 @@ import { I18nextProvider } from "react-i18next"
 import i18next from "translations"
 // ui
 import { ChakraProvider, ColorModeScript, CSSReset } from "@chakra-ui/react"
+// containers
+import WrapperContext from "containers/WrapperContext"
 // styles
 import theme from "styles/theme"
-// context
-import { FavouriteContextProvider } from "context"
 
 /**
  * Wrapper Container
@@ -18,8 +18,8 @@ import { FavouriteContextProvider } from "context"
  */
 const Wrapper = ({ children }) => {
   return (
-    <FavouriteContextProvider>
-      <Suspense fallback={<div />}>
+    <Suspense fallback={<div />}>
+      <WrapperContext>
         <I18nextProvider i18n={i18next}>
           <ChakraProvider theme={theme}>
             <CSSReset />
@@ -27,8 +27,8 @@ const Wrapper = ({ children }) => {
             {children}
           </ChakraProvider>
         </I18nextProvider>
-      </Suspense>
-    </FavouriteContextProvider>
+      </WrapperContext>
+    </Suspense>
   )
 }
 

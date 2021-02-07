@@ -10,16 +10,20 @@ import {
   IconButton,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
   Text,
-  Image,
   Button,
   MenuDivider,
-  Center,
+  Tooltip,
 } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
+// hooks
+import useSetColorTheme from "hooks/useSetColorTheme"
+// styles
+import { TOOLTIP_TIME } from "styles/theme"
+// routes
+import MenuItemProduct from "components/MenuItemProduct"
 
 /**
  * Favorites Component
@@ -28,8 +32,12 @@ import { FavouriteContext } from "context"
  * @description Componente botón Favoritos con contador
  */
 const Favorites = ({ onClick }) => {
-  const { favourites, cleanFavourites } = useContext(FavouriteContext)
+  const { favourites, cleanFavourites, deleteItemFromFavourites } = useContext(
+    FavouriteContext
+  )
   const [t] = useTranslation("global")
+  const backgroundColorTooltip = useSetColorTheme("black", "white")
+
   const countFavs = favourites.length
 
   /**
@@ -39,20 +47,13 @@ const Favorites = ({ onClick }) => {
    * @description Retorna una lista de favoritos seleccionados en como un item del menú
    */
   const renderFavourites = () => {
-    return favourites.map((fav) => {
+    return favourites.map((fav, index) => {
       return (
-        <MenuItem key={fav.id} minH="48px">
-          <Image
-            boxSize="2rem"
-            borderRadius="full"
-            src={fav.pictureUrl}
-            alt={fav.title}
-            mr="12px"
-          />
-          <Text>
-            <b>${fav.price}</b> | {fav.title}
-          </Text>
-        </MenuItem>
+        <MenuItemProduct
+          key={index}
+          item={fav}
+          onDelete={() => deleteItemFromFavourites(fav)}
+        />
       )
     })
   }
@@ -81,9 +82,20 @@ const Favorites = ({ onClick }) => {
         <MenuList>
           {renderFavourites()}
           <MenuDivider />
-          <Center>
-            <Button onClick={cleanFavourites}>{t("Favourites.clean")}</Button>
-          </Center>
+          <Flex direction="row" align="center" justify="flex-end">
+            <Tooltip
+              hasArrow
+              label={t("Favourites.clean")}
+              bg={backgroundColorTooltip}
+              fontSize="md"
+              openDelay={TOOLTIP_TIME}
+              color
+            >
+              <Button mr={2} size="lg" onClick={cleanFavourites}>
+                🗑
+              </Button>
+            </Tooltip>
+          </Flex>
         </MenuList>
       )}
     </Menu>

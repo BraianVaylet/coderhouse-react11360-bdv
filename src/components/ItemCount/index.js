@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
@@ -6,6 +6,8 @@ import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react"
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// context
+import { CartContext } from "context"
 
 /**
  * ItemCount Component
@@ -13,12 +15,8 @@ import useSetColorTheme from "hooks/useSetColorTheme"
  * @author Braian D. Vaylet
  * @description Componente ItemCount para seleccionar items validando el stock y con acción de agregar al carrito o comprar.
  */
-const ItemCount = ({
-  initial = 1,
-  stock,
-  onAdd = () => {},
-  onBuy = () => {},
-}) => {
+const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
+  const { addItemToCart } = useContext(CartContext)
   const backgroundColor = useSetColorTheme("gray.900", "gray.200")
   const toast = useToast()
   const [t] = useTranslation("global")
@@ -66,15 +64,25 @@ const ItemCount = ({
    * @function
    * @returns {undefined} return a function || a toast
    */
-  const handleOnAddClick = () =>
-    onAdd(count) ||
+  const handleOnAddClick = () => {
+    addItemToCart(handleItemsByCounter())
     toast({
-      title: t("ItemCount.canNotAdd"),
-      description: t("ItemCount.canNotAddDescription"),
-      status: "info",
+      title: t("ItemCount.addedToCart"),
+      description: "",
+      status: "success",
+      position: "bottom-right",
       duration: 5000,
       isClosable: true,
     })
+  }
+
+  const handleItemsByCounter = () => {
+    const arrItems = []
+    for (let i = 0; i < count; i++) {
+      arrItems.push(item)
+    }
+    return arrItems
+  }
 
   return (
     <Flex
@@ -141,7 +149,12 @@ const ItemCount = ({
 ItemCount.propTypes = {
   stock: PropTypes.number.isRequired,
   initial: PropTypes.number,
-  onAdd: PropTypes.func,
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    pictureUrl: PropTypes.string,
+  }).isRequired,
   onBuy: PropTypes.func,
 }
 

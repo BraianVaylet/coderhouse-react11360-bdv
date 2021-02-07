@@ -18,7 +18,8 @@
     "noStock": "No stock",
     "available": "Available",
     "addToCart": "Add to cart",
-    "boyNow": "Buy now",
+    "addedToCart": "Added to cart 👍",
+    "buyNow": "Buy now",
     "canNotBuy": "Purchases are disabled",
     "canNotBuyDescription": "It is not possible to buy this item at this time",
     "canNotAdd": "Purchases are disabled",
@@ -54,5 +55,13 @@
   },
   "Favourites": {
     "clean": "Clean favourites"
+  },
+  "CartWidget": {
+    "clean": "Clean cart",
+    "goToCart": "Go to cart",
+    "deleteItem": "Remove from cart"
+  },
+  "MenuItemProduct": {
+    "deleteItem": "Remove product"
   }
 }

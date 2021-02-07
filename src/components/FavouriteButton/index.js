@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
@@ -7,6 +7,8 @@ import { Box, Icon, IconButton, Tooltip } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 import { FavouriteContext } from "context"
+// styles
+import { TOOLTIP_TIME } from "styles/theme"
 
 /**
  * FavouriteButton Component
@@ -26,6 +28,10 @@ const FavouriteButton = ({ item }) => {
   )
   const backgroundColor = useSetColorTheme("gray.700", "white")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
+
+  useEffect(() => {
+    setFavActive(favourites.filter((fav) => fav.id === item.id).length === 1)
+  }, [favourites])
 
   /**
    * handleFavActive
@@ -53,7 +59,7 @@ const FavouriteButton = ({ item }) => {
       label={handleLabelTooltip()}
       bg={backgroundColorTooltip}
       fontSize="md"
-      openDelay={500}
+      openDelay={TOOLTIP_TIME}
       color
     >
       <IconButton
