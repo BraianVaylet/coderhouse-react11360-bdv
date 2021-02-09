@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.element.isRequired,
 }
 
 export default Layout

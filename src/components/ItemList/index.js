@@ -69,7 +69,7 @@ const ItemList = ({ data }) => {
    * @returns {undefined} list of SkeletonItems components
    */
   const renderSkeletons = () => {
-    const counter = [1, 2, 3, 4, 5, 6, 7, 8]
+    const counter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     return counter.map((index) => (
       <GridItem key={index} colSpan={1}>
         <SkeletonItem />

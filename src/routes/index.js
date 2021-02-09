@@ -6,6 +6,7 @@ import Layout from "containers/Layout"
 const Home = lazy(() => import("pages/Home"))
 const ItemDetail = lazy(() => import("pages/ItemDetail"))
 const Cart = lazy(() => import("pages/Cart"))
+const Products = lazy(() => import("pages/Products"))
 const NotFound = lazy(() => import("pages/NotFound"))
 
 /**
@@ -17,6 +18,7 @@ export const ROUTES = {
   HOME: "/home",
   ITEM_DETAIL: "/item",
   CART: "/cart",
+  PRODUCTS: "/products",
 }
 
 /**
@@ -42,6 +44,11 @@ const Routes = () => {
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>
           <Layout>
             <ItemDetail />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.PRODUCTS + "/:category"}>
+          <Layout>
+            <Products />
           </Layout>
         </Route>
         <Route exact path={ROUTES.ENTRYPOINT}>

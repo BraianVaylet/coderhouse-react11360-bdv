@@ -9,6 +9,11 @@ export const MY_BREAKPOINTS = {
 
 export const TOOLTIP_TIME = 250
 
+export const COLORS = {
+  primary: "#2564f7",
+  secundary: "#67a9f0",
+}
+
 // my chakra theme
 const theme = extendTheme({
   ...chakraTheme,
@@ -67,8 +72,8 @@ const theme = extendTheme({
       white: addOpacityToColor("#FFFFFF", 0.75),
     },
     brand: {
-      primary: "#2564f7",
-      secundary: "#67a9f0",
+      primary: COLORS.primary,
+      secundary: COLORS.secundary,
     },
   },
 })

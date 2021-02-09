@@ -8,7 +8,11 @@
     "entertainment": "Entertainment",
     "estate": "Estate",
     "mobility": "Mobility",
-    "logout": "Logout"
+    "logout": "Logout",
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories"
   },
   "ChangeLanguage": {
     "es": "ES",
@@ -44,7 +48,10 @@
   "ItemDetailCharacteristics": {
     "title": "Characteristics",
     "brand": "Brand",
-    "model": "Model"
+    "model": "Model",
+    "withLoveTo": "With 💖 to",
+    "availableColours": "Available colours",
+    "availableSizes": "Available sizes"
   },
   "Header": {
     "back": "👈 Back"

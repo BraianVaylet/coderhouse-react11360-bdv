@@ -14,14 +14,17 @@ const Logo = () => (
     <Box
       transitionDuration="0.5s"
       transitionProperty="transform"
-      transform="scale(1)"
-      _hover={{
-        transform: "scale(1.25) rotate(10deg)",
-      }}
+      transform="scale(1) rotate(15deg)"
     >
       <LogoIconColor boxSize="2rem" mr={2} />
     </Box>
-    <Text fontSize="lg" color="primary">
+    <Text
+      fontSize="1.5rem"
+      color="primary"
+      fontWeight="extrabold"
+      fontStyle="italic"
+      letterSpacing="1px"
+    >
       Aquila
     </Text>
   </Flex>

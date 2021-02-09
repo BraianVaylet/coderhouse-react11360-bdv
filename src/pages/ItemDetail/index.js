@@ -138,6 +138,9 @@ const ItemDetail = () => {
               <ItemDetailCharacteristics
                 brand={item.brand}
                 model={item.model}
+                colors={item.colors}
+                sizes={item.sizes}
+                filter={item.filter}
               />
 
               <Divider mt={10} mb={10} />

@@ -1,6 +1,8 @@
 // react
 import React from "react"
+import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { IoHomeOutline } from "react-icons/io5"
 import styles from "./styles.module.css"
 // chakra-ui
 import {
@@ -18,6 +20,7 @@ import {
   Button,
   Text,
   useMediaQuery,
+  Icon,
 } from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
@@ -26,10 +29,13 @@ import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
 import Logout from "components/Logout"
 // styles
-import { MY_BREAKPOINTS } from "styles/theme"
+import { COLORS, MY_BREAKPOINTS } from "styles/theme"
 import Favorites from "components/Favorites"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// utils
+import { CATEGORIES } from "utils/constants"
+import { ROUTES } from "routes"
 
 /**
  * NavBar Component
@@ -64,15 +70,37 @@ const NavBar = () => {
    */
   const renderLinks = (withSeparator = false) => (
     <>
-      <Link>{t("NavBar.constructionTools")}</Link>
+      <Link
+        as={NavLink}
+        activeStyle={{ color: COLORS.primary }}
+        to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
+      >
+        {t(`NavBar.${CATEGORIES.JACKETS}`)}
+      </Link>
       {renderLinkSeparator(withSeparator)}
-      <Link>{t("NavBar.sports")}</Link>
+      <Link
+        as={NavLink}
+        activeStyle={{ color: COLORS.primary }}
+        to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
+      >
+        {t(`NavBar.${CATEGORIES.SHIRTS}`)}
+      </Link>
       {renderLinkSeparator(withSeparator)}
-      <Link>{t("NavBar.entertainment")}</Link>
+      <Link
+        as={NavLink}
+        activeStyle={{ color: COLORS.primary }}
+        to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
+      >
+        {t(`NavBar.${CATEGORIES.SHOES}`)}
+      </Link>
       {renderLinkSeparator(withSeparator)}
-      <Link>{t("NavBar.estate")}</Link>
-      {renderLinkSeparator(withSeparator)}
-      <Link>{t("NavBar.mobility")}</Link>
+      <Link
+        as={NavLink}
+        activeStyle={{ color: COLORS.primary }}
+        to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
+      >
+        {t(`NavBar.${CATEGORIES.ACCESORIES}`)}
+      </Link>
     </>
   )
 
@@ -107,6 +135,10 @@ const NavBar = () => {
             >
               <Logo />
             </Button>
+            {renderLinkSeparator(true)}
+            <Link as={NavLink} to={ROUTES.HOME} p="0 1rem">
+              <Icon as={IoHomeOutline} w="1.5rem" h="1.5rem" />
+            </Link>
           </Flex>
         </Flex>
         <Flex direction="row" justify="flex-start" align="center">

@@ -8,7 +8,11 @@
     "entertainment": "Entretenimiento",
     "estate": "Inmuebles",
     "mobility": "Movilidad",
-    "logout": "Salir"
+    "logout": "Salir",
+    "jackets": "Camperas",
+    "shirts": "Remeras",
+    "shoes": "Zapatillas",
+    "accesories": "Accesorios"
   },
   "ChangeLanguage": {
     "es": "ES",
@@ -44,7 +48,10 @@
   "ItemDetailCharacteristics": {
     "title": "Caracteristicas",
     "brand": "Marca",
-    "model": "Modelo"
+    "model": "Modelo",
+    "withLoveTo": "Con 💖 para ",
+    "availableColours": "Colores disponibles",
+    "availableSizes": "Talles disponibles"
   },
   "Header": {
     "back": "👈 Volver"
