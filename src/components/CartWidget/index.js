@@ -143,7 +143,13 @@ const CartWidget = ({ onClick = () => {} }) => {
               openDelay={TOOLTIP_TIME}
               color
             >
-              <Button as={Link} mr={2} size="lg" to={ROUTES.CART}>
+              <Button
+                as={Link}
+                mr={2}
+                size="lg"
+                to={ROUTES.CART}
+                _hover={{ textDecoration: "none", bg: "gray.600" }}
+              >
                 🛒
               </Button>
             </Tooltip>

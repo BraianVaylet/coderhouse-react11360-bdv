@@ -6,6 +6,7 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import FavouriteButton from "components/FavouriteButton"
 import ItemCount from "components/ItemCount"
 import Calification from "components/Calification"
+import CartCount from "components/CartCount"
 // styles
 import { titleSizeResponsiveMin1280 } from "styles/utils"
 
@@ -47,7 +48,8 @@ const ItemDetailAction = ({
           <Text fontSize={titleSizeResponsiveMin1280(4)} fontWeight="bold">
             ${price}
           </Text>
-          <Text>(envío gratis)</Text>
+          <CartCount item={{ title, price, pictureUrl, id }} />
+          <Text mt={4}>(envío gratis)</Text>
         </Flex>
 
         {/* action */}
@@ -59,7 +61,7 @@ const ItemDetailAction = ({
           h="40%"
         >
           <Box w="100%">
-            <ItemCount stock={stock} />
+            <ItemCount stock={stock} item={{ id, title, price, pictureUrl }} />
           </Box>
         </Flex>
       </Flex>

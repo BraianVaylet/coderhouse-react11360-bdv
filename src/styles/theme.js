@@ -32,6 +32,7 @@ const theme = extendTheme({
         padding: "0",
         margin: "0",
         backgroundColor: props.colorMode === "dark" ? "gray.800" : "gray.200",
+        overflowX: "hidden !important",
       },
       a: {
         color: props.colorMode === "dark" ? "blue.300" : "blue.500",

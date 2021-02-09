@@ -6,6 +6,7 @@ import Layout from "containers/Layout"
 const Home = lazy(() => import("pages/Home"))
 const ItemDetail = lazy(() => import("pages/ItemDetail"))
 const Cart = lazy(() => import("pages/Cart"))
+const NotFound = lazy(() => import("pages/NotFound"))
 
 /**
  * Project routes
@@ -28,12 +29,27 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Layout>
-          <Route path={ROUTES.HOME} component={Home} />
-          <Route path={ROUTES.CART} component={Cart} />
-          <Route path={ROUTES.ITEM_DETAIL + "/:id"} component={ItemDetail} />
-          <Route exact path={ROUTES.ENTRYPOINT} component={Home} />
-        </Layout>
+        <Route path={ROUTES.HOME}>
+          <Layout>
+            <Home />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.CART}>
+          <Layout>
+            <Cart />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.ITEM_DETAIL + "/:id"}>
+          <Layout>
+            <ItemDetail />
+          </Layout>
+        </Route>
+        <Route exact path={ROUTES.ENTRYPOINT}>
+          <Layout>
+            <Home />
+          </Layout>
+        </Route>
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   )

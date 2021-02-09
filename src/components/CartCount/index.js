@@ -32,6 +32,7 @@ const CartCount = ({ item }) => {
         setCartCount(counts[num])
       }
     }
+    if (!idArr.includes(item.id)) setCartCount(0)
   }
 
   return (
@@ -42,7 +43,7 @@ const CartCount = ({ item }) => {
       fontWeight="bold"
       boxShadow="0.25rem 0.25rem"
     >
-      🛒 ({cartCount})
+      🛒 ({cartCount || 0})
     </Badge>
   )
 }
