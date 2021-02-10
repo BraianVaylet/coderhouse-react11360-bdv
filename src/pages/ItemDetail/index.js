@@ -63,15 +63,24 @@ const ItemDetail = () => {
 
   // ! end
 
+  const handleInfoSEO = () => {
+    return item !== null
+      ? {
+          title: item.title,
+          description: item.title + " | " + item.description,
+        }
+      : {
+          title: "...",
+          description: "...",
+        }
+  }
+
   return (
     <>
       <HelmetSEO
-        title={t("HelmetSEO.title.itemDetail") + item.title}
+        title={t("HelmetSEO.title.itemDetail") + handleInfoSEO().title}
         description={
-          t("HelmetSEO.description.itemDetail") +
-          item.title +
-          " | " +
-          item.description
+          t("HelmetSEO.description.itemDetail") + handleInfoSEO().description
         }
       />
       <Flex

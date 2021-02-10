@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
+  Box,
   Center,
   Flex,
   Grid,
@@ -15,6 +16,7 @@ import Item from "components/Item"
 import SkeletonItem from "components/Skeleton/Item/SkItem"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
+import Header from "components/Header"
 
 /**
  * ItemList Component
@@ -22,7 +24,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
  * @author Braian D. Vaylet
  * @description Componente con el listado de items.
  */
-const ItemList = ({ data }) => {
+const ItemList = ({ data, category }) => {
   const [t] = useTranslation("global")
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
@@ -78,16 +80,13 @@ const ItemList = ({ data }) => {
   }
 
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      align="center"
-      p="10px"
-      w="100%"
-    >
+    <Flex direction="column" justify="flex-start" align="center" p={2} w="100%">
       <Text fontSize="2rem" mb="10px">
-        {t("ItemList.productsList")}
+        {t("ItemList.productsList")} {category && "/ " + category}
       </Text>
+      <Box w="100%" p="0 1.5rem">
+        <Header />
+      </Box>
       <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
         {data === null ? renderSkeletons() : renderItems()}
       </Grid>
@@ -97,6 +96,7 @@ const ItemList = ({ data }) => {
 
 ItemList.propTypes = {
   data: PropTypes.array,
+  category: PropTypes.string,
 }
 
 export default ItemList

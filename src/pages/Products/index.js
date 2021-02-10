@@ -68,7 +68,7 @@ const Products = () => {
         description={t("HelmetSEO.description.products") + category}
       />
       <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-        <ItemList data={data} />
+        <ItemList data={data} category={category} />
       </Flex>
     </>
   )
