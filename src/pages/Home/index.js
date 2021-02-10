@@ -1,9 +1,11 @@
 // react
 import React, { useState, useEffect } from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
+import HelmetSEO from "components/HelmetSEO"
 // fake data
 import { PRODUCTS } from "test"
 
@@ -14,6 +16,7 @@ import { PRODUCTS } from "test"
  * @description Page Home
  */
 const Home = () => {
+  const [t] = useTranslation("global")
   // ! Desafío: Catálogo con MAPS y Promises ---
   const [data, setData] = useState(null)
 
@@ -44,9 +47,15 @@ const Home = () => {
   // ! fin ---
 
   return (
-    <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-      <ItemList data={data} />
-    </Flex>
+    <>
+      <HelmetSEO
+        title={t("HelmetSEO.title.home")}
+        description={t("HelmetSEO.description.home")}
+      />
+      <Flex direction="column" justify="flex-start" align="center" minH="100vh">
+        <ItemList data={data} />
+      </Flex>
+    </>
   )
 }
 

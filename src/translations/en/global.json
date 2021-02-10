@@ -1,4 +1,18 @@
 {
+  "HelmetSEO": {
+    "title": {
+      "home": "Aquila 🦅 | Home",
+      "products": "Aquila 🦅 | Products | ",
+      "itemDetail": "Aquila 🦅 | Product | ",
+      "notFound": "Aquila 🦅 | 404"
+    },
+    "description": {
+      "home": "Main page of the store for the sale of clothing",
+      "products": "List of store products under the category: ",
+      "itemDetail": "Product selected from the store: ",
+      "notFound": "Not found"
+    }
+  },
   "App": {
     "helloWorld": "Hello World!"
   },
@@ -70,5 +84,8 @@
   },
   "MenuItemProduct": {
     "deleteItem": "Remove product"
+  },
+  "NotFound": {
+    "title": "Not Found"
   }
 }

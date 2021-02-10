@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="HelmetSEO.html">HelmetSEO</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Products.html">Products</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ROUTES">ROUTES</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,7 +89,7 @@
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Box, Center, Flex, Text } from "@chakra-ui/react"
+import { Box, Button, Center, Flex, Kbd, Text } from "@chakra-ui/react"
 // styles
 import {
   titleSizeResponsiveMin1280,
@@ -102,8 +102,81 @@ import {
  * @author Braian D. Vaylet
  * @description Componente las caracteristicas del producto, es una seccion del componente ItemDetail.
  */
-const ItemDetailCharacteristics = ({ brand, model }) => {
+const ItemDetailCharacteristics = ({ brand, model, filter, colors, sizes }) => {
   const [t] = useTranslation("global")
+
+  const handleFilterSex = () =>
+    filter.sex === "male" ? "🧑" : filter.sex === "female" ? "👩" : "🧑👩"
+
+  const handleColors = () => {
+    return (
+      colors &amp;&amp;
+      colors.map((color, index) => {
+        const bRadius = "5px"
+        if (color.includes("-")) {
+          const dualColor = color.split("-")
+          return (
+            &lt;Flex
+              key={index}
+              as={Button}
+              borderRadius={bRadius}
+              p={0}
+              direction="row"
+              align="center"
+              justify="space-between"
+              w="1.25rem"
+              h="1.25rem"
+              mr={2}
+              borderWidth="1px"
+              borderColor="#ccc"
+              boxShadow="sm"
+            >
+              &lt;Box
+                borderRadius={`${bRadius} 0 0 ${bRadius}`}
+                w="50%"
+                h="100%"
+                style={{ backgroundColor: dualColor[0] }}
+              />
+              &lt;Box
+                borderRadius={`0 ${bRadius} ${bRadius} 0`}
+                w="50%"
+                h="100%"
+                style={{ backgroundColor: dualColor[1] }}
+              />
+            &lt;/Flex>
+          )
+        } else {
+          return (
+            &lt;Button
+              key={index}
+              p={0}
+              w="1.25rem"
+              h="1.25rem"
+              borderRadius={bRadius}
+              borderWidth="1px"
+              borderColor="#ccc"
+              style={{ backgroundColor: color }}
+              mr={2}
+              boxShadow="sm"
+            />
+          )
+        }
+      })
+    )
+  }
+
+  const handleSizes = () => {
+    return (
+      sizes &amp;&amp;
+      sizes.map((size, index) => {
+        return (
+          &lt;Kbd key={index} mr={2}>
+            {size}
+          &lt;/Kbd>
+        )
+      })
+    )
+  }
 
   return (
     &lt;>
@@ -133,6 +206,36 @@ const ItemDetailCharacteristics = ({ brand, model }) => {
             &lt;Text color="white">{model}&lt;/Text>
           &lt;/Box>
         &lt;/Flex>
+
+        &lt;Flex
+          direction="column"
+          justify="flex-start"
+          align="flex-start"
+          m="2rem 0"
+        >
+          {/* filters */}
+          &lt;Text>
+            {t("ItemDetailCharacteristics.withLoveTo")} {handleFilterSex()}
+          &lt;/Text>
+
+          {/* colors */}
+          &lt;Flex direction="row" justify="flex-start" align="center" mt={4}>
+            &lt;Text mr={3}>
+              {t("ItemDetailCharacteristics.availableColours")}:
+            &lt;/Text>
+            &lt;Flex direction="row" justify="flex-start" align="center">
+              {handleColors()}
+            &lt;/Flex>
+          &lt;/Flex>
+
+          {/* sizes */}
+          &lt;Flex direction="row" justify="flex-start" align="center" mt={4}>
+            &lt;Text mr={3}>{t("ItemDetailCharacteristics.availableSizes")}:&lt;/Text>
+            &lt;Flex direction="row" justify="flex-start" align="center">
+              {handleSizes()}
+            &lt;/Flex>
+          &lt;/Flex>
+        &lt;/Flex>
       &lt;/Flex>
     &lt;/>
   )
@@ -141,6 +244,13 @@ const ItemDetailCharacteristics = ({ brand, model }) => {
 ItemDetailCharacteristics.propTypes = {
   brand: PropTypes.string.isRequired,
   model: PropTypes.string.isRequired,
+  colors: PropTypes.array,
+  sizes: PropTypes.array,
+  filter: PropTypes.objectOf(
+    PropTypes.shape({
+      sex: PropTypes.string.isRequired,
+    })
+  ),
 }
 
 export default ItemDetailCharacteristics

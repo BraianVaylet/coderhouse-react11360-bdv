@@ -1,13 +1,16 @@
 // react
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
+import HelmetSEO from "components/HelmetSEO"
+// utils
+import { CATEGORIES } from "utils/constants"
 // fake data
 import { accesories, jackets, PRODUCTS, shirts, shoes } from "test"
-import { CATEGORIES } from "utils/constants"
 
 /**
  * Products Page
@@ -17,6 +20,7 @@ import { CATEGORIES } from "utils/constants"
  */
 const Products = () => {
   const { category } = useParams("category")
+  const [t] = useTranslation("global")
   const [data, setData] = useState(null)
 
   // ! Desafío: Catálogo con MAPS y Promises ---
@@ -58,9 +62,15 @@ const Products = () => {
   // ! fin ---
 
   return (
-    <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-      <ItemList data={data} />
-    </Flex>
+    <>
+      <HelmetSEO
+        title={t("HelmetSEO.title.products") + category}
+        description={t("HelmetSEO.description.products") + category}
+      />
+      <Flex direction="column" justify="flex-start" align="center" minH="100vh">
+        <ItemList data={data} />
+      </Flex>
+    </>
   )
 }
 

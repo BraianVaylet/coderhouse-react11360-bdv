@@ -342,11 +342,11 @@ export const shoes = [
     model: "Modelo del producto",
     calification: 60,
     filter: {
-      sex: "female",
+      sex: "all",
     },
     category: "shoes",
     sizes: ["40", "42", "43"],
-    colors: ["white"],
+    colors: ["white", "gray", "teal"],
   },
 ]
 

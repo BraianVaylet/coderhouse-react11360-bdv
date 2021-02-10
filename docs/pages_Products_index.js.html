@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ChangeTheme/index.js</title>
+  <title> pages/Products/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/ChangeTheme/index.js</h1>
+                    <h1>pages/Products/index.js</h1>
                 </header>
                 
 
@@ -86,49 +86,82 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// react
-import React from "react"
+import React, { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { useColorMode, IconButton } from "@chakra-ui/react"
-import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import { Flex } from "@chakra-ui/react"
+// components
+import ItemList from "components/ItemList"
+import HelmetSEO from "components/HelmetSEO"
+// utils
+import { CATEGORIES } from "utils/constants"
+// fake data
+import { accesories, jackets, PRODUCTS, shirts, shoes } from "test"
 
 /**
- * ChangeTheme Component
+ * Products Page
  * @component
  * @author Braian D. Vaylet
- * @description Componente botón para cambiar el theme del proyecto Dark-Light
+ * @description Page Products
  */
-const ChangeTheme = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
+const Products = () => {
+  const { category } = useParams("category")
+  const [t] = useTranslation("global")
+  const [data, setData] = useState(null)
+
+  // ! Desafío: Catálogo con MAPS y Promises ---
+  const handleCategories = () => {
+    switch (category) {
+      case CATEGORIES.JACKETS:
+        return jackets
+      case CATEGORIES.SHIRTS:
+        return shirts
+      case CATEGORIES.SHOES:
+        return shoes
+      case CATEGORIES.ACCESORIES:
+        return accesories
+      default:
+        return PRODUCTS
+    }
+  }
+
+  const getDataTest = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(handleCategories())
+      }, 2000)
+    })
+  }
+
+  // simula la primera carga
+  useEffect(async () => {
+    try {
+      const data = await getDataTest()
+      setData(data)
+    } catch (error) {
+      console.log("error", error)
+    }
+  }, [])
+
+  // cuando cambio la ruta
+  useEffect(async () => setData(handleCategories()), [category])
+  // ! fin ---
 
   return (
-    &lt;IconButton
-      data-testid="ChangeTheme"
-      variant="none"
-      onClick={toggleColorMode}
-      size="lg"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      borderRadius="9999px"
-      _hover={{
-        transform: "rotate(360deg) scale(1.25)",
-        cursor: "pointer",
-      }}
-      _focus={{
-        borderStyle: "none",
-        backgroundColor: "transparent",
-      }}
-      icon={
-        colorMode === "light" ? (
-          &lt;MoonIcon boxSize="1.5rem" />
-        ) : (
-          &lt;SunIcon boxSize="1.5rem" />
-        )
-      }
-    />
+    &lt;>
+      &lt;HelmetSEO
+        title={t("HelmetSEO.title.products") + category}
+        description={t("HelmetSEO.description.products") + category}
+      />
+      &lt;Flex direction="column" justify="flex-start" align="center" minH="100vh">
+        &lt;ItemList data={data} />
+      &lt;/Flex>
+    &lt;/>
   )
 }
 
-export default ChangeTheme
+export default Products
 </code></pre>
         </article>
     </section>

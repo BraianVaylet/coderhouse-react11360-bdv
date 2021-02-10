@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Box, Center, Flex, Kbd, Text } from "@chakra-ui/react"
+import { Box, Button, Center, Flex, Kbd, Text } from "@chakra-ui/react"
 // styles
 import {
   titleSizeResponsiveMin1280,
@@ -25,21 +25,24 @@ const ItemDetailCharacteristics = ({ brand, model, filter, colors, sizes }) => {
     return (
       colors &&
       colors.map((color, index) => {
-        const bRadius = "9999px"
+        const bRadius = "5px"
         if (color.includes("-")) {
           const dualColor = color.split("-")
           return (
             <Flex
               key={index}
+              as={Button}
+              borderRadius={bRadius}
+              p={0}
               direction="row"
               align="center"
               justify="space-between"
               w="1.25rem"
               h="1.25rem"
-              borderRadius={bRadius}
-              borderWidth="1px"
-              borderColor="black"
               mr={2}
+              borderWidth="1px"
+              borderColor="#ccc"
+              boxShadow="sm"
             >
               <Box
                 borderRadius={`${bRadius} 0 0 ${bRadius}`}
@@ -57,15 +60,17 @@ const ItemDetailCharacteristics = ({ brand, model, filter, colors, sizes }) => {
           )
         } else {
           return (
-            <Box
+            <Button
               key={index}
+              p={0}
               w="1.25rem"
               h="1.25rem"
               borderRadius={bRadius}
               borderWidth="1px"
-              borderColor="black"
+              borderColor="#ccc"
               style={{ backgroundColor: color }}
               mr={2}
+              boxShadow="sm"
             />
           )
         }
