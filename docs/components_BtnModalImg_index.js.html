@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ChangeLanguage/index.js</title>
+  <title> components/BtnModalImg/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/ChangeLanguage/index.js</h1>
+                    <h1>components/BtnModalImg/index.js</h1>
                 </header>
                 
 
@@ -85,59 +85,99 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
-import { useTranslation } from "react-i18next"
+            <pre class="prettyprint source linenums"><code>import React from "react"
+import { IoExpand } from "react-icons/io5"
+import Proptypes from "prop-types"
 // chakra-ui
-import { Button, Text } from "@chakra-ui/react"
-// hooks
-import { useLocalStorage } from "hooks/useLocalStorage"
+import {
+  Box,
+  Icon,
+  IconButton,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Portal,
+  useDisclosure,
+} from "@chakra-ui/react"
+// styles
+import { addOpacityToColor } from "styles/utils"
+// constants
+import { IMG } from "utils/constants"
 
 /**
- * ChangeLanguage Component
+ * BtnModalImg Component
  * @component
  * @author Braian D. Vaylet
- * @description Componente botón para cambiar el idioma Español-Inglés
+ * @description Componente que muestra la imagen en un modal
  */
-const ChangeLanguage = () => {
-  // hooks
-  const [t, i18n] = useTranslation("global")
-  const [storedValue, setLocalStorage] = useLocalStorage("language", null)
-  const [spanish, setSpanish] = useState(storedValue === "es")
-
-  useEffect(() => i18n.changeLanguage(storedValue), [])
-  useEffect(() => i18n.changeLanguage(storedValue), [storedValue])
-  useEffect(() => setLocalStorage(spanish ? "es" : "en"), [spanish])
-
-  /**
-   * handleLanguage
-   * @function
-   * @returns {boolean} change spanish state
-   */
-  const handleLanguage = () => setSpanish(!spanish)
+const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    &lt;Button
-      variant="none"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      borderRadius="9999px"
-      _hover={{
-        transform: "scale(1.25)",
-      }}
-      _focus={{
-        borderStyle: "none",
-        backgroundColor: "transparent",
-      }}
-      onClick={handleLanguage}
-    >
-      &lt;Text fontSize="1rem">
-        {storedValue === "es" ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
-      &lt;/Text>
-    &lt;/Button>
+    &lt;>
+      &lt;IconButton
+        onClick={onOpen}
+        icon={
+          &lt;Box
+            p="2.5px"
+            bgColor={addOpacityToColor("#cccccc", 0.3)}
+            borderRadius="5px"
+            _focus={{
+              borderStyle: "none",
+              borderSize: "0px",
+            }}
+          >
+            &lt;Icon
+              as={IoExpand}
+              color="brand.primary"
+              boxSize="1rem"
+              borderRadius="9999px"
+              fill="brand.primary"
+              _hover={{
+                fill: "brand.secundary",
+              }}
+            />
+          &lt;/Box>
+        }
+      />
+      &lt;Portal>
+        &lt;Modal isOpen={isOpen} onClose={onClose} size="full">
+          &lt;ModalOverlay />
+          &lt;ModalContent>
+            &lt;ModalHeader>{title}&lt;/ModalHeader>
+            &lt;ModalCloseButton />
+            &lt;ModalBody>
+              &lt;Box
+                title={pictureName}
+                bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
+                bgPosition="center"
+                bgSize="contain"
+                bgRepeat="no-repeat"
+                w="100%"
+                minW="100%"
+                maxW="100%"
+                h="100%"
+                minH="100%"
+                maxH="100%"
+              />
+            &lt;/ModalBody>
+          &lt;/ModalContent>
+        &lt;/Modal>
+      &lt;/Portal>
+    &lt;/>
   )
 }
 
-export default ChangeLanguage
+BtnModalImg.propTypes = {
+  title: Proptypes.string.isRequired,
+  pictureName: Proptypes.string,
+  pictureUrl: Proptypes.string,
+}
+
+export default BtnModalImg
 </code></pre>
         </article>
     </section>

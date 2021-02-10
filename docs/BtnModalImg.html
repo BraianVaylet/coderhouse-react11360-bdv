@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ChangeLanguage/index.js</title>
+  <title> BtnModalImg</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -75,72 +73,224 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>components/ChangeLanguage/index.js</h1>
+                    <p>Components</p>
+                    <h1>BtnModalImg</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
-import { useTranslation } from "react-i18next"
-// chakra-ui
-import { Button, Text } from "@chakra-ui/react"
-// hooks
-import { useLocalStorage } from "hooks/useLocalStorage"
+        <h2>
+            &ltBtnModalImg <i>title</i> <i>pictureName</i> <i>pictureUrl</i> /&gt
+        </h2>
+        
+    
+</header>
 
-/**
- * ChangeLanguage Component
- * @component
- * @author Braian D. Vaylet
- * @description Componente botón para cambiar el idioma Español-Inglés
- */
-const ChangeLanguage = () => {
-  // hooks
-  const [t, i18n] = useTranslation("global")
-  const [storedValue, setLocalStorage] = useLocalStorage("language", null)
-  const [spanish, setSpanish] = useState(storedValue === "es")
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
 
-  useEffect(() => i18n.changeLanguage(storedValue), [])
-  useEffect(() => i18n.changeLanguage(storedValue), [storedValue])
-  useEffect(() => setLocalStorage(spanish ? "es" : "en"), [spanish])
 
-  /**
-   * handleLanguage
-   * @function
-   * @returns {boolean} change spanish state
-   */
-  const handleLanguage = () => setSpanish(!spanish)
+    
+    <h4 class="name" id="BtnModalImg">
+        <a class="href-link" href="#BtnModalImg">#</a>
+        
+        <span class="code-name">
+            
+                &ltBtnModalImg <i>title</i> <i>pictureName</i> <i>pictureUrl</i> /&gt
+            
+        </span>
+    </h4>
+    
 
-  return (
-    &lt;Button
-      variant="none"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      borderRadius="9999px"
-      _hover={{
-        transform: "scale(1.25)",
-      }}
-      _focus={{
-        borderStyle: "none",
-        backgroundColor: "transparent",
-      }}
-      onClick={handleLanguage}
-    >
-      &lt;Text fontSize="1rem">
-        {storedValue === "es" ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
-      &lt;/Text>
-    &lt;/Button>
-  )
-}
+    
+    
+    <div class="description">
+        <p>Componente que muestra la imagen en un modal</p>
+    </div>
+    
 
-export default ChangeLanguage
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+    
+        <h5>PropTypes:</h5>
+        
+<div class="table-container">
+  <table class="params table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th class="last">Default</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>title</code></td>
+            <td>
+              string
+            </td>
+            <td>Yes</td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>pictureName</code></td>
+            <td>
+              string
+            </td>
+            <td>No</td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>pictureUrl</code></td>
+            <td>
+              string
+            </td>
+            <td>No</td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+    
+    </tbody>
+  </table>
+</div>
+    
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Braian D. Vaylet</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_BtnModalImg_index.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_BtnModalImg_index.js.html">components/BtnModalImg/index.js</a>, <a href="components_BtnModalImg_index.js.html#line29">line 29</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

@@ -19,6 +19,7 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerFooter,
+  Portal,
 } from "@chakra-ui/react"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
@@ -48,34 +49,36 @@ const Logout = () => {
   return (
     <>
       <Button onClick={onOpen}>{t("Logout.logout")}</Button>
-      {mediaQueryMax400 ? (
-        <Drawer
-          placement="bottom"
-          onClose={onClose}
-          isOpen={isOpen}
-          size="full"
-        >
-          <DrawerOverlay>
-            <DrawerContent>
-              <DrawerHeader borderBottomWidth="1px">
-                {renderTitle()}
-              </DrawerHeader>
-              <DrawerBody>{renderBody()}</DrawerBody>
-              <DrawerFooter>{renderButtons()}</DrawerFooter>
-            </DrawerContent>
-          </DrawerOverlay>
-        </Drawer>
-      ) : (
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>{renderTitle()}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>{renderBody()}</ModalBody>
-            <ModalFooter>{renderButtons()}</ModalFooter>
-          </ModalContent>
-        </Modal>
-      )}
+      <Portal>
+        {mediaQueryMax400 ? (
+          <Drawer
+            placement="bottom"
+            onClose={onClose}
+            isOpen={isOpen}
+            size="full"
+          >
+            <DrawerOverlay>
+              <DrawerContent>
+                <DrawerHeader borderBottomWidth="1px">
+                  {renderTitle()}
+                </DrawerHeader>
+                <DrawerBody>{renderBody()}</DrawerBody>
+                <DrawerFooter>{renderButtons()}</DrawerFooter>
+              </DrawerContent>
+            </DrawerOverlay>
+          </Drawer>
+        ) : (
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>{renderTitle()}</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>{renderBody()}</ModalBody>
+              <ModalFooter>{renderButtons()}</ModalFooter>
+            </ModalContent>
+          </Modal>
+        )}
+      </Portal>
     </>
   )
 }

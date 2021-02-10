@@ -5,14 +5,15 @@ import { Link as RouterLink } from "react-router-dom"
 import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
+import BtnModalImg from "components/BtnModalImg"
+import FavouriteButton from "components/FavouriteButton"
+import CartCount from "components/CartCount"
 // constants
 import { IMG } from "utils/constants"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
-import FavouriteButton from "components/FavouriteButton"
 // routes
 import { ROUTES } from "routes"
-import CartCount from "components/CartCount"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -67,6 +68,13 @@ const Item = ({
       </Link>
       <Box position="absolute" top="3" right="3">
         <FavouriteButton item={{ title, pictureUrl, price, id }} />
+      </Box>
+      <Box position="absolute" top="1" left="1">
+        <BtnModalImg
+          pictureName={pictureName}
+          pictureUrl={pictureUrl}
+          title={title}
+        />
       </Box>
       <Flex
         p="10px"
