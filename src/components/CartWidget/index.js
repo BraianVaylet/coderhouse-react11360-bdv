@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
+import { Link as RouterLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { MdShoppingCart } from "react-icons/md"
 import PropTypes from "prop-types"
@@ -15,7 +16,6 @@ import {
   Button,
   Tooltip,
   Center,
-  Link,
 } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
 // context
@@ -144,7 +144,7 @@ const CartWidget = ({ onClick = () => {} }) => {
               color
             >
               <Button
-                as={Link}
+                as={RouterLink}
                 mr={2}
                 size="lg"
                 to={ROUTES.CART}

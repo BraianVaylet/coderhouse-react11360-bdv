@@ -9,7 +9,7 @@ import BtnModalImg from "components/BtnModalImg"
 import FavouriteButton from "components/FavouriteButton"
 import CartCount from "components/CartCount"
 // constants
-import { IMG } from "utils/constants"
+import { IMG } from "utils/images"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes

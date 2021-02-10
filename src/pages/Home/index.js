@@ -6,6 +6,7 @@ import { Flex } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
 import HelmetSEO from "components/HelmetSEO"
+import Banner from "components/Banner"
 // fake data
 import { PRODUCTS } from "test"
 
@@ -53,6 +54,7 @@ const Home = () => {
         description={t("HelmetSEO.description.home")}
       />
       <Flex direction="column" justify="flex-start" align="center" minH="100vh">
+        <Banner />
         <ItemList data={data} />
       </Flex>
     </>

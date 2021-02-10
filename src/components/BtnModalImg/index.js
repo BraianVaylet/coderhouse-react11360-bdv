@@ -18,7 +18,7 @@ import {
 // styles
 import { addOpacityToColor } from "styles/utils"
 // constants
-import { IMG } from "utils/constants"
+import { IMG } from "utils/images"
 
 /**
  * BtnModalImg Component

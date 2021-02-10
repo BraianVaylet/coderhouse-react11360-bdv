@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> HelmetSEO</title>
+  <title> components/Banner/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,213 +75,82 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>HelmetSEO</h1>
+                    <p>Source</p>
+                    <h1>components/Banner/index.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltHelmetSEO <i>title</i> <i>description</i> /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="HelmetSEO">
-        <a class="href-link" href="#HelmetSEO">#</a>
-        
-        <span class="code-name">
-            
-                &ltHelmetSEO <i>title</i> <i>description</i> /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Componente para el CEO usando react-helmet</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-        <h5>PropTypes:</h5>
-        
-<div class="table-container">
-  <table class="params table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Description</th>
-        <th class="last">Default</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>title</code></td>
-            <td>
-              string
-            </td>
-            <td>No</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>description</code></td>
-            <td>
-              string
-            </td>
-            <td>No</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-    </tbody>
-  </table>
-</div>
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Braian D. Vaylet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_HelmetSEO_index.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_HelmetSEO_index.js.html">components/HelmetSEO/index.js</a>, <a href="components_HelmetSEO_index.js.html#line11">line 11</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from "react-responsive-carousel"
+// chakra-ui
+import { Box } from "@chakra-ui/react"
+// utils
+import { IMG } from "utils/images"
+
+/**
+ * Banner Component
+ * @component
+ * @author Braian D. Vaylet
+ * @description Componente banner para la publicidad de la tienda
+ *
+ */
+const Banner = () => {
+  return (
+    &lt;Box as={Carousel} autoPlay w="100vw">
+      &lt;Box
+        w="100%"
+        h="50vh"
+        bgImage={`url(${IMG.SLIDER3 || IMG.NO_IMG})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+      />
+      &lt;Box
+        w="100%"
+        h="50vh"
+        bgImage={`url(${IMG.SLIDER1 || IMG.NO_IMG})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+      />
+      &lt;Box
+        w="100%"
+        h="50vh"
+        bgImage={`url(${IMG.SLIDER2 || IMG.NO_IMG})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+      />
+      &lt;Box
+        w="100%"
+        h="50vh"
+        bgImage={`url(${IMG.SLIDER4 || IMG.NO_IMG})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+      />
+      &lt;Box
+        w="100%"
+        h="50vh"
+        bgImage={`url(${IMG.SLIDER5 || IMG.NO_IMG})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+      />
+    &lt;/Box>
+  )
+}
+
+export default Banner
+</code></pre>
+        </article>
+    </section>
 
 
 

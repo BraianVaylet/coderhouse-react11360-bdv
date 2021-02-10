@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Center } from "@chakra-ui/react"
 // constants
-import { IMG } from "utils/constants"
+import { IMG } from "utils/images"
 
 /**
  * ItemDetail/ItemDetailImgBox Component
