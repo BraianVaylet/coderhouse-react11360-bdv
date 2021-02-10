@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
-  Box,
   Center,
   Flex,
   Grid,
@@ -16,7 +15,6 @@ import Item from "components/Item"
 import SkeletonItem from "components/Skeleton/Item/SkItem"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
-import Header from "components/Header"
 
 /**
  * ItemList Component
@@ -84,9 +82,6 @@ const ItemList = ({ data, category }) => {
       <Text fontSize="2rem" mb="10px">
         {t("ItemList.productsList")} {category && "/ " + category}
       </Text>
-      <Box w="100%" p="0 1.5rem">
-        <Header />
-      </Box>
       <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
         {data === null ? renderSkeletons() : renderItems()}
       </Grid>
