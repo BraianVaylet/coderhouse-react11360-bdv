@@ -16,6 +16,7 @@ import {
   Button,
   Tooltip,
   Center,
+  MenuItem,
 } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
 // context
@@ -24,8 +25,11 @@ import { CartContext } from "context"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
+// utils
+import { handleItemCount } from "utils"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
+// components
 import MenuItemProduct from "components/MenuItemProduct"
 
 /**
@@ -43,9 +47,7 @@ const CartWidget = ({ onClick = () => {} }) => {
 
   const cartCount = cartItems.length
 
-  useEffect(() => {
-    handleItemCount()
-  }, [cartItems])
+  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
 
   /**
    * handleIsOpen
@@ -68,37 +70,6 @@ const CartWidget = ({ onClick = () => {} }) => {
   }
 
   /**
-   * handleItemCount
-   * @function
-   * @description cuento cuantos elemntos como item hay en el carrito
-   */
-  const handleItemCount = () => {
-    // obtengo contadores de elementos repetidos
-    const counters = cartItems.reduce((acc, item) => {
-      acc[item.id] = ++acc[item.id] || 1
-      return acc
-    }, {})
-
-    // elimino repetidos
-    const idArr = cartItems.map((item) => item.id)
-    const newArr = new Set(idArr)
-    const idArrNoRepeat = [...newArr]
-
-    // nuevo array con info y contador
-    const auxArr = []
-    for (let i = 0; i < idArrNoRepeat.length; i++) {
-      const data = cartItems.find((itemCart) => {
-        return itemCart.id === idArrNoRepeat[i]
-      })
-      let newData = data
-      newData = { ...data, count: counters[data.id] }
-      data && auxArr.push(newData)
-    }
-
-    setItems(auxArr)
-  }
-
-  /**
    * renderCartItems
    * @function
    * @returns {undefined} MenuItem components
@@ -107,11 +78,12 @@ const CartWidget = ({ onClick = () => {} }) => {
   const renderCartItems = () => {
     return items.map((item, index) => {
       return (
-        <MenuItemProduct
-          key={index}
-          item={item}
-          onDelete={() => deleteItemFromCart(item)}
-        />
+        <MenuItem key={index}>
+          <MenuItemProduct
+            item={item}
+            onDelete={() => deleteItemFromCart(item)}
+          />
+        </MenuItem>
       )
     })
   }

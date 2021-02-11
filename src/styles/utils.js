@@ -24,3 +24,5 @@ export const setValueResponsiveMax400 = (value1, value2) => {
   const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
   return mediaQueryMax400 ? value1 : value2
 }
+
+export const CustomShadow = "0.75rem 0.75rem #2564f7"

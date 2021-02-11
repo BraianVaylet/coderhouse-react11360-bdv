@@ -8,10 +8,10 @@ import {
   Button,
   Flex,
   Link,
-  MenuItem,
   Text,
   Tooltip,
   Image,
+  Box,
 } from "@chakra-ui/react"
 // routes
 import { ROUTES } from "routes"
@@ -26,12 +26,12 @@ import useSetColorTheme from "hooks/useSetColorTheme"
  * @author Braian D. Vaylet
  * @description Componente para los menu de favoritos y del carrito
  */
-const MenuItemProduct = ({ item, onDelete }) => {
+const MenuItemProduct = ({ item, onDelete, design = 1 }) => {
   const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [t] = useTranslation("global")
 
-  return (
-    <MenuItem minH="48px">
+  return design === 1 ? (
+    <Box minH="10vh">
       <Flex
         direction="row"
         justify="space-between"
@@ -68,7 +68,11 @@ const MenuItemProduct = ({ item, onDelete }) => {
           </Button>
         </Tooltip>
       </Flex>
-    </MenuItem>
+    </Box>
+  ) : design === 2 ? (
+    <Box>hola 2</Box>
+  ) : (
+    <Box />
   )
 }
 
@@ -81,6 +85,11 @@ MenuItemProduct.propTypes = {
     count: PropTypes.number,
   }),
   onDelete: PropTypes.func.isRequired,
+  /**
+   * design = 1: Preparado para ser usado en el menu desplegable de la NavBar
+   * design = 2: Preparado para ser usado en el carrito
+   */
+  design: PropTypes.number,
 }
 
 export default MenuItemProduct

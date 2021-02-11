@@ -14,6 +14,8 @@ import { IMG } from "utils/images"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
+// styles
+import { CustomShadow } from "styles/utils"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -44,7 +46,7 @@ const Item = ({
       justify="flex-start"
       borderRadius="2.5px"
       backgroundColor={backgroundColor}
-      boxShadow="0.75rem 0.75rem #2564f7"
+      boxShadow={CustomShadow}
       position="relative"
       m="1.5rem"
       minH={MAX_HEIGHT}

@@ -17,7 +17,7 @@ import HelmetSEO from "components/HelmetSEO"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
-import { setValueResponsiveMin1280 } from "styles/utils"
+import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // routes
 import { ROUTES } from "routes"
 // fake data
@@ -105,7 +105,7 @@ const ItemDetail = () => {
             minH={setValueResponsiveMin1280("80vh", "100%")}
             h={setValueResponsiveMin1280("80vh", "100%")}
             bgColor={backgroundColor}
-            boxShadow="0.75rem 0.75rem #2564f7"
+            boxShadow={CustomShadow}
           >
             {item !== null ? (
               <ItemDetailImgBox
@@ -125,7 +125,7 @@ const ItemDetail = () => {
             h={setValueResponsiveMin1280("80vh", "100%")}
             p="20px"
             bgColor={backgroundColor}
-            boxShadow="0.75rem 0.75rem #2564f7"
+            boxShadow={CustomShadow}
           >
             {item !== null ? (
               <ItemDetailAction
@@ -151,7 +151,7 @@ const ItemDetail = () => {
           minH="20vh"
           p="20px"
           bgColor={backgroundColor}
-          boxShadow="0.75rem 0.75rem #2564f7"
+          boxShadow={CustomShadow}
         >
           <Flex direction="column" justify="flex-start" center="flex-start">
             {item !== null ? (

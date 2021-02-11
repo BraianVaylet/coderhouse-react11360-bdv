@@ -94,5 +94,9 @@
     "termsAndConditions": "Terminos y condiciones",
     "help": "Ayuda",
     "covidPrecautions": "Precauciones en tiempos de COVID"
+  },
+  "Cart": {
+    "cart": "Carrito",
+    "saves": "Guardados"
   }
 }

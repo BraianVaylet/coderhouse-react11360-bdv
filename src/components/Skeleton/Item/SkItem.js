@@ -3,6 +3,8 @@ import React from "react"
 import { Flex, Skeleton } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// styles
+import { CustomShadow } from "styles/utils"
 
 // const
 const MAX_HEIGHT = "70vh"
@@ -24,7 +26,7 @@ const SkeletonItem = () => {
       justify="flex-start"
       borderRadius="2.5px"
       backgroundColor={backgroundColor}
-      boxShadow="0.75rem 0.75rem #2564f7"
+      boxShadow={CustomShadow}
       position="relative"
       m="1.5rem"
       minH={MAX_HEIGHT}

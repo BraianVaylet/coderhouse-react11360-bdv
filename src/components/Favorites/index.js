@@ -15,6 +15,7 @@ import {
   Button,
   MenuDivider,
   Tooltip,
+  MenuItem,
 } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
@@ -49,11 +50,12 @@ const Favorites = ({ onClick, withText = false }) => {
   const renderFavourites = () => {
     return favourites.map((fav, index) => {
       return (
-        <MenuItemProduct
-          key={index}
-          item={fav}
-          onDelete={() => deleteItemFromFavourites(fav)}
-        />
+        <MenuItem key={index}>
+          <MenuItemProduct
+            item={fav}
+            onDelete={() => deleteItemFromFavourites(fav)}
+          />
+        </MenuItem>
       )
     })
   }

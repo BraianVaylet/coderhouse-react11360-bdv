@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/ItemList/index.js</title>
+  <title> components/CartItemList/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/ItemList/index.js</h1>
+                    <h1>components/CartItemList/index.js</h1>
                 </header>
                 
 
@@ -85,103 +85,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-import { useTranslation } from "react-i18next"
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState, useContext } from "react"
 // chakra-ui
-import {
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
+// utils
+import { handleItemCount } from "utils"
+// context
+import { CartContext } from "context"
 // components
-import Item from "components/Item"
-import SkeletonItem from "components/Skeleton/Item/SkItem"
-// styles
-import { MY_BREAKPOINTS } from "styles/theme"
+import MenuItemProduct from "components/MenuItemProduct"
 
 /**
- * ItemList Component
+ * CartItemList Component
  * @component
  * @author Braian D. Vaylet
- * @description Componente con el listado de items.
+ * @description Componente que lista los items agregados al carrito en la Cart page
  */
-const ItemList = ({ data, category }) => {
-  const [t] = useTranslation("global")
-  const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+const CartItemList = () => {
+  const {
+    cartItems,
+    // cleanCart,
+    deleteItemFromCart,
+  } = useContext(CartContext)
+  const [items, setItems] = useState([])
+
+  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
 
   /**
-   * handleRows
+   * renderItemsCart
    * @function
-   * @returns {number} number of columns
+   * @description render listado de items agregados al carrito bajo con design=2
    */
-  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
-
-  /**
-   * renderItems
-   * @function
-   * @returns {undefined} list of Items components
-   */
-  const renderItems = () => {
-    return data !== null &amp;&amp; data.length > 0 ? (
-      data.map(
-        ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          &lt;GridItem key={id} colSpan={1}>
-            &lt;Item
-              id={id}
-              title={title}
-              description={description}
-              price={price}
-              pictureName={pictureName}
-              pictureUrl={pictureUrl}
-              stock={stock}
-            />
-          &lt;/GridItem>
-        )
+  const renderItemsCart = () => {
+    return items.map((item, index) => {
+      return (
+        &lt;Box key={index} w="50%">
+          &lt;MenuItemProduct
+            design={2}
+            item={item}
+            onDelete={() => deleteItemFromCart(item)}
+          />
+        &lt;/Box>
       )
-    ) : (
-      &lt;Center w="100%" h="80vh">
-        &lt;Text fontSize="3rem">{t("ItemList.noProductsYet")} 😔 &lt;/Text>
-      &lt;/Center>
-    )
-  }
-
-  /**
-   * renderSkeletons
-   * @function
-   * @returns {undefined} list of SkeletonItems components
-   */
-  const renderSkeletons = () => {
-    const counter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    return counter.map((index) => (
-      &lt;GridItem key={index} colSpan={1}>
-        &lt;SkeletonItem />
-      &lt;/GridItem>
-    ))
+    })
   }
 
   return (
-    &lt;Flex direction="column" justify="flex-start" align="center" p={2} w="100%">
-      &lt;Text fontSize="2rem" mb="10px">
-        {t("ItemList.productsList")} {category &amp;&amp; "/ " + category}
-      &lt;/Text>
-      &lt;Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
-        {data === null ? renderSkeletons() : renderItems()}
-      &lt;/Grid>
+    &lt;Flex
+      direction="column"
+      align="flex-start"
+      justify="flex-start"
+      wrap="nowrap"
+      w="100%"
+    >
+      {renderItemsCart()}
     &lt;/Flex>
   )
 }
 
-ItemList.propTypes = {
-  data: PropTypes.array,
-  category: PropTypes.string,
-}
-
-export default ItemList
+export default CartItemList
 </code></pre>
         </article>
     </section>
