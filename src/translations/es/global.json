@@ -75,7 +75,8 @@
     "addToFavourites": "Agregar a favoritos 😍"
   },
   "Favourites": {
-    "clean": "Limpiar favoritos"
+    "clean": "Limpiar favoritos",
+    "title": "Favoritos"
   },
   "CartWidget": {
     "clean": "Limpiar carrito",
@@ -87,5 +88,11 @@
   },
   "NotFound": {
     "title": "Página no encontrada"
+  },
+  "Footer": {
+    "workWithUs": "Trabaja con nosotros 💪",
+    "termsAndConditions": "Terminos y condiciones",
+    "help": "Ayuda",
+    "covidPrecautions": "Precauciones en tiempos de COVID"
   }
 }

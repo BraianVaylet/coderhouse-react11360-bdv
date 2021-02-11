@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Calification/index.js</title>
+  <title> components/Footer/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Calification/index.js</h1>
+                    <h1>components/Footer/index.js</h1>
                 </header>
                 
 
@@ -86,60 +86,132 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
+import { useTranslation } from "react-i18next"
+import { IoLogoLinkedin, IoLogoReact } from "react-icons/io5"
 // chakra-ui
-import { StarIcon } from "@chakra-ui/icons"
-import { Box, Flex } from "@chakra-ui/react"
+import { Flex, Text, Link, Icon, useMediaQuery } from "@chakra-ui/react"
+// hooks
+import useSetColorTheme from "hooks/useSetColorTheme"
+// styles
+import { setValueResponsiveMax400 } from "styles/utils"
+import { MY_BREAKPOINTS } from "styles/theme"
+// assets
+import { LogoIconOutline } from "assets/icons"
 
 /**
- * Calification Component
+ * Footer Component
  * @component
  * @author Braian D. Vaylet
- * @description Componente de sistema de calificación con 5 ⭐
+ * @description Componente footer de la aplicacion
  */
-const Calification = ({ value }) => {
-  /**
-   * handleStarColor
-   * @function
-   * @description handle function
-   * @returns {string} color
-   */
-  const handleStarColor = (active) =>
-    active ? "brand.primary" : "brand.secundary"
-
-  /**
-   * renderStars
-   * @function
-   * @description render function
-   * @returns {undefined} StarIcon components
-   */
-  const renderStars = () => {
-    const limit = 20
-    const items = [1, 2, 3, 4, 5]
-    return items.map((item) => (
-      &lt;StarIcon
-        key={item}
-        mr={2}
-        boxSize={6}
-        color={handleStarColor(value >= item * limit - limit)}
-      />
-    ))
-  }
+const Footer = () => {
+  const [t] = useTranslation("global")
+  const backgroundColor = useSetColorTheme("gray.900", "white")
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
 
   return (
-    &lt;Box padding={2}>
-      &lt;Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
-        {renderStars()}
+    &lt;Flex
+      direction="column"
+      align="flex-start"
+      justify="center"
+      w="100%"
+      mt={4}
+      boxShadow="lg"
+    >
+      &lt;Flex
+        direction={setValueResponsiveMax400("column", "row")}
+        justify="space-between"
+        align="center"
+        w="100%"
+        p={6}
+        bgColor={backgroundColor}
+      >
+        {!mediaQueryMax400 &amp;&amp; (
+          &lt;Flex direction="row" align="center" justify="flex-start">
+            &lt;LogoIconOutline boxSize="2rem" color={!backgroundColor} mr={2} />
+            &lt;Text
+              fontWeight="bold"
+              color={!backgroundColor}
+              fontStyle="italic"
+              letterSpacing="1px"
+            >
+              AQUILA STORE
+            &lt;/Text>
+          &lt;/Flex>
+        )}
+        &lt;Flex
+          direction={setValueResponsiveMax400("column", "row")}
+          justify="flex-end"
+          align={setValueResponsiveMax400("flex-start", "center")}
+        >
+          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+            {t("Footer.workWithUs")}
+          &lt;/Text>
+          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+            {t("Footer.termsAndConditions")}
+          &lt;/Text>
+          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+            {t("Footer.help")}
+          &lt;/Text>
+          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+            {t("Footer.covidPrecautions")}
+          &lt;/Text>
+        &lt;/Flex>
       &lt;/Flex>
-    &lt;/Box>
+
+      &lt;Flex
+        p={2}
+        bgColor="black"
+        w="100%"
+        direction="row"
+        justify="space-between"
+        align="center"
+      >
+        &lt;Text
+          color="white"
+          fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+        >
+          Copyright ©2021
+        &lt;/Text>
+        &lt;Flex direction="row" align="center" justify="flex-end">
+          &lt;Link
+            as={Flex}
+            align="center"
+            color="white"
+            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            href="https://es.reactjs.org/"
+          >
+            &lt;Icon
+              color="brand.primary"
+              boxSize="1.25rem"
+              as={IoLogoReact}
+              mr=".5rem"
+            />
+            ReactJs
+          &lt;/Link>
+          &lt;Text m="0 1rem">|&lt;/Text>
+          &lt;Link
+            as={Flex}
+            align="center"
+            color="white"
+            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            href="https://www.linkedin.com/in/braianvaylet/"
+          >
+            &lt;Icon
+              as={IoLogoLinkedin}
+              boxSize="1.25rem"
+              color="brand.secundary"
+              mr=".5rem"
+            />
+            Braian D. Vaylet
+          &lt;/Link>
+        &lt;/Flex>
+      &lt;/Flex>
+    &lt;/Flex>
   )
 }
 
-Calification.propTypes = {
-  value: PropTypes.number.isRequired,
-}
-
-export default Calification
+export default Footer
 </code></pre>
         </article>
     </section>

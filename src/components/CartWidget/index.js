@@ -39,12 +39,20 @@ const CartWidget = ({ onClick = () => {} }) => {
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [items, setItems] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
 
   const cartCount = cartItems.length
 
   useEffect(() => {
     handleItemCount()
   }, [cartItems])
+
+  /**
+   * handleIsOpen
+   * @function
+   * @description controlo la apertura del menu
+   */
+  const handleIsOpen = (value = !isOpen) => setIsOpen(value)
 
   /**
    * handleTotalPrice
@@ -109,14 +117,19 @@ const CartWidget = ({ onClick = () => {} }) => {
   }
 
   return (
-    <Menu>
+    <Menu
+      closeOnSelect={false}
+      arrowPadding={0}
+      defaultIsOpen={isOpen}
+      onClose={handleIsOpen}
+    >
       <MenuButton
         as={IconButton}
         variant="ghost"
         rightIcon={cartCount > 0 && <ChevronDownIcon />}
         size="lg"
         p="0 5px"
-        onClick={onClick}
+        onClick={handleIsOpen}
         icon={
           <Flex direction="row" align="center">
             <Icon as={MdShoppingCart} boxSize="1.5rem" />
@@ -124,7 +137,7 @@ const CartWidget = ({ onClick = () => {} }) => {
           </Flex>
         }
       />
-      {cartCount > 0 && (
+      {cartCount > 0 && isOpen && (
         <MenuList>
           {renderCartItems()}
           <MenuDivider />
@@ -148,6 +161,7 @@ const CartWidget = ({ onClick = () => {} }) => {
                 mr={2}
                 size="lg"
                 to={ROUTES.CART}
+                onClick={() => handleIsOpen(false)}
                 _hover={{ textDecoration: "none", bg: "gray.600" }}
               >
                 🛒

@@ -31,7 +31,7 @@ import MenuItemProduct from "components/MenuItemProduct"
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con contador
  */
-const Favorites = ({ onClick }) => {
+const Favorites = ({ onClick, withText = false }) => {
   const { favourites, cleanFavourites, deleteItemFromFavourites } = useContext(
     FavouriteContext
   )
@@ -59,14 +59,13 @@ const Favorites = ({ onClick }) => {
   }
 
   return (
-    <Menu>
+    <Menu closeOnSelect={false} arrowPadding={0}>
       <MenuButton
         as={IconButton}
         variant="ghost"
         rightIcon={countFavs > 0 && <ChevronDownIcon />}
         size="lg"
         p="0 5px"
-        onClick={onClick}
         leftIcon={
           <Flex direction="row" align="center">
             {countFavs > 0 ? (
@@ -74,7 +73,10 @@ const Favorites = ({ onClick }) => {
             ) : (
               <Icon as={MdFavoriteBorder} boxSize="1.5rem" />
             )}
-            <Text>({countFavs})</Text>
+            <Text as={Flex} align="center">
+              {withText && <Text m="0 .5rem">{t("Favourites.title")}</Text>}(
+              {countFavs})
+            </Text>
           </Flex>
         }
       />
@@ -104,6 +106,7 @@ const Favorites = ({ onClick }) => {
 
 Favorites.propTypes = {
   onClick: PropTypes.func,
+  withText: PropTypes.bool,
 }
 
 export default Favorites

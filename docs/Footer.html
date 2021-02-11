@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Calification/index.js</title>
+  <title> Footer</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -75,74 +73,171 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>components/Calification/index.js</h1>
+                    <p>Components</p>
+                    <h1>Footer</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-// chakra-ui
-import { StarIcon } from "@chakra-ui/icons"
-import { Box, Flex } from "@chakra-ui/react"
+        <h2>
+            &ltFooter  /&gt
+        </h2>
+        
+    
+</header>
 
-/**
- * Calification Component
- * @component
- * @author Braian D. Vaylet
- * @description Componente de sistema de calificación con 5 ⭐
- */
-const Calification = ({ value }) => {
-  /**
-   * handleStarColor
-   * @function
-   * @description handle function
-   * @returns {string} color
-   */
-  const handleStarColor = (active) =>
-    active ? "brand.primary" : "brand.secundary"
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
 
-  /**
-   * renderStars
-   * @function
-   * @description render function
-   * @returns {undefined} StarIcon components
-   */
-  const renderStars = () => {
-    const limit = 20
-    const items = [1, 2, 3, 4, 5]
-    return items.map((item) => (
-      &lt;StarIcon
-        key={item}
-        mr={2}
-        boxSize={6}
-        color={handleStarColor(value >= item * limit - limit)}
-      />
-    ))
-  }
 
-  return (
-    &lt;Box padding={2}>
-      &lt;Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
-        {renderStars()}
-      &lt;/Flex>
-    &lt;/Box>
-  )
-}
+    
+    <h4 class="name" id="Footer">
+        <a class="href-link" href="#Footer">#</a>
+        
+        <span class="code-name">
+            
+                &ltFooter  /&gt
+            
+        </span>
+    </h4>
+    
 
-Calification.propTypes = {
-  value: PropTypes.number.isRequired,
-}
+    
+    
+    <div class="description">
+        <p>Componente footer de la aplicacion</p>
+    </div>
+    
 
-export default Calification
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Braian D. Vaylet</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_Footer_index.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_Footer_index.js.html">components/Footer/index.js</a>, <a href="components_Footer_index.js.html#line20">line 20</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

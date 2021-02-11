@@ -75,7 +75,8 @@
     "addToFavourites": "Add to favourites 😍"
   },
   "Favourites": {
-    "clean": "Clean favourites"
+    "clean": "Clean favourites",
+    "title": "Favourites"
   },
   "CartWidget": {
     "clean": "Clean cart",
@@ -87,5 +88,11 @@
   },
   "NotFound": {
     "title": "Not Found"
+  },
+  "Footer": {
+    "workWithUs": "Work with us 💪",
+    "termsAndConditions": "Terms and conditions",
+    "help": "Help",
+    "covidPrecautions": "Precautions in times of COVID"
   }
 }

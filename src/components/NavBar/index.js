@@ -21,6 +21,7 @@ import {
   Text,
   useMediaQuery,
   Icon,
+  Divider,
 } from "@chakra-ui/react"
 // components
 import ChangeTheme from "components/ChangeTheme"
@@ -51,6 +52,7 @@ const NavBar = () => {
   )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
 
   /**
    * renderLinkSeparator
@@ -144,7 +146,7 @@ const NavBar = () => {
         <Flex direction="row" justify="flex-start" align="center">
           {mediaQueryMin1280 && renderLinks(true)}
           <Box ml={4} mr={4}>
-            <Favorites />
+            {!mediaQueryMax400 && <Favorites />}
             <CartWidget />
           </Box>
         </Flex>
@@ -166,6 +168,12 @@ const NavBar = () => {
                 justify="flex-start"
               >
                 {renderLinks()}
+                {mediaQueryMax400 && (
+                  <>
+                    <Divider m={"1.5rem 0"} />
+                    <Favorites withText />
+                  </>
+                )}
               </Flex>
             </DrawerBody>
             <DrawerFooter>
