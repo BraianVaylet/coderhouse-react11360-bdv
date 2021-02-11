@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { Flex } from "@chakra-ui/react"
 // components
 import NavBar from "../../components/NavBar"
+import Footer from "components/Footer"
 
 /**
  * Layout Container
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
       >
         {children}
       </Flex>
+      <Footer />
     </Flex>
   )
 }

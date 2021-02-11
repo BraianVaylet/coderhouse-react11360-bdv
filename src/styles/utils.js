@@ -19,3 +19,8 @@ export const setValueResponsiveMin1280 = (value1, value2) => {
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   return mediaQueryMin1280 ? value1 : value2
 }
+
+export const setValueResponsiveMax400 = (value1, value2) => {
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  return mediaQueryMax400 ? value1 : value2
+}

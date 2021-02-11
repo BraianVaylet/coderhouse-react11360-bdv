@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex } from "@chakra-ui/react"
+import { Flex, useMediaQuery } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
 import HelmetSEO from "components/HelmetSEO"
 import Banner from "components/Banner"
 // fake data
 import { PRODUCTS } from "test"
+// styles
+import { MY_BREAKPOINTS } from "styles/theme"
 
 /**
  * Home Page
@@ -18,6 +20,7 @@ import { PRODUCTS } from "test"
  */
 const Home = () => {
   const [t] = useTranslation("global")
+  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
   // ! Desafío: Catálogo con MAPS y Promises ---
   const [data, setData] = useState(null)
 
@@ -54,7 +57,7 @@ const Home = () => {
         description={t("HelmetSEO.description.home")}
       />
       <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-        <Banner />
+        {!mediaQueryMax400 && <Banner />}
         <ItemList data={data} />
       </Flex>
     </>

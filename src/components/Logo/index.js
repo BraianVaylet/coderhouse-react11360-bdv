@@ -1,6 +1,6 @@
 import React from "react"
 // chakra-ui
-import { Flex, Text, Box } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 import { LogoIconColor } from "assets/icons"
 
 /**
@@ -11,13 +11,7 @@ import { LogoIconColor } from "assets/icons"
  */
 const Logo = () => (
   <Flex justify="row" align="center" direction="row">
-    <Box
-      transitionDuration="0.5s"
-      transitionProperty="transform"
-      transform="scale(1) rotate(15deg)"
-    >
-      <LogoIconColor boxSize="2rem" mr={2} />
-    </Box>
+    <LogoIconColor boxSize="2rem" mr={2} />
     <Text
       fontSize="1.5rem"
       color="primary"

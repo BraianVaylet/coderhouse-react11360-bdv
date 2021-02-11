@@ -15,7 +15,7 @@ import { IMG } from "utils/images"
  */
 const Banner = () => {
   return (
-    <Box as={Carousel} autoPlay w="100vw">
+    <Box as={Carousel} autoPlay infiniteLoop transitionTime="3s" w="100vw">
       <Box
         w="100%"
         h="50vh"
