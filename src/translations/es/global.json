@@ -47,7 +47,8 @@
     "logout": "Cerrar sesión",
     "doYouWantToLogout": "¿Quiere cerrar su sesión?",
     "close": "Cerrar",
-    "ok": "Ok"
+    "ok": "Ok",
+    "youCanNot": "No puedes salir 😈" 
   },
   "ItemList": {
     "productsList": "Listado de productos 🔥🔥🔥",

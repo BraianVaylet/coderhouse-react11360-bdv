@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> containers/WrapperContext/index.js</title>
+  <title> pages/Checkout/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>containers/WrapperContext/index.js</h1>
+                    <h1>pages/Checkout/index.js</h1>
                 </header>
                 
 
@@ -86,30 +86,20 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react"
-import PropTypes from "prop-types"
-// context
-import { CartContextProvider, FavouriteContextProvider } from "context"
+// chakra-ui
+import { Flex } from "@chakra-ui/react"
 
 /**
- * WrapperContext Container
+ * Checkout Page
  * @component
  * @author Braian D. Vaylet
- * @description Contenedor del Context del proyecto
- *
+ * @description Pagina del checkout
  */
-const WrapperContext = ({ children }) => {
-  return (
-    &lt;FavouriteContextProvider>
-      &lt;CartContextProvider>{children}&lt;/CartContextProvider>
-    &lt;/FavouriteContextProvider>
-  )
+const Checkout = () => {
+  return &lt;Flex>Proximamente!&lt;/Flex>
 }
 
-WrapperContext.propTypes = {
-  children: PropTypes.element.isRequired,
-}
-
-export default WrapperContext
+export default Checkout
 </code></pre>
         </article>
     </section>

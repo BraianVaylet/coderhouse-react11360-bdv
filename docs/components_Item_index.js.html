@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Banner.html">Banner</a></li><li><a href="BtnModalImg.html">BtnModalImg</a></li><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartItemList.html">CartItemList</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="HelmetSEO.html">HelmetSEO</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Products.html">Products</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#handleItemCount">handleItemCount</a></li><li><a href="global.html#ROUTES">ROUTES</a></li><li><a href="global.html#setNavigatorLanguage">setNavigatorLanguage</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Banner.html">Banner</a></li><li><a href="BtnModalImg.html">BtnModalImg</a></li><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartItemList.html">CartItemList</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="CategoryPointer.html">CategoryPointer</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Checkout.html">Checkout</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="HelmetSEO.html">HelmetSEO</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Products.html">Products</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="TotalCart.html">TotalCart</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#handleItemCount">handleItemCount</a></li><li><a href="global.html#ROUTES">ROUTES</a></li><li><a href="global.html#setNavigatorLanguage">setNavigatorLanguage</a></li></ul></div>
                 
             </nav>
         </div>
@@ -103,6 +103,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import { ROUTES } from "routes"
 // styles
 import { CustomShadow } from "styles/utils"
+import CategoryPointer from "components/CategoryPointer"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -118,6 +119,7 @@ const Item = ({
   id,
   title,
   description,
+  category,
   pictureName,
   pictureUrl = null,
   price,
@@ -125,6 +127,17 @@ const Item = ({
   onAdd = () => {},
 }) => {
   const backgroundColor = useSetColorTheme("gray.900", "white")
+
+  const item = {
+    id,
+    title,
+    description,
+    category,
+    pictureName,
+    pictureUrl,
+    price,
+    stock,
+  }
 
   return (
     &lt;Flex
@@ -139,6 +152,7 @@ const Item = ({
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}
+      w={IMG_SIZE}
     >
       &lt;Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + id}>
         &lt;Box
@@ -156,7 +170,7 @@ const Item = ({
         />
       &lt;/Link>
       &lt;Box position="absolute" top="3" right="3">
-        &lt;FavouriteButton item={{ title, pictureUrl, price, id }} />
+        &lt;FavouriteButton item={item} />
       &lt;/Box>
       &lt;Box position="absolute" top="1" left="1">
         &lt;BtnModalImg
@@ -164,6 +178,9 @@ const Item = ({
           pictureUrl={pictureUrl}
           title={title}
         />
+      &lt;/Box>
+      &lt;Box position="absolute" bottom="1" right="1">
+        &lt;CategoryPointer category={category} />
       &lt;/Box>
       &lt;Flex
         p="10px"
@@ -188,14 +205,14 @@ const Item = ({
               ${price}
             &lt;/Heading>
             &lt;Box mb={2} mr={2}>
-              &lt;CartCount item={{ title, pictureUrl, price, id }} />
+              &lt;CartCount item={item} />
             &lt;/Box>
           &lt;/Flex>
           &lt;Text fontSize="1rem">{title}&lt;/Text>
           {/* &lt;Text fontSize=".75rem">{description}&lt;/Text> */}
         &lt;/Flex>
         &lt;Box w="80%" h="60%">
-          &lt;ItemCount stock={stock} item={{ id, title, price, pictureUrl }} />
+          &lt;ItemCount stock={stock} item={item} />
         &lt;/Box>
       &lt;/Flex>
     &lt;/Flex>
@@ -210,6 +227,7 @@ Item.propTypes = {
   pictureUrl: PropTypes.string,
   price: PropTypes.number.isRequired,
   stock: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
   onAdd: PropTypes.func,
 }
 

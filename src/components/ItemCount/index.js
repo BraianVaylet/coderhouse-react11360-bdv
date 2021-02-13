@@ -233,7 +233,7 @@ const ItemCount = ({
           </Text>
         ) : (
           <Text fontWeight="600">
-            {t("ItemCount.available")} {handleCount()}u.
+            {t("ItemCount.available")} {stock - handleCount()}u.
           </Text>
         )}
       </Box>

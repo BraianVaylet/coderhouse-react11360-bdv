@@ -47,7 +47,8 @@
     "logout": "Logout",
     "doYouWantToLogout": "Do you want to log out?",
     "close": "Close",
-    "ok": "Ok"
+    "ok": "Ok",
+    "youCanNot": "You can not go out 😈" 
   },
   "ItemList": {
     "productsList": "Products list 🔥🔥🔥",

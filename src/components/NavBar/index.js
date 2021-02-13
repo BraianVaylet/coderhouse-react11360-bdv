@@ -37,6 +37,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
 import { CATEGORIES } from "utils/constants"
 import { ROUTES } from "routes"
+import CategoryPointer from "components/CategoryPointer"
 
 /**
  * NavBar Component
@@ -72,37 +73,45 @@ const NavBar = () => {
    */
   const renderLinks = (withSeparator = false) => (
     <>
-      <Link
+      <Flex
+        align="center"
         as={NavLink}
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
       >
-        {t(`NavBar.${CATEGORIES.JACKETS}`)}
-      </Link>
+        <CategoryPointer category={CATEGORIES.JACKETS} />
+        <Text ml={2}>{t(`NavBar.${CATEGORIES.JACKETS}`)}</Text>
+      </Flex>
       {renderLinkSeparator(withSeparator)}
-      <Link
+      <Flex
+        align="center"
         as={NavLink}
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
       >
-        {t(`NavBar.${CATEGORIES.SHIRTS}`)}
-      </Link>
+        <CategoryPointer category={CATEGORIES.SHIRTS} />
+        <Text ml={2}>{t(`NavBar.${CATEGORIES.SHIRTS}`)}</Text>
+      </Flex>
       {renderLinkSeparator(withSeparator)}
-      <Link
+      <Flex
+        align="center"
         as={NavLink}
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
       >
-        {t(`NavBar.${CATEGORIES.SHOES}`)}
-      </Link>
+        <CategoryPointer category={CATEGORIES.SHOES} />
+        <Text ml={2}>{t(`NavBar.${CATEGORIES.SHOES}`)}</Text>
+      </Flex>
       {renderLinkSeparator(withSeparator)}
-      <Link
+      <Flex
+        align="center"
         as={NavLink}
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
       >
-        {t(`NavBar.${CATEGORIES.ACCESORIES}`)}
-      </Link>
+        <CategoryPointer category={CATEGORIES.ACCESORIES} />
+        <Text ml={2}>{t(`NavBar.${CATEGORIES.ACCESORIES}`)}</Text>
+      </Flex>
     </>
   )
 
