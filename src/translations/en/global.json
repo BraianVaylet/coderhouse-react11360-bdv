@@ -1,4 +1,18 @@
 {
+  "HelmetSEO": {
+    "title": {
+      "home": "Aquila 🦅 | Home",
+      "products": "Aquila 🦅 | Products | ",
+      "itemDetail": "Aquila 🦅 | Product | ",
+      "notFound": "Aquila 🦅 | 404"
+    },
+    "description": {
+      "home": "Main page of the store for the sale of clothing",
+      "products": "List of store products under the category: ",
+      "itemDetail": "Product selected from the store: ",
+      "notFound": "Not found"
+    }
+  },
   "App": {
     "helloWorld": "Hello World!"
   },
@@ -8,7 +22,11 @@
     "entertainment": "Entertainment",
     "estate": "Estate",
     "mobility": "Mobility",
-    "logout": "Logout"
+    "logout": "Logout",
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories"
   },
   "ChangeLanguage": {
     "es": "ES",
@@ -17,6 +35,81 @@
   "ItemCount": {
     "noStock": "No stock",
     "available": "Available",
-    "addToCart": "Add to cart"
+    "addToCart": "Add to cart",
+    "addedToCart": "Added to cart 👍",
+    "buyNow": "Buy now",
+    "canNotBuy": "Purchases are disabled",
+    "canNotBuyDescription": "It is not possible to buy this item at this time",
+    "canNotAdd": "Purchases are disabled",
+    "canNotAddDescription": "It is not possible to add this item to your cart at this time."
+  },
+  "Logout": {
+    "logout": "Logout",
+    "doYouWantToLogout": "Do you want to log out?",
+    "close": "Close",
+    "ok": "Ok",
+    "youCanNot": "You can not go out 😈" 
+  },
+  "ItemList": {
+    "productsList": "Products list 🔥🔥🔥",
+    "noProductsYet": "No products yet 😔"
+  },
+  "ItemDetailQuestionsAndAnswers": {
+    "title": "Questions and answers"
+  },
+  "ItemDetailDescription": {
+    "title": "Description"
+  },
+  "ItemDetailCharacteristics": {
+    "title": "Characteristics",
+    "brand": "Brand",
+    "model": "Model",
+    "withLoveTo": "With 💖 to",
+    "availableColours": "Available colours",
+    "availableSizes": "Available sizes"
+  },
+  "Header": {
+    "back": "👈 Back"
+  },
+  "FavouriteButton": {
+    "deleteFromFavourites": "Delete from favourites 💔",
+    "addToFavourites": "Add to favourites 😍"
+  },
+  "Favourites": {
+    "clean": "Clean favourites",
+    "title": "Favourites"
+  },
+  "CartWidget": {
+    "clean": "Clean cart",
+    "goToCart": "Go to cart",
+    "deleteItem": "Remove from cart"
+  },
+  "MenuItemProduct": {
+    "deleteItem": "Remove product",
+    "delete": "Delete",
+    "save": "Save",
+    "saveText": "Save for later",
+    "similarProducts": "See similar products",
+    "seeMore": "See more"
+  },
+  "NotFound": {
+    "title": "Not Found"
+  },
+  "Footer": {
+    "workWithUs": "Work with us 💪",
+    "termsAndConditions": "Terms and conditions",
+    "help": "Help",
+    "covidPrecautions": "Precautions in times of COVID"
+  },
+  "Cart": {
+    "cart": "Cart",
+    "saves": "Saves"
+  },
+  "BtnModalImg": {
+    "zoomIn": "Zoom in"
+  },
+  "CartItemList": {
+    "keepBuying": "Keep buying",
+    "continueShopping": "Continue shopping"
   }
 }

@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CartWidget.html">CartWidget</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="NavBar.html">NavBar</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Banner.html">Banner</a></li><li><a href="BtnModalImg.html">BtnModalImg</a></li><li><a href="Calification.html">Calification</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartCount.html">CartCount</a></li><li><a href="CartItemList.html">CartItemList</a></li><li><a href="CartWidget.html">CartWidget</a></li><li><a href="CategoryPointer.html">CategoryPointer</a></li><li><a href="ChangeLanguage.html">ChangeLanguage</a></li><li><a href="ChangeTheme.html">ChangeTheme</a></li><li><a href="Checkout.html">Checkout</a></li><li><a href="Favorites.html">Favorites</a></li><li><a href="FavouriteButton.html">FavouriteButton</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="HelmetSEO.html">HelmetSEO</a></li><li><a href="Home.html">Home</a></li><li><a href="Item.html">Item</a></li><li><a href="ItemCount.html">ItemCount</a></li><li><a href="ItemDetail.html">ItemDetail</a></li><li><a href="ItemDetailAction.html">ItemDetailAction</a></li><li><a href="ItemDetailCharacteristics.html">ItemDetailCharacteristics</a></li><li><a href="ItemDetailDescription.html">ItemDetailDescription</a></li><li><a href="ItemDetailImgBox.html">ItemDetailImgBox</a></li><li><a href="ItemDetailQuestionsAndAnswers.html">ItemDetailQuestionsAndAnswers</a></li><li><a href="ItemList.html">ItemList</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Logout.html">Logout</a></li><li><a href="MenuItemProduct.html">MenuItemProduct</a></li><li><a href="NavBar.html">NavBar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Products.html">Products</a></li><li><a href="Routes.html">Routes</a></li><li><a href="SkeletonItem.html">SkeletonItem</a></li><li><a href="SkeletonItemDetailAction.html">SkeletonItemDetailAction</a></li><li><a href="SkeletonItemDetailContent.html">SkeletonItemDetailContent</a></li><li><a href="SkeletonItemDetailImgBox.html">SkeletonItemDetailImgBox</a></li><li><a href="TotalCart.html">TotalCart</a></li><li><a href="Wrapper.html">Wrapper</a></li><li><a href="WrapperContext.html">WrapperContext</a></li></ul><h3>Global</h3><ul><li><a href="global.html#handleItemCount">handleItemCount</a></li><li><a href="global.html#ROUTES">ROUTES</a></li><li><a href="global.html#setNavigatorLanguage">setNavigatorLanguage</a></li></ul></div>
                 
             </nav>
         </div>
@@ -85,18 +85,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react"
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect, useContext } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button, Flex, Text, useColorMode } from "@chakra-ui/react"
+import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react"
+import { AddIcon, MinusIcon } from "@chakra-ui/icons"
+// hooks
+import useSetColorTheme from "hooks/useSetColorTheme"
+// context
+import { CartContext } from "context"
 
 /**
  * ItemCount Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente ItemCount para seleccionar items validando el stock y con acción de agregar al carrito o comprar.
  */
-const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
-  const { colorMode } = useColorMode()
+const ItemCount = ({
+  initial = 1,
+  stock,
+  item,
+  onBuy = () => {},
+  design = 1,
+}) => {
+  const { cartItems, addItemToCart, deleteOneItemFromCart } = useContext(
+    CartContext
+  )
+  const backgroundColor = useSetColorTheme("gray.900", "gray.200")
+  const toast = useToast()
   const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
@@ -119,61 +136,215 @@ const ItemCount = ({ initial = 1, stock, onAdd = () => {} }) => {
   const handleDecrementConuter = () =>
     setCount(count &lt;= stock &amp;&amp; count > 0 ? count - 1 : count)
 
-  return (
+  /**
+   * handleIncrementConuterV2
+   * @function
+   * @returns {number} count++
+   */
+  const handleIncrementConuterV2 = () => {
+    let _item = item
+    const itemsArr = cartItems.filter((element) => element.id === _item.id)
+    const _id = itemsArr.length + 1
+    _item = { ...item, _id }
+    addItemToCart([_item])
+    toast({
+      title: t("ItemCount.addedToCart"),
+      description: "",
+      status: "success",
+      position: "bottom-right",
+      duration: 5000,
+      isClosable: true,
+    })
+  }
+
+  const handleCount = () => {
+    const itemsArr = cartItems.filter((element) => element.id === item.id)
+    return itemsArr.length
+  }
+
+  /**
+   * handleDecrementConuterV2
+   * @function
+   * @returns {number} count--
+   */
+  const handleDecrementConuterV2 = () => handleOnDeleteClick()
+
+  /**
+   * handleOnBuyClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnBuyClick = () => {
+    return (
+      onBuy() ||
+      toast({
+        title: t("ItemCount.canNotBuy"),
+        description: t("ItemCount.canNotBuyDescription"),
+        status: "info",
+        duration: 5000,
+        isClosable: true,
+      })
+    )
+  }
+
+  /**
+   * handleOnAddClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnAddClick = () => {
+    addItemToCart(handleItemsByCounter())
+    toast({
+      title: t("ItemCount.addedToCart"),
+      description: "",
+      status: "success",
+      position: "bottom-right",
+      duration: 5000,
+      isClosable: true,
+    })
+  }
+
+  /**
+   * handleOnDeleteClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnDeleteClick = () => deleteOneItemFromCart(item)
+
+  /**
+   * handleItemsByCounter
+   * @function
+   * @description retorna array de productos (trabajado)
+   * @return {array}
+   */
+  const handleItemsByCounter = () => {
+    const arrItems = []
+    for (let i = 0; i &lt; count; i++) {
+      let _item = item
+      const itemsArr = cartItems.filter((element) => element.id === _item.id)
+      const _id = itemsArr.length + (i + 1)
+      _item = { ...item, _id }
+      arrItems.push(_item)
+    }
+    return arrItems
+  }
+
+  return design === 1 ? (
     &lt;Flex
-      justify="space-between"
       direction="column"
       align="center"
-      w="200px"
-      borderWidth="1px"
-      borderRadius="5px"
-      p="20px"
-      boxShadow="lg"
+      justify="space-between"
+      w="100%"
+      h="100%"
+      p="5px"
     >
       &lt;Flex
         justify="space-between"
         direction="row"
         align="center"
+        borderRadius="5px"
         w="100%"
-        h="40px"
-        m="10px 0px"
-        bg={colorMode === "light" ? "gray.200" : "gray.900"}
+        h="30%"
+        m="5px 0px"
+        bg={backgroundColor}
       >
         &lt;Button w="25%" h="100%" onClick={handleDecrementConuter}>
-          -
+          &lt;MinusIcon w={5} h={5} />
         &lt;/Button>
         &lt;Text w="50%" textAlign="center">
           {count}
         &lt;/Text>
         &lt;Button w="25%" h="100%" onClick={handleIncrementConuter}>
-          +
+          &lt;AddIcon w={5} h={5} />
         &lt;/Button>
       &lt;/Flex>
-      {noStock ? (
-        &lt;Text color="red.500" fontWeight="600">
-          {t("ItemCount.noStock")}
-        &lt;/Text>
-      ) : (
-        &lt;Text fontWeight="600">
-          {t("ItemCount.available")} {stock - count}u.
-        &lt;/Text>
-      )}
-      &lt;Button
-        w="100%"
-        mt="20px"
-        disabled={noStock}
-        onClick={() => onAdd(count)}
-      >
-        {t("ItemCount.addToCart")}
-      &lt;/Button>
+      &lt;Box>
+        {noStock ? (
+          &lt;Text color="red.500" fontWeight="600">
+            {t("ItemCount.noStock")}
+          &lt;/Text>
+        ) : (
+          &lt;Text fontWeight="600">
+            {t("ItemCount.available")} {stock - count - handleCount()}u.
+          &lt;/Text>
+        )}
+      &lt;/Box>
+      &lt;Flex justify="center" align="center" direction="column" w="100%">
+        &lt;Button
+          w="100%"
+          mt={4}
+          disabled={noStock || count === 0}
+          onClick={handleOnAddClick}
+        >
+          {t("ItemCount.addToCart")}
+        &lt;/Button>
+        &lt;Button
+          w="100%"
+          mt={4}
+          disabled={noStock || count === 0}
+          onClick={handleOnBuyClick}
+        >
+          {t("ItemCount.buyNow")}
+        &lt;/Button>
+      &lt;/Flex>
     &lt;/Flex>
+  ) : design === 2 ? (
+    &lt;Flex
+      direction="column"
+      align="center"
+      justify="space-between"
+      w="100%"
+      h="100%"
+      p="5px"
+    >
+      &lt;Flex
+        justify="space-between"
+        direction="row"
+        align="center"
+        borderRadius="5px"
+        w="100%"
+        m="5px 0px"
+        bg={backgroundColor}
+      >
+        &lt;Button mr={4} w="50%" h="100%" onClick={handleDecrementConuterV2}>
+          &lt;MinusIcon w={5} h={10} />
+        &lt;/Button>
+        &lt;Button w="50%" h="100%" onClick={handleIncrementConuterV2}>
+          &lt;AddIcon w={5} h={10} />
+        &lt;/Button>
+      &lt;/Flex>
+      &lt;Box>
+        {noStock ? (
+          &lt;Text color="red.500" fontWeight="600">
+            {t("ItemCount.noStock")}
+          &lt;/Text>
+        ) : (
+          &lt;Text fontWeight="600">
+            {t("ItemCount.available")} {stock - handleCount()}u.
+          &lt;/Text>
+        )}
+      &lt;/Box>
+    &lt;/Flex>
+  ) : (
+    &lt;Box />
   )
 }
 
 ItemCount.propTypes = {
   stock: PropTypes.number.isRequired,
   initial: PropTypes.number,
-  onAdd: PropTypes.func,
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    pictureUrl: PropTypes.string,
+  }).isRequired,
+  onBuy: PropTypes.func,
+  /**
+   * design = 1: Preparado para ser usado en los componentes Item, ItemDetail
+   * design = 2: Preparado para ser usado en la pagina Cart
+   */
+  design: PropTypes.number,
 }
 
 export default ItemCount

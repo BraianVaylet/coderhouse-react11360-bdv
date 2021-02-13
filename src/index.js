@@ -2,28 +2,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import reportWebVitals from "./reportWebVitals"
-// translations
-import { I18nextProvider } from "react-i18next"
-import i18next from "translations"
-// chakra-ui
-import { ChakraProvider, ColorModeScript, CSSReset } from "@chakra-ui/react"
-// components
-import Layout from "containers/Layout"
-import App from "./App"
-// styles
-import theme from "styles/theme"
+// containers
+import Wrapper from "containers/Wrapper"
+// routes
+import Routes from "routes"
 
 ReactDOM.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18next}>
-      <ChakraProvider theme={theme}>
-        <CSSReset />
-        <ColorModeScript initialColorMode={theme.initialColorMode} />
-        <Layout>
-          <App />
-        </Layout>
-      </ChakraProvider>
-    </I18nextProvider>
+    <Wrapper>
+      <Routes />
+    </Wrapper>
   </React.StrictMode>,
   document.getElementById("root")
 )

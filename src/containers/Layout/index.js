@@ -4,31 +4,36 @@ import PropTypes from "prop-types"
 import { Flex } from "@chakra-ui/react"
 // components
 import NavBar from "../../components/NavBar"
+import Footer from "components/Footer"
 
 /**
  * Layout Container
  * @component
+ * @author Braian D. Vaylet
+ * @description Contenedor Layout, incluye la NavBar y contiene al router
  */
-const Layout = ({ children }) => (
-  <Flex direction="column" justify="flex-start" align="center">
-    <NavBar />
-    <Flex
-      w="100%"
-      h="100vh"
-      mt="5rem"
-      p="1rem"
-      zIndex="10"
-      align="center"
-      direction="column"
-      justify="center"
-    >
-      {children}
+const Layout = ({ children }) => {
+  return (
+    <Flex direction="column" justify="flex-start" align="center">
+      <NavBar />
+      <Flex
+        w="100%"
+        minH="100vh"
+        mt="3.5rem"
+        p="1rem"
+        zIndex="10"
+        align="center"
+        direction="column"
+        justify="center"
+      >
+        {children}
+      </Flex>
+      <Footer />
     </Flex>
-  </Flex>
-)
+  )
+}
 
 Layout.propTypes = {
-  /** children component */
   children: PropTypes.element.isRequired,
 }
 

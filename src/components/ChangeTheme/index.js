@@ -1,26 +1,40 @@
 // react
 import React from "react"
-import { WiHorizon, WiMoonrise } from "react-icons/wi"
 // chakra-ui
-import { useColorMode, Icon, IconButton } from "@chakra-ui/react"
+import { useColorMode, IconButton } from "@chakra-ui/react"
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 /**
  * ChangeTheme Component
  * @component
+ * @author Braian D. Vaylet
+ * @description Componente botón para cambiar el theme del proyecto Dark-Light
  */
 const ChangeTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <IconButton
-      variant="ghost"
+      data-testid="ChangeTheme"
+      variant="none"
       onClick={toggleColorMode}
       size="lg"
+      transitionDuration="0.75s"
+      transitionProperty="transform"
+      borderRadius="9999px"
+      _hover={{
+        transform: "rotate(360deg) scale(1.25)",
+        cursor: "pointer",
+      }}
+      _focus={{
+        borderStyle: "none",
+        backgroundColor: "transparent",
+      }}
       icon={
         colorMode === "light" ? (
-          <Icon boxSize="2rem" as={WiMoonrise} />
+          <MoonIcon boxSize="1.5rem" />
         ) : (
-          <Icon boxSize="2rem" as={WiHorizon} />
+          <SunIcon boxSize="1.5rem" />
         )
       }
     />

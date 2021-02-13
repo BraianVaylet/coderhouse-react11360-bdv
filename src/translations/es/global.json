@@ -1,4 +1,18 @@
 {
+  "HelmetSEO": {
+    "title": {
+      "home": "Aquila 🦅 | página principal",
+      "products": "Aquila 🦅 | productos | ",
+      "itemDetail": "Aquila 🦅 | producto | ",
+      "notFound": "Aquila 🦅 | 404"
+    },
+    "description": {
+      "home": "Página principal del store para la venta de indumentaria",
+      "products": "Listado de productos del store bajo la categoría: ",
+      "itemDetail": "Producto seleccionado del store: ",
+      "notFound": "Página no econtrada"
+    }
+  },
   "App": {
     "helloWorld": "Hola Mundo!"
   },
@@ -8,7 +22,11 @@
     "entertainment": "Entretenimiento",
     "estate": "Inmuebles",
     "mobility": "Movilidad",
-    "logout": "Salir"
+    "logout": "Salir",
+    "jackets": "Camperas",
+    "shirts": "Remeras",
+    "shoes": "Zapatillas",
+    "accesories": "Accesorios"
   },
   "ChangeLanguage": {
     "es": "ES",
@@ -17,6 +35,81 @@
   "ItemCount": {
     "noStock": "No hay stock",
     "available": "Disponible",
-    "addToCart": "Agregar al carrito"
+    "addToCart": "Agregar al carrito",
+    "addedToCart": "Se agrego al carrito 👍",
+    "buyNow": "Comprar ahora",
+    "canNotBuy": "Las compras estan desactivadas 💔",
+    "canNotBuyDescription": "No es posible comprar este artículo en este momento.",
+    "canNotAdd": "Las compras estan desactivadas 💔",
+    "canNotAddDescription": "No es posible agregar este artículo a su carrito en este momento."
+  },
+  "Logout": {
+    "logout": "Cerrar sesión",
+    "doYouWantToLogout": "¿Quiere cerrar su sesión?",
+    "close": "Cerrar",
+    "ok": "Ok",
+    "youCanNot": "No puedes salir 😈" 
+  },
+  "ItemList": {
+    "productsList": "Listado de productos 🔥🔥🔥",
+    "noProductsYet": "No hay productos todavía 😔"
+  },
+  "ItemDetailQuestionsAndAnswers": {
+    "title": "Preguntas y respuestas"
+  },
+  "ItemDetailDescription": {
+    "title": "Descripción"
+  },
+  "ItemDetailCharacteristics": {
+    "title": "Caracteristicas",
+    "brand": "Marca",
+    "model": "Modelo",
+    "withLoveTo": "Con 💖 para ",
+    "availableColours": "Colores disponibles",
+    "availableSizes": "Talles disponibles"
+  },
+  "Header": {
+    "back": "👈 Volver"
+  },
+  "FavouriteButton": {
+    "deleteFromFavourites": "Eliminar de favoritos 💔",
+    "addToFavourites": "Agregar a favoritos 😍"
+  },
+  "Favourites": {
+    "clean": "Limpiar favoritos",
+    "title": "Favoritos"
+  },
+  "CartWidget": {
+    "clean": "Limpiar carrito",
+    "goToCart": "Ir al carrito",
+    "deleteItem": "Quitar del carrito"
+  },
+  "MenuItemProduct": {
+    "deleteItem": "Quitar producto",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "saveText": "Guardar para despues",
+    "similarProducts": "Ver productos similares",
+    "seeMore": "Ver más"
+  },
+  "NotFound": {
+    "title": "Página no encontrada"
+  },
+  "Footer": {
+    "workWithUs": "Trabaja con nosotros 💪",
+    "termsAndConditions": "Terminos y condiciones",
+    "help": "Ayuda",
+    "covidPrecautions": "Precauciones en tiempos de COVID"
+  },
+  "Cart": {
+    "cart": "Carrito",
+    "saves": "Guardados"
+  },
+  "BtnModalImg": {
+    "zoomIn": "Ampliar"
+  },
+  "CartItemList": {
+    "keepBuying": "Seguir comprando",
+    "continueShopping": "Continuar compra"
   }
 }
