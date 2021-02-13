@@ -126,7 +126,7 @@ import MenuItemProduct from "components/MenuItemProduct"
  * @description Componente carrito con contador
  */
 const CartWidget = ({ onClick = () => {} }) => {
-  const { cartItems, cleanCart, deleteItemFromCart } = useContext(CartContext)
+  const { cartItems, cleanCart, deleteItemsFromCart } = useContext(CartContext)
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [items, setItems] = useState([])
@@ -168,7 +168,7 @@ const CartWidget = ({ onClick = () => {} }) => {
         &lt;MenuItem key={index}>
           &lt;MenuItemProduct
             item={item}
-            onDelete={() => deleteItemFromCart(item)}
+            onDelete={() => deleteItemsFromCart(item)}
           />
         &lt;/MenuItem>
       )

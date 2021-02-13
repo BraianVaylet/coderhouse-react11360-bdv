@@ -17,9 +17,21 @@ export const CartContextProvider = ({ children }) => {
     setCartItems(newCartItemsArray2)
   }
 
-  const deleteItemFromCart = (item) => {
-    const newCartItemsArray = cartItems.filter((fav) => fav.id !== item.id)
+  const deleteItemsFromCart = (item) => {
+    const newCartItemsArray = cartItems.filter(
+      (cartItem) => cartItem.id !== item.id
+    )
     setCartItems(newCartItemsArray)
+  }
+
+  const deleteOneItemFromCart = (item) => {
+    const filterProductArr = cartItems.filter(
+      (cartItem) => cartItem.id === item.id
+    )
+    filterProductArr.pop()
+    const productsArr = cartItems.filter((cartItem) => cartItem.id !== item.id)
+    const newArr = [...productsArr, ...filterProductArr]
+    setCartItems(newArr)
   }
 
   const cleanCart = () => setCartItems([])
@@ -29,7 +41,8 @@ export const CartContextProvider = ({ children }) => {
       value={{
         cartItems,
         addItemToCart,
-        deleteItemFromCart,
+        deleteItemsFromCart,
+        deleteOneItemFromCart,
         cleanCart,
       }}
     >

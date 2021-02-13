@@ -33,7 +33,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
 const Logout = () => {
   const [t] = useTranslation("global")
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   const renderTitle = () => t("Logout.logout")
   const renderBody = () => <Text>{t("Logout.doYouWantToLogout")}</Text>
@@ -50,7 +50,7 @@ const Logout = () => {
     <>
       <Button onClick={onOpen}>{t("Logout.logout")}</Button>
       <Portal>
-        {mediaQueryMax400 ? (
+        {mediaQueryMax600 ? (
           <Drawer
             placement="bottom"
             onClose={onClose}

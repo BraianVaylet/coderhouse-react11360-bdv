@@ -29,9 +29,9 @@ import ChangeLanguage from "components/ChangeLanguage"
 import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
 import Logout from "components/Logout"
+import Favorites from "components/Favorites"
 // styles
 import { COLORS, MY_BREAKPOINTS } from "styles/theme"
-import Favorites from "components/Favorites"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
@@ -52,7 +52,7 @@ const NavBar = () => {
   )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   /**
    * renderLinkSeparator
@@ -146,7 +146,7 @@ const NavBar = () => {
         <Flex direction="row" justify="flex-start" align="center">
           {mediaQueryMin1280 && renderLinks(true)}
           <Box ml={4} mr={4}>
-            {!mediaQueryMax400 && <Favorites />}
+            {!mediaQueryMax600 && <Favorites />}
             <CartWidget />
           </Box>
         </Flex>
@@ -168,7 +168,7 @@ const NavBar = () => {
                 justify="flex-start"
               >
                 {renderLinks()}
-                {mediaQueryMax400 && (
+                {mediaQueryMax600 && (
                   <>
                     <Divider m={"1.5rem 0"} />
                     <Favorites withText />

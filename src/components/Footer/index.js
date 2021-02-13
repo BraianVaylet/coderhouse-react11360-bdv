@@ -6,7 +6,7 @@ import { Flex, Text, Link, Icon, useMediaQuery } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
-import { setValueResponsiveMax400 } from "styles/utils"
+import { setValueResponsiveMax600 } from "styles/utils"
 import { MY_BREAKPOINTS } from "styles/theme"
 // assets
 import { LogoIconOutline } from "assets/icons"
@@ -20,7 +20,7 @@ import { LogoIconOutline } from "assets/icons"
 const Footer = () => {
   const [t] = useTranslation("global")
   const backgroundColor = useSetColorTheme("gray.900", "white")
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   return (
     <Flex
@@ -32,14 +32,14 @@ const Footer = () => {
       boxShadow="lg"
     >
       <Flex
-        direction={setValueResponsiveMax400("column", "row")}
+        direction={setValueResponsiveMax600("column", "row")}
         justify="space-between"
         align="center"
         w="100%"
         p={6}
         bgColor={backgroundColor}
       >
-        {!mediaQueryMax400 && (
+        {!mediaQueryMax600 && (
           <Flex direction="row" align="center" justify="flex-start">
             <LogoIconOutline boxSize="2rem" color={!backgroundColor} mr={2} />
             <Text
@@ -53,27 +53,28 @@ const Footer = () => {
           </Flex>
         )}
         <Flex
-          direction={setValueResponsiveMax400("column", "row")}
+          direction={setValueResponsiveMax600("column", "row")}
           justify="flex-end"
-          align={setValueResponsiveMax400("flex-start", "center")}
+          align={setValueResponsiveMax600("flex-start", "center")}
         >
-          <Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.workWithUs")}
           </Text>
-          <Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.termsAndConditions")}
           </Text>
-          <Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.help")}
           </Text>
-          <Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.covidPrecautions")}
           </Text>
         </Flex>
       </Flex>
 
       <Flex
-        p={2}
+        pl={6}
+        pr={6}
         bgColor="black"
         w="100%"
         direction="row"
@@ -81,8 +82,8 @@ const Footer = () => {
         align="center"
       >
         <Text
-          color="white"
-          fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+          color="gray.400"
+          fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
         >
           Copyright ©2021
         </Text>
@@ -90,8 +91,8 @@ const Footer = () => {
           <Link
             as={Flex}
             align="center"
-            color="white"
-            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            color="gray.400"
+            fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://es.reactjs.org/"
           >
             <Icon
@@ -106,8 +107,8 @@ const Footer = () => {
           <Link
             as={Flex}
             align="center"
-            color="white"
-            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            color="gray.400"
+            fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://www.linkedin.com/in/braianvaylet/"
           >
             <Icon

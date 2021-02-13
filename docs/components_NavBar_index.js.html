@@ -139,7 +139,7 @@ const NavBar = () => {
   )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   /**
    * renderLinkSeparator
@@ -233,7 +233,7 @@ const NavBar = () => {
         &lt;Flex direction="row" justify="flex-start" align="center">
           {mediaQueryMin1280 &amp;&amp; renderLinks(true)}
           &lt;Box ml={4} mr={4}>
-            {!mediaQueryMax400 &amp;&amp; &lt;Favorites />}
+            {!mediaQueryMax600 &amp;&amp; &lt;Favorites />}
             &lt;CartWidget />
           &lt;/Box>
         &lt;/Flex>
@@ -255,7 +255,7 @@ const NavBar = () => {
                 justify="flex-start"
               >
                 {renderLinks()}
-                {mediaQueryMax400 &amp;&amp; (
+                {mediaQueryMax600 &amp;&amp; (
                   &lt;>
                     &lt;Divider m={"1.5rem 0"} />
                     &lt;Favorites withText />

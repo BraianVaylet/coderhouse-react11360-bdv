@@ -31,6 +31,7 @@ const Item = ({
   id,
   title,
   description,
+  category,
   pictureName,
   pictureUrl = null,
   price,
@@ -38,6 +39,17 @@ const Item = ({
   onAdd = () => {},
 }) => {
   const backgroundColor = useSetColorTheme("gray.900", "white")
+
+  const item = {
+    id,
+    title,
+    description,
+    category,
+    pictureName,
+    pictureUrl,
+    price,
+    stock,
+  }
 
   return (
     <Flex
@@ -52,6 +64,7 @@ const Item = ({
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}
+      w={IMG_SIZE}
     >
       <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + id}>
         <Box
@@ -69,7 +82,7 @@ const Item = ({
         />
       </Link>
       <Box position="absolute" top="3" right="3">
-        <FavouriteButton item={{ title, pictureUrl, price, id }} />
+        <FavouriteButton item={item} />
       </Box>
       <Box position="absolute" top="1" left="1">
         <BtnModalImg
@@ -101,14 +114,14 @@ const Item = ({
               ${price}
             </Heading>
             <Box mb={2} mr={2}>
-              <CartCount item={{ title, pictureUrl, price, id }} />
+              <CartCount item={item} />
             </Box>
           </Flex>
           <Text fontSize="1rem">{title}</Text>
           {/* <Text fontSize=".75rem">{description}</Text> */}
         </Flex>
         <Box w="80%" h="60%">
-          <ItemCount stock={stock} item={{ id, title, price, pictureUrl }} />
+          <ItemCount stock={stock} item={item} />
         </Box>
       </Flex>
     </Flex>
@@ -123,6 +136,7 @@ Item.propTypes = {
   pictureUrl: PropTypes.string,
   price: PropTypes.number.isRequired,
   stock: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
   onAdd: PropTypes.func,
 }
 

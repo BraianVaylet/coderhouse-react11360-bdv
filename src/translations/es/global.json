@@ -84,7 +84,12 @@
     "deleteItem": "Quitar del carrito"
   },
   "MenuItemProduct": {
-    "deleteItem": "Quitar producto"
+    "deleteItem": "Quitar producto",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "saveText": "Guardar para despues",
+    "similarProducts": "Ver productos similares",
+    "seeMore": "Ver más"
   },
   "NotFound": {
     "title": "Página no encontrada"
@@ -98,5 +103,12 @@
   "Cart": {
     "cart": "Carrito",
     "saves": "Guardados"
+  },
+  "BtnModalImg": {
+    "zoomIn": "Ampliar"
+  },
+  "CartItemList": {
+    "keepBuying": "Seguir comprando",
+    "continueShopping": "Continuar compra"
   }
 }

@@ -10,6 +10,7 @@ import { CartContext } from "context"
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // components
 import CartItemList from "components/CartItemList"
+import Header from "components/Header"
 
 /**
  * Cart page
@@ -24,30 +25,39 @@ const Cart = () => {
 
   return (
     <Flex
-      w={setValueResponsiveMin1280("72.5%", "100%")}
-      minH={setValueResponsiveMin1280("80vh", "100%")}
-      h={setValueResponsiveMin1280("80vh", "100%")}
-      bgColor={backgroundColor}
-      boxShadow={CustomShadow}
       p={4}
+      mt={8}
+      direction="column"
+      align="center"
+      justify="center"
+      w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <Tabs w="100%">
-        <TabList>
-          <Tab>
-            {t("Cart.cart")} ({cartItems.length})
-          </Tab>
-          <Tab>{t("Cart.saves")}</Tab>
-        </TabList>
+      <Header />
+      <Flex
+        w="100%"
+        minH={setValueResponsiveMin1280("80vh", "100%")}
+        bgColor={backgroundColor}
+        boxShadow={CustomShadow}
+        p={4}
+      >
+        <Tabs w="100%">
+          <TabList>
+            <Tab>
+              {t("Cart.cart")} ({cartItems.length})
+            </Tab>
+            <Tab>{t("Cart.saves")}</Tab>
+          </TabList>
 
-        <TabPanels>
-          <TabPanel w="100%">
-            <CartItemList />
-          </TabPanel>
-          <TabPanel>
-            <p>Proximamente!</p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+          <TabPanels>
+            <TabPanel w="100%">
+              <CartItemList />
+            </TabPanel>
+            <TabPanel>
+              <p>Proximamente!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Flex>
     </Flex>
   )
 }

@@ -32,6 +32,7 @@ const SkeletonItem = () => {
       minH={MAX_HEIGHT}
       maxH={MAX_HEIGHT}
       h={MAX_HEIGHT}
+      w={IMG_SIZE}
     >
       <Skeleton
         w={IMG_SIZE}
@@ -56,17 +57,10 @@ const SkeletonItem = () => {
           w="100%"
           h="50%"
         >
-          {/* <Heading fontSize="2.5rem" mb="10px">
-            ${price}
-          </Heading> */}
           <Skeleton h="2.5rem" w="100%" />
-          {/* <Text fontSize="1.25rem">{title}</Text> */}
-
-          {/* <Text fontSize=".75rem">{description}</Text> */}
           <Skeleton h=".75rem" w="100%" />
         </Flex>
         <Skeleton h="50%" w="100%" />
-        {/* <ItemCount stock={stock} onAdd={onAdd} /> */}
       </Flex>
     </Flex>
   )

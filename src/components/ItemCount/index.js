@@ -15,8 +15,16 @@ import { CartContext } from "context"
  * @author Braian D. Vaylet
  * @description Componente ItemCount para seleccionar items validando el stock y con acción de agregar al carrito o comprar.
  */
-const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
-  const { addItemToCart } = useContext(CartContext)
+const ItemCount = ({
+  initial = 1,
+  stock,
+  item,
+  onBuy = () => {},
+  design = 1,
+}) => {
+  const { cartItems, addItemToCart, deleteOneItemFromCart } = useContext(
+    CartContext
+  )
   const backgroundColor = useSetColorTheme("gray.900", "gray.200")
   const toast = useToast()
   const [t] = useTranslation("global")
@@ -40,6 +48,39 @@ const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
    */
   const handleDecrementConuter = () =>
     setCount(count <= stock && count > 0 ? count - 1 : count)
+
+  /**
+   * handleIncrementConuterV2
+   * @function
+   * @returns {number} count++
+   */
+  const handleIncrementConuterV2 = () => {
+    let _item = item
+    const itemsArr = cartItems.filter((element) => element.id === _item.id)
+    const _id = itemsArr.length + 1
+    _item = { ...item, _id }
+    addItemToCart([_item])
+    toast({
+      title: t("ItemCount.addedToCart"),
+      description: "",
+      status: "success",
+      position: "bottom-right",
+      duration: 5000,
+      isClosable: true,
+    })
+  }
+
+  const handleCount = () => {
+    const itemsArr = cartItems.filter((element) => element.id === item.id)
+    return itemsArr.length
+  }
+
+  /**
+   * handleDecrementConuterV2
+   * @function
+   * @returns {number} count--
+   */
+  const handleDecrementConuterV2 = () => handleOnDeleteClick()
 
   /**
    * handleOnBuyClick
@@ -76,15 +117,32 @@ const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
     })
   }
 
+  /**
+   * handleOnDeleteClick
+   * @function
+   * @returns {undefined} return a function || a toast
+   */
+  const handleOnDeleteClick = () => deleteOneItemFromCart(item)
+
+  /**
+   * handleItemsByCounter
+   * @function
+   * @description retorna array de productos (trabajado)
+   * @return {array}
+   */
   const handleItemsByCounter = () => {
     const arrItems = []
     for (let i = 0; i < count; i++) {
-      arrItems.push(item)
+      let _item = item
+      const itemsArr = cartItems.filter((element) => element.id === _item.id)
+      const _id = itemsArr.length + (i + 1)
+      _item = { ...item, _id }
+      arrItems.push(_item)
     }
     return arrItems
   }
 
-  return (
+  return design === 1 ? (
     <Flex
       direction="column"
       align="center"
@@ -120,7 +178,7 @@ const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
           </Text>
         ) : (
           <Text fontWeight="600">
-            {t("ItemCount.available")} {stock - count}u.
+            {t("ItemCount.available")} {stock - count - handleCount()}u.
           </Text>
         )}
       </Box>
@@ -143,6 +201,45 @@ const ItemCount = ({ initial = 1, stock, item, onBuy = () => {} }) => {
         </Button>
       </Flex>
     </Flex>
+  ) : design === 2 ? (
+    <Flex
+      direction="column"
+      align="center"
+      justify="space-between"
+      w="100%"
+      h="100%"
+      p="5px"
+    >
+      <Flex
+        justify="space-between"
+        direction="row"
+        align="center"
+        borderRadius="5px"
+        w="100%"
+        m="5px 0px"
+        bg={backgroundColor}
+      >
+        <Button mr={4} w="50%" h="100%" onClick={handleDecrementConuterV2}>
+          <MinusIcon w={5} h={10} />
+        </Button>
+        <Button w="50%" h="100%" onClick={handleIncrementConuterV2}>
+          <AddIcon w={5} h={10} />
+        </Button>
+      </Flex>
+      <Box>
+        {noStock ? (
+          <Text color="red.500" fontWeight="600">
+            {t("ItemCount.noStock")}
+          </Text>
+        ) : (
+          <Text fontWeight="600">
+            {t("ItemCount.available")} {handleCount()}u.
+          </Text>
+        )}
+      </Box>
+    </Flex>
+  ) : (
+    <Box />
   )
 }
 
@@ -156,6 +253,11 @@ ItemCount.propTypes = {
     pictureUrl: PropTypes.string,
   }).isRequired,
   onBuy: PropTypes.func,
+  /**
+   * design = 1: Preparado para ser usado en los componentes Item, ItemDetail
+   * design = 2: Preparado para ser usado en la pagina Cart
+   */
+  design: PropTypes.number,
 }
 
 export default ItemCount

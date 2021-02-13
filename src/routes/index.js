@@ -8,6 +8,7 @@ const ItemDetail = lazy(() => import("pages/ItemDetail"))
 const Cart = lazy(() => import("pages/Cart"))
 const Products = lazy(() => import("pages/Products"))
 const NotFound = lazy(() => import("pages/NotFound"))
+const Checkout = lazy(() => import("pages/Checkout"))
 
 /**
  * Project routes
@@ -19,6 +20,7 @@ export const ROUTES = {
   ITEM_DETAIL: "/item",
   CART: "/cart",
   PRODUCTS: "/products",
+  CHECKOUT: "/ckeckout",
 }
 
 /**
@@ -39,6 +41,11 @@ const Routes = () => {
         <Route path={ROUTES.CART}>
           <Layout>
             <Cart />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.CHECKOUT}>
+          <Layout>
+            <Checkout />
           </Layout>
         </Route>
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>

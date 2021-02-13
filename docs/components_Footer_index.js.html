@@ -93,7 +93,7 @@ import { Flex, Text, Link, Icon, useMediaQuery } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
-import { setValueResponsiveMax400 } from "styles/utils"
+import { setValueResponsiveMax600 } from "styles/utils"
 import { MY_BREAKPOINTS } from "styles/theme"
 // assets
 import { LogoIconOutline } from "assets/icons"
@@ -107,7 +107,7 @@ import { LogoIconOutline } from "assets/icons"
 const Footer = () => {
   const [t] = useTranslation("global")
   const backgroundColor = useSetColorTheme("gray.900", "white")
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   return (
     &lt;Flex
@@ -119,14 +119,14 @@ const Footer = () => {
       boxShadow="lg"
     >
       &lt;Flex
-        direction={setValueResponsiveMax400("column", "row")}
+        direction={setValueResponsiveMax600("column", "row")}
         justify="space-between"
         align="center"
         w="100%"
         p={6}
         bgColor={backgroundColor}
       >
-        {!mediaQueryMax400 &amp;&amp; (
+        {!mediaQueryMax600 &amp;&amp; (
           &lt;Flex direction="row" align="center" justify="flex-start">
             &lt;LogoIconOutline boxSize="2rem" color={!backgroundColor} mr={2} />
             &lt;Text
@@ -140,20 +140,20 @@ const Footer = () => {
           &lt;/Flex>
         )}
         &lt;Flex
-          direction={setValueResponsiveMax400("column", "row")}
+          direction={setValueResponsiveMax600("column", "row")}
           justify="flex-end"
-          align={setValueResponsiveMax400("flex-start", "center")}
+          align={setValueResponsiveMax600("flex-start", "center")}
         >
-          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          &lt;Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.workWithUs")}
           &lt;/Text>
-          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          &lt;Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.termsAndConditions")}
           &lt;/Text>
-          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          &lt;Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.help")}
           &lt;/Text>
-          &lt;Text fontSize={setValueResponsiveMax400(".5rem", "1rem")} ml={4}>
+          &lt;Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.covidPrecautions")}
           &lt;/Text>
         &lt;/Flex>
@@ -169,7 +169,7 @@ const Footer = () => {
       >
         &lt;Text
           color="white"
-          fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+          fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
         >
           Copyright ©2021
         &lt;/Text>
@@ -178,7 +178,7 @@ const Footer = () => {
             as={Flex}
             align="center"
             color="white"
-            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://es.reactjs.org/"
           >
             &lt;Icon
@@ -194,7 +194,7 @@ const Footer = () => {
             as={Flex}
             align="center"
             color="white"
-            fontSize={setValueResponsiveMax400(".5rem", ".8rem")}
+            fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://www.linkedin.com/in/braianvaylet/"
           >
             &lt;Icon

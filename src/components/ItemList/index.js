@@ -25,14 +25,14 @@ import { MY_BREAKPOINTS } from "styles/theme"
 const ItemList = ({ data, category }) => {
   const [t] = useTranslation("global")
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   /**
    * handleRows
    * @function
    * @returns {number} number of columns
    */
-  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax400 ? 1 : 2)
+  const handleRows = () => (mediaQueryMin1280 ? 5 : mediaQueryMax600 ? 1 : 2)
 
   /**
    * renderItems
@@ -41,21 +41,11 @@ const ItemList = ({ data, category }) => {
    */
   const renderItems = () => {
     return data !== null && data.length > 0 ? (
-      data.map(
-        ({ id, title, description, price, pictureName, pictureUrl, stock }) => (
-          <GridItem key={id} colSpan={1}>
-            <Item
-              id={id}
-              title={title}
-              description={description}
-              price={price}
-              pictureName={pictureName}
-              pictureUrl={pictureUrl}
-              stock={stock}
-            />
-          </GridItem>
-        )
-      )
+      data.map((item) => (
+        <GridItem key={item.id} colSpan={1}>
+          <Item {...item} />
+        </GridItem>
+      ))
     ) : (
       <Center w="100%" h="80vh">
         <Text fontSize="3rem">{t("ItemList.noProductsYet")} 😔 </Text>

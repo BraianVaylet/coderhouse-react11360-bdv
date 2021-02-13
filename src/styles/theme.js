@@ -3,7 +3,7 @@ import { addOpacityToColor } from "./utils"
 
 // my own breakpoints
 export const MY_BREAKPOINTS = {
-  BREAK_MAX_400: "(max-width: 400px)",
+  BREAK_MAX_600: "(max-width: 600px)",
   BREAK_MIN_1280: "(min-width: 1280px)",
 }
 

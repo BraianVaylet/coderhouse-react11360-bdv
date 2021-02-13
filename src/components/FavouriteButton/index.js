@@ -107,6 +107,7 @@ FavouriteButton.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     pictureUrl: PropTypes.string,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 }
 

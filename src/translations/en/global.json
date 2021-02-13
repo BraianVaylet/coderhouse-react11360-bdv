@@ -84,7 +84,12 @@
     "deleteItem": "Remove from cart"
   },
   "MenuItemProduct": {
-    "deleteItem": "Remove product"
+    "deleteItem": "Remove product",
+    "delete": "Delete",
+    "save": "Save",
+    "saveText": "Save for later",
+    "similarProducts": "See similar products",
+    "seeMore": "See more"
   },
   "NotFound": {
     "title": "Not Found"
@@ -98,5 +103,12 @@
   "Cart": {
     "cart": "Cart",
     "saves": "Saves"
+  },
+  "BtnModalImg": {
+    "zoomIn": "Zoom in"
+  },
+  "CartItemList": {
+    "keepBuying": "Keep buying",
+    "continueShopping": "Continue shopping"
   }
 }

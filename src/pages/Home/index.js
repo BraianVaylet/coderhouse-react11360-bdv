@@ -20,7 +20,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
  */
 const Home = () => {
   const [t] = useTranslation("global")
-  const [mediaQueryMax400] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_400)
+  const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
   // ! Desafío: Catálogo con MAPS y Promises ---
   const [data, setData] = useState(null)
 
@@ -57,7 +57,7 @@ const Home = () => {
         description={t("HelmetSEO.description.home")}
       />
       <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-        {!mediaQueryMax400 && <Banner />}
+        {!mediaQueryMax600 && <Banner />}
         <ItemList data={data} />
       </Flex>
     </>

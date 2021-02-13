@@ -31,6 +31,7 @@ import { handleItemCount } from "utils"
 import { TOOLTIP_TIME } from "styles/theme"
 // components
 import MenuItemProduct from "components/MenuItemProduct"
+import TotalCart from "components/TotalCart"
 
 /**
  * CartWidget Component
@@ -39,7 +40,7 @@ import MenuItemProduct from "components/MenuItemProduct"
  * @description Componente carrito con contador
  */
 const CartWidget = ({ onClick = () => {} }) => {
-  const { cartItems, cleanCart, deleteItemFromCart } = useContext(CartContext)
+  const { cartItems, cleanCart, deleteItemsFromCart } = useContext(CartContext)
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [items, setItems] = useState([])
@@ -57,19 +58,6 @@ const CartWidget = ({ onClick = () => {} }) => {
   const handleIsOpen = (value = !isOpen) => setIsOpen(value)
 
   /**
-   * handleTotalPrice
-   * @function
-   * @description Calculo el total del carrito
-   */
-  const handleTotalPrice = () => {
-    let total = 0
-    for (let i = 0; i < cartItems.length; i++) {
-      total = total + cartItems[i].price
-    }
-    return total
-  }
-
-  /**
    * renderCartItems
    * @function
    * @returns {undefined} MenuItem components
@@ -81,7 +69,7 @@ const CartWidget = ({ onClick = () => {} }) => {
         <MenuItem key={index}>
           <MenuItemProduct
             item={item}
-            onDelete={() => deleteItemFromCart(item)}
+            onDelete={() => deleteItemsFromCart(item)}
           />
         </MenuItem>
       )
@@ -114,9 +102,7 @@ const CartWidget = ({ onClick = () => {} }) => {
           {renderCartItems()}
           <MenuDivider />
           <Center>
-            <Text fontSize="1.25rem" fontWeight="bold">
-              TOTAL: ${handleTotalPrice()}
-            </Text>
+            <TotalCart title="Total: " fontSize="1.5rem" fontWeight="bold" />
           </Center>
           <MenuDivider />
           <Flex direction="row" align="center" justify="flex-end">
