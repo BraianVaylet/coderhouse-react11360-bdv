@@ -37,7 +37,6 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
 import { CATEGORIES } from "utils/constants"
 import { ROUTES } from "routes"
-import CategoryPointer from "components/CategoryPointer"
 
 /**
  * NavBar Component
@@ -79,7 +78,6 @@ const NavBar = () => {
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
       >
-        <CategoryPointer category={CATEGORIES.JACKETS} />
         <Text ml={2}>{t(`NavBar.${CATEGORIES.JACKETS}`)}</Text>
       </Flex>
       {renderLinkSeparator(withSeparator)}
@@ -89,7 +87,6 @@ const NavBar = () => {
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
       >
-        <CategoryPointer category={CATEGORIES.SHIRTS} />
         <Text ml={2}>{t(`NavBar.${CATEGORIES.SHIRTS}`)}</Text>
       </Flex>
       {renderLinkSeparator(withSeparator)}
@@ -99,7 +96,6 @@ const NavBar = () => {
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
       >
-        <CategoryPointer category={CATEGORIES.SHOES} />
         <Text ml={2}>{t(`NavBar.${CATEGORIES.SHOES}`)}</Text>
       </Flex>
       {renderLinkSeparator(withSeparator)}
@@ -109,7 +105,6 @@ const NavBar = () => {
         activeStyle={{ color: COLORS.primary }}
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
       >
-        <CategoryPointer category={CATEGORIES.ACCESORIES} />
         <Text ml={2}>{t(`NavBar.${CATEGORIES.ACCESORIES}`)}</Text>
       </Flex>
     </>

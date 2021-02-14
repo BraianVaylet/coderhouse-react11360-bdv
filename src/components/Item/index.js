@@ -16,7 +16,6 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import { ROUTES } from "routes"
 // styles
 import { CustomShadow } from "styles/utils"
-import CategoryPointer from "components/CategoryPointer"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -91,9 +90,6 @@ const Item = ({
           pictureUrl={pictureUrl}
           title={title}
         />
-      </Box>
-      <Box position="absolute" bottom="1" right="1">
-        <CategoryPointer category={category} />
       </Box>
       <Flex
         p="10px"

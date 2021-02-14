@@ -58,18 +58,20 @@ const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
             </Badge>
           )}
         </Link>
-        <Tooltip
-          hasArrow
-          label={t("MenuItemProduct.deleteItem")}
-          bg={backgroundColorTooltip}
-          fontSize="md"
-          openDelay={TOOLTIP_TIME}
-          color
-        >
-          <Button ml={6} onClick={onDelete}>
-            ❌
-          </Button>
-        </Tooltip>
+        {onDelete && (
+          <Tooltip
+            hasArrow
+            label={t("MenuItemProduct.deleteItem")}
+            bg={backgroundColorTooltip}
+            fontSize="md"
+            openDelay={TOOLTIP_TIME}
+            color
+          >
+            <Button ml={6} onClick={onDelete}>
+              ❌
+            </Button>
+          </Tooltip>
+        )}
       </Flex>
     </Box>
   ) : design === 2 ? (

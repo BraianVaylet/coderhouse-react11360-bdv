@@ -109,11 +109,11 @@ const TotalCart = ({ title, ...props }) => {
    * @description Calculo el total del carrito
    */
   const handleTotalPrice = () => {
-    let total = 0
-    for (let i = 0; i &lt; cartItems.length; i++) {
-      total = total + cartItems[i].price
-    }
-    return total
+    const initialValue = 0
+    return cartItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.price,
+      initialValue
+    )
   }
 
   return (
