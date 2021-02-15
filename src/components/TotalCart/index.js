@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Text } from "@chakra-ui/react"
+import { Badge, Flex, Text } from "@chakra-ui/react"
 // context
 import { CartContext } from "context"
+// utils
+import { DISCOUNTS } from "utils/constants"
 
 /**
  * TotalCart Component
@@ -11,15 +13,32 @@ import { CartContext } from "context"
  * @author Braian D. Vaylet
  * @description Componente que te retorna el precio total de todos los productos del carrito.
  */
-const TotalCart = ({ title, ...props }) => {
+const TotalCart = ({ title, withDiscount = false, ...props }) => {
   const { cartItems } = useContext(CartContext)
 
-  console.log("props", props)
+  /**
+   * handleDiscount
+   * @function
+   * @description reotrna el valor con un descuento aplicado.
+   * @param {number} total
+   * @returns {array} total with discount
+   */
+  const handleDiscuount = (total) => {
+    let totalDiscuount = total
+    let discount = 0
+    for (let i = 0; i < DISCOUNTS.length; i++) {
+      totalDiscuount =
+        total > DISCOUNTS[i].limit && total - total * DISCOUNTS[i].value
+      discount = DISCOUNTS[i].value
+    }
+    return [totalDiscuount, discount]
+  }
 
   /**
    * handleTotalPrice
    * @function
    * @description Calculo el total del carrito
+   * @returns {number} total
    */
   const handleTotalPrice = () => {
     const initialValue = 0
@@ -29,15 +48,30 @@ const TotalCart = ({ title, ...props }) => {
     )
   }
 
-  return (
+  return !withDiscount ? (
     <Text {...props}>
       {title} ${handleTotalPrice()}
     </Text>
+  ) : (
+    <Flex direction="column" align="flex-end" justify="flex-start">
+      <Text {...props}>
+        {title} ${handleDiscuount(handleTotalPrice())[0]}
+      </Text>
+      <Text as={Flex} direction="row" align="center">
+        <Text fontSize=".8rem" textDecoration="line-through">
+          $({handleTotalPrice()}){" "}
+        </Text>
+        <Badge colorScheme="purple" ml={2} fontSize=".8rem">
+          -{handleDiscuount(handleTotalPrice())[1] * 100}%
+        </Badge>
+      </Text>
+    </Flex>
   )
 }
 
 TotalCart.propTypes = {
   title: PropTypes.string,
+  withDiscount: PropTypes.bool,
   props: PropTypes.any,
 }
 

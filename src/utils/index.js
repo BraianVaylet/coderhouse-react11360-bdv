@@ -16,6 +16,8 @@ export const setNavigatorLanguage = () => {
  * handleItemCount
  * @function
  * @description cuento cuantos elemntos como item hay en el carrito
+ * @param {array}
+ * @returns {array}
  */
 export const handleItemCount = (cartItems) => {
   // obtengo contadores de elementos repetidos

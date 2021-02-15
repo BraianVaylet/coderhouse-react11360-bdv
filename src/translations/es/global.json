@@ -111,5 +111,23 @@
   "CartItemList": {
     "keepBuying": "Seguir comprando",
     "continueShopping": "Continuar compra"
+  },
+  "PaymentMenu": {
+    "resumen": "Resumen de compra",
+    "products": "Productos",
+    "shipping": "Envío",
+    "free": "Gratis",
+    "pay": "Pagar"
+  },
+  "PaymentForm": {
+    "enterEmail": "Correo",
+    "enterPassword": "Contraseña",
+    "enterName": "Nombre",
+    "enterLastname": "Apellido",
+    "enterPhone": "Teléfono",
+    "enterStreetName": "Nombre de la calle",
+    "enterStreetNumber": "Número de la vivienda",
+    "enterDepto": "Piso y departamento",
+    "completeForm": "Complete el formulario"
   }
 }

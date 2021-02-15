@@ -196,8 +196,8 @@ MenuItemProduct.propTypes = {
     stock: PropTypes.number,
     category: PropTypes.string.isRequired,
   }),
-  onDelete: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
+  onSave: PropTypes.func,
   /**
    * design = 1: Preparado para ser usado en el menu desplegable de la NavBar
    * design = 2: Preparado para ser usado en la pagina del carrito

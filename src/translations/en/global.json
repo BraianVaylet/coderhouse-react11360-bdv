@@ -111,5 +111,23 @@
   "CartItemList": {
     "keepBuying": "Keep buying",
     "continueShopping": "Continue shopping"
+  },
+  "PaymentMenu": {
+    "resumen": "Purchase Summary",
+    "products": "Products",
+    "shipping": "Shipping",
+    "free": "Free",
+    "pay": "Pay"
+  },
+  "PaymentForm": {
+    "enterEmail": "Email",
+    "enterPassword": "Password",
+    "enterName": "Name",
+    "enterLastname": "Lastname",
+    "enterPhone": "Phone",
+    "enterStreetName": "Street name",
+    "enterStreetNumber": "Street number",
+    "enterDepto": "Floor and apartment",
+    "completeForm": "Complete the form"
   }
 }
