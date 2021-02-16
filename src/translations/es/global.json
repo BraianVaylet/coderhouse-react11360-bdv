@@ -129,5 +129,19 @@
     "enterStreetNumber": "Número de la vivienda",
     "enterDepto": "Piso y departamento",
     "completeForm": "Complete el formulario"
+  },
+  "InputEmail": {
+    "title": "Correo electrónico",
+    "error": "Ingrese una casilla de correo real"
+  },
+  "InputPassword": {
+    "title": "Contraseña",
+    "error": "Ingrese una contraseña",
+    "veryWeak": "Muy débil",
+    "weak": "Débil",
+    "normal": "Normal",
+    "good": "Buena",
+    "veryGood": "Muy buena"
   }
 }
+

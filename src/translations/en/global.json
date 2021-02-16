@@ -129,5 +129,18 @@
     "enterStreetNumber": "Street number",
     "enterDepto": "Floor and apartment",
     "completeForm": "Complete the form"
+  },
+  "InputEmail": {
+    "title": "Email",
+    "error": "Enter a real email"
+  },
+  "InputPassword": {
+    "title": "Password",
+    "error": "Enter a password",
+    "veryWeak": "Very weak",
+    "weak": "Weak",
+    "normal": "Normal",
+    "good": "Good",
+    "veryGood": "Very good"
   }
 }
