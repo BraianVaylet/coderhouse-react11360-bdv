@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { FormControl, FormLabel, Input, Text } from "@chakra-ui/react"
+import {
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Input,
+  Text,
+} from "@chakra-ui/react"
 
 /**
  * InputEmail Component
@@ -51,15 +57,13 @@ export const InputEmail = ({ onChange }) => {
         type="email"
         placeholder="example@email.com"
       />
-      {error ? (
-        <Text fontSize="1rem" color="red.300" mt="5px">
-          {t("InputEmail.error")}
-        </Text>
-      ) : (
-        <Text fontSize="1rem" mt="5px" color="transparent">
-          👻
-        </Text>
-      )}
+      <FormHelperText maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px">
+        {error && (
+          <Text fontSize=".75rem" color="red.300">
+            {t("InputEmail.error")}
+          </Text>
+        )}
+      </FormHelperText>
     </FormControl>
   )
 }

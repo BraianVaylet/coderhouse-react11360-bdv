@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputRightElement,
   IconButton,
+  FormHelperText,
 } from "@chakra-ui/react"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 
@@ -28,7 +29,7 @@ export const InputPassword = ({ onChange }) => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (value) {
+    if (value.length > 5) {
       onChange(value)
       setStrengths(handleStrengthIndicator(value))
     }
@@ -129,6 +130,7 @@ export const InputPassword = ({ onChange }) => {
           name="password"
           type={show ? true : "password"}
           placeholder="******"
+          minLength="5"
         />
         <InputRightElement>
           <IconButton
@@ -138,15 +140,13 @@ export const InputPassword = ({ onChange }) => {
           />
         </InputRightElement>
       </InputGroup>
-      {value.length > 0 ? (
-        <Text fontSize="1rem" mt="5px">
-          {message}
-        </Text>
-      ) : (
-        <Text fontSize="1rem" mt="5px" color="transparent">
-          👻
-        </Text>
-      )}
+      <FormHelperText maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px">
+        {value.length > 0 ? (
+          <Text fontSize=".75rem">{message}</Text>
+        ) : (
+          <Text fontSize=".75rem">{t("InputPassword.useHelp")}</Text>
+        )}
+      </FormHelperText>
     </FormControl>
   )
 }

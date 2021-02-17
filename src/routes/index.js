@@ -9,6 +9,7 @@ const Cart = lazy(() => import("pages/Cart"))
 const Products = lazy(() => import("pages/Products"))
 const NotFound = lazy(() => import("pages/NotFound"))
 const Checkout = lazy(() => import("pages/Checkout"))
+const Help = lazy(() => import("pages/Help"))
 
 /**
  * Project routes
@@ -21,6 +22,7 @@ export const ROUTES = {
   CART: "/cart",
   PRODUCTS: "/products",
   CHECKOUT: "/ckeckout",
+  HELP: "/help",
 }
 
 /**
@@ -46,6 +48,11 @@ const Routes = () => {
         <Route path={ROUTES.CHECKOUT}>
           <Layout>
             <Checkout />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.HELP}>
+          <Layout>
+            <Help />
           </Layout>
         </Route>
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>

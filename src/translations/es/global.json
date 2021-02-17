@@ -117,7 +117,8 @@
     "products": "Productos",
     "shipping": "Envío",
     "free": "Gratis",
-    "pay": "Pagar"
+    "pay": "Pagar",
+    "confirmForm": "Confirme el formulario para habilitar el pago"
   },
   "PaymentForm": {
     "enterEmail": "Correo",
@@ -128,7 +129,8 @@
     "enterStreetName": "Nombre de la calle",
     "enterStreetNumber": "Número de la vivienda",
     "enterDepto": "Piso y departamento",
-    "completeForm": "Complete el formulario"
+    "completeForm": "Complete el formulario",
+    "confirm": "Confirmar"
   },
   "InputEmail": {
     "title": "Correo electrónico",
@@ -141,7 +143,18 @@
     "weak": "Débil",
     "normal": "Normal",
     "good": "Buena",
-    "veryGood": "Muy buena"
+    "veryGood": "Muy buena",
+    "useHelp": "Use aA-zZ, 0-9 y caracteres"
+  },
+  "HelpBtn": {
+    "help": "Ayuda",
+    "forMoreHelp": "Para más ayuda haga click",
+    "here": "aquí"
+  },
+  "Checkout": {   
+    "helpStage1": "Complete/verifique el formulario",
+    "helpStage2": "Confirma el formulario, se habilitará el botón de pago",
+    "helpStage3": "Haga click en pagar para realizar el pago."   
   }
 }
 

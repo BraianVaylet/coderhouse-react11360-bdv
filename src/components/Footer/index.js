@@ -1,5 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
+import { Link as RouterLink } from "react-router-dom"
 import { IoLogoLinkedin, IoLogoReact } from "react-icons/io5"
 // chakra-ui
 import { Flex, Text, Link, Icon, useMediaQuery } from "@chakra-ui/react"
@@ -10,6 +11,8 @@ import { setValueResponsiveMax600 } from "styles/utils"
 import { MY_BREAKPOINTS } from "styles/theme"
 // assets
 import { LogoIconOutline } from "assets/icons"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * Footer Component
@@ -64,7 +67,9 @@ const Footer = () => {
             {t("Footer.termsAndConditions")}
           </Text>
           <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
-            {t("Footer.help")}
+            <Link as={RouterLink} to={ROUTES.HELP}>
+              {t("Footer.help")}
+            </Link>
           </Text>
           <Text fontSize={setValueResponsiveMax600(".5rem", "1rem")} ml={4}>
             {t("Footer.covidPrecautions")}
@@ -89,35 +94,37 @@ const Footer = () => {
         </Text>
         <Flex direction="row" align="center" justify="flex-end">
           <Link
-            as={Flex}
-            align="center"
             color="gray.400"
             fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://es.reactjs.org/"
+            isExternal
           >
-            <Icon
-              color="brand.primary"
-              boxSize="1.25rem"
-              as={IoLogoReact}
-              mr=".5rem"
-            />
-            ReactJs
+            <Flex align="center">
+              <Icon
+                color="brand.primary"
+                boxSize="1.25rem"
+                as={IoLogoReact}
+                mr=".5rem"
+              />
+              ReactJs
+            </Flex>
           </Link>
           <Text m="0 1rem">|</Text>
           <Link
-            as={Flex}
-            align="center"
             color="gray.400"
             fontSize={setValueResponsiveMax600(".5rem", ".8rem")}
             href="https://www.linkedin.com/in/braianvaylet/"
+            isExternal
           >
-            <Icon
-              as={IoLogoLinkedin}
-              boxSize="1.25rem"
-              color="brand.secundary"
-              mr=".5rem"
-            />
-            Braian D. Vaylet
+            <Flex align="center">
+              <Icon
+                as={IoLogoLinkedin}
+                boxSize="1.25rem"
+                color="brand.secundary"
+                mr=".5rem"
+              />
+              Braian D. Vaylet
+            </Flex>
           </Link>
         </Flex>
       </Flex>

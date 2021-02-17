@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Button, Center, Divider, Flex, Text } from "@chakra-ui/react"
+import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
@@ -26,8 +26,6 @@ const PaymentMenu = () => {
   const [items, setItems] = useState([])
 
   useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
-
-  console.log("activePayment", activePayment)
 
   /**
    * handleCartItems
@@ -84,11 +82,16 @@ const PaymentMenu = () => {
         {handleCartItems()}
       </Flex>
 
-      <Center w="100%" mt={10}>
+      <Flex direction="column" align="center" justify="center" w="100%" mt={10}>
         <Button disabled={!activePayment} w="100%">
           {t("PaymentMenu.pay")}
         </Button>
-      </Center>
+        <Box maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px">
+          <Text fontSize=".75rem" color="gray.400">
+            {t("PaymentMenu.confirmForm")}
+          </Text>
+        </Box>
+      </Flex>
     </Flex>
   )
 }

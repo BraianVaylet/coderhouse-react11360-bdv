@@ -117,7 +117,8 @@
     "products": "Products",
     "shipping": "Shipping",
     "free": "Free",
-    "pay": "Pay"
+    "pay": "Pay",
+    "confirmForm": "Confirm the form to enable payment"
   },
   "PaymentForm": {
     "enterEmail": "Email",
@@ -128,7 +129,8 @@
     "enterStreetName": "Street name",
     "enterStreetNumber": "Street number",
     "enterDepto": "Floor and apartment",
-    "completeForm": "Complete the form"
+    "completeForm": "Complete the form",
+    "confirm": "Confirm"
   },
   "InputEmail": {
     "title": "Email",
@@ -141,6 +143,17 @@
     "weak": "Weak",
     "normal": "Normal",
     "good": "Good",
-    "veryGood": "Very good"
+    "veryGood": "Very good",
+    "useHelp": "Use aA-zZ, 0-9 and characters"
+  },
+  "HelpBtn": {
+    "help": "Help",
+    "forMoreHelp": "For more help, click",
+    "here": "here"
+  },
+  "Checkout": {
+    "helpStage1": "Complete / verify the form",
+    "helpStage2": "Confirm the form, the payment button will be enabled",
+    "helpStage3": "Click on pay to make the payment."
   }
 }
