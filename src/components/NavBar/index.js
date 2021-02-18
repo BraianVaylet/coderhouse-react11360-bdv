@@ -24,11 +24,11 @@ import {
   Divider,
 } from "@chakra-ui/react"
 // components
-import ChangeThemeBtn from "components/ChangeThemeBtn"
-import ChangeLanguageBtn from "components/ChangeLanguageBtn"
-import FavoritesBtn from "components/FavoritesBtn"
+import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
+import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
+import FavoritesBtn from "components/_organisms/FavoritesBtn"
 import NotificationsBtn from "components/NotificationsBtn"
-import CartWidgetBtn from "components/CartWidgetBtn"
+import CartWidgetBtn from "components/_organisms/CartWidgetBtn"
 import Logo from "components/Logo"
 import Logout from "components/Logout"
 // styles

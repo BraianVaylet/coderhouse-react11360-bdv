@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext } from "react"
 import { useTranslation } from "react-i18next"
-import { Link as RouterLink } from "react-router-dom"
 // chakra-ui
-import { Box, Button, Divider, Flex } from "@chakra-ui/react"
+import { Box, Divider, Flex } from "@chakra-ui/react"
 // utils
 import { handleItemCount } from "utils"
 // context
@@ -12,6 +11,7 @@ import { ROUTES } from "routes"
 // components
 import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
+import ButtonLink from "components/_atoms/ButtonLink"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"
 
@@ -77,22 +77,16 @@ const CartItemList = () => {
         w="100%"
         p={setValueResponsiveMax600(10, 5)}
       >
-        <Button
-          as={RouterLink}
+        <ButtonLink
           to={ROUTES.HOME}
           mr={setValueResponsiveMax600(0, 4)}
           mb={setValueResponsiveMax600(4, 0)}
         >
           {t("CartItemList.keepBuying")}
-        </Button>
-        <Button
-          as={RouterLink}
-          to={ROUTES.CHECKOUT}
-          bgColor="brand.primary"
-          color="white"
-        >
+        </ButtonLink>
+        <ButtonLink to={ROUTES.CHECKOUT} bgColor="brand.primary" color="white">
           {t("CartItemList.continueShopping")}
-        </Button>
+        </ButtonLink>
       </Flex>
     </Flex>
   )

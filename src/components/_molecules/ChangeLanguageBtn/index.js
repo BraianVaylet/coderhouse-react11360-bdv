@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button, Text } from "@chakra-ui/react"
+import { Text } from "@chakra-ui/react"
 // hooks
 import { useLocalStorage } from "hooks/useLocalStorage"
+// components
+import ButtonZoom from "components/_atoms/ButtonZoom"
 
 /**
  * ChangeLanguageBtn Component
@@ -29,26 +31,13 @@ const ChangeLanguageBtn = () => {
   const handleLanguage = () => setSpanish(!spanish)
 
   return (
-    <Button
-      variant="none"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      borderRadius="9999px"
-      _hover={{
-        transform: "scale(1.25)",
-      }}
-      _focus={{
-        borderStyle: "none",
-        backgroundColor: "transparent",
-      }}
-      onClick={handleLanguage}
-    >
+    <ButtonZoom onClick={handleLanguage}>
       <Text fontSize="1rem">
         {storedValue === "es"
           ? t("ChangeLanguageBtn.en")
           : t("ChangeLanguageBtn.es")}
       </Text>
-    </Button>
+    </ButtonZoom>
   )
 }
 

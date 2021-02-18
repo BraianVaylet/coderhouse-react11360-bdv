@@ -3,12 +3,12 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Box, Icon, IconButton, Tooltip } from "@chakra-ui/react"
+import { Box, Icon } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 import { FavouriteContext } from "context"
 // styles
-import { TOOLTIP_TIME } from "styles/theme"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 
 /**
  * FavouriteIconBtn Component
@@ -27,11 +27,12 @@ const FavouriteIconBtn = ({ item }) => {
     favourites.filter((fav) => fav.id === item.id).length === 1
   )
   const backgroundColor = useSetColorTheme("gray.700", "white")
-  const backgroundColorTooltip = useSetColorTheme("black", "white")
 
-  useEffect(() => {
-    setFavActive(favourites.filter((fav) => fav.id === item.id).length === 1)
-  }, [favourites])
+  useEffect(
+    () =>
+      setFavActive(favourites.filter((fav) => fav.id === item.id).length === 1),
+    [favourites]
+  )
 
   /**
    * handleFavActive
@@ -54,50 +55,41 @@ const FavouriteIconBtn = ({ item }) => {
       : t("FavouriteIconBtn.addToFavourites")
 
   return (
-    <Tooltip
-      hasArrow
-      label={handleLabelTooltip()}
-      bg={backgroundColorTooltip}
-      fontSize="md"
-      openDelay={TOOLTIP_TIME}
-      color
+    <ButtonTooltip
+      tooltipLabel={handleLabelTooltip()}
+      onClick={handleFavActive}
     >
-      <IconButton
-        onClick={handleFavActive}
-        icon={
-          <Box
-            p="2.5px"
-            backgroundColor={backgroundColor}
-            borderRadius="5px"
+      <Box
+        p="2.5px"
+        backgroundColor={backgroundColor}
+        borderRadius="5px"
+        _hover={{
+          backgroundColor: backgroundColor,
+        }}
+      >
+        {favActive ? (
+          <Icon
+            as={MdFavorite}
+            boxSize="2rem"
+            borderRadius="9999px"
+            fill="brand.primary"
             _hover={{
-              backgroundColor: backgroundColor,
+              fill: "brand.secundary",
             }}
-          >
-            {favActive ? (
-              <Icon
-                as={MdFavorite}
-                boxSize="2rem"
-                borderRadius="9999px"
-                fill="brand.primary"
-                _hover={{
-                  fill: "brand.secundary",
-                }}
-              />
-            ) : (
-              <Icon
-                as={MdFavoriteBorder}
-                boxSize="2rem"
-                borderRadius="9999px"
-                fill="brand.secundary"
-                _hover={{
-                  fill: "brand.primary",
-                }}
-              />
-            )}
-          </Box>
-        }
-      />
-    </Tooltip>
+          />
+        ) : (
+          <Icon
+            as={MdFavoriteBorder}
+            boxSize="2rem"
+            borderRadius="9999px"
+            fill="brand.secundary"
+            _hover={{
+              fill: "brand.primary",
+            }}
+          />
+        )}
+      </Box>
+    </ButtonTooltip>
   )
 }
 

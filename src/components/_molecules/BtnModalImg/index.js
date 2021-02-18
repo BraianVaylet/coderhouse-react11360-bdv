@@ -3,27 +3,14 @@ import { IoExpand } from "react-icons/io5"
 import { useTranslation } from "react-i18next"
 import Proptypes from "prop-types"
 // chakra-ui
-import {
-  Box,
-  Icon,
-  IconButton,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Portal,
-  Tooltip,
-  useDisclosure,
-} from "@chakra-ui/react"
+import { Box, Icon, IconButton, Portal, useDisclosure } from "@chakra-ui/react"
 // styles
 import { addOpacityToColor } from "styles/utils"
-import { TOOLTIP_TIME } from "styles/theme"
 // constants
 import { IMG } from "utils/images"
 // hooks
-import useSetColorTheme from "hooks/useSetColorTheme"
+import CustomTooltip from "components/_atoms/CustomTooltip"
+import CustomModal from "components/_atoms/CustomModal"
 
 /**
  * BtnModalImg Component
@@ -34,18 +21,10 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
   const [t] = useTranslation("global")
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const backgroundColorTooltip = useSetColorTheme("black", "white")
 
   return (
     <>
-      <Tooltip
-        hasArrow
-        label={t("BtnModalImg.zoomIn")}
-        bg={backgroundColorTooltip}
-        fontSize="md"
-        openDelay={TOOLTIP_TIME}
-        color
-      >
+      <CustomTooltip label={t("BtnModalImg.zoomIn")}>
         <IconButton
           onClick={onOpen}
           icon={
@@ -71,30 +50,29 @@ const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
             </Box>
           }
         />
-      </Tooltip>
+      </CustomTooltip>
+
       <Portal>
-        <Modal isOpen={isOpen} onClose={onClose} size="full">
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>{title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Box
-                title={pictureName}
-                bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
-                bgPosition="center"
-                bgSize="contain"
-                bgRepeat="no-repeat"
-                w="100%"
-                minW="100%"
-                maxW="100%"
-                h="100%"
-                minH="100%"
-                maxH="100%"
-              />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+        <CustomModal
+          isOpen={isOpen}
+          onClose={onClose}
+          size="full"
+          modalHeader={title}
+        >
+          <Box
+            title={pictureName}
+            bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
+            bgPosition="center"
+            bgSize="contain"
+            bgRepeat="no-repeat"
+            w="100%"
+            minW="100%"
+            maxW="100%"
+            h="100%"
+            minH="100%"
+            maxH="100%"
+          />
+        </CustomModal>
       </Portal>
     </>
   )

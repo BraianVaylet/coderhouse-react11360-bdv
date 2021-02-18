@@ -9,7 +9,7 @@ import { CartContext } from "context"
 // styles
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // components
-import CartItemList from "components/CartItemList"
+import CartItemList from "components/_organisms/CartItemList"
 import Header from "components/Header"
 
 /**

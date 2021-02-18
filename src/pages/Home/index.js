@@ -6,7 +6,7 @@ import { Flex, useMediaQuery } from "@chakra-ui/react"
 // components
 import ItemList from "components/ItemList"
 import HelmetSEO from "components/HelmetSEO"
-import Banner from "components/Banner"
+import Banner from "components/_molecules/Banner"
 // fake data
 import { PRODUCTS } from "test"
 // styles

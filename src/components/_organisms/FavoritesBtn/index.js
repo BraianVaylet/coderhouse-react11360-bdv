@@ -12,19 +12,14 @@ import {
   MenuButton,
   MenuList,
   Text,
-  Button,
   MenuDivider,
-  Tooltip,
   MenuItem,
 } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
-// hooks
-import useSetColorTheme from "hooks/useSetColorTheme"
-// styles
-import { TOOLTIP_TIME } from "styles/theme"
 // routes
 import ItemProduct from "components/ItemProduct"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 
 /**
  * FavoritesBtn Component
@@ -37,7 +32,6 @@ const FavoritesBtn = ({ onClick, withText = false }) => {
     FavouriteContext
   )
   const [t] = useTranslation("global")
-  const backgroundColorTooltip = useSetColorTheme("black", "white")
 
   const countFavs = favourites.length
 
@@ -89,18 +83,14 @@ const FavoritesBtn = ({ onClick, withText = false }) => {
           {renderFavourites()}
           <MenuDivider />
           <Flex direction="row" align="center" justify="flex-end">
-            <Tooltip
-              hasArrow
-              label={t("Favourites.clean")}
-              bg={backgroundColorTooltip}
-              fontSize="md"
-              openDelay={TOOLTIP_TIME}
-              color
+            <ButtonTooltip
+              tooltipLabel={t("Favourites.clean")}
+              mr={2}
+              size="lg"
+              onClick={cleanFavourites}
             >
-              <Button mr={2} size="lg" onClick={cleanFavourites}>
-                🗑
-              </Button>
-            </Tooltip>
+              🗑
+            </ButtonTooltip>
           </Flex>
         </MenuList>
       )}

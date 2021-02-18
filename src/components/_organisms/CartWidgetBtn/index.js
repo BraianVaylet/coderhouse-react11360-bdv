@@ -13,25 +13,21 @@ import {
   Menu,
   MenuList,
   MenuDivider,
-  Button,
-  Tooltip,
   Center,
   MenuItem,
 } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
 // context
 import { CartContext } from "context"
-// hooks
-import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
 // utils
 import { handleItemCount } from "utils"
-// styles
-import { TOOLTIP_TIME } from "styles/theme"
 // components
 import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
+import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 
 /**
  * CartWidgetBtn Component
@@ -42,7 +38,6 @@ import TotalCart from "components/TotalCart"
 const CartWidgetBtn = ({ onClick = () => {} }) => {
   const { cartItems, cleanCart, deleteItemsFromCart } = useContext(CartContext)
   const [t] = useTranslation("global")
-  const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [items, setItems] = useState([])
   const [isOpen, setIsOpen] = useState(false)
 
@@ -108,37 +103,25 @@ const CartWidgetBtn = ({ onClick = () => {} }) => {
           </Center>
           <MenuDivider />
           <Flex direction="row" align="center" justify="flex-end">
-            <Tooltip
-              hasArrow
-              label={t("CartWidgetBtn.goToCart")}
-              bg={backgroundColorTooltip}
-              fontSize="md"
-              openDelay={TOOLTIP_TIME}
-              color
+            <ButtonLinkTooltip
+              as={RouterLink}
+              tooltipLabel={t("CartWidgetBtn.goToCart")}
+              mr={2}
+              size="lg"
+              to={ROUTES.CART}
+              onClick={() => handleIsOpen(false)}
+              _hover={{ textDecoration: "none", bg: "gray.600" }}
             >
-              <Button
-                as={RouterLink}
-                mr={2}
-                size="lg"
-                to={ROUTES.CART}
-                onClick={() => handleIsOpen(false)}
-                _hover={{ textDecoration: "none", bg: "gray.600" }}
-              >
-                🛒
-              </Button>
-            </Tooltip>
-            <Tooltip
-              hasArrow
-              label={t("CartWidgetBtn.clean")}
-              bg={backgroundColorTooltip}
-              fontSize="md"
-              openDelay={TOOLTIP_TIME}
-              color
+              🛒
+            </ButtonLinkTooltip>
+            <ButtonTooltip
+              mr={2}
+              size="lg"
+              onClick={cleanCart}
+              tooltipLabel={t("CartWidgetBtn.clean")}
             >
-              <Button mr={2} size="lg" onClick={cleanCart}>
-                🗑
-              </Button>
-            </Tooltip>
+              🗑
+            </ButtonTooltip>
           </Flex>
         </MenuList>
       )}

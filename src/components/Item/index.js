@@ -5,9 +5,9 @@ import { Link as RouterLink } from "react-router-dom"
 import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
-import BtnModalImg from "components/BtnModalImg"
-import FavouriteIconBtn from "components/FavouriteIconBtn"
-import CartCount from "components/CartCount"
+import BtnModalImg from "components/_molecules/BtnModalImg"
+import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
+import CartCount from "components/_atoms/CartCount"
 // constants
 import { IMG } from "utils/images"
 // hooks

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { Flex } from "@chakra-ui/react"
 // components
 import NavBar from "../../components/NavBar"
-import Footer from "components/Footer"
+import Footer from "components/_organisms/Footer"
 
 /**
  * Layout Container
