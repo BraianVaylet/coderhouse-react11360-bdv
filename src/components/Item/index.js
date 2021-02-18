@@ -6,7 +6,7 @@ import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
 import ItemCount from "components/ItemCount"
 import BtnModalImg from "components/BtnModalImg"
-import FavouriteButton from "components/FavouriteButton"
+import FavouriteIconBtn from "components/FavouriteIconBtn"
 import CartCount from "components/CartCount"
 // constants
 import { IMG } from "utils/images"
@@ -82,7 +82,7 @@ const Item = ({
         />
       </Link>
       <Box position="absolute" top="3" right="3">
-        <FavouriteButton item={item} />
+        <FavouriteIconBtn item={item} />
       </Box>
       <Box position="absolute" top="1" left="1">
         <BtnModalImg

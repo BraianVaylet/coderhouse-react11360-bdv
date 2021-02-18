@@ -5,17 +5,17 @@ import { useColorMode, IconButton } from "@chakra-ui/react"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 /**
- * ChangeTheme Component
+ * ChangeThemeBtn Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente botón para cambiar el theme del proyecto Dark-Light
  */
-const ChangeTheme = () => {
+const ChangeThemeBtn = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <IconButton
-      data-testid="ChangeTheme"
+      data-testid="ChangeThemeBtn"
       variant="none"
       onClick={toggleColorMode}
       size="lg"
@@ -41,4 +41,4 @@ const ChangeTheme = () => {
   )
 }
 
-export default ChangeTheme
+export default ChangeThemeBtn

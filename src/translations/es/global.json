@@ -28,7 +28,7 @@
     "shoes": "Zapatillas",
     "accesories": "Accesorios"
   },
-  "ChangeLanguage": {
+  "ChangeLanguageBtn": {
     "es": "ES",
     "en": "EN"
   },
@@ -71,15 +71,15 @@
   "Header": {
     "back": "👈 Volver"
   },
-  "FavouriteButton": {
+  "FavouriteIconBtn": {
     "deleteFromFavourites": "Eliminar de favoritos 💔",
     "addToFavourites": "Agregar a favoritos 😍"
   },
-  "Favourites": {
+  "FavouritesBtn": {
     "clean": "Limpiar favoritos",
     "title": "Favoritos"
   },
-  "CartWidget": {
+  "CartWidgetBtn": {
     "clean": "Limpiar carrito",
     "goToCart": "Ir al carrito",
     "deleteItem": "Quitar del carrito"
@@ -160,7 +160,7 @@
     "bought": "Compraste", 
     "products": "productos"
   },
-  "Notifications": {
+  "NotificationsBtn": {
     "title": "Notificaciones",
     "seeMoreTooltip": "Ver más notificaciones",
     "all": "Todas"

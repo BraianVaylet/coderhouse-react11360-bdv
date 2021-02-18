@@ -24,13 +24,13 @@ import {
   Divider,
 } from "@chakra-ui/react"
 // components
-import ChangeTheme from "components/ChangeTheme"
-import ChangeLanguage from "components/ChangeLanguage"
-import CartWidget from "components/CartWidget"
+import ChangeThemeBtn from "components/ChangeThemeBtn"
+import ChangeLanguageBtn from "components/ChangeLanguageBtn"
+import FavoritesBtn from "components/FavoritesBtn"
+import NotificationsBtn from "components/NotificationsBtn"
+import CartWidgetBtn from "components/CartWidgetBtn"
 import Logo from "components/Logo"
 import Logout from "components/Logout"
-import Favorites from "components/Favorites"
-import Notifications from "components/Notifications"
 // styles
 import { COLORS, MY_BREAKPOINTS } from "styles/theme"
 // hooks
@@ -151,9 +151,9 @@ const NavBar = () => {
         <Flex direction="row" justify="flex-start" align="center">
           {mediaQueryMin1280 && renderLinks(true)}
           <Box ml={4} mr={4}>
-            {!mediaQueryMax600 && <Favorites />}
-            {!mediaQueryMax600 && <Notifications />}
-            <CartWidget />
+            {!mediaQueryMax600 && <FavoritesBtn />}
+            {!mediaQueryMax600 && <NotificationsBtn />}
+            <CartWidgetBtn />
           </Box>
         </Flex>
       </Flex>
@@ -177,8 +177,8 @@ const NavBar = () => {
                 {mediaQueryMax600 && (
                   <>
                     <Divider m={"1.5rem 0"} />
-                    <Favorites withText />
-                    <Notifications withText />
+                    <FavoritesBtn withText />
+                    <NotificationsBtn withText />
                   </>
                 )}
               </Flex>
@@ -186,8 +186,8 @@ const NavBar = () => {
             <DrawerFooter>
               <Flex align="center" justify="space-between" w="100%">
                 <Box>
-                  <ChangeTheme />
-                  <ChangeLanguage />
+                  <ChangeThemeBtn />
+                  <ChangeLanguageBtn />
                 </Box>
                 <Logout />
               </Flex>

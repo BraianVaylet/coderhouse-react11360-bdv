@@ -34,12 +34,12 @@ import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
 
 /**
- * CartWidget Component
+ * CartWidgetBtn Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente carrito con contador
  */
-const CartWidget = ({ onClick = () => {} }) => {
+const CartWidgetBtn = ({ onClick = () => {} }) => {
   const { cartItems, cleanCart, deleteItemsFromCart } = useContext(CartContext)
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
@@ -110,7 +110,7 @@ const CartWidget = ({ onClick = () => {} }) => {
           <Flex direction="row" align="center" justify="flex-end">
             <Tooltip
               hasArrow
-              label={t("CartWidget.goToCart")}
+              label={t("CartWidgetBtn.goToCart")}
               bg={backgroundColorTooltip}
               fontSize="md"
               openDelay={TOOLTIP_TIME}
@@ -129,7 +129,7 @@ const CartWidget = ({ onClick = () => {} }) => {
             </Tooltip>
             <Tooltip
               hasArrow
-              label={t("CartWidget.clean")}
+              label={t("CartWidgetBtn.clean")}
               bg={backgroundColorTooltip}
               fontSize="md"
               openDelay={TOOLTIP_TIME}
@@ -146,8 +146,8 @@ const CartWidget = ({ onClick = () => {} }) => {
   )
 }
 
-CartWidget.propTypes = {
+CartWidgetBtn.propTypes = {
   onClick: PropTypes.func,
 }
 
-export default CartWidget
+export default CartWidgetBtn

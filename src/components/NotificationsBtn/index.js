@@ -1,12 +1,11 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
-import { ChevronDownIcon } from "@chakra-ui/icons"
+import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons"
 // chakra-ui
 import {
   Flex,
-  Icon,
   IconButton,
   Menu,
   MenuButton,
@@ -18,48 +17,46 @@ import {
   MenuItem,
 } from "@chakra-ui/react"
 // context
-import { FavouriteContext } from "context"
+import { NotificationContext } from "context"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
+// components
+import ItemNotificaton from "components/ItemNotification"
 // routes
-import ItemProduct from "components/ItemProduct"
+import { ROUTES } from "routes"
 
 /**
- * Favorites Component
+ * NotificationsBtn Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con contador
  */
-const Favorites = ({ onClick, withText = false }) => {
-  const { favourites, cleanFavourites, deleteItemFromFavourites } = useContext(
-    FavouriteContext
-  )
+const NotificationsBtn = ({ withText = false }) => {
+  const { notification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
 
-  const countFavs = favourites.length
+  const count = notification.length
 
   /**
-   * renderFavourites
+   * renderItems
    * @function
-   * @returns {undefined} MenuItem components
-   * @description Retorna una lista de favoritos seleccionados en como un item del menú
+   * @returns {undefined} ItemNotificaton components
+   * @description Retorna una lista de Notificaciones (solo las 6 ultimas)
    */
-  const renderFavourites = () => {
-    return favourites
-      .map((fav, index) => {
+  const renderItems = () => {
+    return notification
+      .map((_notification, index) => {
         return (
           <MenuItem key={index}>
-            <ItemProduct
-              item={fav}
-              onDelete={() => deleteItemFromFavourites(fav)}
-            />
+            <ItemNotificaton item={_notification} />
           </MenuItem>
         )
       })
       .reverse()
+      .slice(0, 6)
   }
 
   return (
@@ -67,38 +64,36 @@ const Favorites = ({ onClick, withText = false }) => {
       <MenuButton
         as={IconButton}
         variant="ghost"
-        rightIcon={countFavs > 0 && <ChevronDownIcon />}
+        rightIcon={count > 0 && <ChevronDownIcon />}
         size="lg"
         p="0 5px"
         leftIcon={
           <Flex direction="row" align="center">
-            {countFavs > 0 ? (
-              <Icon as={MdFavorite} boxSize="1.5rem" />
-            ) : (
-              <Icon as={MdFavoriteBorder} boxSize="1.5rem" />
-            )}
+            <BellIcon w="1.5rem" h="1.5rem" />
             <Text as={Flex} align="center">
-              {withText && <Text m="0 .5rem">{t("Favourites.title")}</Text>}(
-              {countFavs})
+              {withText && (
+                <Text m="0 .5rem">{t("NotificationsBtn.title")}</Text>
+              )}
+              ({count})
             </Text>
           </Flex>
         }
       />
-      {countFavs > 0 && (
+      {count > 0 && (
         <MenuList>
-          {renderFavourites()}
+          {renderItems()}
           <MenuDivider />
           <Flex direction="row" align="center" justify="flex-end">
             <Tooltip
               hasArrow
-              label={t("Favourites.clean")}
+              label={t("NotificationsBtn.seeMoreTooltip")}
               bg={backgroundColorTooltip}
               fontSize="md"
               openDelay={TOOLTIP_TIME}
               color
             >
-              <Button mr={2} size="lg" onClick={cleanFavourites}>
-                🗑
+              <Button as={Link} to={ROUTES.NOTIFICATIONS} mr={2} size="lg">
+                {t("NotificationsBtn.all")}
               </Button>
             </Tooltip>
           </Flex>
@@ -108,9 +103,8 @@ const Favorites = ({ onClick, withText = false }) => {
   )
 }
 
-Favorites.propTypes = {
-  onClick: PropTypes.func,
+NotificationsBtn.propTypes = {
   withText: PropTypes.bool,
 }
 
-export default Favorites
+export default NotificationsBtn

@@ -6,12 +6,12 @@ import { Button, Text } from "@chakra-ui/react"
 import { useLocalStorage } from "hooks/useLocalStorage"
 
 /**
- * ChangeLanguage Component
+ * ChangeLanguageBtn Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente botón para cambiar el idioma Español-Inglés
  */
-const ChangeLanguage = () => {
+const ChangeLanguageBtn = () => {
   // hooks
   const [t, i18n] = useTranslation("global")
   const [storedValue, setLocalStorage] = useLocalStorage("language", null)
@@ -44,10 +44,12 @@ const ChangeLanguage = () => {
       onClick={handleLanguage}
     >
       <Text fontSize="1rem">
-        {storedValue === "es" ? t("ChangeLanguage.en") : t("ChangeLanguage.es")}
+        {storedValue === "es"
+          ? t("ChangeLanguageBtn.en")
+          : t("ChangeLanguageBtn.es")}
       </Text>
     </Button>
   )
 }
 
-export default ChangeLanguage
+export default ChangeLanguageBtn

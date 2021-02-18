@@ -11,12 +11,12 @@ import { FavouriteContext } from "context"
 import { TOOLTIP_TIME } from "styles/theme"
 
 /**
- * FavouriteButton Component
+ * FavouriteIconBtn Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con acción onClick y cambio de icono.
  */
-const FavouriteButton = ({ item }) => {
+const FavouriteIconBtn = ({ item }) => {
   const {
     favourites,
     addItemToFavourites,
@@ -50,8 +50,8 @@ const FavouriteButton = ({ item }) => {
    */
   const handleLabelTooltip = () =>
     favActive
-      ? t("FavouriteButton.deleteFromFavourites")
-      : t("FavouriteButton.addToFavourites")
+      ? t("FavouriteIconBtn.deleteFromFavourites")
+      : t("FavouriteIconBtn.addToFavourites")
 
   return (
     <Tooltip
@@ -101,7 +101,7 @@ const FavouriteButton = ({ item }) => {
   )
 }
 
-FavouriteButton.propTypes = {
+FavouriteIconBtn.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -111,4 +111,4 @@ FavouriteButton.propTypes = {
   }).isRequired,
 }
 
-export default FavouriteButton
+export default FavouriteIconBtn

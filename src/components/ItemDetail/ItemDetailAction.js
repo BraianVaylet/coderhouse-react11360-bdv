@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Flex, Text } from "@chakra-ui/react"
 // component
-import FavouriteButton from "components/FavouriteButton"
+import FavouriteIconBtn from "components/FavouriteIconBtn"
 import ItemCount from "components/ItemCount"
 import Calification from "components/Calification"
 import CartCount from "components/CartCount"
@@ -41,7 +41,7 @@ const ItemDetailAction = ({
         >
           <Flex direction="row" align="center" justify="space-between" w="100%">
             <Text fontSize="1rem">Status | Vendidos</Text>
-            <FavouriteButton item={{ title, pictureUrl, price, id }} />
+            <FavouriteIconBtn item={{ title, pictureUrl, price, id }} />
           </Flex>
           <Text fontSize={titleSizeResponsiveMin1280(3)}>{title}</Text>
           <Calification value={calification} />

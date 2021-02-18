@@ -28,7 +28,7 @@
     "shoes": "Shoes",
     "accesories": "Accesories"
   },
-  "ChangeLanguage": {
+  "ChangeLanguageBtn": {
     "es": "ES",
     "en": "EN"
   },
@@ -71,15 +71,15 @@
   "Header": {
     "back": "👈 Back"
   },
-  "FavouriteButton": {
+  "FavouriteIconBtn": {
     "deleteFromFavourites": "Delete from favourites 💔",
     "addToFavourites": "Add to favourites 😍"
   },
-  "Favourites": {
+  "FavouritesBtn": {
     "clean": "Clean favourites",
     "title": "Favourites"
   },
-  "CartWidget": {
+  "CartWidgetBtn": {
     "clean": "Clean cart",
     "goToCart": "Go to cart",
     "deleteItem": "Remove from cart"
@@ -160,7 +160,7 @@
     "bought": "You bought", 
     "products": "products"
   },
-  "Notifications": {
+  "NotificationsBtn": {
     "title": "Notifications",
     "seeMoreTooltip": "See more notifications",
     "all": "All"
