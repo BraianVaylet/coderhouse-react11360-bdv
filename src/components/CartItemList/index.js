@@ -10,7 +10,7 @@ import { CartContext } from "context"
 // routes
 import { ROUTES } from "routes"
 // components
-import MenuItemProduct from "components/MenuItemProduct"
+import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"
@@ -37,7 +37,7 @@ const CartItemList = () => {
     return items.map((item, index) => {
       return (
         <Box key={index} w="100%" mb={8}>
-          <MenuItemProduct
+          <ItemProduct
             design={2}
             item={item}
             onDelete={() => deleteItemsFromCart(item)}

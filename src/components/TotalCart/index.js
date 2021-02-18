@@ -14,7 +14,7 @@ import { DISCOUNTS } from "utils/constants"
  * @description Componente que te retorna el precio total de todos los productos del carrito.
  */
 const TotalCart = ({ title, withDiscount = false, ...props }) => {
-  const { cartItems } = useContext(CartContext)
+  const { cartItems, setTotal } = useContext(CartContext)
 
   /**
    * handleDiscount
@@ -28,9 +28,10 @@ const TotalCart = ({ title, withDiscount = false, ...props }) => {
     let discount = 0
     for (let i = 0; i < DISCOUNTS.length; i++) {
       totalDiscuount =
-        total > DISCOUNTS[i].limit && total - total * DISCOUNTS[i].value
+        total >= DISCOUNTS[i].limit ? total - total * DISCOUNTS[i].value : total
       discount = DISCOUNTS[i].value
     }
+    setTotal(totalDiscuount)
     return [totalDiscuount, discount]
   }
 

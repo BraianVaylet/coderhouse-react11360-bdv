@@ -115,8 +115,8 @@ reactComponents['Logo'] = Component29;
 import Component30 from '../src/components/Logout/index.js';
 reactComponents['Logout'] = Component30;
 
-import Component31 from '../src/components/MenuItemProduct/index.js';
-reactComponents['MenuItemProduct'] = Component31;
+import Component31 from '../src/components/ItemProduct/index.js';
+reactComponents['ItemProduct'] = Component31;
 
 import Component32 from '../src/components/NavBar/index.js';
 reactComponents['NavBar'] = Component32;

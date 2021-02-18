@@ -84,7 +84,7 @@
     "goToCart": "Ir al carrito",
     "deleteItem": "Quitar del carrito"
   },
-  "MenuItemProduct": {
+  "ItemProduct": {
     "deleteItem": "Quitar producto",
     "delete": "Eliminar",
     "save": "Guardar",

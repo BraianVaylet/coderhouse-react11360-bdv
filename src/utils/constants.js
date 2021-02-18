@@ -10,3 +10,5 @@ export const DISCOUNTS = [
   { limit: 6000, value: 0.15 },
   { limit: 9000, value: 0.2 },
 ]
+
+export const DEFAULT_LANGUAGE = "es-ES"

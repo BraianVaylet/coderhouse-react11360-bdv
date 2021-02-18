@@ -30,6 +30,7 @@ import CartWidget from "components/CartWidget"
 import Logo from "components/Logo"
 import Logout from "components/Logout"
 import Favorites from "components/Favorites"
+import Notifications from "components/Notifications"
 // styles
 import { COLORS, MY_BREAKPOINTS } from "styles/theme"
 // hooks
@@ -151,6 +152,7 @@ const NavBar = () => {
           {mediaQueryMin1280 && renderLinks(true)}
           <Box ml={4} mr={4}>
             {!mediaQueryMax600 && <Favorites />}
+            {!mediaQueryMax600 && <Notifications />}
             <CartWidget />
           </Box>
         </Flex>

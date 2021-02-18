@@ -5,6 +5,7 @@ import {
   CartContextProvider,
   FavouriteContextProvider,
   CheckoutContextProvider,
+  NotificationContextProvider,
 } from "context"
 
 /**
@@ -19,7 +20,9 @@ const WrapperContext = ({ children }) => {
     <FavouriteContextProvider>
       <CartContextProvider>
         <CheckoutContextProvider>
-          <>{children}</>
+          <NotificationContextProvider>
+            <>{children}</>
+          </NotificationContextProvider>
         </CheckoutContextProvider>
       </CartContextProvider>
     </FavouriteContextProvider>

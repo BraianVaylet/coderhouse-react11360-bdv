@@ -24,7 +24,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
 // routes
-import MenuItemProduct from "components/MenuItemProduct"
+import ItemProduct from "components/ItemProduct"
 
 /**
  * Favorites Component
@@ -51,7 +51,7 @@ const Favorites = ({ onClick, withText = false }) => {
     return favourites.map((fav, index) => {
       return (
         <MenuItem key={index}>
-          <MenuItemProduct
+          <ItemProduct
             item={fav}
             onDelete={() => deleteItemFromFavourites(fav)}
           />

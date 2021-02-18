@@ -7,9 +7,9 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
 import { handleItemCount } from "utils"
 // context
-import { CartContext, CheckoutContext } from "context"
+import { CartContext, CheckoutContext, NotificationContext } from "context"
 // components
-import MenuItemProduct from "components/MenuItemProduct"
+import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
 
 /**
@@ -20,8 +20,9 @@ import TotalCart from "components/TotalCart"
  */
 const PaymentMenu = () => {
   const { activePayment } = useContext(CheckoutContext)
+  const { addNotification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
-  const { cartItems } = useContext(CartContext)
+  const { cartItems, total } = useContext(CartContext)
   const backgroundColorItems = useSetColorTheme("gray.600", "gray.300")
   const [items, setItems] = useState([])
 
@@ -30,7 +31,8 @@ const PaymentMenu = () => {
   /**
    * handleCartItems
    * @function
-   * @returns {undefined} return MenuItemProduct component
+   * @description retorna el listado de productos del carrito
+   * @returns {undefined} return ItemProduct component
    */
   const handleCartItems = () => {
     return (
@@ -38,11 +40,27 @@ const PaymentMenu = () => {
       items.map((item, index) => {
         return (
           <Box key={index}>
-            <MenuItemProduct item={item} />
+            <ItemProduct item={item} />
           </Box>
         )
       })
     )
+  }
+
+  /**
+   * handleCartItems
+   * @function
+   * @description acción del btn comprar
+   * @returns {undefined} return ItemProduct component
+   */
+  const handlePayment = () => {
+    const newNotification = {
+      items: items,
+      date: new Date(),
+      count: cartItems.length,
+      total,
+    }
+    addNotification(newNotification)
   }
 
   return (
@@ -83,7 +101,7 @@ const PaymentMenu = () => {
       </Flex>
 
       <Flex direction="column" align="center" justify="center" w="100%" mt={10}>
-        <Button disabled={!activePayment} w="100%">
+        <Button disabled={!activePayment} w="100%" onClick={handlePayment}>
           {t("PaymentMenu.pay")}
         </Button>
         <Box maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px">

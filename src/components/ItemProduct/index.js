@@ -24,12 +24,12 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import ItemCount from "components/ItemCount"
 
 /**
- * MenuItemProducts
+ * ItemProducts
  * @component
  * @author Braian D. Vaylet
  * @description Componente para los menu de favoritos y del carrito
  */
-const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
+const ItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
   const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [t] = useTranslation("global")
 
@@ -61,7 +61,7 @@ const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
         {onDelete && (
           <Tooltip
             hasArrow
-            label={t("MenuItemProduct.deleteItem")}
+            label={t("ItemProduct.deleteItem")}
             bg={backgroundColorTooltip}
             fontSize="md"
             openDelay={TOOLTIP_TIME}
@@ -102,33 +102,33 @@ const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
             <Flex mt={4}>
               <Tooltip
                 hasArrow
-                label={t("MenuItemProduct.deleteItem")}
+                label={t("ItemProduct.deleteItem")}
                 bg={backgroundColorTooltip}
                 fontSize="md"
                 openDelay={TOOLTIP_TIME}
                 color
               >
                 <Button mr={4} size="xs" onClick={onDelete}>
-                  {t("MenuItemProduct.delete")}
+                  {t("ItemProduct.delete")}
                 </Button>
               </Tooltip>
 
               <Tooltip
                 hasArrow
-                label={t("MenuItemProduct.saveText")}
+                label={t("ItemProduct.saveText")}
                 bg={backgroundColorTooltip}
                 fontSize="md"
                 openDelay={TOOLTIP_TIME}
                 color
               >
                 <Button mr={4} size="xs" onClick={onSave}>
-                  {t("MenuItemProduct.save")}
+                  {t("ItemProduct.save")}
                 </Button>
               </Tooltip>
 
               <Tooltip
                 hasArrow
-                label={t("MenuItemProduct.similarProducts")}
+                label={t("ItemProduct.similarProducts")}
                 bg={backgroundColorTooltip}
                 fontSize="md"
                 openDelay={TOOLTIP_TIME}
@@ -140,7 +140,7 @@ const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
                   mr={4}
                   size="xs"
                 >
-                  {t("MenuItemProduct.seeMore")}
+                  {t("ItemProduct.seeMore")}
                 </Button>
               </Tooltip>
             </Flex>
@@ -186,7 +186,7 @@ const MenuItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
   )
 }
 
-MenuItemProduct.propTypes = {
+ItemProduct.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -205,4 +205,4 @@ MenuItemProduct.propTypes = {
   design: PropTypes.number,
 }
 
-export default MenuItemProduct
+export default ItemProduct

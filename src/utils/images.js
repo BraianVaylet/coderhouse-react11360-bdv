@@ -5,6 +5,7 @@ import slider4 from "assets/sliders/slider4.png"
 import slider5 from "assets/sliders/slider5.png"
 import noimg from "assets/noimg.png"
 import aquila from "assets/aquila.png"
+import shoppingBag from "assets/shopping-bag.png"
 
 export const IMG = {
   NO_IMG: noimg,
@@ -14,4 +15,5 @@ export const IMG = {
   SLIDER3: slider3,
   SLIDER4: slider4,
   SLIDER5: slider5,
+  SHOPPING_BAG: shoppingBag,
 }

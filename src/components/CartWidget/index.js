@@ -30,7 +30,7 @@ import { handleItemCount } from "utils"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
 // components
-import MenuItemProduct from "components/MenuItemProduct"
+import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
 
 /**
@@ -67,10 +67,7 @@ const CartWidget = ({ onClick = () => {} }) => {
     return items.map((item, index) => {
       return (
         <MenuItem key={index}>
-          <MenuItemProduct
-            item={item}
-            onDelete={() => deleteItemsFromCart(item)}
-          />
+          <ItemProduct item={item} onDelete={() => deleteItemsFromCart(item)} />
         </MenuItem>
       )
     })
