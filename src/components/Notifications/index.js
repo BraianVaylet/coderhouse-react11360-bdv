@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-
+import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons"
 // chakra-ui
@@ -30,7 +30,7 @@ import ItemNotificaton from "components/ItemNotification"
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con contador
  */
-const Notifications = () => {
+const Notifications = ({ withText = false }) => {
   const { notification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
   const backgroundColorTooltip = useSetColorTheme("black", "white")
@@ -44,13 +44,15 @@ const Notifications = () => {
    * @description Retorna una lista de favoritos seleccionados en como un item del menú
    */
   const renderFavourites = () => {
-    return notification.map((_notification, index) => {
-      return (
-        <MenuItem key={index}>
-          <ItemNotificaton item={_notification} />
-        </MenuItem>
-      )
-    })
+    return notification
+      .map((_notification, index) => {
+        return (
+          <MenuItem key={index}>
+            <ItemNotificaton item={_notification} />
+          </MenuItem>
+        )
+      })
+      .reverse()
   }
 
   return (
@@ -65,7 +67,8 @@ const Notifications = () => {
           <Flex direction="row" align="center">
             <BellIcon w="1.5rem" h="1.5rem" />
             <Text as={Flex} align="center">
-              ({count})
+              {withText && <Text m="0 .5rem">{t("Notifications.title")}</Text>}(
+              {count})
             </Text>
           </Flex>
         }
@@ -77,14 +80,14 @@ const Notifications = () => {
           <Flex direction="row" align="center" justify="flex-end">
             <Tooltip
               hasArrow
-              label={t("Favourites.clean")}
+              label={t("Notifications.seeMoreTooltip")}
               bg={backgroundColorTooltip}
               fontSize="md"
               openDelay={TOOLTIP_TIME}
               color
             >
               <Button mr={2} size="lg">
-                todas
+                {t("Notifications.all")}
               </Button>
             </Tooltip>
           </Flex>
@@ -92,6 +95,10 @@ const Notifications = () => {
       )}
     </Menu>
   )
+}
+
+Notifications.propTypes = {
+  withText: PropTypes.bool,
 }
 
 export default Notifications

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 // chakra-ui
 import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react"
 // hooks
@@ -11,6 +12,8 @@ import { CartContext, CheckoutContext, NotificationContext } from "context"
 // components
 import ItemProduct from "components/ItemProduct"
 import TotalCart from "components/TotalCart"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * PaymentMenu Component
@@ -56,7 +59,7 @@ const PaymentMenu = () => {
   const handlePayment = () => {
     const newNotification = {
       items: items,
-      date: new Date(),
+      date: Date.now(),
       count: cartItems.length,
       total,
     }
@@ -101,7 +104,13 @@ const PaymentMenu = () => {
       </Flex>
 
       <Flex direction="column" align="center" justify="center" w="100%" mt={10}>
-        <Button disabled={!activePayment} w="100%" onClick={handlePayment}>
+        <Button
+          as={Link}
+          to={ROUTES.HOME}
+          disabled={!activePayment}
+          w="100%"
+          onClick={handlePayment}
+        >
           {t("PaymentMenu.pay")}
         </Button>
         <Box maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px">

@@ -41,11 +41,13 @@ const ItemList = ({ data, category }) => {
    */
   const renderItems = () => {
     return data !== null && data.length > 0 ? (
-      data.map((item) => (
-        <GridItem key={item.id} colSpan={1}>
-          <Item {...item} />
-        </GridItem>
-      ))
+      data
+        .map((item) => (
+          <GridItem key={item.id} colSpan={1}>
+            <Item {...item} />
+          </GridItem>
+        ))
+        .reverse()
     ) : (
       <Center w="100%" h="80vh">
         <Text fontSize="3rem">{t("ItemList.noProductsYet")} 😔 </Text>

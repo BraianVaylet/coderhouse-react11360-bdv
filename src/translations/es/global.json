@@ -155,6 +155,15 @@
     "helpStage1": "Complete/verifique el formulario",
     "helpStage2": "Confirma el formulario, se habilitará el botón de pago",
     "helpStage3": "Haga click en pagar para realizar el pago."   
+  },
+  "ItemNotification": {
+    "bought": "Compraste", 
+    "products": "productos"
+  },
+  "Notifications": {
+    "title": "Notificaciones",
+    "seeMoreTooltip": "Ver más notificaciones",
+    "all": "Todas"
   }
 }
 

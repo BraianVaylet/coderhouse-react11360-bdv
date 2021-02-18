@@ -178,6 +178,7 @@ const NavBar = () => {
                   <>
                     <Divider m={"1.5rem 0"} />
                     <Favorites withText />
+                    <Notifications withText />
                   </>
                 )}
               </Flex>

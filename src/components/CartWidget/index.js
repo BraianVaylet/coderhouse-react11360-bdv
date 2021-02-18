@@ -64,13 +64,18 @@ const CartWidget = ({ onClick = () => {} }) => {
    * @description Retorna los productos agregados al carrito como un item del menú
    */
   const renderCartItems = () => {
-    return items.map((item, index) => {
-      return (
-        <MenuItem key={index}>
-          <ItemProduct item={item} onDelete={() => deleteItemsFromCart(item)} />
-        </MenuItem>
-      )
-    })
+    return items
+      .map((item, index) => {
+        return (
+          <MenuItem key={index}>
+            <ItemProduct
+              item={item}
+              onDelete={() => deleteItemsFromCart(item)}
+            />
+          </MenuItem>
+        )
+      })
+      .reverse()
   }
 
   return (

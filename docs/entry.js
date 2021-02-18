@@ -70,92 +70,104 @@ reactComponents['Header'] = Component14;
 import Component15 from '../src/components/HelmetSEO/index.js';
 reactComponents['HelmetSEO'] = Component15;
 
-import Component16 from '../src/pages/Home/index.js';
-reactComponents['Home'] = Component16;
+import Component16 from '../src/pages/Help/index.js';
+reactComponents['Help'] = Component16;
 
-import Component17 from '../src/components/Inputs/InputEmail.js';
-reactComponents['InputEmail'] = Component17;
+import Component17 from '../src/components/HelpBtn/index.js';
+reactComponents['HelpBtn'] = Component17;
 
-import Component18 from '../src/components/Inputs/InputPassword.js';
-reactComponents['InputPassword'] = Component18;
+import Component18 from '../src/pages/Home/index.js';
+reactComponents['Home'] = Component18;
 
-import Component19 from '../src/components/Item/index.js';
-reactComponents['Item'] = Component19;
+import Component19 from '../src/components/Inputs/InputEmail.js';
+reactComponents['InputEmail'] = Component19;
 
-import Component20 from '../src/components/ItemCount/index.js';
-reactComponents['ItemCount'] = Component20;
+import Component20 from '../src/components/Inputs/InputPassword.js';
+reactComponents['InputPassword'] = Component20;
 
-import Component21 from '../src/pages/ItemDetail/index.js';
-reactComponents['ItemDetail'] = Component21;
+import Component21 from '../src/components/Inputs/InputTextNumber.js';
+reactComponents['InputTextNumber'] = Component21;
 
-import Component22 from '../src/components/ItemDetail/ItemDetailAction.js';
-reactComponents['ItemDetailAction'] = Component22;
+import Component22 from '../src/components/Item/index.js';
+reactComponents['Item'] = Component22;
 
-import Component23 from '../src/components/ItemDetail/ItemDetailCharacteristics.js';
-reactComponents['ItemDetailCharacteristics'] = Component23;
+import Component23 from '../src/components/ItemCount/index.js';
+reactComponents['ItemCount'] = Component23;
 
-import Component24 from '../src/components/ItemDetail/ItemDetailDescription.js';
-reactComponents['ItemDetailDescription'] = Component24;
+import Component24 from '../src/pages/ItemDetail/index.js';
+reactComponents['ItemDetail'] = Component24;
 
-import Component25 from '../src/components/ItemDetail/ItemDetailImgBox.js';
-reactComponents['ItemDetailImgBox'] = Component25;
+import Component25 from '../src/components/ItemDetail/ItemDetailAction.js';
+reactComponents['ItemDetailAction'] = Component25;
 
-import Component26 from '../src/components/ItemDetail/ItemDetailQuestionsAndAnswers.js';
-reactComponents['ItemDetailQuestionsAndAnswers'] = Component26;
+import Component26 from '../src/components/ItemDetail/ItemDetailCharacteristics.js';
+reactComponents['ItemDetailCharacteristics'] = Component26;
 
-import Component27 from '../src/components/ItemList/index.js';
-reactComponents['ItemList'] = Component27;
+import Component27 from '../src/components/ItemDetail/ItemDetailDescription.js';
+reactComponents['ItemDetailDescription'] = Component27;
 
-import Component28 from '../src/containers/Layout/index.js';
-reactComponents['Layout'] = Component28;
+import Component28 from '../src/components/ItemDetail/ItemDetailImgBox.js';
+reactComponents['ItemDetailImgBox'] = Component28;
 
-import Component29 from '../src/components/Logo/index.js';
-reactComponents['Logo'] = Component29;
+import Component29 from '../src/components/ItemDetail/ItemDetailQuestionsAndAnswers.js';
+reactComponents['ItemDetailQuestionsAndAnswers'] = Component29;
 
-import Component30 from '../src/components/Logout/index.js';
-reactComponents['Logout'] = Component30;
+import Component30 from '../src/components/ItemList/index.js';
+reactComponents['ItemList'] = Component30;
 
-import Component31 from '../src/components/ItemProduct/index.js';
-reactComponents['ItemProduct'] = Component31;
+import Component31 from '../src/components/ItemNotification/index.js';
+reactComponents['ItemNotificaton'] = Component31;
 
-import Component32 from '../src/components/NavBar/index.js';
-reactComponents['NavBar'] = Component32;
+import Component32 from '../src/components/ItemProduct/index.js';
+reactComponents['ItemProduct'] = Component32;
 
-import Component33 from '../src/pages/NotFound/index.js';
-reactComponents['NotFound'] = Component33;
+import Component33 from '../src/containers/Layout/index.js';
+reactComponents['Layout'] = Component33;
 
-import Component34 from '../src/components/Checkout/PaymentForm copy.js';
-reactComponents['PaymentForm'] = Component34;
+import Component34 from '../src/components/Logo/index.js';
+reactComponents['Logo'] = Component34;
 
-import Component35 from '../src/components/Checkout/PaymentForm.js';
-reactComponents['PaymentForm'] = Component35;
+import Component35 from '../src/components/Logout/index.js';
+reactComponents['Logout'] = Component35;
 
-import Component36 from '../src/components/Checkout/PaymentMenu.js';
-reactComponents['PaymentMenu'] = Component36;
+import Component36 from '../src/components/NavBar/index.js';
+reactComponents['NavBar'] = Component36;
 
-import Component37 from '../src/pages/Products/index.js';
-reactComponents['Products'] = Component37;
+import Component37 from '../src/pages/NotFound/index.js';
+reactComponents['NotFound'] = Component37;
 
-import Component38 from '../src/routes/index.js';
-reactComponents['Routes'] = Component38;
+import Component38 from '../src/components/Notifications/index.js';
+reactComponents['Notifications'] = Component38;
 
-import Component39 from '../src/components/Skeleton/Item/SkItem.js';
-reactComponents['SkeletonItem'] = Component39;
+import Component39 from '../src/components/Checkout/PaymentForm.js';
+reactComponents['PaymentForm'] = Component39;
 
-import Component40 from '../src/components/Skeleton/ItemDetail/SkItemDetailAction.js';
-reactComponents['SkeletonItemDetailAction'] = Component40;
+import Component40 from '../src/components/Checkout/PaymentMenu.js';
+reactComponents['PaymentMenu'] = Component40;
 
-import Component41 from '../src/components/Skeleton/ItemDetail/SkItemDetailContent.js';
-reactComponents['SkeletonItemDetailContent'] = Component41;
+import Component41 from '../src/pages/Products/index.js';
+reactComponents['Products'] = Component41;
 
-import Component42 from '../src/components/Skeleton/ItemDetail/SkItemDetailImgBox.js';
-reactComponents['SkeletonItemDetailImgBox'] = Component42;
+import Component42 from '../src/routes/index.js';
+reactComponents['Routes'] = Component42;
 
-import Component43 from '../src/components/TotalCart/index.js';
-reactComponents['TotalCart'] = Component43;
+import Component43 from '../src/components/Skeleton/Item/SkItem.js';
+reactComponents['SkeletonItem'] = Component43;
 
-import Component44 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component44;
+import Component44 from '../src/components/Skeleton/ItemDetail/SkItemDetailAction.js';
+reactComponents['SkeletonItemDetailAction'] = Component44;
 
-import Component45 from '../src/containers/WrapperContext/index.js';
-reactComponents['WrapperContext'] = Component45;
+import Component45 from '../src/components/Skeleton/ItemDetail/SkItemDetailContent.js';
+reactComponents['SkeletonItemDetailContent'] = Component45;
+
+import Component46 from '../src/components/Skeleton/ItemDetail/SkItemDetailImgBox.js';
+reactComponents['SkeletonItemDetailImgBox'] = Component46;
+
+import Component47 from '../src/components/TotalCart/index.js';
+reactComponents['TotalCart'] = Component47;
+
+import Component48 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component48;
+
+import Component49 from '../src/containers/WrapperContext/index.js';
+reactComponents['WrapperContext'] = Component49;

@@ -48,16 +48,18 @@ const Favorites = ({ onClick, withText = false }) => {
    * @description Retorna una lista de favoritos seleccionados en como un item del menú
    */
   const renderFavourites = () => {
-    return favourites.map((fav, index) => {
-      return (
-        <MenuItem key={index}>
-          <ItemProduct
-            item={fav}
-            onDelete={() => deleteItemFromFavourites(fav)}
-          />
-        </MenuItem>
-      )
-    })
+    return favourites
+      .map((fav, index) => {
+        return (
+          <MenuItem key={index}>
+            <ItemProduct
+              item={fav}
+              onDelete={() => deleteItemFromFavourites(fav)}
+            />
+          </MenuItem>
+        )
+      })
+      .reverse()
   }
 
   return (

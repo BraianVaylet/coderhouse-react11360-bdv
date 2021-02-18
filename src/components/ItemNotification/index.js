@@ -1,16 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
-import { Link as RouterLink } from "react-router-dom"
+// import { Link as RouterLink } from "react-router-dom"
 // chakra-ui
-import { Badge, Box, Flex, Image, Link, Text } from "@chakra-ui/react"
+import { Badge, Box, Flex, Image, Text } from "@chakra-ui/react"
 // routes
-import { ROUTES } from "routes"
+// import { ROUTES } from "routes"
 // utils
 import { IMG } from "utils/images"
 // hooks
-// import useTimeAgo from "hooks/useTimeAgo"
-// import useDateTimeFormat from "hooks/useDateTimeFormat"
+import useTimeAgo from "hooks/useTimeAgo"
+import useDateTimeFormat from "hooks/useDateTimeFormat"
 
 /**
  * ItemNotification Component
@@ -20,17 +20,30 @@ import { IMG } from "utils/images"
  */
 const ItemNotificaton = ({ item }) => {
   const [t] = useTranslation("global")
-  // const timeago = useTimeAgo(item.date)
-  // const createdAtFormated = useDateTimeFormat(item.date)
-  console.log("t", t)
+  const timeago = useTimeAgo(item.date)
+  const dateFormated = useDateTimeFormat(item.date)
 
+  /**
+   * handleItemImg
+   * @function
+   * @description retorna imagen de la notificación
+   * @returns {string}
+   */
   const handleItemImg = () =>
-    item.count === 1 ? item.items.pictureUrl : IMG.SHOPPING_BAG
+    item.count === 1 ? item.items[0].pictureUrl : IMG.SHOPPING_BAG
 
-  const renderItemTitle = () =>
+  /**
+   * handleItemTitle
+   * @function
+   * @description retorna título de la notificación
+   * @returns {string}
+   */
+  const handleItemTitle = () =>
     item.count === 1
-      ? `Compraste ${item.items.title}`
-      : `Compraste ${item.count} productos`
+      ? `${t("ItemNotification.bought")} ${item.items[0].title}`
+      : `${t("ItemNotification.bought")} ${item.count} ${t(
+          "ItemNotification.products"
+        )}`
 
   return (
     <Box minH="10vh">
@@ -46,17 +59,24 @@ const ItemNotificaton = ({ item }) => {
           src={handleItemImg()}
           mr="12px"
         />
-        <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + item.items[0].id}>
+        {/* <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + item.items[0].id}> */}
+        <Flex direction="column" align="flex-start" justify="center">
           <Text>
-            {/* <time title={createdAtFormated}>{timeago}</time> |{" "} */}
-            {renderItemTitle()}
+            <time title={dateFormated}>
+              <b>{dateFormated}</b>
+            </time>{" "}
+            | {handleItemTitle()}
           </Text>
           {item.count && (
             <Badge ml="1" colorScheme="blue">
               ${item.total}
             </Badge>
           )}
-        </Link>
+          <Text fontSize=".75rem">
+            <time title={dateFormated}>{timeago}</time>
+          </Text>
+        </Flex>
+        {/* </Link> */}
       </Flex>
     </Box>
   )

@@ -155,5 +155,14 @@
     "helpStage1": "Complete / verify the form",
     "helpStage2": "Confirm the form, the payment button will be enabled",
     "helpStage3": "Click on pay to make the payment."
+  },
+  "ItemNotification": {
+    "bought": "You bought", 
+    "products": "products"
+  },
+  "Notifications": {
+    "title": "Notifications",
+    "seeMoreTooltip": "See more notifications",
+    "all": "All"
   }
 }
