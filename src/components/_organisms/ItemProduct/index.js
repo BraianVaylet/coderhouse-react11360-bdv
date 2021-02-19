@@ -3,25 +3,15 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 import { Link as RouterLink } from "react-router-dom"
 // chakra-ui
-import {
-  Badge,
-  Button,
-  Flex,
-  Link,
-  Text,
-  Tooltip,
-  Image,
-  Box,
-} from "@chakra-ui/react"
+import { Badge, Flex, Link, Text, Image, Box } from "@chakra-ui/react"
 // routes
 import { ROUTES } from "routes"
 // styles
-import { TOOLTIP_TIME } from "styles/theme"
 import { setValueResponsiveMax600 } from "styles/utils"
-// hooks
-import useSetColorTheme from "hooks/useSetColorTheme"
 // components
-import ItemCount from "components/ItemCount"
+import ItemCount from "components/_organisms/ItemCount"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
+import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
 
 /**
  * ItemProducts
@@ -30,7 +20,6 @@ import ItemCount from "components/ItemCount"
  * @description Componente para los menu de favoritos y del carrito
  */
 const ItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
-  const backgroundColorTooltip = useSetColorTheme("black", "white")
   const [t] = useTranslation("global")
 
   return design === 1 ? (
@@ -59,18 +48,13 @@ const ItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
           )}
         </Link>
         {onDelete && (
-          <Tooltip
-            hasArrow
-            label={t("ItemProduct.deleteItem")}
-            bg={backgroundColorTooltip}
-            fontSize="md"
-            openDelay={TOOLTIP_TIME}
-            color
+          <ButtonTooltip
+            ml={6}
+            onClick={onDelete}
+            tooltipLabel={t("ItemProduct.deleteItem")}
           >
-            <Button ml={6} onClick={onDelete}>
-              ❌
-            </Button>
-          </Tooltip>
+            ❌
+          </ButtonTooltip>
         )}
       </Flex>
     </Box>
@@ -100,49 +84,32 @@ const ItemProduct = ({ item, onDelete, onSave, design = 1 }) => {
               )}
             </Link>
             <Flex mt={4}>
-              <Tooltip
-                hasArrow
-                label={t("ItemProduct.deleteItem")}
-                bg={backgroundColorTooltip}
-                fontSize="md"
-                openDelay={TOOLTIP_TIME}
-                color
+              <ButtonTooltip
+                mr={4}
+                size="xs"
+                onClick={onDelete}
+                tooltipLabel={t("ItemProduct.deleteItem")}
               >
-                <Button mr={4} size="xs" onClick={onDelete}>
-                  {t("ItemProduct.delete")}
-                </Button>
-              </Tooltip>
+                {t("ItemProduct.delete")}
+              </ButtonTooltip>
 
-              <Tooltip
-                hasArrow
-                label={t("ItemProduct.saveText")}
-                bg={backgroundColorTooltip}
-                fontSize="md"
-                openDelay={TOOLTIP_TIME}
-                color
+              <ButtonTooltip
+                mr={4}
+                size="xs"
+                onClick={onSave}
+                tooltipLabel={t("ItemProduct.saveText")}
               >
-                <Button mr={4} size="xs" onClick={onSave}>
-                  {t("ItemProduct.save")}
-                </Button>
-              </Tooltip>
+                {t("ItemProduct.save")}
+              </ButtonTooltip>
 
-              <Tooltip
-                hasArrow
-                label={t("ItemProduct.similarProducts")}
-                bg={backgroundColorTooltip}
-                fontSize="md"
-                openDelay={TOOLTIP_TIME}
-                color
+              <ButtonLinkTooltip
+                to={ROUTES.PRODUCTS + "/" + item.category}
+                mr={4}
+                size="xs"
+                tooltipLabel={t("ItemProduct.similarProducts")}
               >
-                <Button
-                  as={RouterLink}
-                  to={ROUTES.PRODUCTS + "/" + item.category}
-                  mr={4}
-                  size="xs"
-                >
-                  {t("ItemProduct.seeMore")}
-                </Button>
-              </Tooltip>
+                {t("ItemProduct.seeMore")}
+              </ButtonLinkTooltip>
             </Flex>
           </Flex>
         </Flex>

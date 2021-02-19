@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex, useMediaQuery } from "@chakra-ui/react"
 // components
-import ItemList from "components/ItemList"
-import HelmetSEO from "components/HelmetSEO"
+import ItemList from "components/_organisms/ItemList"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 import Banner from "components/_molecules/Banner"
 // fake data
 import { PRODUCTS } from "test"

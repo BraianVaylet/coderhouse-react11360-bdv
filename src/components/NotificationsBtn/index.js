@@ -23,7 +23,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
 // components
-import ItemNotificaton from "components/ItemNotification"
+import ItemNotificaton from "components/_organisms/ItemNotification"
 // routes
 import { ROUTES } from "routes"
 

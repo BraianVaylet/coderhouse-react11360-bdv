@@ -10,7 +10,7 @@ import { handleItemCount } from "utils"
 // context
 import { CartContext, CheckoutContext, NotificationContext } from "context"
 // components
-import ItemProduct from "components/ItemProduct"
+import ItemProduct from "components/_organisms/ItemProduct"
 import TotalCart from "components/TotalCart"
 // routes
 import { ROUTES } from "routes"

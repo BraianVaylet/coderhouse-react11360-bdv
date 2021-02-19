@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Center, Heading } from "@chakra-ui/react"
 // components
-import HelmetSEO from "components/HelmetSEO"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 
 /**
  * NotFound Page

@@ -2,7 +2,11 @@ import React, { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Divider, Flex, Text } from "@chakra-ui/react"
-import { InputEmail, InputPassword, InputTextNumber } from "components/Inputs"
+import {
+  InputEmail,
+  InputPassword,
+  InputTextNumber,
+} from "components/_molecules/Inputs"
 // context
 import { CheckoutContext } from "context"
 

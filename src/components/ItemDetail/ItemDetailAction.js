@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { Box, Flex, Text } from "@chakra-ui/react"
 // component
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
-import ItemCount from "components/ItemCount"
+import ItemCount from "components/_organisms/ItemCount"
 import Calification from "components/_molecules/Calification"
 import CartCount from "components/_atoms/CartCount"
 // styles

@@ -10,7 +10,8 @@ import { CartContext } from "context"
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // components
 import CartItemList from "components/_organisms/CartItemList"
-import Header from "components/Header"
+import Header from "components/_molecules/Header"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 
 /**
  * Cart page
@@ -24,41 +25,47 @@ const Cart = () => {
   const backgroundColor = useSetColorTheme("gray.900", "white")
 
   return (
-    <Flex
-      p={4}
-      mt={8}
-      direction="column"
-      align="center"
-      justify="center"
-      w={setValueResponsiveMin1280("72.5%", "100%")}
-    >
-      <Header />
+    <>
+      <HelmetSEO
+        title={t("HelmetSEO.title.cart")}
+        description={t("HelmetSEO.description.cart")}
+      />
       <Flex
-        w="100%"
-        minH={setValueResponsiveMin1280("80vh", "100%")}
-        bgColor={backgroundColor}
-        boxShadow={CustomShadow}
         p={4}
+        mt={8}
+        direction="column"
+        align="center"
+        justify="center"
+        w={setValueResponsiveMin1280("72.5%", "100%")}
       >
-        <Tabs w="100%">
-          <TabList>
-            <Tab>
-              {t("Cart.cart")} ({cartItems.length})
-            </Tab>
-            <Tab>{t("Cart.saves")}</Tab>
-          </TabList>
+        <Header />
+        <Flex
+          w="100%"
+          minH={setValueResponsiveMin1280("80vh", "100%")}
+          bgColor={backgroundColor}
+          boxShadow={CustomShadow}
+          p={4}
+        >
+          <Tabs w="100%">
+            <TabList>
+              <Tab>
+                {t("Cart.cart")} ({cartItems.length})
+              </Tab>
+              <Tab>{t("Cart.saves")}</Tab>
+            </TabList>
 
-          <TabPanels>
-            <TabPanel w="100%">
-              <CartItemList />
-            </TabPanel>
-            <TabPanel>
-              <p>Proximamente!</p>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+            <TabPanels>
+              <TabPanel w="100%">
+                <CartItemList />
+              </TabPanel>
+              <TabPanel>
+                <p>Proximamente!</p>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   )
 }
 

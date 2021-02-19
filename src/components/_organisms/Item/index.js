@@ -4,18 +4,15 @@ import { Link as RouterLink } from "react-router-dom"
 // chakra-ui
 import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
-import ItemCount from "components/ItemCount"
+import ItemCount from "components/_organisms/ItemCount"
 import BtnModalImg from "components/_molecules/BtnModalImg"
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
 import CartCount from "components/_atoms/CartCount"
+import Card from "components/_atoms/Card"
 // constants
 import { IMG } from "utils/images"
-// hooks
-import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
-// styles
-import { CustomShadow } from "styles/utils"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -38,8 +35,6 @@ const Item = ({
   stock,
   onAdd = () => {},
 }) => {
-  const backgroundColor = useSetColorTheme("gray.900", "white")
-
   const item = {
     id,
     title,
@@ -52,13 +47,10 @@ const Item = ({
   }
 
   return (
-    <Flex
+    <Card
       direction="column"
       align="center"
       justify="flex-start"
-      borderRadius="2.5px"
-      backgroundColor={backgroundColor}
-      boxShadow={CustomShadow}
       position="relative"
       m="1.5rem"
       minH={MAX_HEIGHT}
@@ -124,7 +116,7 @@ const Item = ({
           <ItemCount stock={stock} item={item} />
         </Box>
       </Flex>
-    </Flex>
+    </Card>
   )
 }
 

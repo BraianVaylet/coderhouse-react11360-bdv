@@ -7,7 +7,7 @@ import { Flex, Text, Button } from "@chakra-ui/react"
 // routes
 import { ROUTES } from "routes"
 // components
-import HelpBtn from "components/HelpBtn"
+import HelpBtn from "components/_molecules/HelpBtn"
 
 /**
  * Header Component

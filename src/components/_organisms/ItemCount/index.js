@@ -219,15 +219,26 @@ const ItemCount = ({
         m="5px 0px"
         bg={backgroundColor}
       >
-        <Button mr={4} w="50%" h="100%" onClick={handleDecrementConuterV2}>
+        <Button
+          disabled={stock - handleCount() === 0}
+          mr={4}
+          w="50%"
+          h="100%"
+          onClick={handleDecrementConuterV2}
+        >
           <MinusIcon w={5} h={10} />
         </Button>
-        <Button w="50%" h="100%" onClick={handleIncrementConuterV2}>
+        <Button
+          disabled={stock - handleCount() === 0}
+          w="50%"
+          h="100%"
+          onClick={handleIncrementConuterV2}
+        >
           <AddIcon w={5} h={10} />
         </Button>
       </Flex>
       <Box>
-        {noStock ? (
+        {stock - handleCount() === 0 ? (
           <Text color="red.500" fontWeight="600">
             {t("ItemCount.noStock")}
           </Text>

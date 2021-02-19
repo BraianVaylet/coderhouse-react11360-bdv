@@ -8,9 +8,10 @@ import { MY_BREAKPOINTS } from "styles/theme"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // components
-import Header from "components/Header"
+import Header from "components/_molecules/Header"
 import PaymentMenu from "components/Checkout/PaymentMenu"
 import PaymentForm from "components/Checkout/PaymentForm"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 // routes
 import { ROUTES } from "routes"
 
@@ -34,44 +35,50 @@ const Checkout = () => {
   const handleRows = () => (mediaQueryMin1280 ? 3 : mediaQueryMax600 ? 1 : 2)
 
   return (
-    <Flex
-      p={4}
-      mt={8}
-      direction="column"
-      align="center"
-      justify="flex-start"
-      w={setValueResponsiveMin1280("72.5%", "100%")}
-    >
-      <Header backTo={ROUTES.CART} withHelp>
-        <Flex direction="column" align="flex-start" justify="flex-start">
-          <Text mb={4}>
-            <b>1.</b> {t("Checkout.helpStage1")}
-          </Text>
-          <Text mb={4}>
-            <b>2.</b> {t("Checkout.helpStage2")}
-          </Text>
-          <Text mb={4}>
-            <b>3.</b> {t("Checkout.helpStage3")}
-          </Text>
-        </Flex>
-      </Header>
+    <>
+      <HelmetSEO
+        title={t("HelmetSEO.title.checkout")}
+        description={t("HelmetSEO.description.checkout")}
+      />
       <Flex
-        w="100%"
-        minH={setValueResponsiveMin1280("80vh", "100%")}
-        bgColor={backgroundColor}
-        boxShadow={CustomShadow}
         p={4}
+        mt={8}
+        direction="column"
+        align="center"
+        justify="flex-start"
+        w={setValueResponsiveMin1280("72.5%", "100%")}
       >
-        <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
-          <GridItem colSpan={1} colStart={1} colEnd={3} p={6}>
-            <PaymentForm />
-          </GridItem>
-          <GridItem colSpan={1} p={6}>
-            <PaymentMenu />
-          </GridItem>
-        </Grid>
+        <Header backTo={ROUTES.CART} withHelp>
+          <Flex direction="column" align="flex-start" justify="flex-start">
+            <Text mb={4}>
+              <b>1.</b> {t("Checkout.helpStage1")}
+            </Text>
+            <Text mb={4}>
+              <b>2.</b> {t("Checkout.helpStage2")}
+            </Text>
+            <Text mb={4}>
+              <b>3.</b> {t("Checkout.helpStage3")}
+            </Text>
+          </Flex>
+        </Header>
+        <Flex
+          w="100%"
+          minH={setValueResponsiveMin1280("80vh", "100%")}
+          bgColor={backgroundColor}
+          boxShadow={CustomShadow}
+          p={4}
+        >
+          <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
+            <GridItem colSpan={1} colStart={1} colEnd={3} p={6}>
+              <PaymentForm />
+            </GridItem>
+            <GridItem colSpan={1} p={6}>
+              <PaymentMenu />
+            </GridItem>
+          </Grid>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   )
 }
 

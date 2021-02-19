@@ -4,12 +4,12 @@ import { Flex, Text } from "@chakra-ui/react"
 import { LogoIconColor } from "assets/icons"
 
 /**
- * Logo Component
+ * LogoOpc1 Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente Logo de la plataforma
  */
-const Logo = () => (
+const LogoOpc1 = () => (
   <Flex justify="row" align="center" direction="row">
     <LogoIconColor boxSize="2rem" mr={2} />
     <Text
@@ -24,4 +24,4 @@ const Logo = () => (
   </Flex>
 )
 
-export default Logo
+export default LogoOpc1

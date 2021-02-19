@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
-import ItemList from "components/ItemList"
-import HelmetSEO from "components/HelmetSEO"
+import ItemList from "components/_organisms/ItemList"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 // utils
 import { CATEGORIES } from "utils/constants"
 // fake data

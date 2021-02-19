@@ -12,8 +12,8 @@ import ItemDetailQuestionsAndAnswers from "components/ItemDetail/ItemDetailQuest
 import SkeletonItemDetailImgBox from "components/Skeleton/ItemDetail/SkItemDetailImgBox"
 import SkeletonItemDetailAction from "components/Skeleton/ItemDetail/SkItemDetailAction"
 import SkeletonItemDetailContent from "components/Skeleton/ItemDetail/SkItemDetailContent"
-import Header from "components/Header"
-import HelmetSEO from "components/HelmetSEO"
+import Header from "components/_molecules/Header"
+import HelmetSEO from "components/_atoms/HelmetSEO"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // styles

@@ -9,7 +9,7 @@ import { CartContext } from "context"
 // routes
 import { ROUTES } from "routes"
 // components
-import ItemProduct from "components/ItemProduct"
+import ItemProduct from "components/_organisms/ItemProduct"
 import TotalCart from "components/TotalCart"
 import ButtonLink from "components/_atoms/ButtonLink"
 // styles

@@ -24,7 +24,7 @@ import { ROUTES } from "routes"
 // utils
 import { handleItemCount } from "utils"
 // components
-import ItemProduct from "components/ItemProduct"
+import ItemProduct from "components/_organisms/ItemProduct"
 import TotalCart from "components/TotalCart"
 import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"

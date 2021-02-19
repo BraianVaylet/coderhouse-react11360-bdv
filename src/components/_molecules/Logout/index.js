@@ -2,28 +2,18 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   Button,
   useDisclosure,
   Text,
   useMediaQuery,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
   Portal,
   useToast,
 } from "@chakra-ui/react"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
+// components
+import CustomModal from "components/_atoms/CustomModal"
+import CustomDrawer from "components/_atoms/CustomDrawer"
 
 /**
  * Logout Component
@@ -38,7 +28,6 @@ const Logout = () => {
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   const handleLogout = () => {
-    console.log("Logout", false)
     toast({
       title: t("Logout.youCanNot"),
       description: "",
@@ -67,32 +56,25 @@ const Logout = () => {
       <Button onClick={onOpen}>{t("Logout.logout")}</Button>
       <Portal>
         {mediaQueryMax600 ? (
-          <Drawer
-            placement="bottom"
+          <CustomDrawer
+            direction="bottom"
             onClose={onClose}
             isOpen={isOpen}
             size="full"
+            drawerHeader={renderTitle()}
+            withFooter
           >
-            <DrawerOverlay>
-              <DrawerContent>
-                <DrawerHeader borderBottomWidth="1px">
-                  {renderTitle()}
-                </DrawerHeader>
-                <DrawerBody>{renderBody()}</DrawerBody>
-                <DrawerFooter>{renderButtons()}</DrawerFooter>
-              </DrawerContent>
-            </DrawerOverlay>
-          </Drawer>
+            {[renderBody(), renderButtons()]}
+          </CustomDrawer>
         ) : (
-          <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>{renderTitle()}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>{renderBody()}</ModalBody>
-              <ModalFooter>{renderButtons()}</ModalFooter>
-            </ModalContent>
-          </Modal>
+          <CustomModal
+            isOpen={isOpen}
+            onClose={onClose}
+            modalHeader={renderTitle()}
+            withFooter
+          >
+            {[renderBody(), renderButtons()]}
+          </CustomModal>
         )}
       </Portal>
     </>

@@ -4,13 +4,21 @@
       "home": "Aquila 🦅 | página principal",
       "products": "Aquila 🦅 | productos | ",
       "itemDetail": "Aquila 🦅 | producto | ",
-      "notFound": "Aquila 🦅 | 404"
+      "notFound": "Aquila 🦅 | 404",
+      "notifications": "Aquila 🦅 | notificaciones",
+      "checkout": "Aquila 🦅 | checkout",
+      "cart": "Aquila 🦅 | carrito",
+      "help": "Aquila 🦅 | ayuda"
     },
     "description": {
       "home": "Página principal del store para la venta de indumentaria",
       "products": "Listado de productos del store bajo la categoría: ",
       "itemDetail": "Producto seleccionado del store: ",
-      "notFound": "Página no econtrada"
+      "notFound": "Página no econtrada",
+      "notifications": "Historial de Notifications",
+      "checkout": "Checkout de productos",
+      "cart": "Carrito de compras",
+      "help": "Sección de ayuda"
     }
   },
   "App": {

@@ -18,7 +18,7 @@ import {
 // context
 import { FavouriteContext } from "context"
 // routes
-import ItemProduct from "components/ItemProduct"
+import ItemProduct from "components/_organisms/ItemProduct"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"
 
 /**

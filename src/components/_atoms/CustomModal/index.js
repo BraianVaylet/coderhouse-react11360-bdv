@@ -6,6 +6,7 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react"
@@ -16,14 +17,29 @@ import {
  * @author Braian D. Vaylet
  * @description Componente Modal
  */
-const CustomModal = ({ isOpen, onClose, modalHeader, children, size }) => {
+const CustomModal = ({
+  isOpen,
+  onClose,
+  modalHeader,
+  children,
+  size,
+  withFooter,
+  withHeader,
+}) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={size}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>{modalHeader}</ModalHeader>
+        {withHeader && <ModalHeader>{modalHeader}</ModalHeader>}
         <ModalCloseButton />
-        <ModalBody>{children}</ModalBody>
+        {withFooter ? (
+          <>
+            <ModalBody>{children[0]}</ModalBody>
+            <ModalFooter>{children[1]}</ModalFooter>
+          </>
+        ) : (
+          <ModalBody>{children}</ModalBody>
+        )}
       </ModalContent>
     </Modal>
   )
@@ -31,14 +47,18 @@ const CustomModal = ({ isOpen, onClose, modalHeader, children, size }) => {
 
 CustomModal.defaultProps = {
   size: "md",
+  withFooter: false,
+  withHeader: true,
 }
 
 CustomModal.propTypes = {
   isOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   modalHeader: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired || PropTypes.element.isRequired,
   size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", "full"]),
+  withFooter: PropTypes.bool,
+  withHeader: PropTypes.bool,
 }
 
 export default CustomModal

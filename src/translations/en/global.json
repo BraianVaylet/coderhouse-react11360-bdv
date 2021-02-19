@@ -4,13 +4,21 @@
       "home": "Aquila 🦅 | Home",
       "products": "Aquila 🦅 | Products | ",
       "itemDetail": "Aquila 🦅 | Product | ",
-      "notFound": "Aquila 🦅 | 404"
+      "notFound": "Aquila 🦅 | 404",
+      "notifications": "Aquila 🦅 | Notifications",
+      "checkout": "Aquila 🦅 | checkout",
+      "cart": "Aquila 🦅 | cart",
+      "help": "Aquila 🦅 | help"
     },
     "description": {
       "home": "Main page of the store for the sale of clothing",
       "products": "List of store products under the category: ",
       "itemDetail": "Product selected from the store: ",
-      "notFound": "Not found"
+      "notFound": "Not found",
+      "notifications": "notification history",
+      "checkout": "Products checkout",
+      "cart": "Shopping cart",      
+      "help": "Help section"
     }
   },
   "App": {

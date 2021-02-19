@@ -29,15 +29,16 @@ import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import FavoritesBtn from "components/_organisms/FavoritesBtn"
 import NotificationsBtn from "components/NotificationsBtn"
 import CartWidgetBtn from "components/_organisms/CartWidgetBtn"
-import Logo from "components/Logo"
-import Logout from "components/Logout"
+import LogoOpc1 from "components/_molecules/LogoOpc1"
+import Logout from "components/_molecules/Logout"
 // styles
-import { COLORS, MY_BREAKPOINTS } from "styles/theme"
+import { MY_BREAKPOINTS } from "styles/theme"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
 import { CATEGORIES } from "utils/constants"
 import { ROUTES } from "routes"
+import ItemLink from "components/_atoms/ItemLink"
 
 /**
  * NavBar Component
@@ -73,41 +74,25 @@ const NavBar = () => {
    */
   const renderLinks = (withSeparator = false) => (
     <>
-      <Flex
-        align="center"
-        as={NavLink}
-        activeStyle={{ color: COLORS.primary }}
+      <ItemLink
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
-      >
-        <Text ml={2}>{t(`NavBar.${CATEGORIES.JACKETS}`)}</Text>
-      </Flex>
+        text={t(`NavBar.${CATEGORIES.JACKETS}`)}
+      />
       {renderLinkSeparator(withSeparator)}
-      <Flex
-        align="center"
-        as={NavLink}
-        activeStyle={{ color: COLORS.primary }}
+      <ItemLink
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
-      >
-        <Text ml={2}>{t(`NavBar.${CATEGORIES.SHIRTS}`)}</Text>
-      </Flex>
+        text={t(`NavBar.${CATEGORIES.SHIRTS}`)}
+      />
       {renderLinkSeparator(withSeparator)}
-      <Flex
-        align="center"
-        as={NavLink}
-        activeStyle={{ color: COLORS.primary }}
+      <ItemLink
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
-      >
-        <Text ml={2}>{t(`NavBar.${CATEGORIES.SHOES}`)}</Text>
-      </Flex>
+        text={t(`NavBar.${CATEGORIES.SHOES}`)}
+      />
       {renderLinkSeparator(withSeparator)}
-      <Flex
-        align="center"
-        as={NavLink}
-        activeStyle={{ color: COLORS.primary }}
+      <ItemLink
         to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
-      >
-        <Text ml={2}>{t(`NavBar.${CATEGORIES.ACCESORIES}`)}</Text>
-      </Flex>
+        text={t(`NavBar.${CATEGORIES.ACCESORIES}`)}
+      />
     </>
   )
 
@@ -140,7 +125,7 @@ const NavBar = () => {
               }}
               onClick={onOpen}
             >
-              <Logo />
+              <LogoOpc1 />
             </Button>
             {renderLinkSeparator(true)}
             <Link as={NavLink} to={ROUTES.HOME} p="0 1rem">
@@ -165,7 +150,7 @@ const NavBar = () => {
               borderBottomWidth="0.25rem"
               borderColor="brand.primary"
             >
-              <Logo />
+              <LogoOpc1 />
             </DrawerHeader>
             <DrawerBody>
               <Flex
