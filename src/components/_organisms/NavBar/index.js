@@ -1,7 +1,7 @@
 // react
 import React from "react"
-import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { NavLink } from "react-router-dom"
 import { IoHomeOutline } from "react-icons/io5"
 import styles from "./styles.module.css"
 // chakra-ui
@@ -18,7 +18,6 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Button,
-  Text,
   useMediaQuery,
   Icon,
   Divider,
@@ -27,18 +26,20 @@ import {
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import FavoritesBtn from "components/_organisms/FavoritesBtn"
-import NotificationsBtn from "components/NotificationsBtn"
+import NotificationsBtn from "components/_organisms/NotificationsBtn"
 import CartWidgetBtn from "components/_organisms/CartWidgetBtn"
 import LogoOpc1 from "components/_molecules/LogoOpc1"
 import Logout from "components/_molecules/Logout"
+import HorizontalSeparator from "components/_atoms/HorizontalSeparator"
+import LinkList from "components/_molecules/LinkList"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// routes
+import { ROUTES } from "routes"
 // utils
 import { CATEGORIES } from "utils/constants"
-import { ROUTES } from "routes"
-import ItemLink from "components/_atoms/ItemLink"
 
 /**
  * NavBar Component
@@ -48,53 +49,32 @@ import ItemLink from "components/_atoms/ItemLink"
  */
 const NavBar = () => {
   const [t] = useTranslation("global")
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const backgroundColor = useSetColorTheme(
     "withOpacity.gray.800",
     "withOpacity.white"
   )
-  const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
-  /**
-   * renderLinkSeparator
-   * @function
-   * @returns {undefined} component
-   */
-  const renderLinkSeparator = (withSeparator) => (
-    <Text ml={2} mr={2}>
-      {withSeparator && "|"}
-    </Text>
-  )
-
-  /**
-   * renderLinks
-   * @function
-   * @returns {undefined} component
-   */
-  const renderLinks = (withSeparator = false) => (
-    <>
-      <ItemLink
-        to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
-        text={t(`NavBar.${CATEGORIES.JACKETS}`)}
-      />
-      {renderLinkSeparator(withSeparator)}
-      <ItemLink
-        to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
-        text={t(`NavBar.${CATEGORIES.SHIRTS}`)}
-      />
-      {renderLinkSeparator(withSeparator)}
-      <ItemLink
-        to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
-        text={t(`NavBar.${CATEGORIES.SHOES}`)}
-      />
-      {renderLinkSeparator(withSeparator)}
-      <ItemLink
-        to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
-        text={t(`NavBar.${CATEGORIES.ACCESORIES}`)}
-      />
-    </>
-  )
+  const categoriesLinks = [
+    {
+      to: ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS,
+      text: t(`NavBar.${CATEGORIES.JACKETS}`),
+    },
+    {
+      to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS,
+      text: t(`NavBar.${CATEGORIES.SHIRTS}`),
+    },
+    {
+      to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES,
+      text: t(`NavBar.${CATEGORIES.SHOES}`),
+    },
+    {
+      to: ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES,
+      text: t(`NavBar.${CATEGORIES.ACCESORIES}`),
+    },
+  ]
 
   return (
     <>
@@ -127,14 +107,16 @@ const NavBar = () => {
             >
               <LogoOpc1 />
             </Button>
-            {renderLinkSeparator(true)}
+            <HorizontalSeparator withSeparator />
             <Link as={NavLink} to={ROUTES.HOME} p="0 1rem">
               <Icon as={IoHomeOutline} w="1.5rem" h="1.5rem" />
             </Link>
           </Flex>
         </Flex>
         <Flex direction="row" justify="flex-start" align="center">
-          {mediaQueryMin1280 && renderLinks(true)}
+          {mediaQueryMin1280 && (
+            <LinkList withSeparator links={categoriesLinks} />
+          )}
           <Box ml={4} mr={4}>
             {!mediaQueryMax600 && <FavoritesBtn />}
             {!mediaQueryMax600 && <NotificationsBtn />}
@@ -158,7 +140,13 @@ const NavBar = () => {
                 align="space-between"
                 justify="flex-start"
               >
-                {renderLinks()}
+                <LinkList
+                  links={categoriesLinks}
+                  direction="column"
+                  justify="space-between"
+                  align="flex-start"
+                  h="20vh"
+                />
                 {mediaQueryMax600 && (
                   <>
                     <Divider m={"1.5rem 0"} />

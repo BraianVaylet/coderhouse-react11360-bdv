@@ -9,26 +9,25 @@ import { Button } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description Componente button con efecto de zoom
  */
-const ButtonZoom = ({ children, onClick }) => {
-  return (
-    <Button
-      variant="none"
-      transitionDuration="0.75s"
-      transitionProperty="transform"
-      borderRadius="9999px"
-      _hover={{
-        transform: "scale(1.25)",
-      }}
-      _focus={{
-        borderStyle: "none",
-        backgroundColor: "transparent",
-      }}
-      onClick={onClick}
-    >
-      {children}
-    </Button>
-  )
-}
+const ButtonZoom = ({ children, onClick, ...props }) => (
+  <Button
+    variant="none"
+    transitionDuration="0.75s"
+    transitionProperty="transform"
+    borderRadius="9999px"
+    _hover={{
+      transform: "scale(1.25)",
+    }}
+    _focus={{
+      borderStyle: "none",
+      backgroundColor: "transparent",
+    }}
+    onClick={onClick}
+    {...props}
+  >
+    {children}
+  </Button>
+)
 
 ButtonZoom.propTypes = {
   children: PropTypes.element.isRequired,

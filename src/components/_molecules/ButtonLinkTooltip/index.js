@@ -16,15 +16,13 @@ const ButtonLinkTooltip = ({
   to,
   onClick,
   ...props
-}) => {
-  return (
-    <CustomTooltip label={tooltipLabel}>
-      <ButtonLink {...props} to={to} onClick={onClick}>
-        {children}
-      </ButtonLink>
-    </CustomTooltip>
-  )
-}
+}) => (
+  <CustomTooltip label={tooltipLabel}>
+    <ButtonLink {...props} to={to} onClick={onClick}>
+      {children}
+    </ButtonLink>
+  </CustomTooltip>
+)
 
 ButtonLinkTooltip.propTypes = {
   children: PropTypes.element.isRequired,

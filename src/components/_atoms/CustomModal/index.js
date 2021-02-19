@@ -20,42 +20,36 @@ import {
 const CustomModal = ({
   isOpen,
   onClose,
-  modalHeader,
+  header,
+  footer,
   children,
   size,
   withFooter,
   withHeader,
-}) => {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} size={size}>
-      <ModalOverlay />
-      <ModalContent>
-        {withHeader && <ModalHeader>{modalHeader}</ModalHeader>}
-        <ModalCloseButton />
-        {withFooter ? (
-          <>
-            <ModalBody>{children[0]}</ModalBody>
-            <ModalFooter>{children[1]}</ModalFooter>
-          </>
-        ) : (
-          <ModalBody>{children}</ModalBody>
-        )}
-      </ModalContent>
-    </Modal>
-  )
-}
+}) => (
+  <Modal isOpen={isOpen} onClose={onClose} size={size}>
+    <ModalOverlay />
+    <ModalContent>
+      {withHeader && <ModalHeader>{header}</ModalHeader>}
+      <ModalCloseButton />
+      <ModalBody>{children}</ModalBody>
+      {withFooter && <ModalFooter>{footer}</ModalFooter>}
+    </ModalContent>
+  </Modal>
+)
 
 CustomModal.defaultProps = {
   size: "md",
-  withFooter: false,
+  withFooter: true,
   withHeader: true,
 }
 
 CustomModal.propTypes = {
   isOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
-  modalHeader: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired || PropTypes.element.isRequired,
+  header: PropTypes.node,
+  footer: PropTypes.node,
+  children: PropTypes.element.isRequired,
   size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", "full"]),
   withFooter: PropTypes.bool,
   withHeader: PropTypes.bool,

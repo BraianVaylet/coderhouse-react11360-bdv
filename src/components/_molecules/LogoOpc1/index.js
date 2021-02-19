@@ -1,6 +1,7 @@
 import React from "react"
 // chakra-ui
 import { Flex, Text } from "@chakra-ui/react"
+// assets
 import { LogoIconColor } from "assets/icons"
 
 /**

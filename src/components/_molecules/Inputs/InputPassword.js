@@ -7,13 +7,14 @@ import {
   FormControl,
   Text,
   FormLabel,
-  Input,
   InputGroup,
   InputRightElement,
   IconButton,
   FormHelperText,
 } from "@chakra-ui/react"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
+// components
+import CustomInput from "components/_atoms/CustomInput"
 
 /**
  * InputPassword Component
@@ -124,7 +125,7 @@ export const InputPassword = ({ onChange }) => {
     <FormControl p={2} isRequired>
       <FormLabel htmlFor="email">{t("InputPassword.title")}</FormLabel>
       <InputGroup>
-        <Input
+        <CustomInput
           onChange={handleChange}
           value={value}
           name="password"

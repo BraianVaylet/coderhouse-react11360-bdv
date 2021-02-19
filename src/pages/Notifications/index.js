@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next"
 import { Flex } from "@chakra-ui/react"
 // components
 import HelmetSEO from "components/_atoms/HelmetSEO"
-import Header from "components/_molecules/Header"
-import NotificationList from "components/NotificationList"
+import Header from "components/_organisms/Header"
+import NotificationList from "components/_organisms/NotificationList"
 // styles
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // hooks

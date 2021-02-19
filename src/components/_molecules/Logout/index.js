@@ -61,19 +61,19 @@ const Logout = () => {
             onClose={onClose}
             isOpen={isOpen}
             size="full"
-            drawerHeader={renderTitle()}
-            withFooter
+            header={renderTitle()}
+            footer={renderButtons()}
           >
-            {[renderBody(), renderButtons()]}
+            {renderBody()}
           </CustomDrawer>
         ) : (
           <CustomModal
             isOpen={isOpen}
             onClose={onClose}
-            modalHeader={renderTitle()}
-            withFooter
+            header={renderTitle()}
+            footer={renderButtons()}
           >
-            {[renderBody(), renderButtons()]}
+            {renderBody()}
           </CustomModal>
         )}
       </Portal>

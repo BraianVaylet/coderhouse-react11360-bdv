@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 // chakra-ui
-import { FormHelperText, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { FormHelperText, FormControl, FormLabel } from "@chakra-ui/react"
+// components
+import CustomInput from "components/_atoms/CustomInput"
 
 /**
  * InputTextNumber Component
@@ -35,7 +37,7 @@ export const InputTextNumber = ({
   return (
     <FormControl p={2} isRequired={isRequired}>
       <FormLabel htmlFor={name}>{label}</FormLabel>
-      <Input
+      <CustomInput
         onChange={handleChange}
         value={value}
         name={name}

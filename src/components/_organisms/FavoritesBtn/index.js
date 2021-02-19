@@ -2,24 +2,14 @@ import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
-import { ChevronDownIcon } from "@chakra-ui/icons"
 // chakra-ui
-import {
-  Flex,
-  Icon,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-  Text,
-  MenuDivider,
-  MenuItem,
-} from "@chakra-ui/react"
+import { Flex, Icon, MenuItem } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
 // routes
 import ItemProduct from "components/_organisms/ItemProduct"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"
+import CustomMenu from "components/_atoms/CustomMenu"
 
 /**
  * FavoritesBtn Component
@@ -57,44 +47,32 @@ const FavoritesBtn = ({ onClick, withText = false }) => {
   }
 
   return (
-    <Menu closeOnSelect={false} arrowPadding={0}>
-      <MenuButton
-        as={IconButton}
-        variant="ghost"
-        rightIcon={countFavs > 0 && <ChevronDownIcon />}
-        size="lg"
-        p="0 5px"
-        leftIcon={
-          <Flex direction="row" align="center">
-            {countFavs > 0 ? (
-              <Icon as={MdFavorite} boxSize="1.5rem" />
-            ) : (
-              <Icon as={MdFavoriteBorder} boxSize="1.5rem" />
-            )}
-            <Text as={Flex} align="center">
-              {withText && <Text m="0 .5rem">{t("Favourites.title")}</Text>}(
-              {countFavs})
-            </Text>
-          </Flex>
-        }
-      />
-      {countFavs > 0 && (
-        <MenuList>
-          {renderFavourites()}
-          <MenuDivider />
-          <Flex direction="row" align="center" justify="flex-end">
-            <ButtonTooltip
-              tooltipLabel={t("Favourites.clean")}
-              mr={2}
-              size="lg"
-              onClick={cleanFavourites}
-            >
-              🗑
-            </ButtonTooltip>
-          </Flex>
-        </MenuList>
-      )}
-    </Menu>
+    <CustomMenu
+      btnIcon={
+        countFavs > 0 ? (
+          <Icon as={MdFavorite} boxSize="1.5rem" />
+        ) : (
+          <Icon as={MdFavoriteBorder} boxSize="1.5rem" />
+        )
+      }
+      btnText={t("Favourites.title")}
+      withText
+      count={countFavs}
+      footer={
+        <Flex direction="row" align="center" justify="flex-end">
+          <ButtonTooltip
+            tooltipLabel={t("Favourites.clean")}
+            mr={2}
+            size="lg"
+            onClick={cleanFavourites}
+          >
+            🗑
+          </ButtonTooltip>
+        </Flex>
+      }
+    >
+      {renderFavourites()}
+    </CustomMenu>
   )
 }
 

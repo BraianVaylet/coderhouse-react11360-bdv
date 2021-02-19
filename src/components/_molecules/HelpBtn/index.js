@@ -3,23 +3,12 @@ import { Link as RouterLink } from "react-router-dom"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chokra-ui
-import {
-  Button,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTrigger,
-  Portal,
-  Link,
-  Text,
-} from "@chakra-ui/react"
+import { Link, Text } from "@chakra-ui/react"
 import { InfoOutlineIcon } from "@chakra-ui/icons"
 // router
 import { ROUTES } from "routes"
+// components
+import CustomPopover from "components/_atoms/CustomPopover"
 
 /**
  * HelpBtn Component
@@ -31,29 +20,20 @@ const HelpBtn = ({ children }) => {
   const [t] = useTranslation("global")
 
   return (
-    <Popover>
-      <PopoverTrigger>
-        <Button>
-          <InfoOutlineIcon />
-        </Button>
-      </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverArrow />
-          <PopoverHeader>{t("HelpBtn.help")}</PopoverHeader>
-          <PopoverCloseButton />
-          <PopoverBody>{children}</PopoverBody>
-          <PopoverFooter>
-            <Text>
-              {t("HelpBtn.forMoreHelp")}{" "}
-              <Link color="brand.primary" as={RouterLink} to={ROUTES.HELP}>
-                {t("HelpBtn.here")}
-              </Link>
-            </Text>
-          </PopoverFooter>
-        </PopoverContent>
-      </Portal>
-    </Popover>
+    <CustomPopover
+      btn={<InfoOutlineIcon />}
+      header={t("HelpBtn.help")}
+      footer={
+        <Text>
+          {t("HelpBtn.forMoreHelp")}{" "}
+          <Link color="brand.primary" as={RouterLink} to={ROUTES.HELP}>
+            {t("HelpBtn.here")}
+          </Link>
+        </Text>
+      }
+    >
+      {children}
+    </CustomPopover>
   )
 }
 

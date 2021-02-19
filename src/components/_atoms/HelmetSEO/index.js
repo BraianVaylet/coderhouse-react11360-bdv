@@ -8,14 +8,12 @@ import { Helmet } from "react-helmet"
  * @author Braian D. Vaylet
  * @description Componente para el CEO usando react-helmet
  */
-const HelmetSEO = ({ title, description }) => {
-  return (
-    <Helmet>
-      {title && <title>{title}</title>}´
-      {description && <meta name="description" content={description}></meta>}
-    </Helmet>
-  )
-}
+const HelmetSEO = ({ title, description }) => (
+  <Helmet>
+    {title && <title>{title}</title>}´
+    {description && <meta name="description" content={description}></meta>}
+  </Helmet>
+)
 
 HelmetSEO.propTypes = {
   title: PropTypes.string,

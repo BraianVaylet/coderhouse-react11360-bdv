@@ -3,13 +3,9 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Input,
-  Text,
-} from "@chakra-ui/react"
+import { FormControl, FormHelperText, FormLabel, Text } from "@chakra-ui/react"
+// components
+import CustomInput from "components/_atoms/CustomInput"
 
 /**
  * InputEmail Component
@@ -50,7 +46,7 @@ export const InputEmail = ({ onChange }) => {
   return (
     <FormControl p={2} isRequired>
       <FormLabel htmlFor="email">{t("InputEmail.title")}</FormLabel>
-      <Input
+      <CustomInput
         onChange={handleChange}
         value={value}
         name="email"

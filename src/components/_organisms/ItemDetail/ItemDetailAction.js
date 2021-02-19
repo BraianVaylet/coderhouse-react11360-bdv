@@ -6,7 +6,7 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
 import ItemCount from "components/_organisms/ItemCount"
 import Calification from "components/_molecules/Calification"
-import CartCount from "components/_atoms/CartCount"
+import CartCount from "components/_organisms/CartCount"
 // styles
 import { titleSizeResponsiveMin1280 } from "styles/utils"
 

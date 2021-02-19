@@ -14,30 +14,8 @@ import ItemNotificaton from "components/_organisms/ItemNotification"
  */
 const NotificationList = () => {
   const { notification } = useContext(NotificationContext)
-  // const [t] = useTranslation("global")
-
   const count = notification.length
 
-  /**
-   * renderItems
-   * @function
-   * @returns {undefined} ItemNotificaton components
-   * @description Retorna una lista de todas las Notificaciones
-   */
-  const renderItems = () => {
-    return notification
-      .map((_notification, index) => {
-        return (
-          <>
-            <Box key={index}>
-              <ItemNotificaton item={_notification} />
-            </Box>
-            <Divider m="1.5rem 0" />
-          </>
-        )
-      })
-      .reverse()
-  }
   return (
     <Flex
       direction="column"
@@ -53,7 +31,18 @@ const NotificationList = () => {
           justify="flex-start"
           w="100%"
         >
-          {renderItems()}
+          {notification
+            .map((_notification, index) => {
+              return (
+                <>
+                  <Box key={index}>
+                    <ItemNotificaton item={_notification} />
+                  </Box>
+                  <Divider m="1.5rem 0" />
+                </>
+              )
+            })
+            .reverse()}
         </Flex>
       ) : (
         <Flex>No hay notificaciones que mostrar</Flex>

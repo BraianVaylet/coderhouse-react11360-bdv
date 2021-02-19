@@ -11,7 +11,7 @@ import { handleItemCount } from "utils"
 import { CartContext, CheckoutContext, NotificationContext } from "context"
 // components
 import ItemProduct from "components/_organisms/ItemProduct"
-import TotalCart from "components/TotalCart"
+import TotalCart from "components/_molecules/TotalCart"
 // routes
 import { ROUTES } from "routes"
 
@@ -32,12 +32,12 @@ const PaymentMenu = () => {
   useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
 
   /**
-   * handleCartItems
+   * renderCartItems
    * @function
    * @description retorna el listado de productos del carrito
    * @returns {undefined} return ItemProduct component
    */
-  const handleCartItems = () => {
+  const renderCartItems = () => {
     return (
       cartItems &&
       items.map((item, index) => {
@@ -51,7 +51,7 @@ const PaymentMenu = () => {
   }
 
   /**
-   * handleCartItems
+   * renderCartItems
    * @function
    * @description acción del btn comprar
    * @returns {undefined} return ItemProduct component
@@ -100,7 +100,7 @@ const PaymentMenu = () => {
         w="100%"
         mt={10}
       >
-        {handleCartItems()}
+        {renderCartItems()}
       </Flex>
 
       <Flex direction="column" align="center" justify="center" w="100%" mt={10}>

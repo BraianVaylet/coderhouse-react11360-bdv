@@ -10,7 +10,7 @@ import { CartContext } from "context"
 import { ROUTES } from "routes"
 // components
 import ItemProduct from "components/_organisms/ItemProduct"
-import TotalCart from "components/TotalCart"
+import TotalCart from "components/_molecules/TotalCart"
 import ButtonLink from "components/_atoms/ButtonLink"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"

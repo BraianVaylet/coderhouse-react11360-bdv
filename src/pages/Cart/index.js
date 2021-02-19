@@ -10,7 +10,7 @@ import { CartContext } from "context"
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // components
 import CartItemList from "components/_organisms/CartItemList"
-import Header from "components/_molecules/Header"
+import Header from "components/_organisms/Header"
 import HelmetSEO from "components/_atoms/HelmetSEO"
 
 /**

@@ -23,34 +23,27 @@ const CustomDrawer = ({
   size,
   children,
   withFooter,
-  drawerHeader,
+  footer,
+  header,
   withHeader,
-}) => {
-  return (
-    <Drawer placement={direction} onClose={onClose} isOpen={isOpen} size={size}>
-      <DrawerOverlay>
-        <DrawerContent>
-          {withHeader && (
-            <DrawerHeader borderBottomWidth="1px">{drawerHeader}</DrawerHeader>
-          )}
-          {withFooter ? (
-            <>
-              <DrawerBody>{children[0]}</DrawerBody>
-              <DrawerFooter>{children[1]}</DrawerFooter>
-            </>
-          ) : (
-            <DrawerBody>{children}</DrawerBody>
-          )}
-        </DrawerContent>
-      </DrawerOverlay>
-    </Drawer>
-  )
-}
+}) => (
+  <Drawer placement={direction} onClose={onClose} isOpen={isOpen} size={size}>
+    <DrawerOverlay>
+      <DrawerContent>
+        {withHeader && (
+          <DrawerHeader borderBottomWidth="1px">{header}</DrawerHeader>
+        )}
+        <DrawerBody>{children}</DrawerBody>
+        {withFooter && <DrawerFooter>{footer}</DrawerFooter>}
+      </DrawerContent>
+    </DrawerOverlay>
+  </Drawer>
+)
 
 CustomDrawer.defaultProps = {
   size: "md",
   direction: "bottom",
-  withFooter: false,
+  withFooter: true,
   withHeader: true,
 }
 
@@ -59,10 +52,11 @@ CustomDrawer.propTypes = {
   isOpen: PropTypes.func.isRequired,
   direction: PropTypes.oneOf(["top", "bottom", "left", "right"]),
   size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", "full"]),
-  drawerHeader: PropTypes.string.isRequired,
+  header: PropTypes.node,
+  footer: PropTypes.node,
   withFooter: PropTypes.bool,
   withHeader: PropTypes.bool,
-  children: PropTypes.array.isRequired || PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired,
 }
 
 export default CustomDrawer

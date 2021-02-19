@@ -9,20 +9,17 @@ import { Box } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description componente contenedor del banner
  */
-const SimpleBanner = ({ img }) => {
-  return (
-    img && (
-      <Box
-        w="100%"
-        h="50vh"
-        bgImage={`url(${img})`}
-        bgPosition="center"
-        bgSize="cover"
-        bgRepeat="no-repeat"
-      />
-    )
+const SimpleBanner = ({ img }) =>
+  img && (
+    <Box
+      w="100%"
+      h="50vh"
+      bgImage={`url(${img})`}
+      bgPosition="center"
+      bgSize="cover"
+      bgRepeat="no-repeat"
+    />
   )
-}
 
 SimpleBanner.propTypes = {
   img: PropTypes.string.isRequired,

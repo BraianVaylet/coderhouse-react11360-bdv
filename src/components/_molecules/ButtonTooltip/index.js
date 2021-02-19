@@ -11,15 +11,13 @@ import CustomTooltip from "components/_atoms/CustomTooltip"
  * @author Braian D. Vaylet
  * @description Componente Button con tooltip
  */
-const ButtonTooltip = ({ children, tooltipLabel, onClick, ...props }) => {
-  return (
-    <CustomTooltip label={tooltipLabel}>
-      <Button {...props} onClick={onClick}>
-        {children}
-      </Button>
-    </CustomTooltip>
-  )
-}
+const ButtonTooltip = ({ children, tooltipLabel, onClick, ...props }) => (
+  <CustomTooltip label={tooltipLabel}>
+    <Button {...props} onClick={onClick}>
+      {children}
+    </Button>
+  </CustomTooltip>
+)
 
 ButtonTooltip.propTypes = {
   children: PropTypes.element.isRequired,

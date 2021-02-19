@@ -6,17 +6,12 @@ import PropTypes from "prop-types"
 // chakra-ui
 import {
   Icon,
-  IconButton,
   Flex,
-  Text,
-  MenuButton,
-  Menu,
-  MenuList,
   MenuDivider,
   Center,
   MenuItem,
+  Box,
 } from "@chakra-ui/react"
-import { ChevronDownIcon } from "@chakra-ui/icons"
 // context
 import { CartContext } from "context"
 // routes
@@ -24,10 +19,11 @@ import { ROUTES } from "routes"
 // utils
 import { handleItemCount } from "utils"
 // components
-import ItemProduct from "components/_organisms/ItemProduct"
-import TotalCart from "components/TotalCart"
+import ItemProduct from "components/_organisms/ItemProduct" // ! AtomicDesignError
+import TotalCart from "components/_molecules/TotalCart"
 import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"
+import CustomMenu from "components/_atoms/CustomMenu"
 
 /**
  * CartWidgetBtn Component
@@ -74,58 +70,42 @@ const CartWidgetBtn = ({ onClick = () => {} }) => {
   }
 
   return (
-    <Menu
-      closeOnSelect={false}
-      arrowPadding={0}
-      defaultIsOpen={isOpen}
-      onClose={handleIsOpen}
+    <CustomMenu
+      onClick={handleIsOpen}
+      btnIcon={<Icon as={MdShoppingCart} boxSize="1.5rem" />}
+      count={cartCount}
+      footer={
+        <Flex direction="row" align="center" justify="flex-end">
+          <ButtonLinkTooltip
+            as={RouterLink}
+            tooltipLabel={t("CartWidgetBtn.goToCart")}
+            mr={2}
+            size="lg"
+            to={ROUTES.CART}
+            onClick={() => handleIsOpen(false)}
+            _hover={{ textDecoration: "none", bg: "gray.600" }}
+          >
+            🛒
+          </ButtonLinkTooltip>
+          <ButtonTooltip
+            mr={2}
+            size="lg"
+            onClick={cleanCart}
+            tooltipLabel={t("CartWidgetBtn.clean")}
+          >
+            🗑
+          </ButtonTooltip>
+        </Flex>
+      }
     >
-      <MenuButton
-        as={IconButton}
-        variant="ghost"
-        rightIcon={cartCount > 0 && <ChevronDownIcon />}
-        size="lg"
-        p="0 5px"
-        onClick={handleIsOpen}
-        icon={
-          <Flex direction="row" align="center">
-            <Icon as={MdShoppingCart} boxSize="1.5rem" />
-            <Text>({cartCount})</Text>
-          </Flex>
-        }
-      />
-      {cartCount > 0 && isOpen && (
-        <MenuList>
-          {renderCartItems()}
-          <MenuDivider />
-          <Center>
-            <TotalCart title="Total: " fontSize="1.5rem" fontWeight="bold" />
-          </Center>
-          <MenuDivider />
-          <Flex direction="row" align="center" justify="flex-end">
-            <ButtonLinkTooltip
-              as={RouterLink}
-              tooltipLabel={t("CartWidgetBtn.goToCart")}
-              mr={2}
-              size="lg"
-              to={ROUTES.CART}
-              onClick={() => handleIsOpen(false)}
-              _hover={{ textDecoration: "none", bg: "gray.600" }}
-            >
-              🛒
-            </ButtonLinkTooltip>
-            <ButtonTooltip
-              mr={2}
-              size="lg"
-              onClick={cleanCart}
-              tooltipLabel={t("CartWidgetBtn.clean")}
-            >
-              🗑
-            </ButtonTooltip>
-          </Flex>
-        </MenuList>
-      )}
-    </Menu>
+      <Box>
+        {renderCartItems()}
+        <MenuDivider />
+        <Center>
+          <TotalCart title="Total: " fontSize="1.5rem" fontWeight="bold" />
+        </Center>
+      </Box>
+    </CustomMenu>
   )
 }
 

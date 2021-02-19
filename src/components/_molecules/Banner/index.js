@@ -15,16 +15,14 @@ import { IMG } from "utils/images"
  * @description Componente banner para la publicidad de la tienda
  *
  */
-const Banner = () => {
-  return (
-    <Box as={Carousel} autoPlay infiniteLoop transitionTime="3s" w="100vw">
-      <SimpleBanner img={IMG.SLIDER3} />
-      <SimpleBanner img={IMG.SLIDER1} />
-      <SimpleBanner img={IMG.SLIDER2} />
-      <SimpleBanner img={IMG.SLIDER4} />
-      <SimpleBanner img={IMG.SLIDER5} />
-    </Box>
-  )
-}
+const Banner = () => (
+  <Box as={Carousel} autoPlay infiniteLoop transitionTime="3s" w="100vw">
+    <SimpleBanner img={IMG.SLIDER3} />
+    <SimpleBanner img={IMG.SLIDER1} />
+    <SimpleBanner img={IMG.SLIDER2} />
+    <SimpleBanner img={IMG.SLIDER4} />
+    <SimpleBanner img={IMG.SLIDER5} />
+  </Box>
+)
 
 export default Banner

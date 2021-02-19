@@ -5,9 +5,9 @@ import { Link as RouterLink } from "react-router-dom"
 import { Flex, Text, Heading, Box, Link } from "@chakra-ui/react"
 // components
 import ItemCount from "components/_organisms/ItemCount"
-import BtnModalImg from "components/_molecules/BtnModalImg"
+import ButtonModalFullImage from "components/_molecules/ButtonModalFullImage"
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
-import CartCount from "components/_atoms/CartCount"
+import CartCount from "components/_organisms/CartCount"
 import Card from "components/_atoms/Card"
 // constants
 import { IMG } from "utils/images"
@@ -77,7 +77,7 @@ const Item = ({
         <FavouriteIconBtn item={item} />
       </Box>
       <Box position="absolute" top="1" left="1">
-        <BtnModalImg
+        <ButtonModalFullImage
           pictureName={pictureName}
           pictureUrl={pictureUrl}
           title={title}

@@ -13,12 +13,12 @@ import CustomTooltip from "components/_atoms/CustomTooltip"
 import CustomModal from "components/_atoms/CustomModal"
 
 /**
- * BtnModalImg Component
+ * ButtonModalFullImage Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente que muestra la imagen en un modal
  */
-const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
+const ButtonModalFullImage = ({ pictureName, pictureUrl, title }) => {
   const [t] = useTranslation("global")
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -57,7 +57,7 @@ const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
           isOpen={isOpen}
           onClose={onClose}
           size="full"
-          modalHeader={title}
+          header={title}
         >
           <Box
             title={pictureName}
@@ -78,10 +78,10 @@ const BtnModalImg = ({ pictureName, pictureUrl, title }) => {
   )
 }
 
-BtnModalImg.propTypes = {
+ButtonModalFullImage.propTypes = {
   title: Proptypes.string.isRequired,
   pictureName: Proptypes.string,
   pictureUrl: Proptypes.string,
 }
 
-export default BtnModalImg
+export default ButtonModalFullImage

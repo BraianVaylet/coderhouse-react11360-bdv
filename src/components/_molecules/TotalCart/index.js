@@ -13,7 +13,7 @@ import { DISCOUNTS } from "utils/constants"
  * @author Braian D. Vaylet
  * @description Componente que te retorna el precio total de todos los productos del carrito.
  */
-const TotalCart = ({ title, withDiscount = false, ...props }) => {
+const TotalCart = ({ title, withDiscount, ...props }) => {
   const { cartItems, setTotal } = useContext(CartContext)
 
   /**
@@ -70,10 +70,14 @@ const TotalCart = ({ title, withDiscount = false, ...props }) => {
   )
 }
 
+TotalCart.defaultProps = {
+  title: "",
+  withDiscount: false,
+}
+
 TotalCart.propTypes = {
   title: PropTypes.string,
   withDiscount: PropTypes.bool,
-  props: PropTypes.any,
 }
 
 export default TotalCart

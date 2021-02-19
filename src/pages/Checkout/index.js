@@ -8,9 +8,9 @@ import { MY_BREAKPOINTS } from "styles/theme"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // components
-import Header from "components/_molecules/Header"
-import PaymentMenu from "components/Checkout/PaymentMenu"
-import PaymentForm from "components/Checkout/PaymentForm"
+import Header from "components/_organisms/Header"
+import PaymentMenu from "components/_organisms/PaymentMenu"
+import PaymentForm from "components/_organisms/PaymentForm"
 import HelmetSEO from "components/_atoms/HelmetSEO"
 // routes
 import { ROUTES } from "routes"

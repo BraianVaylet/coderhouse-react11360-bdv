@@ -7,27 +7,25 @@ import { Flex, Text } from "@chakra-ui/react"
 import { COLORS } from "styles/theme"
 
 /**
- * ItemLink Component
+ * ItemNavLink Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente link con texto
  */
-const ItemLink = ({ to, text }) => {
-  return (
-    <Flex
-      align="center"
-      as={NavLink}
-      activeStyle={{ color: COLORS.primary }}
-      to={to}
-    >
-      <Text ml={2}>{text}</Text>
-    </Flex>
-  )
-}
+const ItemNavLink = ({ to, text }) => (
+  <Flex
+    align="center"
+    as={NavLink}
+    activeStyle={{ color: COLORS.primary }}
+    to={to}
+  >
+    <Text ml={2}>{text}</Text>
+  </Flex>
+)
 
-ItemLink.propTypes = {
+ItemNavLink.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 }
 
-export default ItemLink
+export default ItemNavLink
