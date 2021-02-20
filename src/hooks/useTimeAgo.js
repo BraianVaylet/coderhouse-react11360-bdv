@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { DEFAULT_LANGUAGE } from "utils/constants"
 import { formatDate } from "./useDateTimeFormat"
 
-// [MEJORA PROGRESIVA] dando soporte
 const isRelativeTimeFormatSupported =
   typeof Intl !== "undefined" && Intl.RelativeTimeFormat
 

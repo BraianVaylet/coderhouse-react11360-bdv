@@ -4,19 +4,29 @@
       "home": "Aquila 🦅 | Home",
       "products": "Aquila 🦅 | Products | ",
       "itemDetail": "Aquila 🦅 | Product | ",
-      "notFound": "Aquila 🦅 | 404"
+      "notFound": "Aquila 🦅 | 404",
+      "notifications": "Aquila 🦅 | Notifications",
+      "favourites": "Aquila 🦅 | Favourites",
+      "checkout": "Aquila 🦅 | checkout",
+      "cart": "Aquila 🦅 | cart",
+      "help": "Aquila 🦅 | help"
     },
     "description": {
       "home": "Main page of the store for the sale of clothing",
       "products": "List of store products under the category: ",
       "itemDetail": "Product selected from the store: ",
-      "notFound": "Not found"
+      "notFound": "Not found",
+      "notifications": "notifications history",
+      "favourites": "favourites history",
+      "checkout": "Products checkout",
+      "cart": "Shopping cart",      
+      "help": "Help section"
     }
   },
   "App": {
     "helloWorld": "Hello World!"
   },
-  "NavBar": {
+  "NavBarTemplate": {
     "constructionTools": "Construction tools",
     "sports": "Sports",
     "entertainment": "Entertainment",
@@ -51,8 +61,10 @@
     "youCanNot": "You can not go out 😈" 
   },
   "ItemList": {
-    "productsList": "Products list 🔥🔥🔥",
-    "noProductsYet": "No products yet 😔"
+    "productsList": "Products list 🔥🔥🔥"
+  },
+  "ItemProductList": {
+    "noProductsYet": "No products yet 😔"  
   },
   "ItemDetailQuestionsAndAnswers": {
     "title": "Questions and answers"
@@ -68,7 +80,7 @@
     "availableColours": "Available colours",
     "availableSizes": "Available sizes"
   },
-  "Header": {
+  "SubHeader": {
     "back": "👈 Back"
   },
   "FavouriteIconBtn": {
@@ -77,7 +89,8 @@
   },
   "FavouritesBtn": {
     "clean": "Clean favourites",
-    "title": "Favourites"
+    "title": "Favourites",
+    "all": "All"
   },
   "CartWidgetBtn": {
     "clean": "Clean cart",
@@ -164,5 +177,23 @@
     "title": "Notifications",
     "seeMoreTooltip": "See more notifications",
     "all": "All"
+  },
+  "FavouritesTemplate": {
+    "title": "💕 My favourites"
+  },
+  "NotificationsTemplate": {
+    "title": "📬 Notifications history"
+  },
+  "CartTemplate": {
+    "title": "🛒 My Cart"
+  },
+  "CheckoutTemplate": {
+    "title": "✔ Checkout"
+  },
+  "BannerLinks": {
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories"
   }
 }
