@@ -58,14 +58,14 @@ const TotalCart = ({ title, withDiscount, ...props }) => {
       <Text {...props}>
         {title} ${handleDiscuount(handleTotalPrice())[0]}
       </Text>
-      <Text as={Flex} direction="row" align="center">
+      <Flex as={Flex} direction="row" align="center">
         <Text fontSize=".8rem" textDecoration="line-through">
           $({handleTotalPrice()}){" "}
         </Text>
         <Badge colorScheme="purple" ml={2} fontSize=".8rem">
           -{handleDiscuount(handleTotalPrice())[1] * 100}%
         </Badge>
-      </Text>
+      </Flex>
     </Flex>
   )
 }

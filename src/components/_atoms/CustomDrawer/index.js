@@ -51,7 +51,7 @@ CustomDrawer.defaultProps = {
 
 CustomDrawer.propTypes = {
   onClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   direction: PropTypes.oneOf(["top", "bottom", "left", "right"]),
   size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", "full"]),
   header: PropTypes.node,

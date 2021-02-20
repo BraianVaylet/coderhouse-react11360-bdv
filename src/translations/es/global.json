@@ -26,7 +26,7 @@
   "App": {
     "helloWorld": "Hola Mundo!"
   },
-  "NavBar": {
+  "NavBarTemplate": {
     "constructionTools": "Herramientas de construcción",
     "sports": "Deportes",
     "entertainment": "Entretenimiento",
@@ -189,6 +189,12 @@
   },
   "CheckoutTemplate": {
     "title": "✔ Checkout"
+  },
+  "BannerLinks": {
+    "jackets": "Camperas",
+    "shirts": "Remeras",
+    "shoes": "Zapatillas",
+    "accesories": "Accesorios"
   }
 }
 

@@ -40,7 +40,9 @@ const ItemProductList = ({
                 design={design}
               />
             ) : type === "card" ? (
-              <Item item={item} />
+              <Center>
+                <Item item={item} />
+              </Center>
             ) : (
               <Box />
             )}
@@ -65,7 +67,7 @@ ItemProductList.defaultProps = {
 
 ItemProductList.propTypes = {
   data: PropTypes.any.isRequired,
-  asComponent: PropTypes.node,
+  asComponent: PropTypes.object,
   onDelete: PropTypes.func,
   type: PropTypes.oneOf(["item", "card"]),
   design: PropTypes.number,

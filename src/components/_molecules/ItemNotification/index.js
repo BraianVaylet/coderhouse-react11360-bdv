@@ -79,7 +79,7 @@ const ItemNotificaton = ({ item }) => {
 
 ItemNotificaton.propTypes = {
   item: PropTypes.shape({
-    date: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
     items: PropTypes.arrayOf(

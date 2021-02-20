@@ -25,7 +25,7 @@ const CustomTooltip = ({ children, label }) => {
 }
 
 CustomTooltip.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
 }
 

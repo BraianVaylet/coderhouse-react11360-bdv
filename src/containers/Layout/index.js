@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
-import NavBarTemplate from "../../components/_templates/NavBarTemplate"
 import Footer from "components/_organisms/Footer"
+import NavBarTemplate from "components/_templates/NavBarTemplate"
 
 /**
  * Layout Container

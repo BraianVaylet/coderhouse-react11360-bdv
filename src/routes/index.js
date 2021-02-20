@@ -1,17 +1,26 @@
-import React, { lazy } from "react"
+import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 // containers
 import Layout from "containers/Layout"
+import Home from "pages/Home"
+import Cart from "pages/Cart"
+import Checkout from "pages/Checkout"
+import Help from "pages/Help"
+import Notifications from "pages/Notifications"
+import Favourites from "pages/Favourites"
+import ItemDetail from "pages/ItemDetail"
+import Products from "pages/Products"
+import NotFound from "pages/NotFound"
 // pages lazy load
-const Home = lazy(() => import("pages/Home"))
-const ItemDetail = lazy(() => import("pages/ItemDetail"))
-const Cart = lazy(() => import("pages/Cart"))
-const Products = lazy(() => import("pages/Products"))
-const NotFound = lazy(() => import("pages/NotFound"))
-const Checkout = lazy(() => import("pages/Checkout"))
-const Help = lazy(() => import("pages/Help"))
-const Notifications = lazy(() => import("pages/Notifications"))
-const Favourites = lazy(() => import("pages/Favourites"))
+// const Home = lazy(() => import("pages/Home"))
+// const ItemDetail = lazy(() => import("pages/ItemDetail"))
+// const Cart = lazy(() => import("pages/Cart"))
+// const Products = lazy(() => import("pages/Products"))
+// const NotFound = lazy(() => import("pages/NotFound"))
+// const Checkout = lazy(() => import("pages/Checkout"))
+// const Help = lazy(() => import("pages/Help"))
+// const Notifications = lazy(() => import("pages/Notifications"))
+// const Favourites = lazy(() => import("pages/Favourites"))
 
 /**
  * Project routes

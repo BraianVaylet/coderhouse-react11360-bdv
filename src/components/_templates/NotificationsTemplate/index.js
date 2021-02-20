@@ -8,6 +8,7 @@ import SubHeader from "components/_molecules/SubHeader"
 import NotificationList from "components/_organisms/NotificationList"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
+import { ROUTES } from "routes"
 
 /**
  * NotificationsTemplate Component
@@ -27,7 +28,11 @@ const NotificationsTemplate = () => {
       justify="center"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader withTitle title={t("NotificationsTemplate.title")} />
+      <SubHeader
+        withTitle
+        title={t("NotificationsTemplate.title")}
+        backTo={ROUTES.HOME}
+      />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <NotificationList />
       </Card>

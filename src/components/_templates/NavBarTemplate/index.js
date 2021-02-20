@@ -54,19 +54,19 @@ const NavBarTemplate = () => {
   const categoriesLinks = [
     {
       to: ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS,
-      text: t(`NavBar.${CATEGORIES.JACKETS}`),
+      text: t(`NavBarTemplate.${CATEGORIES.JACKETS}`),
     },
     {
       to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS,
-      text: t(`NavBar.${CATEGORIES.SHIRTS}`),
+      text: t(`NavBarTemplate.${CATEGORIES.SHIRTS}`),
     },
     {
       to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES,
-      text: t(`NavBar.${CATEGORIES.SHOES}`),
+      text: t(`NavBarTemplate.${CATEGORIES.SHOES}`),
     },
     {
       to: ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES,
-      text: t(`NavBar.${CATEGORIES.ACCESORIES}`),
+      text: t(`NavBarTemplate.${CATEGORIES.ACCESORIES}`),
     },
   ]
 

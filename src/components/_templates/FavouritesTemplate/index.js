@@ -10,6 +10,8 @@ import { setValueResponsiveMin1280 } from "styles/utils"
 import ItemProduct from "components/_molecules/ItemProduct"
 // context
 import { FavouriteContext } from "context"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * FavouritesTemplate Component
@@ -31,7 +33,11 @@ const FavouritesTemplate = () => {
       justify="center"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader withTitle title={t("FavouritesTemplate.title")} />
+      <SubHeader
+        withTitle
+        title={t("FavouritesTemplate.title")}
+        backTo={ROUTES.HOME}
+      />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Flex
           direction="column"

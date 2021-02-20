@@ -45,7 +45,7 @@ ItemNotificationList.propTypes = {
   data: PropTypes.any.isRequired,
   asComponent: PropTypes.node,
   slice: PropTypes.number,
-  withSlice: PropTypes.func,
+  withSlice: PropTypes.bool,
 }
 
 export default ItemNotificationList

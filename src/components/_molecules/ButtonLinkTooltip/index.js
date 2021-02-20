@@ -25,7 +25,7 @@ const ButtonLinkTooltip = ({
 )
 
 ButtonLinkTooltip.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   tooltipLabel: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,

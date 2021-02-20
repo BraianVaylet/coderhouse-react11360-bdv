@@ -21,6 +21,8 @@ import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
 import CartItemList from "components/_organisms/CartItemList"
 import ItemProductList from "components/_organisms/ItemProductList"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * CartTemplate component
@@ -44,7 +46,11 @@ const CartTemplate = () => {
       justify="center"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader withTitle title={t("CartTemplate.title")} />
+      <SubHeader
+        withTitle
+        title={t("CartTemplate.title")}
+        backTo={ROUTES.HOME}
+      />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Tabs w="100%">
           <TabList>

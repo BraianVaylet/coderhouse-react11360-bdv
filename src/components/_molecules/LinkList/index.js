@@ -35,10 +35,12 @@ LinkList.defaultProps = {
 }
 
 LinkList.propTypes = {
-  links: PropTypes.shape({
-    to: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }).isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      to: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   withSeparator: PropTypes.bool,
 }
 

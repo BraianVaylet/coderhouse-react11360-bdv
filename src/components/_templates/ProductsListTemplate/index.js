@@ -1,14 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, Grid, GridItem, Text, useMediaQuery } from "@chakra-ui/react"
+import { Flex, Grid, GridItem, useMediaQuery } from "@chakra-ui/react"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
 // components
 import SkeletonItem from "components/_molecules/Item/SkItem"
 import Banner from "components/_molecules/Banner"
 import ItemProductList from "components/_organisms/ItemProductList"
+import BannerLinks from "components/_molecules/BannerLinks"
 
 /**
  * ProductsListTemplate Component
@@ -16,8 +16,7 @@ import ItemProductList from "components/_organisms/ItemProductList"
  * @author Braian D. Vaylet
  * @description Componente Template para el listado de productos
  */
-const ProductsListTemplate = ({ data, category, withBanner }) => {
-  const [t] = useTranslation("global")
+const ProductsListTemplate = ({ data, withBanner }) => {
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
@@ -51,10 +50,14 @@ const ProductsListTemplate = ({ data, category, withBanner }) => {
       p={2}
     >
       {!mediaQueryMax600 && withBanner && <Banner />}
-      <Text fontSize="1rem" mb="10px">
-        {t("ItemList.productsList")} {category && "/ " + category}
-      </Text>
-      <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`} p={2}>
+      <BannerLinks />
+      <Grid
+        w="100%"
+        templateColumns={`repeat(${handleRows()}, 1fr)`}
+        p={2}
+        gap={6}
+        mt={20}
+      >
         {data === null ? (
           renderSkeletons()
         ) : (
@@ -75,7 +78,7 @@ ProductsListTemplate.defaultProps = {
 }
 
 ProductsListTemplate.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
   category: PropTypes.string,
   withBanner: PropTypes.bool,
 }

@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { IoLogoLinkedin, IoLogoReact } from "react-icons/io5"
 // chakra-ui
-import { Flex, Icon, Text } from "@chakra-ui/react"
+import { Flex, Icon, Text, Link } from "@chakra-ui/react"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"
 

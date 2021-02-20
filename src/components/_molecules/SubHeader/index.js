@@ -4,8 +4,6 @@ import { useTranslation } from "react-i18next"
 import { useHistory } from "react-router-dom"
 // chakra-ui
 import { Box, Flex, Text, Button } from "@chakra-ui/react"
-// routes
-import { ROUTES } from "routes"
 // components
 import HelpBtn from "components/_molecules/HelpBtn"
 
@@ -39,13 +37,12 @@ const SubHeader = ({ backTo, withHelp, children, withTitle, title }) => {
 }
 
 SubHeader.defaultProps = {
-  backTo: ROUTES.HOME,
   withHelp: false,
   withTitle: false,
 }
 
 SubHeader.propTypes = {
-  backTo: PropTypes.string,
+  backTo: PropTypes.string.isRequired,
   withHelp: PropTypes.bool,
   children: PropTypes.element,
   withTitle: PropTypes.bool,

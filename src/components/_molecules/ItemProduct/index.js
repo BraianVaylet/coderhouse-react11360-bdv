@@ -167,7 +167,7 @@ ItemProduct.propTypes = {
     price: PropTypes.number.isRequired,
     count: PropTypes.number,
     stock: PropTypes.number,
-    category: PropTypes.string.isRequired,
+    category: PropTypes.string,
   }),
   onDelete: PropTypes.func,
   onSave: PropTypes.func,

@@ -59,7 +59,7 @@ CustomMenu.propTypes = {
   btnIcon: PropTypes.node.isRequired,
   btnWithTex: PropTypes.bool,
   btnText: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   footer: PropTypes.node,
   onClick: PropTypes.func,
 }
