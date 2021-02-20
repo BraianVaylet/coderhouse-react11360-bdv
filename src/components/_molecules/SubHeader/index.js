@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 import { useHistory } from "react-router-dom"
 // chakra-ui
-import { Box, Flex, Text, Button } from "@chakra-ui/react"
+import { Flex, Text, Button } from "@chakra-ui/react"
 // routes
 import { ROUTES } from "routes"
 // components
@@ -15,7 +15,7 @@ import HelpBtn from "components/_molecules/HelpBtn"
  * @author Braian D. Vaylet
  * @description Componente SubHeader con info y opcion de back
  */
-const SubHeader = ({ backTo, withHelp, children, withTitle, title }) => {
+const SubHeader = ({ backTo = ROUTES.HOME, withHelp = false, children }) => {
   const [t] = useTranslation("global")
   const routerHistory = useHistory()
 
@@ -24,32 +24,15 @@ const SubHeader = ({ backTo, withHelp, children, withTitle, title }) => {
       <Button onClick={() => routerHistory.push(backTo)} mr={4}>
         <Text>{t("SubHeader.back")}</Text>
       </Button>
-      {withHelp && (
-        <Box mr={4}>
-          <HelpBtn>{children}</HelpBtn>
-        </Box>
-      )}
-      {withTitle && (
-        <Text fontWeight="bold" fontSize="1.5rem" mr={4}>
-          | {title}
-        </Text>
-      )}
+      {withHelp && <HelpBtn>{children}</HelpBtn>}
     </Flex>
   )
-}
-
-SubHeader.defaultProps = {
-  backTo: ROUTES.HOME,
-  withHelp: false,
-  withTitle: false,
 }
 
 SubHeader.propTypes = {
   backTo: PropTypes.string,
   withHelp: PropTypes.bool,
   children: PropTypes.element,
-  withTitle: PropTypes.bool,
-  title: PropTypes.string,
 }
 
 export default SubHeader
