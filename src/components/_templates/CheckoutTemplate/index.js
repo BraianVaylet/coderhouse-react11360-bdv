@@ -40,7 +40,12 @@ const CheckoutTemplate = () => {
       justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader backTo={ROUTES.CART} withHelp>
+      <SubHeader
+        backTo={ROUTES.CART}
+        withHelp
+        withTitle
+        title={t("CheckoutTemplate.title")}
+      >
         <Flex direction="column" align="flex-start" justify="flex-start">
           <Text mb={4}>
             <b>1.</b> {t("Checkout.helpStage1")}

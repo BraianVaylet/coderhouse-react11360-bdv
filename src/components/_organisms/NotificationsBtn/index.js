@@ -7,7 +7,7 @@ import { Flex, MenuItem } from "@chakra-ui/react"
 // context
 import { NotificationContext } from "context"
 // components
-import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
+import ButtonLink from "components/_atoms/ButtonLink"
 import CustomMenu from "components/_atoms/CustomMenu"
 import ItemNotificationList from "components/_organisms/ItemNotificationList"
 // routes
@@ -23,6 +23,7 @@ const NotificationsBtn = ({ withText = false }) => {
   const { notification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
   const count = notification.length
+  const slice = 6
 
   return (
     <CustomMenu
@@ -31,23 +32,25 @@ const NotificationsBtn = ({ withText = false }) => {
       withText
       count={count}
       footer={
-        <Flex direction="row" align="center" justify="flex-end">
-          <ButtonLinkTooltip
-            tooltipLabel={t("NotificationsBtn.seeMoreTooltip")}
-            to={ROUTES.NOTIFICATIONS}
-            mr={2}
-            size="lg"
-          >
-            {t("NotificationsBtn.all")}
-          </ButtonLinkTooltip>
-        </Flex>
+        notification.length > slice && (
+          <Flex direction="row" align="center" justify="flex-end">
+            <ButtonLink
+              tooltipLabel={t("NotificationsBtn.seeMoreTooltip")}
+              to={ROUTES.NOTIFICATIONS}
+              mr={2}
+              size="lg"
+            >
+              👇
+            </ButtonLink>
+          </Flex>
+        )
       }
     >
       <ItemNotificationList
         data={notification}
         as={MenuItem}
         withSlice
-        slice={[0, 6]}
+        slice={slice}
       />
     </CustomMenu>
   )

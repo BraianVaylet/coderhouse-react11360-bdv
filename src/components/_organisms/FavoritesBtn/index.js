@@ -7,6 +7,9 @@ import { Flex, Icon, MenuItem } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
 // routes
+import { ROUTES } from "routes"
+// components
+import ButtonLink from "components/_atoms/ButtonLink"
 import CustomMenu from "components/_atoms/CustomMenu"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"
 import ItemProductList from "components/_organisms/ItemProductList" // ! AtomicDesignError
@@ -22,8 +25,8 @@ const FavoritesBtn = ({ withText }) => {
     FavouriteContext
   )
   const [t] = useTranslation("global")
-
   const countFavs = favourites.length
+  const slice = 6
 
   return (
     <CustomMenu
@@ -39,8 +42,13 @@ const FavoritesBtn = ({ withText }) => {
       count={countFavs}
       footer={
         <Flex direction="row" align="center" justify="flex-end">
+          {favourites.length > slice && (
+            <ButtonLink to={ROUTES.FAVOURITES} mr={2} size="lg">
+              {t("FavouritesBtn.all")}
+            </ButtonLink>
+          )}
           <ButtonTooltip
-            tooltipLabel={t("Favourites.clean")}
+            tooltipLabel={t("FavouritesBtn.clean")}
             mr={2}
             size="lg"
             onClick={cleanFavourites}
@@ -54,6 +62,8 @@ const FavoritesBtn = ({ withText }) => {
         data={favourites}
         onDelete={deleteItemFromFavourites}
         asComponent={MenuItem}
+        withSlice
+        slice={slice}
       />
     </CustomMenu>
   )

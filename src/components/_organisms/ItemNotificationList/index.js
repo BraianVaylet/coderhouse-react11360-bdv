@@ -32,7 +32,7 @@ const ItemNotificationList = ({
             )
           })
           .reverse()
-          .slice(slice[0], withSlice ? slice[1] : items.length)}
+          .slice(0, withSlice ? slice : items.length)}
     </Box>
   )
 }
@@ -44,7 +44,7 @@ ItemNotificationList.defaultProps = {
 ItemNotificationList.propTypes = {
   data: PropTypes.any.isRequired,
   asComponent: PropTypes.node,
-  slice: PropTypes.array,
+  slice: PropTypes.number,
   withSlice: PropTypes.func,
 }
 

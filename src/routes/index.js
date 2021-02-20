@@ -11,6 +11,7 @@ const NotFound = lazy(() => import("pages/NotFound"))
 const Checkout = lazy(() => import("pages/Checkout"))
 const Help = lazy(() => import("pages/Help"))
 const Notifications = lazy(() => import("pages/Notifications"))
+const Favourites = lazy(() => import("pages/Favourites"))
 
 /**
  * Project routes
@@ -25,6 +26,7 @@ export const ROUTES = {
   CHECKOUT: "/ckeckout",
   HELP: "/help",
   NOTIFICATIONS: "/notifications",
+  FAVOURITES: "/favourites",
 }
 
 /**
@@ -60,6 +62,11 @@ const Routes = () => {
         <Route path={ROUTES.NOTIFICATIONS}>
           <Layout>
             <Notifications />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.FAVOURITES}>
+          <Layout>
+            <Favourites />
           </Layout>
         </Route>
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>

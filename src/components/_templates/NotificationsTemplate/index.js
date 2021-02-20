@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
@@ -9,12 +10,14 @@ import NotificationList from "components/_organisms/NotificationList"
 import { setValueResponsiveMin1280 } from "styles/utils"
 
 /**
- * Notifications Component
+ * NotificationsTemplate Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente template de las Notificaciones
  */
 const NotificationsTemplate = () => {
+  const [t] = useTranslation("global")
+
   return (
     <Flex
       p={4}
@@ -24,7 +27,7 @@ const NotificationsTemplate = () => {
       justify="center"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader />
+      <SubHeader withTitle title={t("NotificationsTemplate.title")} />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <NotificationList />
       </Card>

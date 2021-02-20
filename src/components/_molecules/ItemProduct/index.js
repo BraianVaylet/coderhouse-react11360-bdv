@@ -30,23 +30,25 @@ const ItemProduct = ({ item, onDelete, onSave, design }) => {
         align="center"
         wrap="nowrap"
       >
-        <Image
-          boxSize="3rem"
-          borderRadius="full"
-          src={item.pictureUrl}
-          alt={item.title}
-          mr="12px"
-        />
-        <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + item.id}>
-          <Text>
-            <b>${item.price}</b> | {item.title}
-          </Text>
-          {item.count && (
-            <Badge ml="1" colorScheme="green">
-              x{item.count}
-            </Badge>
-          )}
-        </Link>
+        <Flex align="center">
+          <Image
+            boxSize="3rem"
+            borderRadius="full"
+            src={item.pictureUrl}
+            alt={item.title}
+            mr="12px"
+          />
+          <Link as={RouterLink} to={ROUTES.ITEM_DETAIL + "/" + item.id}>
+            <Text>
+              <b>${item.price}</b> | {item.title}
+            </Text>
+            {item.count && (
+              <Badge ml="1" colorScheme="green">
+                x{item.count}
+              </Badge>
+            )}
+          </Link>
+        </Flex>
         {onDelete && (
           <ButtonTooltip
             ml={6}

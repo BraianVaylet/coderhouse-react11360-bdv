@@ -6,6 +6,7 @@
       "itemDetail": "Aquila 🦅 | producto | ",
       "notFound": "Aquila 🦅 | 404",
       "notifications": "Aquila 🦅 | notificaciones",
+      "favourites": "Aquila 🦅 | favoritos",
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | carrito",
       "help": "Aquila 🦅 | ayuda"
@@ -16,6 +17,7 @@
       "itemDetail": "Producto seleccionado del store: ",
       "notFound": "Página no econtrada",
       "notifications": "Historial de Notifications",
+      "favourites": "Historial de favoritos",
       "checkout": "Checkout de productos",
       "cart": "Carrito de compras",
       "help": "Sección de ayuda"
@@ -87,7 +89,8 @@
   },
   "FavouritesBtn": {
     "clean": "Limpiar favoritos",
-    "title": "Favoritos"
+    "title": "Favoritos",
+    "all": "Todos"
   },
   "CartWidgetBtn": {
     "clean": "Limpiar carrito",
@@ -174,6 +177,18 @@
     "title": "Notificaciones",
     "seeMoreTooltip": "Ver más notificaciones",
     "all": "Todas"
+  },
+  "FavouritesTemplate": {
+    "title": "💕 Mis favoritos"
+  },
+  "NotificationsTemplate": {
+    "title": "📬 Historial de notificaciones"
+  },
+  "CartTemplate": {
+    "title": "🛒 Mi Carrito"
+  },
+  "CheckoutTemplate": {
+    "title": "✔ Checkout"
   }
 }
 

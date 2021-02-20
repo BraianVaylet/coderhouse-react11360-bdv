@@ -44,7 +44,7 @@ const CartTemplate = () => {
       justify="center"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
-      <SubHeader />
+      <SubHeader withTitle title={t("CartTemplate.title")} />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Tabs w="100%">
           <TabList>

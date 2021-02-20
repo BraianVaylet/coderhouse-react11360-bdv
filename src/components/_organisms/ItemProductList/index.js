@@ -19,6 +19,8 @@ const ItemProductList = ({
   onDelete,
   type,
   design,
+  withSlice,
+  slice,
   ...props
 }) => {
   const [t] = useTranslation("global")
@@ -46,6 +48,7 @@ const ItemProductList = ({
         )
       })
       .reverse()
+      .slice(0, withSlice ? slice : items.length)
   ) : (
     <Center w="100%" h="80vh">
       <Text fontSize="3rem">{t("ItemProductList.noProductsYet")} 😔 </Text>
@@ -57,6 +60,7 @@ ItemProductList.defaultProps = {
   onDelete: () => {},
   type: "item",
   design: 1,
+  withSlice: false,
 }
 
 ItemProductList.propTypes = {
@@ -65,6 +69,8 @@ ItemProductList.propTypes = {
   onDelete: PropTypes.func,
   type: PropTypes.oneOf(["item", "card"]),
   design: PropTypes.number,
+  withSlice: PropTypes.bool,
+  slice: PropTypes.number,
 }
 
 export default ItemProductList
