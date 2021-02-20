@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Flex } from "@chakra-ui/react"
+// components
 import CustomStarIcon from "components/_atoms/CustomStarIcon"
 
 /**

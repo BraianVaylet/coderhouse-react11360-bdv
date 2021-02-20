@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import {
   Drawer,
   DrawerBody,
+  DrawerCloseButton,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
@@ -30,6 +31,7 @@ const CustomDrawer = ({
   <Drawer placement={direction} onClose={onClose} isOpen={isOpen} size={size}>
     <DrawerOverlay>
       <DrawerContent>
+        <DrawerCloseButton variant="none" />
         {withHeader && (
           <DrawerHeader borderBottomWidth="1px">{header}</DrawerHeader>
         )}

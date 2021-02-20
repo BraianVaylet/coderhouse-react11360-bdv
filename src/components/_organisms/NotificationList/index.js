@@ -4,7 +4,7 @@ import { Box, Divider, Flex } from "@chakra-ui/react"
 // context
 import { NotificationContext } from "context"
 // components
-import ItemNotificaton from "components/_organisms/ItemNotification"
+import ItemNotificaton from "components/_molecules/ItemNotification"
 
 /**
  * NotificationList Component

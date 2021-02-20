@@ -59,7 +59,9 @@
     "youCanNot": "No puedes salir 😈" 
   },
   "ItemList": {
-    "productsList": "Listado de productos 🔥🔥🔥",
+    "productsList": "Listado de productos 🔥🔥🔥"
+  },
+  "ItemProductList": {
     "noProductsYet": "No hay productos todavía 😔"
   },
   "ItemDetailQuestionsAndAnswers": {
@@ -76,7 +78,7 @@
     "availableColours": "Colores disponibles",
     "availableSizes": "Talles disponibles"
   },
-  "Header": {
+  "SubHeader": {
     "back": "👈 Volver"
   },
   "FavouriteIconBtn": {

@@ -5,8 +5,8 @@ import PropTypes from "prop-types"
 import { Button, Icon } from "@chakra-ui/react"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// context
 import { FavouriteContext } from "context"
-// styles
 
 /**
  * FavouriteIconBtn Component

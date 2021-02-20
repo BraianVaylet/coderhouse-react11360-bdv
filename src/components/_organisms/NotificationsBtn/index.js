@@ -7,9 +7,9 @@ import { Flex, MenuItem } from "@chakra-ui/react"
 // context
 import { NotificationContext } from "context"
 // components
-import ItemNotificaton from "components/_organisms/ItemNotification" // ! AtomicDesignError
 import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
 import CustomMenu from "components/_atoms/CustomMenu"
+import ItemNotificationList from "components/_organisms/ItemNotificationList"
 // routes
 import { ROUTES } from "routes"
 
@@ -23,25 +23,6 @@ const NotificationsBtn = ({ withText = false }) => {
   const { notification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
   const count = notification.length
-
-  /**
-   * renderItems
-   * @function
-   * @returns {undefined} ItemNotificaton components
-   * @description Retorna una lista de Notificaciones (solo las 6 ultimas)
-   */
-  const renderItems = () => {
-    return notification
-      .map((_notification, index) => {
-        return (
-          <MenuItem key={index}>
-            <ItemNotificaton item={_notification} />
-          </MenuItem>
-        )
-      })
-      .reverse()
-      .slice(0, 6)
-  }
 
   return (
     <CustomMenu
@@ -62,7 +43,12 @@ const NotificationsBtn = ({ withText = false }) => {
         </Flex>
       }
     >
-      {renderItems()}
+      <ItemNotificationList
+        data={notification}
+        as={MenuItem}
+        withSlice
+        slice={[0, 6]}
+      />
     </CustomMenu>
   )
 }

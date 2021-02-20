@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Flex, Text } from "@chakra-ui/react"
 // component
+import CartCount from "components/_atoms/CartCount"
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn"
-import ItemCount from "components/_organisms/ItemCount"
+import ItemCount from "components/_molecules/ItemCount"
 import Calification from "components/_molecules/Calification"
-import CartCount from "components/_organisms/CartCount"
 // styles
 import { titleSizeResponsiveMin1280 } from "styles/utils"
 
