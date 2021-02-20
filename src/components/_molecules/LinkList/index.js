@@ -13,7 +13,7 @@ import ItemNavLink from "components/_atoms/ItemNavLink"
  * @description Componente con links a las diferentes categorias
  */
 const LinkList = ({ links, withSeparator, ...props }) => {
-  const [items, setItems] = useState()
+  const [items, setItems] = useState([])
 
   useEffect(() => setItems(links), [])
 

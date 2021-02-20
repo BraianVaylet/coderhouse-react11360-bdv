@@ -59,8 +59,10 @@
     "youCanNot": "You can not go out 😈" 
   },
   "ItemList": {
-    "productsList": "Products list 🔥🔥🔥",
-    "noProductsYet": "No products yet 😔"
+    "productsList": "Products list 🔥🔥🔥"
+  },
+  "ItemProductList": {
+    "noProductsYet": "No products yet 😔"  
   },
   "ItemDetailQuestionsAndAnswers": {
     "title": "Questions and answers"
@@ -76,7 +78,7 @@
     "availableColours": "Available colours",
     "availableSizes": "Available sizes"
   },
-  "Header": {
+  "SubHeader": {
     "back": "👈 Back"
   },
   "FavouriteIconBtn": {

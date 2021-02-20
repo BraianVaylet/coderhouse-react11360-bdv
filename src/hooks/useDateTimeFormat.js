@@ -1,6 +1,5 @@
 import { DEFAULT_LANGUAGE } from "utils/constants"
 
-// [MEJORA PROGRESIVA] dando soporte
 const isDateTimeFormatSupported =
   typeof Intl !== "undefined" && Intl.DateTimeFormat
 

@@ -7,9 +7,9 @@ import { Flex, Icon, MenuItem } from "@chakra-ui/react"
 // context
 import { FavouriteContext } from "context"
 // routes
-import ItemProduct from "components/_organisms/ItemProduct"
-import ButtonTooltip from "components/_molecules/ButtonTooltip"
 import CustomMenu from "components/_atoms/CustomMenu"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
+import ItemProductList from "components/_organisms/ItemProductList" // ! AtomicDesignError
 
 /**
  * FavoritesBtn Component
@@ -17,34 +17,13 @@ import CustomMenu from "components/_atoms/CustomMenu"
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con contador
  */
-const FavoritesBtn = ({ onClick, withText = false }) => {
+const FavoritesBtn = ({ withText }) => {
   const { favourites, cleanFavourites, deleteItemFromFavourites } = useContext(
     FavouriteContext
   )
   const [t] = useTranslation("global")
 
   const countFavs = favourites.length
-
-  /**
-   * renderFavourites
-   * @function
-   * @returns {undefined} MenuItem components
-   * @description Retorna una lista de favoritos seleccionados en como un item del menú
-   */
-  const renderFavourites = () => {
-    return favourites
-      .map((fav, index) => {
-        return (
-          <MenuItem key={index}>
-            <ItemProduct
-              item={fav}
-              onDelete={() => deleteItemFromFavourites(fav)}
-            />
-          </MenuItem>
-        )
-      })
-      .reverse()
-  }
 
   return (
     <CustomMenu
@@ -56,7 +35,7 @@ const FavoritesBtn = ({ onClick, withText = false }) => {
         )
       }
       btnText={t("Favourites.title")}
-      withText
+      withText={withText}
       count={countFavs}
       footer={
         <Flex direction="row" align="center" justify="flex-end">
@@ -71,13 +50,16 @@ const FavoritesBtn = ({ onClick, withText = false }) => {
         </Flex>
       }
     >
-      {renderFavourites()}
+      <ItemProductList
+        data={favourites}
+        onDelete={deleteItemFromFavourites}
+        asComponent={MenuItem}
+      />
     </CustomMenu>
   )
 }
 
 FavoritesBtn.propTypes = {
-  onClick: PropTypes.func,
   withText: PropTypes.bool,
 }
 

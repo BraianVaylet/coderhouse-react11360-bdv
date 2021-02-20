@@ -2,10 +2,8 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-// chakra-ui
-import { Flex } from "@chakra-ui/react"
 // components
-import ItemList from "components/_organisms/ItemList"
+import ProductsListTemplate from "components/_templates/ProductsListTemplate"
 import HelmetSEO from "components/_atoms/HelmetSEO"
 // utils
 import { CATEGORIES } from "utils/constants"
@@ -67,9 +65,7 @@ const Products = () => {
         title={t("HelmetSEO.title.products") + category}
         description={t("HelmetSEO.description.products") + category}
       />
-      <Flex direction="column" justify="flex-start" align="center" minH="100vh">
-        <ItemList data={data} category={category} />
-      </Flex>
+      <ProductsListTemplate data={data} category={category} />
     </>
   )
 }

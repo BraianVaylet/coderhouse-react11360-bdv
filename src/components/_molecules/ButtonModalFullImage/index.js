@@ -6,11 +6,10 @@ import Proptypes from "prop-types"
 import { Box, Icon, IconButton, Portal, useDisclosure } from "@chakra-ui/react"
 // styles
 import { addOpacityToColor } from "styles/utils"
-// constants
-import { IMG } from "utils/images"
 // hooks
 import CustomTooltip from "components/_atoms/CustomTooltip"
 import CustomModal from "components/_atoms/CustomModal"
+import ImageBox from "components/_atoms/ImageBox"
 
 /**
  * ButtonModalFullImage Component
@@ -59,12 +58,10 @@ const ButtonModalFullImage = ({ pictureName, pictureUrl, title }) => {
           size="full"
           header={title}
         >
-          <Box
-            title={pictureName}
-            bgImage={`url(${pictureUrl || IMG.NO_IMG})`}
-            bgPosition="center"
-            bgSize="contain"
-            bgRepeat="no-repeat"
+          <ImageBox
+            name={pictureName}
+            url={pictureUrl}
+            size="contain"
             w="100%"
             minW="100%"
             maxW="100%"
