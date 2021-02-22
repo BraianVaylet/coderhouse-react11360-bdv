@@ -24,11 +24,12 @@ const CustomInput = ({ onChange, value, name, type, placeholder }) => {
 CustomInput.defaultProps = {
   placeholder: "",
   type: "text",
+  value: "text",
 }
 
 CustomInput.propTypes = {
-  onChange: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired || PropTypes.number.string,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   type: PropTypes.oneOf([
     "button",

@@ -16,13 +16,16 @@ const ChangeThemeBtn = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <IconButtonRotate onClick={toggleColorMode}>
-      {colorMode === "light" ? (
-        <MoonIcon boxSize="1.5rem" />
-      ) : (
-        <SunIcon boxSize="1.5rem" />
-      )}
-    </IconButtonRotate>
+    <IconButtonRotate
+      onClick={toggleColorMode}
+      icon={
+        colorMode === "light" ? (
+          <MoonIcon boxSize="1.5rem" />
+        ) : (
+          <SunIcon boxSize="1.5rem" />
+        )
+      }
+    />
   )
 }
 

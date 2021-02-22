@@ -1,0 +1,28 @@
+/* eslint-disable no-undef */
+import React from "react"
+import { render, screen } from "@testing-library/react"
+// import userEvent from "@testing-library/user-event"
+import CartCount from "."
+
+describe("When evertithings is OK", () => {
+  beforeEach(() => {
+    render(
+      <CartCount
+        item={[
+          {
+            id: 1,
+            title: "title",
+            price: 1000,
+            pictureUrl: "pictureUrl",
+            category: "categori",
+          },
+        ]}
+      >
+        children
+      </CartCount>
+    )
+  })
+  test("should render the CartCount without crashing", () => {
+    screen.debug()
+  })
+})

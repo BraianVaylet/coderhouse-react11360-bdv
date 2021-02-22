@@ -9,7 +9,7 @@ import { IconButton } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description Componente IconButton con efecto de rotación
  */
-const IconButtonRotate = ({ children, onClick }) => (
+const IconButtonRotate = ({ icon, onClick }) => (
   <IconButton
     variant="none"
     onClick={onClick}
@@ -25,12 +25,12 @@ const IconButtonRotate = ({ children, onClick }) => (
       borderStyle: "none",
       backgroundColor: "transparent",
     }}
-    icon={children}
+    icon={icon}
   />
 )
 
 IconButtonRotate.propTypes = {
-  children: PropTypes.element.isRequired,
+  icon: PropTypes.element.isRequired,
   onClick: PropTypes.func.isRequired,
 }
 
