@@ -1,5 +1,5 @@
 import React from "react"
-import { useTransaltion } from "react-i18next"
+import { useTranslation } from "react-i18next"
 // components
 import HelmetSEO from "components/_atoms/HelmetSEO"
 import TermsAndCondTemplate from "components/_templates/TermsAndCondTemplate"
@@ -11,7 +11,7 @@ import TermsAndCondTemplate from "components/_templates/TermsAndCondTemplate"
  * @description Pagina de terminos y condiciones
  */
 const TermsAndCond = () => {
-  const [t] = useTransaltion("global")
+  const [t] = useTranslation("global")
   return (
     <>
       <HelmetSEO

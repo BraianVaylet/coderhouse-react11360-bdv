@@ -34,6 +34,8 @@
     "@chakra-ui/react": "^1.1.5",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "firebase": "^8.2.9",
+    "firebase-admin": "^9.5.0",
     "framer-motion": "^3.2.1",
     "i18next": "^19.8.4",
     "react": "^17.0.1",

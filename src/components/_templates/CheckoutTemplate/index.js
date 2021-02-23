@@ -12,6 +12,7 @@ import PaymentForm from "components/_organisms/PaymentForm"
 import PaymentMenuTemplate from "components/_templates/PaymentMenuTemplate"
 // routes
 import { ROUTES } from "routes"
+import Login from "components/_organisms/Login"
 
 /**
  * CheckoutTemplate Component
@@ -61,6 +62,7 @@ const CheckoutTemplate = () => {
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Grid w="100%" templateColumns={`repeat(${handleRows()}, 1fr)`}>
           <GridItem colSpan={1} colStart={1} colEnd={3} p={6}>
+            <Login />
             <PaymentForm />
           </GridItem>
           <GridItem colSpan={1} p={6}>
