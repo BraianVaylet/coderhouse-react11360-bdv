@@ -34,6 +34,7 @@ import { ROUTES } from "routes"
 // utils
 import { CATEGORIES } from "utils/constants"
 import CustomDrawer from "components/_atoms/CustomDrawer"
+import { addOpacityToColor } from "styles/utils"
 
 /**
  * NavBarTemplate Component
@@ -45,8 +46,8 @@ const NavBarTemplate = () => {
   const [t] = useTranslation("global")
   const { isOpen, onOpen, onClose } = useDisclosure()
   const backgroundColor = useSetColorTheme(
-    "withOpacity.gray.800",
-    "withOpacity.white"
+    addOpacityToColor("#1A202C", 0.75),
+    addOpacityToColor("#FFFFFF", 0.75)
   )
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)

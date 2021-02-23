@@ -51,7 +51,7 @@ const Home = () => {
         title={t("HelmetSEO.title.home")}
         description={t("HelmetSEO.description.home")}
       />
-      <ProductsListTemplate data={data} withBanner />
+      <ProductsListTemplate data={data} withBanner withBannerLink />
     </>
   )
 }

@@ -11,7 +11,7 @@ import { setValueResponsiveMax600 } from "styles/utils"
 // components
 import ItemCount from "components/_molecules/ItemCount" // ! AtomicDesignError
 import ButtonTooltip from "components/_molecules/ButtonTooltip" // ! AtomicDesignError
-import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip" // ! AtomicDesignError
+import ButtonLink from "components/_atoms/ButtonLink" // ! AtomicDesignError
 
 /**
  * ItemProducts
@@ -104,14 +104,13 @@ const ItemProduct = ({ item, onDelete, onSave, design }) => {
                 {t("ItemProduct.save")}
               </ButtonTooltip>
 
-              <ButtonLinkTooltip
+              <ButtonLink
                 to={ROUTES.PRODUCTS + "/" + item.category}
                 mr={4}
                 size="xs"
-                tooltipLabel={t("ItemProduct.similarProducts")}
               >
                 {t("ItemProduct.seeMore")}
-              </ButtonLinkTooltip>
+              </ButtonLink>
             </Flex>
           </Flex>
         </Flex>

@@ -5,6 +5,7 @@ import { Flex } from "@chakra-ui/react"
 // components
 import HorizontalSeparator from "components/_atoms/HorizontalSeparator"
 import ItemNavLink from "components/_atoms/ItemNavLink"
+import ExternalLink from "components/_atoms/ExternalLink"
 
 /**
  * LinkList component
@@ -22,7 +23,11 @@ const LinkList = ({ links, withSeparator, ...props }) => {
       {items &&
         items.map((category, index) => (
           <Flex align="center" key={index}>
-            <ItemNavLink to={category.to} text={category.text} />
+            {category.isExternal ? (
+              <ExternalLink href={category.to} text={category.text} />
+            ) : (
+              <ItemNavLink to={category.to} text={category.text} />
+            )}
             <HorizontalSeparator withSeparator={withSeparator} />
           </Flex>
         ))}
@@ -32,6 +37,7 @@ const LinkList = ({ links, withSeparator, ...props }) => {
 
 LinkList.defaultProps = {
   withSeparator: false,
+  links: { isExternal: false },
 }
 
 LinkList.propTypes = {
@@ -39,6 +45,7 @@ LinkList.propTypes = {
     PropTypes.shape({
       to: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
+      isExternal: PropTypes.bool.isRequired,
     })
   ).isRequired,
   withSeparator: PropTypes.bool,

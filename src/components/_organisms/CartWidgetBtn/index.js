@@ -20,7 +20,7 @@ import { handleItemCount } from "utils"
 // components
 import CustomMenu from "components/_atoms/CustomMenu"
 import TotalCart from "components/_molecules/TotalCart"
-import ButtonLinkTooltip from "components/_molecules/ButtonLinkTooltip"
+import ButtonLink from "components/_atoms/ButtonLink"
 import ButtonTooltip from "components/_molecules/ButtonTooltip"
 import ItemProductList from "components/_organisms/ItemProductList" // ! AtomicDesignError
 
@@ -54,9 +54,8 @@ const CartWidgetBtn = () => {
       count={cartCount}
       footer={
         <Flex direction="row" align="center" justify="flex-end">
-          <ButtonLinkTooltip
+          <ButtonLink
             as={RouterLink}
-            tooltipLabel={t("CartWidgetBtn.goToCart")}
             mr={2}
             size="lg"
             to={ROUTES.CART}
@@ -64,7 +63,7 @@ const CartWidgetBtn = () => {
             _hover={{ textDecoration: "none", bg: "gray.600" }}
           >
             🛒
-          </ButtonLinkTooltip>
+          </ButtonLink>
           <ButtonTooltip
             mr={2}
             size="lg"

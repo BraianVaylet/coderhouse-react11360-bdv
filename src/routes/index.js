@@ -11,6 +11,7 @@ import Favourites from "pages/Favourites"
 import ItemDetail from "pages/ItemDetail"
 import Products from "pages/Products"
 import NotFound from "pages/NotFound"
+import TermsAndCond from "pages/TermsAndCond"
 // pages lazy load
 // const Home = lazy(() => import("pages/Home"))
 // const ItemDetail = lazy(() => import("pages/ItemDetail"))
@@ -36,6 +37,7 @@ export const ROUTES = {
   HELP: "/help",
   NOTIFICATIONS: "/notifications",
   FAVOURITES: "/favourites",
+  TERMS_AND_COND: "/termsAndCond",
 }
 
 /**
@@ -66,6 +68,11 @@ const Routes = () => {
         <Route path={ROUTES.HELP}>
           <Layout>
             <Help />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.TERMS_AND_COND}>
+          <Layout>
+            <TermsAndCond />
           </Layout>
         </Route>
         <Route path={ROUTES.NOTIFICATIONS}>

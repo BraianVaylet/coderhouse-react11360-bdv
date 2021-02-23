@@ -29,18 +29,23 @@ const Footer = () => {
     {
       to: ROUTES.HOME,
       text: t("Footer.workWithUs"),
+      isExternal: false,
     },
     {
-      to: ROUTES.HOME,
+      to: ROUTES.TERMS_AND_COND,
       text: t("Footer.termsAndConditions"),
+      isExternal: false,
     },
     {
       to: ROUTES.HELP,
       text: t("Footer.help"),
+      isExternal: false,
     },
     {
-      to: ROUTES.HOME,
+      to:
+        "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
       text: t("Footer.covidPrecautions"),
+      isExternal: true,
     },
   ]
 

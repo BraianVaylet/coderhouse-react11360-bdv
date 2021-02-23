@@ -16,7 +16,13 @@ import BannerLinks from "components/_molecules/BannerLinks"
  * @author Braian D. Vaylet
  * @description Componente Template para el listado de productos
  */
-const ProductsListTemplate = ({ data, withBanner }) => {
+const ProductsListTemplate = ({
+  data,
+  withBanner,
+  withBannerLink,
+  bannerLinkDesign,
+  categoryActive,
+}) => {
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
@@ -50,7 +56,9 @@ const ProductsListTemplate = ({ data, withBanner }) => {
       p={2}
     >
       {!mediaQueryMax600 && withBanner && <Banner />}
-      <BannerLinks />
+      {withBannerLink && (
+        <BannerLinks design={bannerLinkDesign} active={categoryActive} />
+      )}
       <Grid
         w="100%"
         templateColumns={`repeat(${handleRows()}, 1fr)`}
@@ -75,12 +83,18 @@ const ProductsListTemplate = ({ data, withBanner }) => {
 
 ProductsListTemplate.defaultProps = {
   withBanner: false,
+  withBannerLink: false,
+  bannerLinkDesign: 1,
+  categoryActive: "",
 }
 
 ProductsListTemplate.propTypes = {
   data: PropTypes.array,
   category: PropTypes.string,
   withBanner: PropTypes.bool,
+  withBannerLink: PropTypes.bool,
+  bannerLinkDesign: PropTypes.number,
+  categoryActive: PropTypes.string,
 }
 
 export default ProductsListTemplate

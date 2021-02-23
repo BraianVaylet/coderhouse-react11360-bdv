@@ -65,7 +65,13 @@ const Products = () => {
         title={t("HelmetSEO.title.products") + category}
         description={t("HelmetSEO.description.products") + category}
       />
-      <ProductsListTemplate data={data} category={category} />
+      <ProductsListTemplate
+        data={data}
+        category={category}
+        bannerLinkDesign={2}
+        withBannerLink
+        categoryActive={category}
+      />
     </>
   )
 }
