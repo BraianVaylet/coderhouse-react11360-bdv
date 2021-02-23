@@ -1,6 +1,8 @@
 import React from "react"
-// chakra-ui
-import { Flex } from "@chakra-ui/react"
+import { useTranslation } from "react-i18next"
+// components
+import HelmetSEO from "components/_atoms/HelmetSEO"
+import CheckoutTemplate from "components/_templates/CheckoutTemplate"
 
 /**
  * Checkout Page
@@ -9,7 +11,17 @@ import { Flex } from "@chakra-ui/react"
  * @description Pagina del checkout
  */
 const Checkout = () => {
-  return <Flex>Proximamente!</Flex>
+  const [t] = useTranslation("global")
+
+  return (
+    <>
+      <HelmetSEO
+        title={t("HelmetSEO.title.checkout")}
+        description={t("HelmetSEO.description.checkout")}
+      />
+      <CheckoutTemplate />
+    </>
+  )
 }
 
 export default Checkout

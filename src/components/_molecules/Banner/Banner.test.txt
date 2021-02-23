@@ -1,0 +1,13 @@
+/* eslint-disable no-undef */
+import React from "react"
+import { render, screen } from "@testing-library/react"
+import Banner from "."
+
+describe("When evertithings is OK", () => {
+  beforeEach(() => {
+    render(<Banner img="url" />)
+  })
+  test("should render the Banner without crashing", () => {
+    screen.debug()
+  })
+})

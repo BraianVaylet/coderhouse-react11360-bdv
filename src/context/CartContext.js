@@ -8,6 +8,7 @@ export const CartContext = createContext({})
 export const CartContextProvider = ({ children }) => {
   const [storedValue, setLocalStorage] = useLocalStorage("cart", [])
   const [cartItems, setCartItems] = useState(storedValue)
+  const [total, setTotal] = useState(0)
 
   useEffect(() => setLocalStorage(cartItems), [cartItems])
 
@@ -44,6 +45,8 @@ export const CartContextProvider = ({ children }) => {
         deleteItemsFromCart,
         deleteOneItemFromCart,
         cleanCart,
+        total,
+        setTotal,
       }}
     >
       {children}

@@ -3,8 +3,13 @@ import slider2 from "assets/sliders/slider2.png"
 import slider3 from "assets/sliders/slider3.png"
 import slider4 from "assets/sliders/slider4.png"
 import slider5 from "assets/sliders/slider5.png"
-import noimg from "assets/noimg.png"
-import aquila from "assets/aquila.png"
+import noimg from "assets/images/noimg.png"
+import aquila from "assets/images/aquila.png"
+import shoppingBag from "assets/images/shopping-bag.png"
+import jacket from "assets/images/jacket.png"
+import shirt from "assets/images/shirt.png"
+import shoes from "assets/images/shoes.png"
+import watch from "assets/images/watch.png"
 
 export const IMG = {
   NO_IMG: noimg,
@@ -14,4 +19,9 @@ export const IMG = {
   SLIDER3: slider3,
   SLIDER4: slider4,
   SLIDER5: slider5,
+  SHOPPING_BAG: shoppingBag,
+  JACKET: jacket,
+  SHIRT: shirt,
+  SHOES: shoes,
+  WATCH: watch,
 }

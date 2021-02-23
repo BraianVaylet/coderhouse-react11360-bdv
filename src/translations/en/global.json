@@ -4,19 +4,32 @@
       "home": "Aquila 🦅 | Home",
       "products": "Aquila 🦅 | Products | ",
       "itemDetail": "Aquila 🦅 | Product | ",
-      "notFound": "Aquila 🦅 | 404"
+      "notFound": "Aquila 🦅 | 404",
+      "notifications": "Aquila 🦅 | Notifications",
+      "favourites": "Aquila 🦅 | Favourites",
+      "checkout": "Aquila 🦅 | checkout",
+      "cart": "Aquila 🦅 | cart",
+      "help": "Aquila 🦅 | help",
+      "termsAndConditions": "Aquila 🦅 | Terms & Conditions"
+      
     },
     "description": {
       "home": "Main page of the store for the sale of clothing",
       "products": "List of store products under the category: ",
       "itemDetail": "Product selected from the store: ",
-      "notFound": "Not found"
+      "notFound": "Not found",
+      "notifications": "notifications history",
+      "favourites": "favourites history",
+      "checkout": "Products checkout",
+      "cart": "Shopping cart",      
+      "help": "Help section",
+      "termsAndConditions": "Terms & Conditions"
     }
   },
   "App": {
     "helloWorld": "Hello World!"
   },
-  "NavBar": {
+  "NavBarTemplate": {
     "constructionTools": "Construction tools",
     "sports": "Sports",
     "entertainment": "Entertainment",
@@ -28,7 +41,7 @@
     "shoes": "Shoes",
     "accesories": "Accesories"
   },
-  "ChangeLanguage": {
+  "ChangeLanguageBtn": {
     "es": "ES",
     "en": "EN"
   },
@@ -51,8 +64,10 @@
     "youCanNot": "You can not go out 😈" 
   },
   "ItemList": {
-    "productsList": "Products list 🔥🔥🔥",
-    "noProductsYet": "No products yet 😔"
+    "productsList": "Products list 🔥🔥🔥"
+  },
+  "ItemProductList": {
+    "noProductsYet": "No products yet 😔"  
   },
   "ItemDetailQuestionsAndAnswers": {
     "title": "Questions and answers"
@@ -68,23 +83,24 @@
     "availableColours": "Available colours",
     "availableSizes": "Available sizes"
   },
-  "Header": {
+  "SubHeader": {
     "back": "👈 Back"
   },
-  "FavouriteButton": {
+  "FavouriteIconBtn": {
     "deleteFromFavourites": "Delete from favourites 💔",
     "addToFavourites": "Add to favourites 😍"
   },
-  "Favourites": {
+  "FavouritesBtn": {
     "clean": "Clean favourites",
-    "title": "Favourites"
+    "title": "Favourites",
+    "all": "All"
   },
-  "CartWidget": {
+  "CartWidgetBtn": {
     "clean": "Clean cart",
     "goToCart": "Go to cart",
     "deleteItem": "Remove from cart"
   },
-  "MenuItemProduct": {
+  "ItemProduct": {
     "deleteItem": "Remove product",
     "delete": "Delete",
     "save": "Save",
@@ -111,5 +127,76 @@
   "CartItemList": {
     "keepBuying": "Keep buying",
     "continueShopping": "Continue shopping"
+  },
+  "PaymentMenu": {
+    "resumen": "Purchase Summary",
+    "products": "Products",
+    "shipping": "Shipping",
+    "free": "Free",
+    "pay": "Pay",
+    "confirmForm": "Confirm the form to enable payment"
+  },
+  "PaymentForm": {
+    "enterEmail": "Email",
+    "enterPassword": "Password",
+    "enterName": "Name",
+    "enterLastname": "Lastname",
+    "enterPhone": "Phone",
+    "enterStreetName": "Street name",
+    "enterStreetNumber": "Street number",
+    "enterDepto": "Floor and apartment",
+    "completeForm": "Complete the form",
+    "confirm": "Confirm"
+  },
+  "InputEmail": {
+    "title": "Email",
+    "error": "Enter a real email"
+  },
+  "InputPassword": {
+    "title": "Password",
+    "error": "Enter a password",
+    "veryWeak": "Very weak",
+    "weak": "Weak",
+    "normal": "Normal",
+    "good": "Good",
+    "veryGood": "Very good",
+    "useHelp": "Use aA-zZ, 0-9 and characters"
+  },
+  "HelpBtn": {
+    "help": "Help",
+    "forMoreHelp": "For more help, click",
+    "here": "here"
+  },
+  "Checkout": {
+    "helpStage1": "Complete / verify the form",
+    "helpStage2": "Confirm the form, the payment button will be enabled",
+    "helpStage3": "Click on pay to make the payment."
+  },
+  "ItemNotification": {
+    "bought": "You bought", 
+    "products": "products"
+  },
+  "NotificationsBtn": {
+    "title": "Notifications",
+    "seeMoreTooltip": "See more notifications",
+    "all": "All"
+  },
+  "FavouritesTemplate": {
+    "title": "💕 My favourites"
+  },
+  "NotificationsTemplate": {
+    "title": "📬 Notifications history"
+  },
+  "CartTemplate": {
+    "title": "🛒 My Cart"
+  },
+  "CheckoutTemplate": {
+    "title": "✔ Checkout"
+  },
+  "BannerLinks": {
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories"
   }
 }

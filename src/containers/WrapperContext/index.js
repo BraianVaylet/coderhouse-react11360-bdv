@@ -1,7 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 // context
-import { CartContextProvider, FavouriteContextProvider } from "context"
+import {
+  CartContextProvider,
+  FavouriteContextProvider,
+  CheckoutContextProvider,
+  NotificationContextProvider,
+} from "context"
 
 /**
  * WrapperContext Container
@@ -13,7 +18,13 @@ import { CartContextProvider, FavouriteContextProvider } from "context"
 const WrapperContext = ({ children }) => {
   return (
     <FavouriteContextProvider>
-      <CartContextProvider>{children}</CartContextProvider>
+      <CartContextProvider>
+        <CheckoutContextProvider>
+          <NotificationContextProvider>
+            <>{children}</>
+          </NotificationContextProvider>
+        </CheckoutContextProvider>
+      </CartContextProvider>
     </FavouriteContextProvider>
   )
 }

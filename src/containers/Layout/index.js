@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
-import NavBar from "../../components/NavBar"
-import Footer from "components/Footer"
+import Footer from "components/_organisms/Footer"
+import NavBarTemplate from "components/_templates/NavBarTemplate"
 
 /**
  * Layout Container
@@ -15,7 +15,7 @@ import Footer from "components/Footer"
 const Layout = ({ children }) => {
   return (
     <Flex direction="column" justify="flex-start" align="center">
-      <NavBar />
+      <NavBarTemplate />
       <Flex
         w="100%"
         minH="100vh"
