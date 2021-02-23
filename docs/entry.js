@@ -31,65 +31,65 @@ reactComponents['BannerLinks'] = Component1;
 import Component2 from '../src/components/_atoms/ButtonLink/index.js';
 reactComponents['ButtonLink'] = Component2;
 
-import Component3 from '../src/components/_molecules/ButtonLinkTooltip/index.js';
-reactComponents['ButtonLinkTooltip'] = Component3;
+import Component3 from '../src/components/_molecules/ButtonModalFullImage/index.js';
+reactComponents['ButtonModalFullImage'] = Component3;
 
-import Component4 from '../src/components/_molecules/ButtonModalFullImage/index.js';
-reactComponents['ButtonModalFullImage'] = Component4;
+import Component4 from '../src/components/_molecules/ButtonTooltip/index.js';
+reactComponents['ButtonTooltip'] = Component4;
 
-import Component5 from '../src/components/_molecules/ButtonTooltip/index.js';
-reactComponents['ButtonTooltip'] = Component5;
+import Component5 from '../src/components/_atoms/ButtonZoom/index.js';
+reactComponents['ButtonZoom'] = Component5;
 
-import Component6 from '../src/components/_atoms/ButtonZoom/index.js';
-reactComponents['ButtonZoom'] = Component6;
+import Component6 from '../src/components/_molecules/Calification/index.js';
+reactComponents['Calification'] = Component6;
 
-import Component7 from '../src/components/_molecules/Calification/index.js';
-reactComponents['Calification'] = Component7;
+import Component7 from '../src/components/_atoms/Card/index.js';
+reactComponents['Card'] = Component7;
 
-import Component8 from '../src/components/_atoms/Card/index.js';
-reactComponents['Card'] = Component8;
+import Component8 from '../src/pages/Cart/index.js';
+reactComponents['Cart'] = Component8;
 
-import Component9 from '../src/pages/Cart/index.js';
-reactComponents['Cart'] = Component9;
+import Component9 from '../src/components/_atoms/CartCount/index.js';
+reactComponents['CartCount'] = Component9;
 
-import Component10 from '../src/components/_atoms/CartCount/index.js';
-reactComponents['CartCount'] = Component10;
+import Component10 from '../src/components/_organisms/CartItemList/index.js';
+reactComponents['CartItemList'] = Component10;
 
-import Component11 from '../src/components/_organisms/CartItemList/index.js';
-reactComponents['CartItemList'] = Component11;
+import Component11 from '../src/components/_templates/CartTemplate/index.js';
+reactComponents['CartTemplate'] = Component11;
 
-import Component12 from '../src/components/_templates/CartTemplate/index.js';
-reactComponents['CartTemplate'] = Component12;
+import Component12 from '../src/components/_organisms/CartWidgetBtn/index.js';
+reactComponents['CartWidgetBtn'] = Component12;
 
-import Component13 from '../src/components/_organisms/CartWidgetBtn/index.js';
-reactComponents['CartWidgetBtn'] = Component13;
+import Component13 from '../src/components/_molecules/ChangeLanguageBtn/index.js';
+reactComponents['ChangeLanguageBtn'] = Component13;
 
-import Component14 from '../src/components/_molecules/ChangeLanguageBtn/index.js';
-reactComponents['ChangeLanguageBtn'] = Component14;
+import Component14 from '../src/components/_molecules/ChangeThemeBtn/index.js';
+reactComponents['ChangeThemeBtn'] = Component14;
 
-import Component15 from '../src/components/_molecules/ChangeThemeBtn/index.js';
-reactComponents['ChangeThemeBtn'] = Component15;
+import Component15 from '../src/pages/Checkout/index.js';
+reactComponents['Checkout'] = Component15;
 
-import Component16 from '../src/pages/Checkout/index.js';
-reactComponents['Checkout'] = Component16;
+import Component16 from '../src/components/_templates/CheckoutTemplate/index.js';
+reactComponents['CheckoutTemplate'] = Component16;
 
-import Component17 from '../src/components/_templates/CheckoutTemplate/index.js';
-reactComponents['CheckoutTemplate'] = Component17;
+import Component17 from '../src/components/_atoms/CustomDrawer/index.js';
+reactComponents['CustomDrawer'] = Component17;
 
-import Component18 from '../src/components/_atoms/CustomDrawer/index.js';
-reactComponents['CustomDrawer'] = Component18;
+import Component18 from '../src/components/_atoms/CustomInput/index.js';
+reactComponents['CustomInput'] = Component18;
 
-import Component19 from '../src/components/_atoms/CustomInput/index.js';
-reactComponents['CustomInput'] = Component19;
+import Component19 from '../src/components/_atoms/CustomModal/index.js';
+reactComponents['CustomModal'] = Component19;
 
-import Component20 from '../src/components/_atoms/CustomModal/index.js';
-reactComponents['CustomModal'] = Component20;
+import Component20 from '../src/components/_atoms/CustomPopover/index.js';
+reactComponents['CustomPopover'] = Component20;
 
-import Component21 from '../src/components/_atoms/CustomPopover/index.js';
-reactComponents['CustomPopover'] = Component21;
+import Component21 from '../src/components/_atoms/CustomStarIcon/index.js';
+reactComponents['CustomStarIcon'] = Component21;
 
-import Component22 from '../src/components/_atoms/CustomStarIcon/index.js';
-reactComponents['CustomStarIcon'] = Component22;
+import Component22 from '../src/components/_atoms/ExternalLink/index.js';
+reactComponents['ExternalLink'] = Component22;
 
 import Component23 from '../src/components/_organisms/FavoritesBtn/index.js';
 reactComponents['FavoritesBtn'] = Component23;
@@ -253,11 +253,20 @@ reactComponents['SubFooter'] = Component75;
 import Component76 from '../src/components/_molecules/SubHeader/index.js';
 reactComponents['SubHeader'] = Component76;
 
-import Component77 from '../src/components/_molecules/TotalCart/index.js';
-reactComponents['TotalCart'] = Component77;
+import Component77 from '../src/pages/TermsAndCond/index.js';
+reactComponents['TermsAndCond'] = Component77;
 
-import Component78 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component78;
+import Component78 from '../src/components/_templates/TermsAndCondTemplate/index.js';
+reactComponents['TermsAndCondTemplate'] = Component78;
 
-import Component79 from '../src/containers/WrapperContext/index.js';
-reactComponents['WrapperContext'] = Component79;
+import Component79 from '../src/components/_molecules/TitleAndText/index.js';
+reactComponents['TitleAndText'] = Component79;
+
+import Component80 from '../src/components/_molecules/TotalCart/index.js';
+reactComponents['TotalCart'] = Component80;
+
+import Component81 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component81;
+
+import Component82 from '../src/containers/WrapperContext/index.js';
+reactComponents['WrapperContext'] = Component82;

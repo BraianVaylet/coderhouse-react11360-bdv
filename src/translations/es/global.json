@@ -9,7 +9,8 @@
       "favourites": "Aquila 🦅 | favoritos",
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | carrito",
-      "help": "Aquila 🦅 | ayuda"
+      "help": "Aquila 🦅 | ayuda",
+      "termsAndConditions": "Aquila 🦅 | Términos y condiciones"
     },
     "description": {
       "home": "Página principal del store para la venta de indumentaria",
@@ -20,7 +21,8 @@
       "favourites": "Historial de favoritos",
       "checkout": "Checkout de productos",
       "cart": "Carrito de compras",
-      "help": "Sección de ayuda"
+      "help": "Sección de ayuda",
+      "termsAndConditions": "Términos y condiciones"
     }
   },
   "App": {

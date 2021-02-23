@@ -9,7 +9,9 @@
       "favourites": "Aquila 🦅 | Favourites",
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | cart",
-      "help": "Aquila 🦅 | help"
+      "help": "Aquila 🦅 | help",
+      "termsAndConditions": "Aquila 🦅 | Terms & Conditions"
+      
     },
     "description": {
       "home": "Main page of the store for the sale of clothing",
@@ -20,7 +22,8 @@
       "favourites": "favourites history",
       "checkout": "Products checkout",
       "cart": "Shopping cart",      
-      "help": "Help section"
+      "help": "Help section",
+      "termsAndConditions": "Terms & Conditions"
     }
   },
   "App": {

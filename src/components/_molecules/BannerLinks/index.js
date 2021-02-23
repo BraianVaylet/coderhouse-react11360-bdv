@@ -216,13 +216,7 @@ BannerLinks.propTypes = {
   active: PropTypes.string.isRequired,
 }
 
-/**
- * BannerLinkImgBox Component
- * @component
- * @author Braian D. Vaylet
- * @description componente con text e imagen para las categorias
- */
-export const BannerLinkImgBox = ({ active, image, text, color, route }) => {
+const BannerLinkImgBox = ({ active, image, text, color, route }) => {
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   return (
