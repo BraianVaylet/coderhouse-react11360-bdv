@@ -148,33 +148,33 @@ const NavBarTemplate = () => {
    * @description retorna links a las diferentes categorias
    * @returns {undefined} return ItemNavLInk Components
    */
-  const renderLinks = (_default) => {
+  const renderLinks = (_default = true) => {
     return (
       &lt;>
         &lt;ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           &lt;Text>{t(`NavBarTemplate.${CATEGORIES.JACKETS}`)}&lt;/Text>
         &lt;/ItemNavLink>
 
         &lt;ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           &lt;Text>{t(`NavBarTemplate.${CATEGORIES.SHIRTS}`)}&lt;/Text>
         &lt;/ItemNavLink>
 
         &lt;ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           &lt;Text>{t(`NavBarTemplate.${CATEGORIES.SHOES}`)}&lt;/Text>
         &lt;/ItemNavLink>
 
         &lt;ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           &lt;Text>{t(`NavBarTemplate.${CATEGORIES.ACCESORIES}`)}&lt;/Text>
         &lt;/ItemNavLink>
@@ -246,7 +246,18 @@ const NavBarTemplate = () => {
       >
         &lt;Flex direction="column" align="space-between" justify="flex-start">
           &lt;PresentationLinks m="1rem 0" />
-          {renderLinks()}
+          &lt;Flex
+            direction="column"
+            align="flex-start"
+            justify="flex-start"
+            mt={4}
+          >
+            &lt;Text fontWeight="bold" fontSize="1.25rem">
+              {t("NavBarTemplate.categories")}
+            &lt;/Text>
+            &lt;Divider m="1rem 0" />
+            {renderLinks()}
+          &lt;/Flex>
           {mediaQueryMax600 &amp;&amp; (
             &lt;>
               &lt;Divider m={"1.5rem 0"} />
