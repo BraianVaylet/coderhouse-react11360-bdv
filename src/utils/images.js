@@ -11,6 +11,7 @@ import shirt from "assets/images/shirt.png"
 import shoes from "assets/images/shoes.png"
 import watch from "assets/images/watch.png"
 import googleIcon from "assets/images/googleIcon.png"
+import facebookIcon from "assets/images/facebookIcon.png"
 
 export const IMG = {
   NO_IMG: noimg,
@@ -26,4 +27,5 @@ export const IMG = {
   SHOES: shoes,
   WATCH: watch,
   GOOGLE: googleIcon,
+  FACEBOOK: facebookIcon,
 }

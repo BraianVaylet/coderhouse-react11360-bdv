@@ -38,7 +38,14 @@ export const onAuthStateChanged = (onChange) => {
   })
 }
 
+// GOOGLE login
 export const loginWithGoogle = () => {
   const googleProvider = new firebase.auth.GoogleAuthProvider()
   return firebase.auth().signInWithPopup(googleProvider)
+}
+
+// FACEBOOK login
+export const loginWithFacebook = () => {
+  const facebookProvider = new firebase.auth.FacebookAuthProvider()
+  return firebase.auth().signInWithPopup(facebookProvider)
 }
