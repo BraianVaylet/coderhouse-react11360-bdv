@@ -44,7 +44,8 @@
     "jackets": "Jackets",
     "shirts": "Shirts",
     "shoes": "Shoes",
-    "accesories": "Accesories"
+    "accesories": "Accesories",
+    "categories": "Categories"
   },
   "ChangeLanguageBtn": {
     "es": "ES",
@@ -199,7 +200,7 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "📦 Purchases"
+    "title": "🛍 Purchases"
   },
   "BannerLinks": {
     "jackets": "Jackets",

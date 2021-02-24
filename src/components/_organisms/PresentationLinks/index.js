@@ -66,7 +66,7 @@ const PresentationLinks = ({ ...props }) => {
         </ItemNavLink>
 
         <ItemNavLink to={ROUTES.PURCHASES} mb={2}>
-          {`📦 ${t(`PresentationLinks.purchases`)}`}
+          {`🛍 ${t(`PresentationLinks.purchases`)}`}
         </ItemNavLink>
       </Flex>
     </Flex>

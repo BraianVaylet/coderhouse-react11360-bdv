@@ -61,33 +61,33 @@ const NavBarTemplate = () => {
    * @description retorna links a las diferentes categorias
    * @returns {undefined} return ItemNavLInk Components
    */
-  const renderLinks = (_default) => {
+  const renderLinks = (_default = true) => {
     return (
       <>
         <ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           <Text>{t(`NavBarTemplate.${CATEGORIES.JACKETS}`)}</Text>
         </ItemNavLink>
 
         <ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           <Text>{t(`NavBarTemplate.${CATEGORIES.SHIRTS}`)}</Text>
         </ItemNavLink>
 
         <ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           <Text>{t(`NavBarTemplate.${CATEGORIES.SHOES}`)}</Text>
         </ItemNavLink>
 
         <ItemNavLink
           to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
-          m={_default ? "1rem 0" : "0 1rem"}
+          m={_default ? ".25rem 0" : "0 1rem"}
         >
           <Text>{t(`NavBarTemplate.${CATEGORIES.ACCESORIES}`)}</Text>
         </ItemNavLink>
@@ -159,7 +159,18 @@ const NavBarTemplate = () => {
       >
         <Flex direction="column" align="space-between" justify="flex-start">
           <PresentationLinks m="1rem 0" />
-          {renderLinks()}
+          <Flex
+            direction="column"
+            align="flex-start"
+            justify="flex-start"
+            mt={4}
+          >
+            <Text fontWeight="bold" fontSize="1.25rem">
+              {t("NavBarTemplate.categories")}
+            </Text>
+            <Divider m="1rem 0" />
+            {renderLinks()}
+          </Flex>
           {mediaQueryMax600 && (
             <>
               <Divider m={"1.5rem 0"} />

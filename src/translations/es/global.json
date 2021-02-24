@@ -44,7 +44,8 @@
     "jackets": "Camperas",
     "shirts": "Remeras",
     "shoes": "Zapatillas",
-    "accesories": "Accesorios"
+    "accesories": "Accesorios",
+    "categories": "Categorías"
   },
   "ChangeLanguageBtn": {
     "es": "ES",
