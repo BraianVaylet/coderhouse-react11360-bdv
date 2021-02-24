@@ -19,7 +19,7 @@ import ButtonLink from "components/_atoms/ButtonLink" // ! AtomicDesignError
  * @author Braian D. Vaylet
  * @description Componente para los menu de favoritos y del carrito
  */
-const ItemProduct = ({ item, onDelete, onSave, design }) => {
+const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
   const [t] = useTranslation("global")
 
   return design === 1 ? (
@@ -49,7 +49,7 @@ const ItemProduct = ({ item, onDelete, onSave, design }) => {
             )}
           </Link>
         </Flex>
-        {onDelete && (
+        {onDelete && withDelete && (
           <ButtonTooltip
             ml={6}
             onClick={onDelete}
@@ -86,14 +86,16 @@ const ItemProduct = ({ item, onDelete, onSave, design }) => {
               )}
             </Link>
             <Flex mt={4}>
-              <ButtonTooltip
-                mr={4}
-                size="xs"
-                onClick={onDelete}
-                tooltipLabel={t("ItemProduct.deleteItem")}
-              >
-                {t("ItemProduct.delete")}
-              </ButtonTooltip>
+              {withDelete && (
+                <ButtonTooltip
+                  mr={4}
+                  size="xs"
+                  onClick={onDelete}
+                  tooltipLabel={t("ItemProduct.deleteItem")}
+                >
+                  {t("ItemProduct.delete")}
+                </ButtonTooltip>
+              )}
 
               <ButtonTooltip
                 mr={4}
@@ -175,6 +177,7 @@ ItemProduct.propTypes = {
    * design = 2: Preparado para ser usado en la pagina del carrito
    */
   design: PropTypes.number,
+  withDelete: PropTypes.bool,
 }
 
 export default ItemProduct

@@ -9,17 +9,17 @@ import { Link } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description link a una web externa
  */
-const ExternalLink = ({ href, text }) => {
+const ExternalLink = ({ href, children }) => {
   return (
     <Link href={href} isExternal>
-      {text}
+      {children}
     </Link>
   )
 }
 
 ExternalLink.propTypes = {
   href: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default ExternalLink

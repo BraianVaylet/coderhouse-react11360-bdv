@@ -14,27 +14,30 @@ import {
   useMediaQuery,
   Icon,
   Divider,
+  Text,
 } from "@chakra-ui/react"
 // components
+import CustomDrawer from "components/_atoms/CustomDrawer"
 import HorizontalSeparator from "components/_atoms/HorizontalSeparator"
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import LogoOpc1 from "components/_molecules/LogoOpc1"
-import LinkList from "components/_molecules/LinkList"
 import Logout from "components/_molecules/Logout"
+import PresentationLinks from "components/_organisms/PresentationLinks"
 import FavoritesBtn from "components/_organisms/FavoritesBtn"
 import NotificationsBtn from "components/_organisms/NotificationsBtn"
 import CartWidgetBtn from "components/_organisms/CartWidgetBtn"
+import LoginBtn from "components/_organisms/LoginBtn"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
+import { addOpacityToColor } from "styles/utils"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
 // utils
 import { CATEGORIES } from "utils/constants"
-import CustomDrawer from "components/_atoms/CustomDrawer"
-import { addOpacityToColor } from "styles/utils"
+import ItemNavLink from "components/_atoms/ItemNavLink"
 
 /**
  * NavBarTemplate Component
@@ -52,24 +55,45 @@ const NavBarTemplate = () => {
   const [mediaQueryMin1280] = useMediaQuery(MY_BREAKPOINTS.BREAK_MIN_1280)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
-  const categoriesLinks = [
-    {
-      to: ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS,
-      text: t(`NavBarTemplate.${CATEGORIES.JACKETS}`),
-    },
-    {
-      to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS,
-      text: t(`NavBarTemplate.${CATEGORIES.SHIRTS}`),
-    },
-    {
-      to: ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES,
-      text: t(`NavBarTemplate.${CATEGORIES.SHOES}`),
-    },
-    {
-      to: ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES,
-      text: t(`NavBarTemplate.${CATEGORIES.ACCESORIES}`),
-    },
-  ]
+  /**
+   * renderLinks
+   * @function
+   * @description retorna links a las diferentes categorias
+   * @returns {undefined} return ItemNavLInk Components
+   */
+  const renderLinks = (_default) => {
+    return (
+      <>
+        <ItemNavLink
+          to={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
+          m={_default ? "1rem 0" : "0 1rem"}
+        >
+          <Text>{t(`NavBarTemplate.${CATEGORIES.JACKETS}`)}</Text>
+        </ItemNavLink>
+
+        <ItemNavLink
+          to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
+          m={_default ? "1rem 0" : "0 1rem"}
+        >
+          <Text>{t(`NavBarTemplate.${CATEGORIES.SHIRTS}`)}</Text>
+        </ItemNavLink>
+
+        <ItemNavLink
+          to={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
+          m={_default ? "1rem 0" : "0 1rem"}
+        >
+          <Text>{t(`NavBarTemplate.${CATEGORIES.SHOES}`)}</Text>
+        </ItemNavLink>
+
+        <ItemNavLink
+          to={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}
+          m={_default ? "1rem 0" : "0 1rem"}
+        >
+          <Text>{t(`NavBarTemplate.${CATEGORIES.ACCESORIES}`)}</Text>
+        </ItemNavLink>
+      </>
+    )
+  }
 
   return (
     <>
@@ -109,13 +133,12 @@ const NavBarTemplate = () => {
           </Flex>
         </Flex>
         <Flex direction="row" justify="flex-start" align="center">
-          {mediaQueryMin1280 && (
-            <LinkList withSeparator links={categoriesLinks} />
-          )}
+          {mediaQueryMin1280 && renderLinks(false)}
           <Box ml={4} mr={4}>
             {!mediaQueryMax600 && <FavoritesBtn />}
             {!mediaQueryMax600 && <NotificationsBtn />}
             <CartWidgetBtn />
+            <LoginBtn />
           </Box>
         </Flex>
       </Flex>
@@ -135,13 +158,8 @@ const NavBarTemplate = () => {
         }
       >
         <Flex direction="column" align="space-between" justify="flex-start">
-          <LinkList
-            links={categoriesLinks}
-            direction="column"
-            justify="space-between"
-            align="flex-start"
-            h="20vh"
-          />
+          <PresentationLinks m="1rem 0" />
+          {renderLinks()}
           {mediaQueryMax600 && (
             <>
               <Divider m={"1.5rem 0"} />

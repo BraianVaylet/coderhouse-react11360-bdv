@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { NavLink } from "react-router-dom"
 // chakra-ui
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 // styles
 import { COLORS } from "styles/theme"
 
@@ -12,20 +12,21 @@ import { COLORS } from "styles/theme"
  * @author Braian D. Vaylet
  * @description Componente link con texto
  */
-const ItemNavLink = ({ to, text }) => (
+const ItemNavLink = ({ to, children, ...props }) => (
   <Flex
     align="center"
     as={NavLink}
-    activeStyle={{ color: COLORS.primary }}
+    activeStyle={{ color: COLORS.secundary }}
     to={to}
+    {...props}
   >
-    <Text ml={2}>{text}</Text>
+    {children}
   </Flex>
 )
 
 ItemNavLink.propTypes = {
   to: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default ItemNavLink

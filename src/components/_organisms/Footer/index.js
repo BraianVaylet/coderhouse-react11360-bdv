@@ -8,11 +8,12 @@ import { MY_BREAKPOINTS } from "styles/theme"
 // components
 import LogoOpc2 from "components/_molecules/LogoOpc2"
 import SubFooter from "components/_molecules/SubFooter"
-import LinkList from "components/_molecules/LinkList"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
+import ItemNavLink from "components/_atoms/ItemNavLink"
+import ExternalLink from "components/_atoms/ExternalLink"
 
 /**
  * Footer Component
@@ -24,30 +25,6 @@ const Footer = () => {
   const [t] = useTranslation("global")
   const backgroundColor = useSetColorTheme("gray.900", "white")
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
-
-  const footerLinks = [
-    {
-      to: ROUTES.HOME,
-      text: t("Footer.workWithUs"),
-      isExternal: false,
-    },
-    {
-      to: ROUTES.TERMS_AND_COND,
-      text: t("Footer.termsAndConditions"),
-      isExternal: false,
-    },
-    {
-      to: ROUTES.HELP,
-      text: t("Footer.help"),
-      isExternal: false,
-    },
-    {
-      to:
-        "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
-      text: t("Footer.covidPrecautions"),
-      isExternal: true,
-    },
-  ]
 
   return (
     <Flex
@@ -67,12 +44,39 @@ const Footer = () => {
         bgColor={backgroundColor}
       >
         {!mediaQueryMax600 && <LogoOpc2 />}
-        <LinkList
+        <Flex
           direction={setValueResponsiveMax600("column", "row")}
           justify="flex-end"
           align={setValueResponsiveMax600("flex-start", "center")}
-          links={footerLinks}
-        />
+        >
+          <ItemNavLink
+            to={ROUTES.HOME}
+            m={setValueResponsiveMax600("1rem 0", "0 1rem")}
+          >
+            {t("Footer.workWithUs")}
+          </ItemNavLink>
+
+          <ItemNavLink
+            to={ROUTES.TERMS_AND_COND}
+            m={setValueResponsiveMax600("1rem 0", "0 1rem")}
+          >
+            {t("Footer.termsAndConditions")}
+          </ItemNavLink>
+
+          <ItemNavLink
+            to={ROUTES.HELP}
+            m={setValueResponsiveMax600("1rem 0", "0 1rem")}
+          >
+            {t("Footer.help")}
+          </ItemNavLink>
+
+          <ExternalLink
+            href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
+            m={setValueResponsiveMax600("1rem 0", "0 1rem")}
+          >
+            {t("Footer.covidPrecautions")}
+          </ExternalLink>
+        </Flex>
       </Flex>
       <SubFooter />
     </Flex>

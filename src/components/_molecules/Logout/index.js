@@ -14,6 +14,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
 // components
 import CustomModal from "components/_atoms/CustomModal"
 import CustomDrawer from "components/_atoms/CustomDrawer"
+import { onAuthSignOut } from "firebase/client"
 
 /**
  * Logout Component
@@ -28,13 +29,16 @@ const Logout = () => {
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   const handleLogout = () => {
-    toast({
-      title: t("Logout.youCanNot"),
-      description: "",
-      status: "error",
-      position: "bottom",
-      duration: 5000,
-      isClosable: true,
+    onAuthSignOut().catch((error) => {
+      console.log("error", error)
+      toast({
+        title: t("Logout.youCanNot"),
+        description: "",
+        status: "error",
+        position: "bottom",
+        duration: 5000,
+        isClosable: true,
+      })
     })
   }
 

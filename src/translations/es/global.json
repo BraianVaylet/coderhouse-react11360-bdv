@@ -10,7 +10,8 @@
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | carrito",
       "help": "Aquila 🦅 | ayuda",
-      "termsAndConditions": "Aquila 🦅 | Términos y condiciones"
+      "termsAndConditions": "Aquila 🦅 | términos y condiciones",
+      "purchases": "Aquila 🦅 | compras"
     },
     "description": {
       "home": "Página principal del store para la venta de indumentaria",
@@ -22,8 +23,13 @@
       "checkout": "Checkout de productos",
       "cart": "Carrito de compras",
       "help": "Sección de ayuda",
-      "termsAndConditions": "Términos y condiciones"
+      "termsAndConditions": "Términos y condiciones",
+      "purchases": "Compras"
     }
+  },
+  "Authentication": {
+    "welcome": "Bienvenido",
+    "errorLogin": "No pudimos autenticar su cuenta 😞"
   },
   "App": {
     "helloWorld": "Hola Mundo!"
@@ -192,11 +198,24 @@
   "CheckoutTemplate": {
     "title": "✔ Checkout"
   },
+  "PurchasesTemplate": {
+    "title": "📦 Compras"
+  },
   "BannerLinks": {
     "jackets": "Camperas",
     "shirts": "Remeras",
     "shoes": "Zapatillas",
     "accesories": "Accesorios"
+  },
+  "LoginBtn": {
+    "login": "Iniciar sesión",
+    "login2": "🚀 ACCEDER"
+  },
+  "PresentationLinks": {
+    "favourites": "Favoritos",
+    "notifications": "Notificaciones",
+    "cart": "Carrito",
+    "purchases": "Compras"
   }
 }
 

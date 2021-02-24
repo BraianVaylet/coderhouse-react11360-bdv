@@ -8,6 +8,7 @@ import SubHeader from "components/_molecules/SubHeader"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 import ItemProduct from "components/_molecules/ItemProduct"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 // context
 import { FavouriteContext } from "context"
 // routes
@@ -20,7 +21,9 @@ import { ROUTES } from "routes"
  * @description Componente template de los favoritos
  */
 const FavouritesTemplate = () => {
-  const { favourites, deleteItemFromFavourites } = useContext(FavouriteContext)
+  const { favourites, deleteItemFromFavourites, cleanFavourites } = useContext(
+    FavouriteContext
+  )
   const [t] = useTranslation("global")
   const count = favourites.length
 
@@ -37,6 +40,16 @@ const FavouritesTemplate = () => {
         withTitle
         title={t("FavouritesTemplate.title")}
         backTo={ROUTES.HOME}
+        withRightContent
+        rightContent={
+          <ButtonTooltip
+            tooltipLabel={t("FavouritesBtn.clean")}
+            size="lg"
+            onClick={cleanFavourites}
+          >
+            🗑
+          </ButtonTooltip>
+        }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Flex
