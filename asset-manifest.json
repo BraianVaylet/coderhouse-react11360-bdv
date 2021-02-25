@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css",
-    "main.js": "/coderhouse-react11360-bdv/static/js/main.83cec301.chunk.js",
-    "main.js.map": "/coderhouse-react11360-bdv/static/js/main.83cec301.chunk.js.map",
+    "main.js": "/coderhouse-react11360-bdv/static/js/main.1a6d8c21.chunk.js",
+    "main.js.map": "/coderhouse-react11360-bdv/static/js/main.1a6d8c21.chunk.js.map",
     "runtime-main.js": "/coderhouse-react11360-bdv/static/js/runtime-main.6a483c95.js",
     "runtime-main.js.map": "/coderhouse-react11360-bdv/static/js/runtime-main.6a483c95.js.map",
     "static/css/2.55d8add8.chunk.css": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css",
-    "static/js/2.145cbb82.chunk.js": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js",
-    "static/js/2.145cbb82.chunk.js.map": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js.map",
+    "static/js/2.3b472b7c.chunk.js": "/coderhouse-react11360-bdv/static/js/2.3b472b7c.chunk.js",
+    "static/js/2.3b472b7c.chunk.js.map": "/coderhouse-react11360-bdv/static/js/2.3b472b7c.chunk.js.map",
     "static/js/3.fbb505af.chunk.js": "/coderhouse-react11360-bdv/static/js/3.fbb505af.chunk.js",
     "static/js/3.fbb505af.chunk.js.map": "/coderhouse-react11360-bdv/static/js/3.fbb505af.chunk.js.map",
     "index.html": "/coderhouse-react11360-bdv/index.html",
     "static/css/2.55d8add8.chunk.css.map": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css.map",
     "static/css/main.d650f048.chunk.css.map": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css.map",
-    "static/js/2.145cbb82.chunk.js.LICENSE.txt": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js.LICENSE.txt",
+    "static/js/2.3b472b7c.chunk.js.LICENSE.txt": "/coderhouse-react11360-bdv/static/js/2.3b472b7c.chunk.js.LICENSE.txt",
     "static/media/aquila.d8765a97.png": "/coderhouse-react11360-bdv/static/media/aquila.d8765a97.png",
     "static/media/jacket.d20eb309.png": "/coderhouse-react11360-bdv/static/media/jacket.d20eb309.png",
     "static/media/shirt.67eb7f56.png": "/coderhouse-react11360-bdv/static/media/shirt.67eb7f56.png",
@@ -29,8 +29,8 @@
   "entrypoints": [
     "static/js/runtime-main.6a483c95.js",
     "static/css/2.55d8add8.chunk.css",
-    "static/js/2.145cbb82.chunk.js",
+    "static/js/2.3b472b7c.chunk.js",
     "static/css/main.d650f048.chunk.css",
-    "static/js/main.83cec301.chunk.js"
+    "static/js/main.1a6d8c21.chunk.js"
   ]
 }
