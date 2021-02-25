@@ -20,7 +20,6 @@ import useUser from "hooks/useUser"
 const LoginBtn = () => {
   const [t] = useTranslation("global")
   const user = useUser()
-  console.log("user", user)
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
   return (

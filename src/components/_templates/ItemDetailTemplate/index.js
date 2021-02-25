@@ -16,6 +16,8 @@ import SkeletonItemDetailContent from "components/_organisms/ItemDetail/SkItemDe
 import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * ItemDetailTemplate Page
@@ -34,7 +36,7 @@ const ItemDetailTemplate = ({ item }) => {
       w="100%"
       p={setValueResponsiveMin1280("20px 100px", "10px")}
     >
-      <SubHeader />
+      <SubHeader backTo={ROUTES.HOME} />
       <Flex
         direction="row"
         justify="space-between"

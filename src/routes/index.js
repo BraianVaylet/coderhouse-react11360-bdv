@@ -2,6 +2,7 @@ import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 // containers
 import Layout from "containers/Layout"
+// pages
 import Home from "pages/Home"
 import Cart from "pages/Cart"
 import Checkout from "pages/Checkout"
@@ -13,6 +14,7 @@ import Products from "pages/Products"
 import NotFound from "pages/NotFound"
 import TermsAndCond from "pages/TermsAndCond"
 import Purchases from "pages/Purchases"
+import Admin from "pages/Admin"
 
 /**
  * Project routes
@@ -30,6 +32,7 @@ export const ROUTES = {
   FAVOURITES: "/favourites",
   TERMS_AND_COND: "/termsAndCond",
   PURCHASES: "/purchases",
+  ADMIN: "/admin",
 }
 
 const URL_PUBLIC = process.env.REACT_APP_API_URL
@@ -83,6 +86,9 @@ const Routes = () => {
           <Layout>
             <Purchases />
           </Layout>
+        </Route>
+        <Route path={ROUTES.ADMIN}>
+          <Admin />
         </Route>
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>
           <Layout>

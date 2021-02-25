@@ -43,9 +43,9 @@ const ItemDetailAction = ({
             <Text fontSize="1rem">Status | Vendidos</Text>
             <FavouriteIconBtn item={{ title, pictureUrl, price, id }} />
           </Flex>
-          <Text fontSize={titleSizeResponsiveMin1280(3)}>{title}</Text>
+          <Text fontSize={titleSizeResponsiveMin1280(2)}>{title}</Text>
           <Calification value={calification} />
-          <Text fontSize={titleSizeResponsiveMin1280(4)} fontWeight="bold">
+          <Text fontSize={titleSizeResponsiveMin1280(3)} fontWeight="bold">
             ${price}
           </Text>
           <CartCount item={{ title, price, pictureUrl, id }} />

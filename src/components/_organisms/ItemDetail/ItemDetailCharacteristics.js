@@ -15,11 +15,11 @@ import {
  * @author Braian D. Vaylet
  * @description Componente las caracteristicas del producto, es una seccion del componente ItemDetail.
  */
-const ItemDetailCharacteristics = ({ brand, model, filter, colors, sizes }) => {
+const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
   const [t] = useTranslation("global")
 
   const handleFilterSex = () =>
-    filter.sex === "male" ? "🧑" : filter.sex === "female" ? "👩" : "🧑👩"
+    gender === "male" ? "🧑" : gender === "female" ? "👩" : "🧑👩"
 
   const handleColors = () => {
     return (
@@ -159,11 +159,7 @@ ItemDetailCharacteristics.propTypes = {
   model: PropTypes.string.isRequired,
   colors: PropTypes.array,
   sizes: PropTypes.array,
-  filter: PropTypes.objectOf(
-    PropTypes.shape({
-      sex: PropTypes.string.isRequired,
-    })
-  ),
+  gender: PropTypes.string,
 }
 
 export default ItemDetailCharacteristics

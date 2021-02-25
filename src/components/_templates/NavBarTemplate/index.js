@@ -38,6 +38,7 @@ import { ROUTES } from "routes"
 // utils
 import { CATEGORIES } from "utils/constants"
 import ItemNavLink from "components/_atoms/ItemNavLink"
+import ButtonLink from "components/_atoms/ButtonLink"
 
 /**
  * NavBarTemplate Component
@@ -152,6 +153,9 @@ const NavBarTemplate = () => {
             <Box>
               <ChangeThemeBtn />
               <ChangeLanguageBtn />
+              <ButtonLink variant="ghost" to={ROUTES.ADMIN}>
+                🏗
+              </ButtonLink>
             </Box>
             <Logout />
           </Flex>
