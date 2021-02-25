@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css",
+    "main.js": "/coderhouse-react11360-bdv/static/js/main.83cec301.chunk.js",
+    "main.js.map": "/coderhouse-react11360-bdv/static/js/main.83cec301.chunk.js.map",
+    "runtime-main.js": "/coderhouse-react11360-bdv/static/js/runtime-main.6a483c95.js",
+    "runtime-main.js.map": "/coderhouse-react11360-bdv/static/js/runtime-main.6a483c95.js.map",
+    "static/css/2.55d8add8.chunk.css": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css",
+    "static/js/2.145cbb82.chunk.js": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js",
+    "static/js/2.145cbb82.chunk.js.map": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js.map",
+    "static/js/3.fbb505af.chunk.js": "/coderhouse-react11360-bdv/static/js/3.fbb505af.chunk.js",
+    "static/js/3.fbb505af.chunk.js.map": "/coderhouse-react11360-bdv/static/js/3.fbb505af.chunk.js.map",
+    "index.html": "/coderhouse-react11360-bdv/index.html",
+    "static/css/2.55d8add8.chunk.css.map": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css.map",
+    "static/css/main.d650f048.chunk.css.map": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css.map",
+    "static/js/2.145cbb82.chunk.js.LICENSE.txt": "/coderhouse-react11360-bdv/static/js/2.145cbb82.chunk.js.LICENSE.txt",
+    "static/media/aquila.d8765a97.png": "/coderhouse-react11360-bdv/static/media/aquila.d8765a97.png",
+    "static/media/jacket.d20eb309.png": "/coderhouse-react11360-bdv/static/media/jacket.d20eb309.png",
+    "static/media/shirt.67eb7f56.png": "/coderhouse-react11360-bdv/static/media/shirt.67eb7f56.png",
+    "static/media/shoes.df877339.png": "/coderhouse-react11360-bdv/static/media/shoes.df877339.png",
+    "static/media/shopping-bag.4e9ff15e.png": "/coderhouse-react11360-bdv/static/media/shopping-bag.4e9ff15e.png",
+    "static/media/slider1.31feb0db.png": "/coderhouse-react11360-bdv/static/media/slider1.31feb0db.png",
+    "static/media/slider2.2b58ec91.png": "/coderhouse-react11360-bdv/static/media/slider2.2b58ec91.png",
+    "static/media/slider3.ff8b6246.png": "/coderhouse-react11360-bdv/static/media/slider3.ff8b6246.png",
+    "static/media/slider4.738fa22c.png": "/coderhouse-react11360-bdv/static/media/slider4.738fa22c.png",
+    "static/media/slider5.c10f78c6.png": "/coderhouse-react11360-bdv/static/media/slider5.c10f78c6.png",
+    "static/media/watch.fe55c8f1.png": "/coderhouse-react11360-bdv/static/media/watch.fe55c8f1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6a483c95.js",
+    "static/css/2.55d8add8.chunk.css",
+    "static/js/2.145cbb82.chunk.js",
+    "static/css/main.d650f048.chunk.css",
+    "static/js/main.83cec301.chunk.js"
+  ]
+}
