@@ -19,12 +19,14 @@ export const InputTextNumber = ({
   label,
   type = "text",
   isRequired = true,
+  value,
+  disabled,
 }) => {
-  const [value, setValue] = useState(null)
+  const [valueState, setValueState] = useState(value)
 
-  useEffect(() => {
-    onChange(value)
-  }, [value])
+  useEffect(() => setValueState(value), [value])
+
+  useEffect(() => onChange(valueState), [valueState])
 
   /**
    * handleChange
@@ -32,14 +34,15 @@ export const InputTextNumber = ({
    * @returns {string}
    * @description retorno el valor ingresado en el input
    */
-  const handleChange = (event) => setValue(event.target.value)
+  const handleChange = (event) => setValueState(event.target.value)
 
   return (
     <FormControl p={2} isRequired={isRequired}>
       <FormLabel htmlFor={name}>{label}</FormLabel>
       <CustomInput
+        disabled={disabled}
         onChange={handleChange}
-        value={value}
+        value={valueState}
         name={name}
         type={type}
         placeholder={placeholder}
@@ -49,6 +52,12 @@ export const InputTextNumber = ({
   )
 }
 
+InputTextNumber.defaultProps = {
+  placeholder: "",
+  type: "text",
+  isRequired: true,
+}
+
 InputTextNumber.propTypes = {
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
@@ -56,4 +65,6 @@ InputTextNumber.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  disabled: PropTypes.bool,
 }

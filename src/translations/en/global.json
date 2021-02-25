@@ -145,14 +145,15 @@
   "PaymentForm": {
     "enterEmail": "Email",
     "enterPassword": "Password",
-    "enterName": "Name",
-    "enterLastname": "Lastname",
+    "enterName": "Full Name",
+    "enterDni": "DNI",
     "enterPhone": "Phone",
     "enterStreetName": "Street name",
     "enterStreetNumber": "Street number",
     "enterDepto": "Floor and apartment",
     "completeForm": "Complete the form",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "edit": "Edit form"
   },
   "InputEmail": {
     "title": "Email",
@@ -176,7 +177,8 @@
   "Checkout": {
     "helpStage1": "Complete / verify the form",
     "helpStage2": "Confirm the form, the payment button will be enabled",
-    "helpStage3": "Click on pay to make the payment."
+    "helpStage3": "Click on pay to make the payment.",
+    "hello": "Hello"
   },
   "ItemNotification": {
     "bought": "You bought", 

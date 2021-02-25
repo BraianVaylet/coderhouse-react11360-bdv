@@ -1,12 +1,13 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, Image, Text } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
 // hooks
 import useUser from "hooks/useUser"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // components
 import ItemNavLink from "components/_atoms/ItemNavLink"
+import CustomAvatar from "components/_atoms/AvatarText"
 // routes
 import { ROUTES } from "routes"
 
@@ -21,7 +22,7 @@ const PresentationLinks = ({ ...props }) => {
   const [t] = useTranslation("global")
   const backgroundColorItems = useSetColorTheme("gray.600", "gray.300")
 
-  return (
+  return user ? (
     <Flex
       direction="column"
       align="flex-start"
@@ -32,20 +33,11 @@ const PresentationLinks = ({ ...props }) => {
       borderRadius={10}
       {...props}
     >
-      {user && (
-        <Flex w="100%" align="center" justify="flex-start">
-          <Image
-            boxSize="3rem"
-            borderRadius="full"
-            src={user.avatar}
-            alt={user.username}
-            mr="12px"
-          />
-          <Text fontSize="1.5rem" fontWeight="bold">
-            {user.username}
-          </Text>
-        </Flex>
-      )}
+      <CustomAvatar
+        src={user.avatar}
+        alt={user.username}
+        text={user.username}
+      />
       <Flex
         w="100%"
         direction="column"
@@ -70,6 +62,8 @@ const PresentationLinks = ({ ...props }) => {
         </ItemNavLink>
       </Flex>
     </Flex>
+  ) : (
+    <Box />
   )
 }
 

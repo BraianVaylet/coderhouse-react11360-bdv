@@ -145,14 +145,15 @@
   "PaymentForm": {
     "enterEmail": "Correo",
     "enterPassword": "Contraseña",
-    "enterName": "Nombre",
-    "enterLastname": "Apellido",
+    "enterName": "Nombre Completo",
+    "enterDni": "DNI",
     "enterPhone": "Teléfono",
     "enterStreetName": "Nombre de la calle",
     "enterStreetNumber": "Número de la vivienda",
     "enterDepto": "Piso y departamento",
     "completeForm": "Complete el formulario",
-    "confirm": "Confirmar"
+    "confirm": "Confirmar",
+    "edit": "Editar formulario"
   },
   "InputEmail": {
     "title": "Correo electrónico",
@@ -176,7 +177,8 @@
   "Checkout": {   
     "helpStage1": "Complete/verifique el formulario",
     "helpStage2": "Confirma el formulario, se habilitará el botón de pago",
-    "helpStage3": "Haga click en pagar para realizar el pago."   
+    "helpStage3": "Haga click en pagar para realizar el pago.",
+    "hello": "Hola"
   },
   "ItemNotification": {
     "bought": "Compraste", 
