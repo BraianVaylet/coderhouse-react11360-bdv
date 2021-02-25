@@ -13,16 +13,6 @@ import Products from "pages/Products"
 import NotFound from "pages/NotFound"
 import TermsAndCond from "pages/TermsAndCond"
 import Purchases from "pages/Purchases"
-// pages lazy load
-// const Home = lazy(() => import("pages/Home"))
-// const ItemDetail = lazy(() => import("pages/ItemDetail"))
-// const Cart = lazy(() => import("pages/Cart"))
-// const Products = lazy(() => import("pages/Products"))
-// const NotFound = lazy(() => import("pages/NotFound"))
-// const Checkout = lazy(() => import("pages/Checkout"))
-// const Help = lazy(() => import("pages/Help"))
-// const Notifications = lazy(() => import("pages/Notifications"))
-// const Favourites = lazy(() => import("pages/Favourites"))
 
 /**
  * Project routes
@@ -42,6 +32,8 @@ export const ROUTES = {
   PURCHASES: "/purchases",
 }
 
+const URL_PUBLIC = process.env.REACT_APP_API_URL
+
 /**
  * Routes Component
  * @component
@@ -50,7 +42,7 @@ export const ROUTES = {
  */
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={URL_PUBLIC}>
       <Switch>
         <Route path={ROUTES.HOME}>
           <Layout>
