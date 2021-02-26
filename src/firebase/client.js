@@ -90,44 +90,118 @@ export const addProduct = ({
     gender,
     sizes,
     colors,
+    isActive: true,
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
   })
 }
 
-// GET PRODUCTS
-export const fetchProducts = () => {
-  return db
-    .collection("products")
-    .get()
-    .then((doc) => {
-      return doc.docs.map(mapProductFromFirebaseToProduct)
-    })
-    .catch((error) => console.log("error", error))
-}
-
-// GET PRODUCTS BY CATEGORY
-export const fetchProductsByCategory = (category) => {
-  return db
-    .collection("products")
-    .where("category", "==", category)
-    .get()
-    .then((doc) => {
-      return doc.docs.map(mapProductFromFirebaseToProduct)
-    })
-    .catch((error) => console.log("error", error))
-}
-
-// GET PRODUCTS BY ID
-export const fetchProductsByID = (id) => {
+// EDIT PRODUCT
+export const editProduct = (
+  id,
+  {
+    title,
+    description,
+    pictureName,
+    pictureUrl,
+    price,
+    stock,
+    brand,
+    model,
+    category,
+    calification,
+    gender,
+    sizes,
+    colors,
+  }
+) => {
   return db
     .collection("products")
     .doc(id)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        return mapProductFromFirebaseToProduct(doc)
-      } else {
-        console.log("error", "Error, el producto no existe")
-      }
+    .update({
+      title,
+      description,
+      pictureName,
+      pictureUrl,
+      price,
+      stock,
+      brand,
+      model,
+      category,
+      calification,
+      gender,
+      sizes,
+      colors,
+      isActive: true,
+      createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
     })
-    .catch((error) => console.log("error", error))
+}
+
+// GET PRODUCTS
+export const fetchAllProducts = async () => {
+  try {
+    const doc = await db.collection("products").get()
+    return doc.docs.map(mapProductFromFirebaseToProduct)
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// GET PRODUCTS
+export const fetchProducts = async () => {
+  try {
+    const doc = await db
+      .collection("products")
+      .where("isActive", "==", true)
+      .get()
+    return doc.docs.map(mapProductFromFirebaseToProduct)
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// GET PRODUCTS BY CATEGORY
+export const fetchProductsByCategory = async (category) => {
+  try {
+    const doc = await db
+      .collection("products")
+      .where("category", "==", category)
+      .where("isActive", "==", true)
+      .get()
+    return doc.docs.map(mapProductFromFirebaseToProduct)
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// GET PRODUCTS BY ID
+export const fetchProductsByID = async (id) => {
+  try {
+    const doc = await db.collection("products").doc(id).get()
+    if (doc.exists) {
+      return mapProductFromFirebaseToProduct(doc)
+    } else {
+      console.log("error", "Error, el producto no existe")
+      return {}
+    }
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// DELETE PRODUCT BY ID
+export const deleteProductsByID = async (id) => {
+  try {
+    return await db.collection("products").doc(id).delete()
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// CHANGE ACTIVE PRODUCT BY ID
+export const changeIsActiveProductByID = async (id, active) => {
+  try {
+    return await db.collection("products").doc(id).update({ isActive: active })
+  } catch (error) {
+    console.log("error", error)
+  }
 }

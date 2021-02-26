@@ -38,6 +38,7 @@ const Select = ({
     <FormControl p={2} isRequired={isRequired}>
       <FormLabel htmlFor={name}>{label}</FormLabel>
       <CustomSelect
+        value={value}
         placeholder={placeholder}
         data={data}
         onChange={handleChange}

@@ -207,7 +207,16 @@
   "AdminTemplate": {
     "dashboard": "Administration panel",
     "newProduct": "New Product",
-    "noItems": "There are no products to show"
+    "noItems": "There are no products to show",
+    "deleteSuccess": "Product removed",
+    "deleteError": "Error deleting",
+    "isActiveSuccess": "isActive changes to",
+    "isActiveError": "Failed to change isActive",
+    "activeTrue": "Make the product active",
+    "activeFalse": "Put the product into inactive state",
+    "delete": "Remove the product from the database",
+    "edit": "Edit the product",
+    "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open."
   },
   "BannerLinks": {
     "jackets": "Jackets",
@@ -226,8 +235,8 @@
     "purchases": "Purchases"
   },
   "NewProductForm": {
-    "success": "The product was added successfully",
-    "error": "Error creating product",
+    "success": "👍 Ok",
+    "error": "👎 Error",
     "title": "Title",
     "description": "Description",
     "pictureUrl": "PictureUrl",
@@ -242,5 +251,12 @@
     "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
     "infoExampleColors": "enter separated by commas, without spaces. Ex: black,red,blue,green",
     "confirm": "Confirm"
+  },
+  "ItemComplete": {
+    "brandModel": "Brand & model",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "gender": "Gender",
+    "deleteItem": "Delete product"
   }
 }

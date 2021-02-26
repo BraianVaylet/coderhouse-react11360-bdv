@@ -207,7 +207,16 @@
   "AdminTemplate": {
     "dashboard": "Panel de administración",
     "newProduct": "Nuevo Producto",
-    "noItems": "No hay productos que mostrar"
+    "noItems": "No hay productos que mostrar",
+    "deleteSuccess": "Producto eliminado",
+    "deleteError": "Error al tratar de eliminar el producto",
+    "isActiveSuccess": "isActive cambia a",
+    "isActiveError": "Error al cambia isActive",
+    "activeTrue": "Pasa el producto a estado activo",
+    "activeFalse": "Pasa el producto a estado inactivo",
+    "delete": "Elimina el producto de la Base de Datos",
+    "edit": "Editar el producto",
+    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su el acceso está abierto."
   },
   "BannerLinks": {
     "jackets": "Camperas",
@@ -242,6 +251,13 @@
     "infoExampleSizes": "Ingresar separando por comas, sin espacios. Ej: S,M,L,XL",
     "infoExampleColors": "Ingresar separando por comas, sin espacios. Ej: black,red,blue,green",
     "confirm": "Confirmar"
+  },
+  "ItemComplete": {
+    "brandModel": "Marca y modelo",
+    "sizes": "Talle",
+    "colors": "Colores",
+    "gender": "Género",
+    "deleteItem": "Eliminar producto"
   }
 }
 

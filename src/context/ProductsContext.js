@@ -7,8 +7,6 @@ export const ProductsContextProvider = ({ children }) => {
   const [productsDb, setProductsDb] = useState(null)
   const [loadingProductsDb, setLoadingProductsDb] = useState(false)
 
-  console.log("productsDbContext", productsDb)
-
   return (
     <ProductsContext.Provider
       value={{

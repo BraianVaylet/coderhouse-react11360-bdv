@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Flex, useToast } from "@chakra-ui/react"
 // components
 import { InputTextNumber } from "components/_molecules/Inputs"
-import { addProduct } from "firebase/client"
+import { addProduct, editProduct } from "firebase/client"
 import Select from "components/_molecules/Select"
 // utils
 import { CATEGORIES, GENDERS } from "utils/constants"
@@ -15,8 +16,9 @@ import { CATEGORIES, GENDERS } from "utils/constants"
  * @author Braian D. Vaylet
  * @description Componente con formulario para la carga de productos
  */
-const NewProductForm = () => {
+const NewProductForm = ({ itsEditable, data, onClose }) => {
   const [t] = useTranslation("global")
+  const toast = useToast()
   const [titleValue, setTitleValue] = useState(null)
   const [descriptionValue, setDescriptionValue] = useState(null)
   const [pictureUrlValue, setPictureUrlValue] = useState(null)
@@ -28,7 +30,20 @@ const NewProductForm = () => {
   const [genderValue, setGenderValue] = useState(null)
   const [sizesValue, setSizesValue] = useState(null)
   const [colorsValue, setColorsValue] = useState(null)
-  const toast = useToast()
+
+  useEffect(() => {
+    setTitleValue(data.title)
+    setDescriptionValue(data.description)
+    setPictureUrlValue(data.pictureUrl)
+    setPriceValue(data.price)
+    setStockValue(data.stock)
+    setBrandValue(data.brand)
+    setModelValue(data.model)
+    setCategoryValue(data.category)
+    setGenderValue(data.gender)
+    setSizesValue(data.sizes.toString())
+    setColorsValue(data.colors.toString())
+  }, [itsEditable])
 
   const DATA_GENDERS = [
     { value: GENDERS.MALE, text: GENDERS.MALE },
@@ -71,7 +86,7 @@ const NewProductForm = () => {
       sizesValue &&
       colorsValue
     ) {
-      const data = {
+      const _data = {
         title: titleValue,
         description: descriptionValue,
         pictureName: titleValue,
@@ -86,30 +101,53 @@ const NewProductForm = () => {
         sizes: handleArray(sizesValue),
         colors: handleArray(colorsValue),
       }
-      console.log("data", data)
-      await addProduct(data)
-        .then((value) => {
-          console.log("value", value)
-          toast({
-            title: t("NewProductForm.success"),
-            description: "",
-            status: "success",
-            position: "bottom",
-            duration: 5000,
-            isClosable: true,
-          })
-        })
-        .catch((error) => {
-          console.log("error", error)
-          toast({
-            title: t("NewProductForm.error"),
-            description: "",
-            status: "error",
-            position: "bottom",
-            duration: 5000,
-            isClosable: true,
-          })
-        })
+      itsEditable
+        ? await editProduct(data.id, _data)
+            .then((value) => {
+              toast({
+                title: t("NewProductForm.success"),
+                description: "",
+                status: "success",
+                position: "bottom",
+                duration: 5000,
+                isClosable: true,
+              })
+              onClose()
+            })
+            .catch((error) => {
+              console.log("error", error)
+              toast({
+                title: t("NewProductForm.error"),
+                description: "",
+                status: "error",
+                position: "bottom",
+                duration: 5000,
+                isClosable: true,
+              })
+            })
+        : await addProduct(_data)
+            .then((value) => {
+              toast({
+                title: t("NewProductForm.success"),
+                description: "",
+                status: "success",
+                position: "bottom",
+                duration: 5000,
+                isClosable: true,
+              })
+              onClose()
+            })
+            .catch((error) => {
+              console.log("error", error)
+              toast({
+                title: t("NewProductForm.error"),
+                description: "",
+                status: "error",
+                position: "bottom",
+                duration: 5000,
+                isClosable: true,
+              })
+            })
     }
   }
 
@@ -203,6 +241,16 @@ const NewProductForm = () => {
       </Flex>
     </form>
   )
+}
+
+NewProductForm.defaultProps = {
+  itsEditable: false,
+}
+
+NewProductForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  data: PropTypes.object,
+  itsEditable: PropTypes.bool,
 }
 
 export default NewProductForm

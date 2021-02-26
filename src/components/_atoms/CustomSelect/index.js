@@ -9,13 +9,18 @@ import { Select } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description Componente select
  */
-const CustomSelect = ({ placeholder, data, onChange, name }) => {
+const CustomSelect = ({ placeholder, data, onChange, name, value }) => {
   const [_data, setData] = useState([])
 
   useEffect(() => setData(data), [data])
 
   return (
-    <Select name={name} placeholder={placeholder} onChange={onChange}>
+    <Select
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    >
       {_data.map((item, index) => (
         <option key={index} value={item.value}>
           {item.text}
@@ -28,6 +33,7 @@ const CustomSelect = ({ placeholder, data, onChange, name }) => {
 CustomSelect.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
+  value: PropTypes.string,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,

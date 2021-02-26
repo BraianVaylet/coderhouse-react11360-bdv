@@ -2,12 +2,16 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Box, Button, Center, Flex, Kbd, Text } from "@chakra-ui/react"
+import { Box, Center, Flex, Text } from "@chakra-ui/react"
 // styles
 import {
   titleSizeResponsiveMin1280,
   setValueResponsiveMin1280,
 } from "styles/utils"
+// components
+import CustomColorsBox from "components/_atoms/CustomColorsBox"
+import CustomGender from "components/_atoms/CustomGender"
+import CustomSizeBox from "components/_atoms/CustomSizeBox"
 
 /**
  * ItemDetail/ItemDetailCharacteristics Component
@@ -17,79 +21,6 @@ import {
  */
 const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
   const [t] = useTranslation("global")
-
-  const handleFilterSex = () =>
-    gender === "male" ? "🧑" : gender === "female" ? "👩" : "🧑👩"
-
-  const handleColors = () => {
-    return (
-      colors &&
-      colors.map((color, index) => {
-        const bRadius = "5px"
-        if (color.includes("-")) {
-          const dualColor = color.split("-")
-          return (
-            <Flex
-              key={index}
-              as={Button}
-              borderRadius={bRadius}
-              p={0}
-              direction="row"
-              align="center"
-              justify="space-between"
-              w="1.25rem"
-              h="1.25rem"
-              mr={2}
-              borderWidth="1px"
-              borderColor="#ccc"
-              boxShadow="sm"
-            >
-              <Box
-                borderRadius={`${bRadius} 0 0 ${bRadius}`}
-                w="50%"
-                h="100%"
-                style={{ backgroundColor: dualColor[0] }}
-              />
-              <Box
-                borderRadius={`0 ${bRadius} ${bRadius} 0`}
-                w="50%"
-                h="100%"
-                style={{ backgroundColor: dualColor[1] }}
-              />
-            </Flex>
-          )
-        } else {
-          return (
-            <Button
-              key={index}
-              p={0}
-              w="1.25rem"
-              h="1.25rem"
-              borderRadius={bRadius}
-              borderWidth="1px"
-              borderColor="#ccc"
-              style={{ backgroundColor: color }}
-              mr={2}
-              boxShadow="sm"
-            />
-          )
-        }
-      })
-    )
-  }
-
-  const handleSizes = () => {
-    return (
-      sizes &&
-      sizes.map((size, index) => {
-        return (
-          <Kbd key={index} mr={2}>
-            {size}
-          </Kbd>
-        )
-      })
-    )
-  }
 
   return (
     <>
@@ -127,9 +58,10 @@ const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
           m="2rem 0"
         >
           {/* filters */}
-          <Text>
-            {t("ItemDetailCharacteristics.withLoveTo")} {handleFilterSex()}
-          </Text>
+          <Flex align="center">
+            {t("ItemDetailCharacteristics.withLoveTo")}{" "}
+            <CustomGender value={gender} ml={2} />
+          </Flex>
 
           {/* colors */}
           <Flex direction="row" justify="flex-start" align="center" mt={4}>
@@ -137,7 +69,7 @@ const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
               {t("ItemDetailCharacteristics.availableColours")}:
             </Text>
             <Flex direction="row" justify="flex-start" align="center">
-              {handleColors()}
+              <CustomColorsBox value={colors} />
             </Flex>
           </Flex>
 
@@ -145,7 +77,7 @@ const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
           <Flex direction="row" justify="flex-start" align="center" mt={4}>
             <Text mr={3}>{t("ItemDetailCharacteristics.availableSizes")}:</Text>
             <Flex direction="row" justify="flex-start" align="center">
-              {handleSizes()}
+              <CustomSizeBox value={sizes} />
             </Flex>
           </Flex>
         </Flex>
