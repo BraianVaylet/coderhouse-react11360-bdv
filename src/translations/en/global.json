@@ -204,6 +204,11 @@
   "PurchasesTemplate": {
     "title": "🛍 Purchases"
   },
+  "AdminTemplate": {
+    "dashboard": "Administration panel",
+    "newProduct": "New Product",
+    "noItems": "There are no products to show"
+  },
   "BannerLinks": {
     "jackets": "Jackets",
     "shirts": "Shirts",
@@ -219,5 +224,23 @@
     "notifications": "Notifications",
     "cart": "Cart",
     "purchases": "Purchases"
+  },
+  "NewProductForm": {
+    "success": "The product was added successfully",
+    "error": "Error creating product",
+    "title": "Title",
+    "description": "Description",
+    "pictureUrl": "PictureUrl",
+    "price": "Price",
+    "stock": "Stock",
+    "brand": "Brand",
+    "model": "Model",
+    "category": "Category",
+    "gender": "Gender",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
+    "infoExampleColors": "enter separated by commas, without spaces. Ex: black,red,blue,green",
+    "confirm": "Confirm"
   }
 }

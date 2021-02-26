@@ -204,6 +204,11 @@
   "PurchasesTemplate": {
     "title": "📦 Compras"
   },
+  "AdminTemplate": {
+    "dashboard": "Panel de administración",
+    "newProduct": "Nuevo Producto",
+    "noItems": "No hay productos que mostrar"
+  },
   "BannerLinks": {
     "jackets": "Camperas",
     "shirts": "Remeras",
@@ -219,6 +224,24 @@
     "notifications": "Notificaciones",
     "cart": "Carrito",
     "purchases": "Compras"
+  },
+  "NewProductForm": {
+    "success": "Se agrego el producto con éxito",
+    "error": "Error al crear el producto",
+    "title": "Título",
+    "description": "Descripción",
+    "pictureUrl": "URL del la imágen",
+    "price": "Precio",
+    "stock": "Stock",
+    "brand": "Marca",
+    "model": "Modelo",
+    "category": "Categoría",
+    "gender": "Género",
+    "sizes": "Talles",
+    "colors": "Colores",
+    "infoExampleSizes": "Ingresar separando por comas, sin espacios. Ej: S,M,L,XL",
+    "infoExampleColors": "Ingresar separando por comas, sin espacios. Ej: black,red,blue,green",
+    "confirm": "Confirmar"
   }
 }
 

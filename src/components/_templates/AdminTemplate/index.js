@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
   Box,
@@ -6,6 +7,7 @@ import {
   Center,
   Divider,
   Flex,
+  Text,
   useDisclosure,
 } from "@chakra-ui/react"
 // styles
@@ -19,6 +21,8 @@ import CustomModal from "components/_atoms/CustomModal"
 import { ProductsContext } from "context"
 // firebase
 import { fetchProducts } from "firebase/client"
+import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
+import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
 
 /**
  * AdminTemplate Component
@@ -27,6 +31,7 @@ import { fetchProducts } from "firebase/client"
  * @description Templeate para el dashboar del admin
  */
 const AdminTemplate = () => {
+  const [t] = useTranslation("global")
   const { productsDb, setProductsDb, setLoadingProductsDb } = useContext(
     ProductsContext
   )
@@ -43,7 +48,7 @@ const AdminTemplate = () => {
         console.log("error", error)
       }
     }
-  }, [])
+  }, [productsDb])
 
   return (
     <Center w="100%">
@@ -55,9 +60,18 @@ const AdminTemplate = () => {
         justify="center"
         w={setValueResponsiveMin1280("72.5%", "100%")}
       >
+        <Text fontSize="1.5rem" fontWeight="bold">
+          {t("AdminTemplate.dashboard")}
+        </Text>
         <Flex w="100%" justify="flex-start" mb={10}>
-          <Button onClick={onOpen}>Nuevo Producto</Button>
-          <CustomModal isOpen={isOpen} onClose={onClose}>
+          <Flex justify="space-between" align="center" w="100%">
+            <Button onClick={onOpen}>{t("AdminTemplate.newProduct")}</Button>
+            <Flex align="center">
+              <ChangeThemeBtn />
+              <ChangeLanguageBtn />
+            </Flex>
+          </Flex>
+          <CustomModal isOpen={isOpen} onClose={onClose} size="xl">
             <NewProductForm onClose={onClose} />
           </CustomModal>
         </Flex>
@@ -69,7 +83,7 @@ const AdminTemplate = () => {
             w="100%"
             p={10}
           >
-            {productsDb.length > 0 ? (
+            {productsDb && productsDb.length > 0 ? (
               <Flex
                 direction="column"
                 align="flex-start"
@@ -90,7 +104,7 @@ const AdminTemplate = () => {
                   .reverse()}
               </Flex>
             ) : (
-              <Flex>No hay items que mostrar</Flex>
+              <Flex>{t("AdminTemplate.noItems")}</Flex>
             )}
           </Flex>
         </Card>

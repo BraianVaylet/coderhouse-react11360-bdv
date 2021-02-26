@@ -98,8 +98,8 @@ export const fetchProducts = () => {
   return db
     .collection("products")
     .get()
-    .then((response) => {
-      return response.docs.map(mapProductFromFirebaseToProduct)
+    .then((doc) => {
+      return doc.docs.map(mapProductFromFirebaseToProduct)
     })
     .catch((error) => console.log("error", error))
 }
@@ -110,8 +110,24 @@ export const fetchProductsByCategory = (category) => {
     .collection("products")
     .where("category", "==", category)
     .get()
-    .then((response) => {
-      return response.docs.map(mapProductFromFirebaseToProduct)
+    .then((doc) => {
+      return doc.docs.map(mapProductFromFirebaseToProduct)
+    })
+    .catch((error) => console.log("error", error))
+}
+
+// GET PRODUCTS BY ID
+export const fetchProductsByID = (id) => {
+  return db
+    .collection("products")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        return mapProductFromFirebaseToProduct(doc)
+      } else {
+        console.log("error", "Error, el producto no existe")
+      }
     })
     .catch((error) => console.log("error", error))
 }

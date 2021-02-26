@@ -23,12 +23,13 @@ const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
   const [t] = useTranslation("global")
 
   return design === 1 ? (
-    <Box minH="10vh">
+    <Box minH="10vh" w="100%">
       <Flex
         direction="row"
         justify="space-between"
         align="center"
         wrap="nowrap"
+        w="100%"
       >
         <Flex align="center">
           <Image

@@ -8,6 +8,7 @@ import ItemDetailTemplate from "components/_templates/ItemDetailTemplate"
 import { ROUTES } from "routes"
 // context
 import { ProductsContext } from "context"
+import { fetchProductsByID } from "firebase/client"
 
 /**
  * ItemDetail Page
@@ -16,22 +17,30 @@ import { ProductsContext } from "context"
  * @description Page ItemDetail, detalle del producto seleccionado
  */
 const ItemDetail = () => {
-  const { productsDb } = useContext(ProductsContext)
+  const { productsDb, setLoadingProductsDb } = useContext(ProductsContext)
   const { id } = useParams()
   const routerHistory = useHistory()
   const [t] = useTranslation("global")
   const [item, setItem] = useState(null)
 
   useEffect(async () => {
-    try {
+    if (productsDb) {
       const value =
         productsDb && productsDb.filter((product) => product.id === id)
       !value.length && routerHistory.push(ROUTES.HOME)
       setItem(value[0])
-    } catch (error) {
-      console.log("error", error)
+    } else {
+      setLoadingProductsDb(true)
+      try {
+        const value = await fetchProductsByID(id)
+        // console.log("value", value)
+        setItem(value)
+        setLoadingProductsDb(false)
+      } catch (error) {
+        console.log("error", error)
+      }
     }
-  }, [])
+  }, [id])
 
   const handleInfoSEO = () => {
     return item !== null
