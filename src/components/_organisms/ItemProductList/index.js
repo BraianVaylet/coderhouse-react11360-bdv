@@ -21,6 +21,7 @@ const ItemProductList = ({
   design,
   withSlice,
   slice,
+  withDelete,
   ...props
 }) => {
   const [t] = useTranslation("global")
@@ -38,6 +39,7 @@ const ItemProductList = ({
                 item={item}
                 onDelete={() => onDelete(item)}
                 design={design}
+                withDelete={withDelete}
               />
             ) : type === "card" ? (
               <Center>
@@ -63,6 +65,7 @@ ItemProductList.defaultProps = {
   type: "item",
   design: 1,
   withSlice: false,
+  withDelete: true,
 }
 
 ItemProductList.propTypes = {
@@ -70,9 +73,14 @@ ItemProductList.propTypes = {
   asComponent: PropTypes.object,
   onDelete: PropTypes.func,
   type: PropTypes.oneOf(["item", "card"]),
+  /**
+   * design = 1: Preparado para ser usado en el menu desplegable de la NavBar
+   * design = 2: Preparado para ser usado en la pagina del carrito
+   */
   design: PropTypes.number,
   withSlice: PropTypes.bool,
   slice: PropTypes.number,
+  withDelete: PropTypes.bool,
 }
 
 export default ItemProductList

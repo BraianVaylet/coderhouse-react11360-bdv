@@ -44,12 +44,7 @@ const ItemNotificaton = ({ item }) => {
 
   return (
     <Box minH="10vh">
-      <Flex
-        direction="row"
-        justify="space-between"
-        align="center"
-        wrap="nowrap"
-      >
+      <Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
         <Image
           boxSize="3rem"
           borderRadius="full"

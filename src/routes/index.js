@@ -2,6 +2,7 @@ import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 // containers
 import Layout from "containers/Layout"
+// pages
 import Home from "pages/Home"
 import Cart from "pages/Cart"
 import Checkout from "pages/Checkout"
@@ -12,16 +13,8 @@ import ItemDetail from "pages/ItemDetail"
 import Products from "pages/Products"
 import NotFound from "pages/NotFound"
 import TermsAndCond from "pages/TermsAndCond"
-// pages lazy load
-// const Home = lazy(() => import("pages/Home"))
-// const ItemDetail = lazy(() => import("pages/ItemDetail"))
-// const Cart = lazy(() => import("pages/Cart"))
-// const Products = lazy(() => import("pages/Products"))
-// const NotFound = lazy(() => import("pages/NotFound"))
-// const Checkout = lazy(() => import("pages/Checkout"))
-// const Help = lazy(() => import("pages/Help"))
-// const Notifications = lazy(() => import("pages/Notifications"))
-// const Favourites = lazy(() => import("pages/Favourites"))
+import Purchases from "pages/Purchases"
+import Admin from "pages/Admin"
 
 /**
  * Project routes
@@ -38,7 +31,11 @@ export const ROUTES = {
   NOTIFICATIONS: "/notifications",
   FAVOURITES: "/favourites",
   TERMS_AND_COND: "/termsAndCond",
+  PURCHASES: "/purchases",
+  ADMIN: "/admin",
 }
+
+const URL_PUBLIC = process.env.REACT_APP_API_URL
 
 /**
  * Routes Component
@@ -48,7 +45,7 @@ export const ROUTES = {
  */
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={URL_PUBLIC}>
       <Switch>
         <Route path={ROUTES.HOME}>
           <Layout>
@@ -84,6 +81,14 @@ const Routes = () => {
           <Layout>
             <Favourites />
           </Layout>
+        </Route>
+        <Route path={ROUTES.PURCHASES}>
+          <Layout>
+            <Purchases />
+          </Layout>
+        </Route>
+        <Route path={ROUTES.ADMIN}>
+          <Admin />
         </Route>
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>
           <Layout>

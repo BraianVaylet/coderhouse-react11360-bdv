@@ -9,7 +9,14 @@ import { Input } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description Componente input
  */
-const CustomInput = ({ onChange, value, name, type, placeholder }) => {
+const CustomInput = ({
+  onChange,
+  value,
+  name,
+  type,
+  placeholder,
+  disabled,
+}) => {
   return (
     <Input
       onChange={onChange}
@@ -17,6 +24,7 @@ const CustomInput = ({ onChange, value, name, type, placeholder }) => {
       name={name}
       type={type}
       placeholder={placeholder}
+      disabled={disabled}
     />
   )
 }
@@ -24,7 +32,7 @@ const CustomInput = ({ onChange, value, name, type, placeholder }) => {
 CustomInput.defaultProps = {
   placeholder: "",
   type: "text",
-  value: "text",
+  disabled: false,
 }
 
 CustomInput.propTypes = {
@@ -56,6 +64,7 @@ CustomInput.propTypes = {
     "week",
   ]),
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 export default CustomInput

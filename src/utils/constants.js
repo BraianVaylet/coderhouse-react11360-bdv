@@ -5,6 +5,12 @@ export const CATEGORIES = {
   ACCESORIES: "accesories",
 }
 
+export const GENDERS = {
+  MALE: "male",
+  FEMALE: "female",
+  ALL: "all",
+}
+
 export const DISCOUNTS = [
   { limit: 3000, value: 0.1 },
   { limit: 6000, value: 0.15 },

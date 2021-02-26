@@ -11,7 +11,6 @@ import {
   PopoverFooter,
   PopoverHeader,
   PopoverTrigger,
-  Portal,
 } from "@chakra-ui/react"
 
 /**
@@ -29,19 +28,17 @@ const CustomPopover = ({
   withFooter,
 }) => {
   return (
-    <Popover>
+    <Popover zIndex="1000000">
       <PopoverTrigger>
         <Button>{btn}</Button>
       </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverArrow />
-          {withHeader && <PopoverHeader>{header}</PopoverHeader>}
-          <PopoverCloseButton />
-          <PopoverBody>{children}</PopoverBody>
-          {withFooter && <PopoverFooter>{footer}</PopoverFooter>}
-        </PopoverContent>
-      </Portal>
+      <PopoverContent>
+        <PopoverArrow />
+        {withHeader && <PopoverHeader>{header}</PopoverHeader>}
+        <PopoverCloseButton />
+        <PopoverBody>{children}</PopoverBody>
+        {withFooter && <PopoverFooter>{footer}</PopoverFooter>}
+      </PopoverContent>
     </Popover>
   )
 }

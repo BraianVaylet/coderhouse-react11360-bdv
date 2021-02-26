@@ -1,10 +1,12 @@
 import React, { useContext } from "react"
+import PropTypes from "prop-types"
 // chakra-ui
 import { Box, Divider, Flex } from "@chakra-ui/react"
 // context
 import { NotificationContext } from "context"
 // components
 import ItemNotificaton from "components/_molecules/ItemNotification"
+import ItemPurchases from "components/_molecules/ItemPurchases"
 
 /**
  * NotificationList Component
@@ -12,7 +14,7 @@ import ItemNotificaton from "components/_molecules/ItemNotification"
  * @author Braian D. Vaylet
  * @description componente listado de todas las notificaciones
  */
-const NotificationList = () => {
+const NotificationList = ({ design }) => {
   const { notification } = useContext(NotificationContext)
   const count = notification.length
 
@@ -35,8 +37,12 @@ const NotificationList = () => {
             .map((_notification, index) => {
               return (
                 <>
-                  <Box key={index}>
-                    <ItemNotificaton item={_notification} />
+                  <Box key={index} w="100%">
+                    {design === 1 ? (
+                      <ItemNotificaton item={_notification} />
+                    ) : (
+                      <ItemPurchases item={_notification} />
+                    )}
                   </Box>
                   <Divider m="1.5rem 0" />
                 </>
@@ -49,6 +55,14 @@ const NotificationList = () => {
       )}
     </Flex>
   )
+}
+
+NotificationList.defaultProps = {
+  design: 1,
+}
+
+NotificationList.propTypes = {
+  design: PropTypes.number,
 }
 
 export default NotificationList

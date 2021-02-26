@@ -10,8 +10,8 @@
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | cart",
       "help": "Aquila 🦅 | help",
-      "termsAndConditions": "Aquila 🦅 | Terms & Conditions"
-      
+      "termsAndConditions": "Aquila 🦅 | Terms & Conditions",
+      "purchases": "Aquila 🦅 | purchases"
     },
     "description": {
       "home": "Main page of the store for the sale of clothing",
@@ -23,8 +23,13 @@
       "checkout": "Products checkout",
       "cart": "Shopping cart",      
       "help": "Help section",
-      "termsAndConditions": "Terms & Conditions"
+      "termsAndConditions": "Terms & Conditions",
+      "purchases": "purchases"
     }
+  },
+  "Authentication": {
+    "welcome": "Welcome",
+    "errorLogin": "We were unable to authenticate your account 😞"
   },
   "App": {
     "helloWorld": "Hello World!"
@@ -39,7 +44,8 @@
     "jackets": "Jackets",
     "shirts": "Shirts",
     "shoes": "Shoes",
-    "accesories": "Accesories"
+    "accesories": "Accesories",
+    "categories": "Categories"
   },
   "ChangeLanguageBtn": {
     "es": "ES",
@@ -139,14 +145,15 @@
   "PaymentForm": {
     "enterEmail": "Email",
     "enterPassword": "Password",
-    "enterName": "Name",
-    "enterLastname": "Lastname",
+    "enterName": "Full Name",
+    "enterDni": "DNI",
     "enterPhone": "Phone",
     "enterStreetName": "Street name",
     "enterStreetNumber": "Street number",
     "enterDepto": "Floor and apartment",
     "completeForm": "Complete the form",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "edit": "Edit form"
   },
   "InputEmail": {
     "title": "Email",
@@ -170,7 +177,8 @@
   "Checkout": {
     "helpStage1": "Complete / verify the form",
     "helpStage2": "Confirm the form, the payment button will be enabled",
-    "helpStage3": "Click on pay to make the payment."
+    "helpStage3": "Click on pay to make the payment.",
+    "hello": "Hello"
   },
   "ItemNotification": {
     "bought": "You bought", 
@@ -193,10 +201,46 @@
   "CheckoutTemplate": {
     "title": "✔ Checkout"
   },
+  "PurchasesTemplate": {
+    "title": "🛍 Purchases"
+  },
+  "AdminTemplate": {
+    "dashboard": "Administration panel",
+    "newProduct": "New Product",
+    "noItems": "There are no products to show"
+  },
   "BannerLinks": {
     "jackets": "Jackets",
     "shirts": "Shirts",
     "shoes": "Shoes",
     "accesories": "Accesories"
+  },
+  "LoginBtn": {
+    "login": "Log in",
+    "login2": "🚀 LOG IN"
+  },
+  "PresentationLinks": {
+    "favourites": "Favourites",
+    "notifications": "Notifications",
+    "cart": "Cart",
+    "purchases": "Purchases"
+  },
+  "NewProductForm": {
+    "success": "The product was added successfully",
+    "error": "Error creating product",
+    "title": "Title",
+    "description": "Description",
+    "pictureUrl": "PictureUrl",
+    "price": "Price",
+    "stock": "Stock",
+    "brand": "Brand",
+    "model": "Model",
+    "category": "Category",
+    "gender": "Gender",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
+    "infoExampleColors": "enter separated by commas, without spaces. Ex: black,red,blue,green",
+    "confirm": "Confirm"
   }
 }

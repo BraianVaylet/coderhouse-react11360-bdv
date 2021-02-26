@@ -13,26 +13,28 @@ import CustomInput from "components/_atoms/CustomInput"
  * @author Braian D. Vaylet
  * @description Componente Input para los emails
  */
-export const InputEmail = ({ onChange }) => {
+export const InputEmail = ({ onChange, value, disabled }) => {
   const [t] = useTranslation("global")
-  const [value, setValue] = useState(null)
+  const [valueState, setValueState] = useState(value)
   const [error, setError] = useState(false)
 
+  useEffect(() => setValueState(value), [value])
+
   useEffect(() => {
-    setError(handleError(value))
-    onChange(value)
-  }, [value])
+    setError(handleError(valueState))
+    onChange(valueState)
+  }, [valueState])
 
   /**
    * handleError
    * @function
-   * @param {string} value
+   * @param {string} valueState
    * @returns {boolean}
    * @description valido el email y su formato
    */
-  const handleError = (value) => {
+  const handleError = (valueState) => {
     const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-    return value && !regex.test(value)
+    return valueState && !regex.test(valueState)
   }
 
   /**
@@ -41,14 +43,15 @@ export const InputEmail = ({ onChange }) => {
    * @returns {string}
    * @description retorno el valor ingresado en el input
    */
-  const handleChange = (event) => setValue(event.target.value)
+  const handleChange = (event) => setValueState(event.target.value)
 
   return (
     <FormControl p={2} isRequired>
       <FormLabel htmlFor="email">{t("InputEmail.title")}</FormLabel>
       <CustomInput
+        disabled={disabled}
         onChange={handleChange}
-        value={value}
+        value={valueState}
         name="email"
         type="email"
         placeholder="example@email.com"
@@ -66,4 +69,6 @@ export const InputEmail = ({ onChange }) => {
 
 InputEmail.propTypes = {
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
 }

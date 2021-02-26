@@ -10,7 +10,8 @@
       "checkout": "Aquila 🦅 | checkout",
       "cart": "Aquila 🦅 | carrito",
       "help": "Aquila 🦅 | ayuda",
-      "termsAndConditions": "Aquila 🦅 | Términos y condiciones"
+      "termsAndConditions": "Aquila 🦅 | términos y condiciones",
+      "purchases": "Aquila 🦅 | compras"
     },
     "description": {
       "home": "Página principal del store para la venta de indumentaria",
@@ -22,8 +23,13 @@
       "checkout": "Checkout de productos",
       "cart": "Carrito de compras",
       "help": "Sección de ayuda",
-      "termsAndConditions": "Términos y condiciones"
+      "termsAndConditions": "Términos y condiciones",
+      "purchases": "Compras"
     }
+  },
+  "Authentication": {
+    "welcome": "Bienvenido",
+    "errorLogin": "No pudimos autenticar su cuenta 😞"
   },
   "App": {
     "helloWorld": "Hola Mundo!"
@@ -38,7 +44,8 @@
     "jackets": "Camperas",
     "shirts": "Remeras",
     "shoes": "Zapatillas",
-    "accesories": "Accesorios"
+    "accesories": "Accesorios",
+    "categories": "Categorías"
   },
   "ChangeLanguageBtn": {
     "es": "ES",
@@ -138,14 +145,15 @@
   "PaymentForm": {
     "enterEmail": "Correo",
     "enterPassword": "Contraseña",
-    "enterName": "Nombre",
-    "enterLastname": "Apellido",
+    "enterName": "Nombre Completo",
+    "enterDni": "DNI",
     "enterPhone": "Teléfono",
     "enterStreetName": "Nombre de la calle",
     "enterStreetNumber": "Número de la vivienda",
     "enterDepto": "Piso y departamento",
     "completeForm": "Complete el formulario",
-    "confirm": "Confirmar"
+    "confirm": "Confirmar",
+    "edit": "Editar formulario"
   },
   "InputEmail": {
     "title": "Correo electrónico",
@@ -169,7 +177,8 @@
   "Checkout": {   
     "helpStage1": "Complete/verifique el formulario",
     "helpStage2": "Confirma el formulario, se habilitará el botón de pago",
-    "helpStage3": "Haga click en pagar para realizar el pago."   
+    "helpStage3": "Haga click en pagar para realizar el pago.",
+    "hello": "Hola"
   },
   "ItemNotification": {
     "bought": "Compraste", 
@@ -192,11 +201,47 @@
   "CheckoutTemplate": {
     "title": "✔ Checkout"
   },
+  "PurchasesTemplate": {
+    "title": "📦 Compras"
+  },
+  "AdminTemplate": {
+    "dashboard": "Panel de administración",
+    "newProduct": "Nuevo Producto",
+    "noItems": "No hay productos que mostrar"
+  },
   "BannerLinks": {
     "jackets": "Camperas",
     "shirts": "Remeras",
     "shoes": "Zapatillas",
     "accesories": "Accesorios"
+  },
+  "LoginBtn": {
+    "login": "Iniciar sesión",
+    "login2": "🚀 ACCEDER"
+  },
+  "PresentationLinks": {
+    "favourites": "Favoritos",
+    "notifications": "Notificaciones",
+    "cart": "Carrito",
+    "purchases": "Compras"
+  },
+  "NewProductForm": {
+    "success": "Se agrego el producto con éxito",
+    "error": "Error al crear el producto",
+    "title": "Título",
+    "description": "Descripción",
+    "pictureUrl": "URL del la imágen",
+    "price": "Precio",
+    "stock": "Stock",
+    "brand": "Marca",
+    "model": "Modelo",
+    "category": "Categoría",
+    "gender": "Género",
+    "sizes": "Talles",
+    "colors": "Colores",
+    "infoExampleSizes": "Ingresar separando por comas, sin espacios. Ej: S,M,L,XL",
+    "infoExampleColors": "Ingresar separando por comas, sin espacios. Ej: black,red,blue,green",
+    "confirm": "Confirmar"
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 // components
@@ -6,8 +6,9 @@ import HelmetSEO from "components/_atoms/HelmetSEO"
 import ItemDetailTemplate from "components/_templates/ItemDetailTemplate"
 // routes
 import { ROUTES } from "routes"
-// fake data
-import { PRODUCTS } from "test"
+// context
+import { ProductsContext } from "context"
+import { fetchProductsByID } from "firebase/client"
 
 /**
  * ItemDetail Page
@@ -16,37 +17,30 @@ import { PRODUCTS } from "test"
  * @description Page ItemDetail, detalle del producto seleccionado
  */
 const ItemDetail = () => {
-  const [t] = useTranslation("global")
+  const { productsDb, setLoadingProductsDb } = useContext(ProductsContext)
   const { id } = useParams()
   const routerHistory = useHistory()
-
-  // ! Desafío: Detalle de Producto
+  const [t] = useTranslation("global")
   const [item, setItem] = useState(null)
 
   useEffect(async () => {
-    try {
-      const value = await handleDataByItemId()
-      setItem(value)
-    } catch (error) {
-      console.log("error", error)
+    if (productsDb) {
+      const value =
+        productsDb && productsDb.filter((product) => product.id === id)
+      !value.length && routerHistory.push(ROUTES.HOME)
+      setItem(value[0])
+    } else {
+      setLoadingProductsDb(true)
+      try {
+        const value = await fetchProductsByID(id)
+        // console.log("value", value)
+        setItem(value)
+        setLoadingProductsDb(false)
+      } catch (error) {
+        console.log("error", error)
+      }
     }
-  }, [])
-
-  /**
-   * handleDataByItemId
-   * @function
-   * @returns {object} item info
-   */
-  const handleDataByItemId = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const item = PRODUCTS.filter((product) => product.id === id)
-        item.length ? resolve(item[0]) : routerHistory.push(ROUTES.HOME)
-      }, 2000)
-    })
-  }
-
-  // ! end
+  }, [id])
 
   const handleInfoSEO = () => {
     return item !== null

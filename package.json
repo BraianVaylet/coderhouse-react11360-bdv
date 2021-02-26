@@ -1,4 +1,5 @@
 {
+  "homepage": "https://BraianVaylet.github.io/coderhouse-react11360-bdv",
   "name": "coderhouse-react-project",
   "version": "0.1.0",
   "private": true,
@@ -9,7 +10,9 @@
     "eject": "react-scripts eject",
     "doc": "jsdoc -c jsdoc.json",
     "prettier": "prettier --write .",
-    "eslint": "eslint --fix ."
+    "eslint": "eslint --fix .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -60,10 +63,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.22.0",
-    "prettier": "^2.2.1",
+    "gh-pages": "^3.1.0",
     "husky": "^4.3.8",
     "jsdoc": "^3.6.6",
     "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react-test-render": "^1.1.2"
   },
