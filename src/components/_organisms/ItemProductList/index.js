@@ -29,7 +29,7 @@ const ItemProductList = ({
 
   useEffect(() => setItems(data), [data])
 
-  return items.length > 0 ? (
+  return items && items.length > 0 ? (
     items
       .map((item, index) => {
         return (

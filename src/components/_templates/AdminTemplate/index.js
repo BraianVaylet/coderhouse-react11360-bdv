@@ -6,21 +6,24 @@ import {
   Center,
   Divider,
   Flex,
-  Slide,
   Text,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react"
-import { CloseIcon, RepeatIcon } from "@chakra-ui/icons"
+import { RepeatIcon } from "@chakra-ui/icons"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 // components
 import Card from "components/_atoms/Card"
-import ItemComplete from "components/_molecules/ItemComplete"
-import NewProductForm from "components/_organisms/NewProductForm"
+import CustomCollapse from "components/_atoms/CustomCollapse"
 import CustomModal from "components/_atoms/CustomModal"
+import BtnInfoAdmin from "components/_atoms/BtnInfoAdmin"
+import ButtonLink from "components/_atoms/ButtonLink"
+import ItemComplete from "components/_molecules/ItemComplete"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
+import SkItemComplete from "components/_molecules/ItemComplete/SkItemComplete"
+import NewProductForm from "components/_organisms/NewProductForm"
 // context
 import { ProductsContext } from "context"
 // firebase
@@ -30,6 +33,8 @@ import {
   deleteProductsByID,
   fetchProductsByID,
 } from "firebase/client"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * AdminTemplate Component
@@ -39,9 +44,12 @@ import {
  */
 const AdminTemplate = () => {
   const [t] = useTranslation("global")
-  const { productsDb, setProductsDb, setLoadingProductsDb } = useContext(
-    ProductsContext
-  )
+  const {
+    productsDb,
+    setProductsDb,
+    setLoadingProductsDb,
+    loadingProductsDb,
+  } = useContext(ProductsContext)
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const slide = useDisclosure()
@@ -154,21 +162,9 @@ const AdminTemplate = () => {
 
   return (
     <>
-      <Slide direction="top" in={slide.isOpen} style={{ zIndex: 10 }}>
-        <Flex
-          p="20px"
-          color="white"
-          bg="brand.primary"
-          shadow="md"
-          align="center"
-          justify="space-between"
-        >
-          <Text fontSize="1.25rem">{t("AdminTemplate.slideAlert")}</Text>
-          <Button variant="ghost" onClick={slide.onClose}>
-            <CloseIcon />
-          </Button>
-        </Flex>
-      </Slide>
+      <CustomCollapse isOpen={slide.isOpen} onClose={slide.onClose}>
+        <Text fontSize="1.25rem">{t("AdminTemplate.slideAlert")}</Text>
+      </CustomCollapse>
       <Center w="100%">
         <Flex
           p={4}
@@ -184,11 +180,12 @@ const AdminTemplate = () => {
           <Flex w="100%" justify="flex-start" mb={10}>
             <Flex justify="space-between" align="center" w="100%">
               <Flex align="center">
-                <Button onClick={handleNewProduct}>
-                  {t("AdminTemplate.newProduct")}
-                </Button>
+                <ButtonLink to={ROUTES.HOME}>👈</ButtonLink>
                 <Button onClick={getProductsFromDb} ml={4}>
                   <RepeatIcon />
+                </Button>
+                <Button onClick={handleNewProduct} ml={4}>
+                  {t("AdminTemplate.newProduct")}
                 </Button>
               </Flex>
               <Flex align="center">
@@ -205,23 +202,17 @@ const AdminTemplate = () => {
             </CustomModal>
           </Flex>
 
-          <Flex mb="1rem" align="flex-start" justify="flex-start">
-            <Flex align="center">
-              <Button>✔</Button>
-              <Text ml={2}>{t("AdminTemplate.activeTrue")}</Text>
-            </Flex>
-            <Flex align="center" ml="1rem" mr=".5rem">
-              <Button>❌</Button>
-              <Text ml={2}>{t("AdminTemplate.activeFalse")}</Text>
-            </Flex>
-            <Flex align="center" ml=".5rem" mr="1rem">
-              <Button>✏</Button>
-              <Text ml={2}>{t("AdminTemplate.edit")}</Text>
-            </Flex>
-            <Flex align="center">
-              <Button>🗑</Button>
-              <Text ml={2}>{t("AdminTemplate.delete")}</Text>
-            </Flex>
+          <Flex mb="1rem" align="flex-start" justify="space-between" w="100%">
+            <BtnInfoAdmin
+              btnText="✔"
+              infoText={t("AdminTemplate.activeTrue")}
+            />
+            <BtnInfoAdmin
+              btnText="❌"
+              infoText={t("AdminTemplate.activeFalse")}
+            />
+            <BtnInfoAdmin btnText="✏" infoText={t("AdminTemplate.edit")} />
+            <BtnInfoAdmin btnText="🗑" infoText={t("AdminTemplate.delete")} />
           </Flex>
 
           <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
@@ -232,7 +223,9 @@ const AdminTemplate = () => {
               w="100%"
               p={10}
             >
-              {productsDb && productsDb.length > 0 ? (
+              {loadingProductsDb ? (
+                <SkItemComplete />
+              ) : productsDb && productsDb.length > 0 ? (
                 <Flex
                   direction="column"
                   align="flex-start"

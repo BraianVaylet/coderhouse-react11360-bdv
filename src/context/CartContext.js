@@ -12,12 +12,14 @@ export const CartContextProvider = ({ children }) => {
 
   useEffect(() => setLocalStorage(cartItems), [cartItems])
 
+  // agrego item a carrito
   const addItemToCart = (items) => {
     const newCartItemsArray = [...cartItems]
     const newCartItemsArray2 = [...newCartItemsArray, ...items]
     setCartItems(newCartItemsArray2)
   }
 
+  // elimino items del carrito
   const deleteItemsFromCart = (item) => {
     const newCartItemsArray = cartItems.filter(
       (cartItem) => cartItem.id !== item.id
@@ -25,6 +27,7 @@ export const CartContextProvider = ({ children }) => {
     setCartItems(newCartItemsArray)
   }
 
+  // elimino un item del carrito
   const deleteOneItemFromCart = (item) => {
     const filterProductArr = cartItems.filter(
       (cartItem) => cartItem.id === item.id
@@ -33,6 +36,28 @@ export const CartContextProvider = ({ children }) => {
     const productsArr = cartItems.filter((cartItem) => cartItem.id !== item.id)
     const newArr = [...productsArr, ...filterProductArr]
     setCartItems(newArr)
+  }
+
+  // agrego la prop color al item del carrito
+  const addColorToItemCart = (id, color) => {
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === id) {
+        item.color = color
+      }
+      return item
+    })
+    setCartItems(newCartItems)
+  }
+
+  // agrego la prop size al item del carrito
+  const addSizeToItemCart = (id, size) => {
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === id) {
+        item.size = size
+      }
+      return item
+    })
+    setCartItems(newCartItems)
   }
 
   const cleanCart = () => setCartItems([])
@@ -47,6 +72,8 @@ export const CartContextProvider = ({ children }) => {
         cleanCart,
         total,
         setTotal,
+        addColorToItemCart,
+        addSizeToItemCart,
       }}
     >
       {children}

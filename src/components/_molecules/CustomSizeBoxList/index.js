@@ -4,11 +4,11 @@ import PropTypes from "prop-types"
 import { Kbd } from "@chakra-ui/react"
 
 /**
- * CustomSizeBox Component
+ * CustomSizeBoxList Component
  * @component
  * @author Braian D. Vaylet
  */
-const CustomSizeBox = ({ value }) => {
+const CustomSizeBoxList = ({ value }) => {
   return (
     value &&
     value.map((size, index) => {
@@ -21,8 +21,8 @@ const CustomSizeBox = ({ value }) => {
   )
 }
 
-CustomSizeBox.propTypes = {
+CustomSizeBoxList.propTypes = {
   value: PropTypes.array.isRequired,
 }
 
-export default CustomSizeBox
+export default CustomSizeBoxList

@@ -8,6 +8,8 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // context
 import { CartContext } from "context"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * ItemCount Component
@@ -261,12 +263,7 @@ const ItemCount = ({
 ItemCount.propTypes = {
   stock: PropTypes.number.isRequired,
   initial: PropTypes.number,
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    pictureUrl: PropTypes.string,
-  }).isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
   onBuy: PropTypes.func,
   /**
    * design = 1: Preparado para ser usado en los componentes Item, ItemDetail

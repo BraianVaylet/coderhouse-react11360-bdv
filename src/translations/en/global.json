@@ -249,7 +249,7 @@
     "sizes": "Sizes",
     "colors": "Colors",
     "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
-    "infoExampleColors": "enter separated by commas, without spaces. Ex: black,red,blue,green",
+    "infoExampleColors": "enter separated by commas, for two colors separate them with a dash. Without spaces. Ex: black,red,blue-red,green",
     "confirm": "Confirm"
   },
   "ItemComplete": {

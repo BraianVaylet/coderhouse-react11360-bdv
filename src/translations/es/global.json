@@ -202,7 +202,7 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "📦 Compras"
+    "title": "🛍 Compras"
   },
   "AdminTemplate": {
     "dashboard": "Panel de administración",
@@ -216,7 +216,7 @@
     "activeFalse": "Pasa el producto a estado inactivo",
     "delete": "Elimina el producto de la Base de Datos",
     "edit": "Editar el producto",
-    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su el acceso está abierto."
+    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su acceso está abierto."
   },
   "BannerLinks": {
     "jackets": "Camperas",
@@ -249,7 +249,7 @@
     "sizes": "Talles",
     "colors": "Colores",
     "infoExampleSizes": "Ingresar separando por comas, sin espacios. Ej: S,M,L,XL",
-    "infoExampleColors": "Ingresar separando por comas, sin espacios. Ej: black,red,blue,green",
+    "infoExampleColors": "Ingresar separando por comas, para dos colores separar con guión medio. Sin espacios. Ej: black,red,blue,green",
     "confirm": "Confirmar"
   },
   "ItemComplete": {

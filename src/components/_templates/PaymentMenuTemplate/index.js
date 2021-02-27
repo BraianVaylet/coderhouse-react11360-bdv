@@ -14,6 +14,7 @@ import TotalCart from "components/_molecules/TotalCart"
 import ItemProductList from "components/_organisms/ItemProductList"
 // routes
 import { ROUTES } from "routes"
+import { addPurchase } from "firebase/client"
 
 /**
  * PaymentMenuTemplate Component
@@ -22,7 +23,8 @@ import { ROUTES } from "routes"
  * @description Componente con acceso al btn de pago e info de la compra
  */
 const PaymentMenuTemplate = () => {
-  const { activePayment } = useContext(CheckoutContext)
+  const { activePayment, purchase } = useContext(CheckoutContext)
+  const { cleanCart } = useContext(CartContext)
   const { addNotification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
   const { cartItems, total } = useContext(CartContext)
@@ -38,13 +40,23 @@ const PaymentMenuTemplate = () => {
    * @returns {undefined} return ItemProduct component
    */
   const handlePayment = () => {
-    const newNotification = {
-      items: items,
-      date: Date.now(),
-      count: cartItems.length,
-      total,
+    if (purchase) {
+      // guardo compra
+      addPurchase(purchase)
+        .then(() => {
+          // creo notificacion
+          addNotification({
+            items: items,
+            date: Date.now(),
+            count: cartItems.length,
+            viewed: false,
+            total,
+          })
+          // limpio carrito
+          cleanCart()
+        })
+        .catch((error) => console.log("error", error))
     }
-    addNotification(newNotification)
   }
 
   return (
@@ -81,7 +93,7 @@ const PaymentMenuTemplate = () => {
         w="100%"
         mt={10}
       >
-        <ItemProductList data={items} asComponent={Box} />
+        <ItemProductList data={items} asComponent={Box} withDelete={false} />
       </Flex>
 
       <Flex direction="column" align="center" justify="center" w="100%" mt={10}>

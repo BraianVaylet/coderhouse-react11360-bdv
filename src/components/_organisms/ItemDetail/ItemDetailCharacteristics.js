@@ -9,9 +9,9 @@ import {
   setValueResponsiveMin1280,
 } from "styles/utils"
 // components
-import CustomColorsBox from "components/_atoms/CustomColorsBox"
+import CustomColorsBoxList from "components/_molecules/CustomColorsBoxList"
 import CustomGender from "components/_atoms/CustomGender"
-import CustomSizeBox from "components/_atoms/CustomSizeBox"
+import CustomSizeBoxList from "components/_molecules/CustomSizeBoxList"
 
 /**
  * ItemDetail/ItemDetailCharacteristics Component
@@ -69,7 +69,7 @@ const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
               {t("ItemDetailCharacteristics.availableColours")}:
             </Text>
             <Flex direction="row" justify="flex-start" align="center">
-              <CustomColorsBox value={colors} />
+              <CustomColorsBoxList value={colors} />
             </Flex>
           </Flex>
 
@@ -77,7 +77,7 @@ const ItemDetailCharacteristics = ({ brand, model, gender, colors, sizes }) => {
           <Flex direction="row" justify="flex-start" align="center" mt={4}>
             <Text mr={3}>{t("ItemDetailCharacteristics.availableSizes")}:</Text>
             <Flex direction="row" justify="flex-start" align="center">
-              <CustomSizeBox value={sizes} />
+              <CustomSizeBoxList value={sizes} />
             </Flex>
           </Flex>
         </Flex>

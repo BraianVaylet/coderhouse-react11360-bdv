@@ -12,13 +12,16 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react"
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
 // utils
 import { IMG } from "utils/images"
+import { PropTypesProduct } from "utils/propTypes"
+import { handleItemCount } from "utils"
 // hooks
 import useTimeAgo from "hooks/useTimeAgo"
 import useDateTimeFormat from "hooks/useDateTimeFormat"
+// components
 import ItemProductList from "components/_organisms/ItemProductList"
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
 
 /**
  * ItemNotification Component
@@ -28,8 +31,8 @@ import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
  */
 const ItemPurchases = ({ item }) => {
   const [t] = useTranslation("global")
-  const timeago = useTimeAgo(item.date)
-  const dateFormated = useDateTimeFormat(item.date)
+  const timeago = useTimeAgo(item.createdAt)
+  const dateFormated = useDateTimeFormat(item.createdAt)
   const { isOpen, onToggle } = useDisclosure()
 
   /**
@@ -39,7 +42,9 @@ const ItemPurchases = ({ item }) => {
    * @returns {string}
    */
   const handleItemImg = () =>
-    item.count === 1 ? item.items[0].pictureUrl : IMG.SHOPPING_BAG
+    item.products && item.products.lenght === 1
+      ? item.products[0].pictureUrl
+      : IMG.SHOPPING_BAG
 
   /**
    * handleItemTitle
@@ -48,9 +53,9 @@ const ItemPurchases = ({ item }) => {
    * @returns {string}
    */
   const handleItemTitle = () =>
-    item.count === 1
-      ? `${t("ItemNotification.bought")} ${item.items[0].title}`
-      : `${t("ItemNotification.bought")} ${item.count} ${t(
+    item.products && item.products.lenght === 1
+      ? `${t("ItemNotification.bought")} ${item.products[0].title}`
+      : `${t("ItemNotification.bought")} ${item.products.lenght} ${t(
           "ItemNotification.products"
         )}`
 
@@ -85,11 +90,11 @@ const ItemPurchases = ({ item }) => {
               </time>{" "}
               | {handleItemTitle()}
             </Text>
-            {item.count && (
+            {
               <Badge ml="1" colorScheme="blue">
                 ${item.total}
               </Badge>
-            )}
+            }
             <Text fontSize=".75rem">
               <time title={dateFormated}>{timeago}</time>
             </Text>
@@ -102,7 +107,7 @@ const ItemPurchases = ({ item }) => {
       <Collapse in={isOpen} animateOpacity>
         <Flex direction="column" align="flex-start" justify="center">
           <ItemProductList
-            data={item.items}
+            data={handleItemCount(item.products)}
             asComponent={Box}
             type="item"
             design={1}
@@ -117,20 +122,18 @@ const ItemPurchases = ({ item }) => {
 
 ItemPurchases.propTypes = {
   item: PropTypes.shape({
-    date: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+    fullname: PropTypes.string.isRequired,
+    dni: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    addressNum: PropTypes.string.isRequired,
+    addressInfo: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired,
-    count: PropTypes.number.isRequired,
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        pictureUrl: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        count: PropTypes.number,
-        stock: PropTypes.number,
-        category: PropTypes.string.isRequired,
-      })
-    ),
+    itsPaid: PropTypes.bool.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    products: PropTypes.arrayOf(PropTypes.shape(PropTypesProduct).isRequired),
   }),
 }
 

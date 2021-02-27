@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 import { Badge } from "@chakra-ui/react"
 // context
 import { CartContext } from "context"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * CartCount Component
@@ -49,13 +51,7 @@ const CartCount = ({ item }) => {
 }
 
 CartCount.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    pictureUrl: PropTypes.string,
-    category: PropTypes.string.isRequired,
-  }).isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default CartCount

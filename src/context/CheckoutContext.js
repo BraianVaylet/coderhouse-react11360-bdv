@@ -5,12 +5,15 @@ export const CheckoutContext = createContext({})
 
 export const CheckoutContextProvider = ({ children }) => {
   const [activePayment, setActivePayment] = useState(false)
+  const [purchase, setPurchase] = useState(null)
 
   return (
     <CheckoutContext.Provider
       value={{
         activePayment,
         setActivePayment,
+        purchase,
+        setPurchase,
       }}
     >
       {children}

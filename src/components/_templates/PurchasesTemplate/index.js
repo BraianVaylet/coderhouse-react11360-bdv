@@ -1,14 +1,19 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Flex } from "@chakra-ui/react"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
-import NotificationList from "components/_organisms/NotificationList"
+import PurchasesList from "components/_organisms/PurchasesList"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
+// routes
 import { ROUTES } from "routes"
+// hooks
+import useUser from "hooks/useUser"
+// firebase
+import { fetchAllPurchasesByUser } from "firebase/client"
 
 /**
  * PurchasesTemplate Component
@@ -18,6 +23,19 @@ import { ROUTES } from "routes"
  */
 const PurchasesTemplate = () => {
   const [t] = useTranslation("global")
+  const user = useUser()
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    user &&
+      fetchAllPurchasesByUser(user.email)
+        .then((value) => {
+          setData(value)
+        })
+        .catch((error) => console.log("error", error))
+  }, [user])
+
+  console.log("data", data)
 
   return (
     <Flex
@@ -25,7 +43,7 @@ const PurchasesTemplate = () => {
       mt={8}
       direction="column"
       align="center"
-      justify="center"
+      justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
       <SubHeader
@@ -34,7 +52,7 @@ const PurchasesTemplate = () => {
         backTo={ROUTES.HOME}
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
-        <NotificationList design={2} />
+        <PurchasesList data={data} />
       </Card>
     </Flex>
   )

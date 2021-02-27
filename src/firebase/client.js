@@ -35,9 +35,19 @@ const mapUserFromFirebaseAuthToUser = (user) => {
 const mapProductFromFirebaseToProduct = (doc) => {
   const data = doc.data()
   const id = doc.id
-  return { id, ...data }
+  const { createdAt } = data
+  return { id, ...data, createdAt: +createdAt.toDate() }
 }
 
+// MAP PURCHASES
+const mapPurchaseFromFirebaseToPurchase = (doc) => {
+  const data = doc.data()
+  const id = doc.id
+  const { createdAt } = data
+  return { id, ...data, createdAt: +createdAt.toDate() }
+}
+
+// AUTH STATE CHANGE
 export const onAuthStateChanged = (onChange) => {
   return firebase.auth().onAuthStateChanged((user) => {
     const normalizedUser = user ? mapUserFromFirebaseAuthToUser(user) : null
@@ -136,7 +146,7 @@ export const editProduct = (
     })
 }
 
-// GET PRODUCTS
+// GET ALL PRODUCTS
 export const fetchAllProducts = async () => {
   try {
     const doc = await db.collection("products").get()
@@ -146,7 +156,7 @@ export const fetchAllProducts = async () => {
   }
 }
 
-// GET PRODUCTS
+// GET PRODUCTS (IsActive === true)
 export const fetchProducts = async () => {
   try {
     const doc = await db
@@ -159,7 +169,7 @@ export const fetchProducts = async () => {
   }
 }
 
-// GET PRODUCTS BY CATEGORY
+// GET PRODUCTS BY CATEGORY (IsActive === true)
 export const fetchProductsByCategory = async (category) => {
   try {
     const doc = await db
@@ -201,6 +211,49 @@ export const deleteProductsByID = async (id) => {
 export const changeIsActiveProductByID = async (id, active) => {
   try {
     return await db.collection("products").doc(id).update({ isActive: active })
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+export const addPurchase = ({
+  email,
+  fullname,
+  dni,
+  phone,
+  address,
+  addressNum,
+  addressInfo,
+  products,
+  total,
+  itsPaid = false,
+  createdAt = firebase.firestore.Timestamp.fromDate(new Date()),
+  status = "init",
+}) => {
+  return db.collection("purchases").add({
+    email,
+    fullname,
+    dni,
+    phone,
+    address,
+    addressNum,
+    addressInfo,
+    products,
+    total,
+    itsPaid,
+    createdAt,
+    status,
+  })
+}
+
+// GET ALL PURCHASES
+export const fetchAllPurchasesByUser = async (email) => {
+  try {
+    const doc = await db
+      .collection("purchases")
+      .where("email", "==", email)
+      .get()
+    return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
   } catch (error) {
     console.log("error", error)
   }

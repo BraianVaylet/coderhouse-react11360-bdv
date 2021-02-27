@@ -18,6 +18,8 @@ import { CustomShadow, setValueResponsiveMin1280 } from "styles/utils"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // routes
 import { ROUTES } from "routes"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * ItemDetailTemplate Page
@@ -131,7 +133,7 @@ const ItemDetailTemplate = ({ item }) => {
 }
 
 ItemDetailTemplate.propTypes = {
-  item: PropTypes.any.isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default ItemDetailTemplate

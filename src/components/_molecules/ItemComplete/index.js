@@ -3,11 +3,13 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Box, Flex, Image, Text } from "@chakra-ui/react"
-import ButtonTooltip from "../ButtonTooltip"
-import Calification from "../Calification"
-import CustomColorsBox from "components/_atoms/CustomColorsBox"
+// components
 import CustomGender from "components/_atoms/CustomGender"
-import CustomSizeBox from "components/_atoms/CustomSizeBox"
+import CustomColorsBoxList from "components/_molecules/CustomColorsBoxList"
+import CustomSizeBoxList from "components/_molecules/CustomSizeBoxList"
+import Calification from "components/_molecules/Calification"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * ItemComplete Component
@@ -15,7 +17,7 @@ import CustomSizeBox from "components/_atoms/CustomSizeBox"
  * @author Braian D. Vaylet
  * @description Componente Item con toda la info
  */
-const ItemComplete = ({ item, onDelete, onSave, design, withDelete }) => {
+const ItemComplete = ({ item }) => {
   const [t] = useTranslation("global")
 
   return (
@@ -57,11 +59,11 @@ const ItemComplete = ({ item, onDelete, onSave, design, withDelete }) => {
             </Text>
             <Flex align="center">
               <Text mr={2}>{t("ItemComplete.sizes")}:</Text>
-              <CustomSizeBox value={item.sizes} />
+              <CustomSizeBoxList value={item.sizes} />
             </Flex>
             <Flex align="center">
               <Text mr={2}>{t("ItemComplete.colors")}:</Text>
-              <CustomColorsBox value={item.colors} />
+              <CustomColorsBoxList value={item.colors} />
             </Flex>
             <Flex align="center">
               <Text mr={2}>{t("ItemComplete.gender")}:</Text>
@@ -69,45 +71,13 @@ const ItemComplete = ({ item, onDelete, onSave, design, withDelete }) => {
             </Flex>
           </Flex>
         </Flex>
-        {onDelete && withDelete && (
-          <ButtonTooltip
-            ml={6}
-            onClick={onDelete}
-            tooltipLabel={t("ItemComplete.deleteItem")}
-          >
-            ❌
-          </ButtonTooltip>
-        )}
       </Flex>
     </Box>
   )
 }
 
 ItemComplete.propTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    pictureName: PropTypes.string.isRequired,
-    pictureUrl: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired,
-    brand: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
-    calification: PropTypes.number.isRequired,
-    gender: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    sizes: PropTypes.string.isRequired,
-    colors: PropTypes.string.isRequired,
-    isActive: PropTypes.bool.isRequired,
-  }),
-  onDelete: PropTypes.func,
-  onSave: PropTypes.func,
-  /**
-   * design = 1: Preparado para ser usado en el menu desplegable de la NavBar
-   * design = 2: Preparado para ser usado en la pagina del carrito
-   */
-  design: PropTypes.number,
-  withDelete: PropTypes.bool,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default ItemComplete

@@ -32,17 +32,19 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
   const [colorsValue, setColorsValue] = useState(null)
 
   useEffect(() => {
-    setTitleValue(data.title)
-    setDescriptionValue(data.description)
-    setPictureUrlValue(data.pictureUrl)
-    setPriceValue(data.price)
-    setStockValue(data.stock)
-    setBrandValue(data.brand)
-    setModelValue(data.model)
-    setCategoryValue(data.category)
-    setGenderValue(data.gender)
-    setSizesValue(data.sizes.toString())
-    setColorsValue(data.colors.toString())
+    if (itsEditable) {
+      setTitleValue(data.title)
+      setDescriptionValue(data.description)
+      setPictureUrlValue(data.pictureUrl)
+      setPriceValue(data.price)
+      setStockValue(data.stock)
+      setBrandValue(data.brand)
+      setModelValue(data.model)
+      setCategoryValue(data.category)
+      setGenderValue(data.gender)
+      setSizesValue(data.sizes.toString())
+      setColorsValue(data.colors.toString())
+    }
   }, [itsEditable])
 
   const DATA_GENDERS = [
@@ -91,8 +93,8 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
         description: descriptionValue,
         pictureName: titleValue,
         pictureUrl: pictureUrlValue,
-        price: priceValue,
-        stock: stockValue,
+        price: parseInt(priceValue),
+        stock: parseInt(stockValue),
         brand: brandValue,
         model: modelValue,
         category: categoryValue,
@@ -103,7 +105,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
       }
       itsEditable
         ? await editProduct(data.id, _data)
-            .then((value) => {
+            .then(() => {
               toast({
                 title: t("NewProductForm.success"),
                 description: "",
