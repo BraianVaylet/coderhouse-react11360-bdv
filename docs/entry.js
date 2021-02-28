@@ -313,26 +313,29 @@ reactComponents['SkeletonItemDetailImgBox'] = Component95;
 import Component96 from '../src/components/_molecules/ItemComplete/SkItemComplete.js';
 reactComponents['SkItemComplete'] = Component96;
 
-import Component97 from '../src/components/_molecules/SubFooter/index.js';
-reactComponents['SubFooter'] = Component97;
+import Component97 from '../src/components/_atoms/StatisticsBox/index.js';
+reactComponents['StatisticsBox'] = Component97;
 
-import Component98 from '../src/components/_molecules/SubHeader/index.js';
-reactComponents['SubHeader'] = Component98;
+import Component98 from '../src/components/_molecules/SubFooter/index.js';
+reactComponents['SubFooter'] = Component98;
 
-import Component99 from '../src/pages/TermsAndCond/index.js';
-reactComponents['TermsAndCond'] = Component99;
+import Component99 from '../src/components/_molecules/SubHeader/index.js';
+reactComponents['SubHeader'] = Component99;
 
-import Component100 from '../src/components/_templates/TermsAndCondTemplate/index.js';
-reactComponents['TermsAndCondTemplate'] = Component100;
+import Component100 from '../src/pages/TermsAndCond/index.js';
+reactComponents['TermsAndCond'] = Component100;
 
-import Component101 from '../src/components/_molecules/TitleAndText/index.js';
-reactComponents['TitleAndText'] = Component101;
+import Component101 from '../src/components/_templates/TermsAndCondTemplate/index.js';
+reactComponents['TermsAndCondTemplate'] = Component101;
 
-import Component102 from '../src/components/_molecules/TotalCart/index.js';
-reactComponents['TotalCart'] = Component102;
+import Component102 from '../src/components/_molecules/TitleAndText/index.js';
+reactComponents['TitleAndText'] = Component102;
 
-import Component103 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component103;
+import Component103 from '../src/components/_molecules/TotalCart/index.js';
+reactComponents['TotalCart'] = Component103;
 
-import Component104 from '../src/containers/WrapperContext/index.js';
-reactComponents['WrapperContext'] = Component104;
+import Component104 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component104;
+
+import Component105 from '../src/containers/WrapperContext/index.js';
+reactComponents['WrapperContext'] = Component105;

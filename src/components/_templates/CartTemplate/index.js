@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
@@ -21,6 +22,7 @@ import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
 import CartItemList from "components/_organisms/CartItemList"
 import ItemProductList from "components/_organisms/ItemProductList"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 // routes
 import { ROUTES } from "routes"
 
@@ -32,6 +34,8 @@ import { ROUTES } from "routes"
  */
 const CartTemplate = () => {
   const [t] = useTranslation("global")
+  const routerHistory = useHistory()
+  const { cleanCart } = useContext(CartContext)
   const { cartItems, deleteItemsFromCart } = useContext(CartContext)
   const [items, setItems] = useState([])
 
@@ -50,6 +54,20 @@ const CartTemplate = () => {
         withTitle
         title={t("CartTemplate.title")}
         backTo={ROUTES.HOME}
+        withRightContent
+        rightContent={
+          <ButtonTooltip
+            mr={2}
+            size="lg"
+            onClick={() => {
+              cleanCart()
+              routerHistory.push(ROUTES.HOME)
+            }}
+            tooltipLabel={t("CartWidgetBtn.clean")}
+          >
+            🗑
+          </ButtonTooltip>
+        }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <Tabs w="100%">

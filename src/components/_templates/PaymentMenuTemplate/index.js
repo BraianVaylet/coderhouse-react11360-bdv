@@ -27,7 +27,7 @@ const PaymentMenuTemplate = () => {
   const { cleanCart } = useContext(CartContext)
   const { addNotification } = useContext(NotificationContext)
   const [t] = useTranslation("global")
-  const { cartItems, total } = useContext(CartContext)
+  const { cartItems } = useContext(CartContext)
   const backgroundColorItems = useSetColorTheme("gray.600", "gray.300")
   const [items, setItems] = useState([])
 
@@ -50,7 +50,7 @@ const PaymentMenuTemplate = () => {
             date: Date.now(),
             count: cartItems.length,
             viewed: false,
-            total,
+            total: purchase.total,
           })
           // limpio carrito
           cleanCart()

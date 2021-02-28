@@ -35,7 +35,8 @@ const mapUserFromFirebaseAuthToUser = (user) => {
 const mapProductFromFirebaseToProduct = (doc) => {
   const data = doc.data()
   const id = doc.id
-  const { createdAt } = data
+  const createdAt =
+    data.createdAt || firebase.firestore.Timestamp.fromDate(new Date())
   return { id, ...data, createdAt: +createdAt.toDate() }
 }
 
@@ -43,7 +44,8 @@ const mapProductFromFirebaseToProduct = (doc) => {
 const mapPurchaseFromFirebaseToPurchase = (doc) => {
   const data = doc.data()
   const id = doc.id
-  const { createdAt } = data
+  const createdAt =
+    data.createdAt || firebase.firestore.Timestamp.fromDate(new Date())
   return { id, ...data, createdAt: +createdAt.toDate() }
 }
 
@@ -247,6 +249,16 @@ export const addPurchase = ({
 }
 
 // GET ALL PURCHASES
+export const fetchAllPurchases = async () => {
+  try {
+    const doc = await db.collection("purchases").get()
+    return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
+  } catch (error) {
+    console.log("error", error)
+  }
+}
+
+// GET ALL PURCHASES BY USER EMAIL
 export const fetchAllPurchasesByUser = async (email) => {
   try {
     const doc = await db

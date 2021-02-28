@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Divider, Flex } from "@chakra-ui/react"
+import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
@@ -84,7 +84,9 @@ const FavouritesTemplate = () => {
                 .reverse()}
             </Flex>
           ) : (
-            <Flex>No hay items que mostrar</Flex>
+            <Center w="100%" h="80vh">
+              <Flex fontSize="2rem">{t("FavouritesTemplate.noItems")}</Flex>
+            </Center>
           )}
         </Flex>
       </Card>

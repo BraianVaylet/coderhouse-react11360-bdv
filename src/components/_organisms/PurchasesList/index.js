@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Divider, Flex } from "@chakra-ui/react"
+import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // components
 import ItemPurchases from "components/_molecules/ItemPurchases"
 
@@ -12,6 +13,7 @@ import ItemPurchases from "components/_molecules/ItemPurchases"
  * @description componente listado de todas las compras
  */
 const PurchasesList = ({ data }) => {
+  const [t] = useTranslation("global")
   const count = data && data.length
 
   return (
@@ -43,7 +45,9 @@ const PurchasesList = ({ data }) => {
             .reverse()}
         </Flex>
       ) : (
-        <Flex>No hay compras realizadas aún</Flex>
+        <Center w="100%" h="80vh">
+          <Flex fontSize="2rem">{t("PurchasesList.noItems")}</Flex>
+        </Center>
       )}
     </Flex>
   )

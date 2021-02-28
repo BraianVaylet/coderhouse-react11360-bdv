@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
@@ -35,7 +35,27 @@ const PurchasesTemplate = () => {
         .catch((error) => console.log("error", error))
   }, [user])
 
-  console.log("data", data)
+  /**
+   * handleStatistics
+   * @function
+   * @description retorna total de compras y total de productos
+   * @returns {object}
+   */
+  const handleStatistics = () => {
+    const initialValue = 0
+    const totalProducts =
+      data &&
+      data.reduce(
+        (accumulator, currentValue) =>
+          accumulator + currentValue.products.length,
+        initialValue
+      )
+
+    return {
+      totalPurchases: data.length,
+      totalProducts,
+    }
+  }
 
   return (
     <Flex
@@ -50,6 +70,20 @@ const PurchasesTemplate = () => {
         withTitle
         title={t("PurchasesTemplate.title")}
         backTo={ROUTES.HOME}
+        withRightContent
+        rightContent={
+          <Flex align="center">
+            <Text>
+              <b>{handleStatistics().totalPurchases}</b>{" "}
+              {t("PurchasesTemplate.purchasesMade")}
+            </Text>
+            <Text m="0 1rem">|</Text>
+            <Text>
+              <b>{handleStatistics().totalProducts}</b>{" "}
+              {t("PurchasesTemplate.productsPurchased")}
+            </Text>
+          </Flex>
+        }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
         <PurchasesList data={data} />

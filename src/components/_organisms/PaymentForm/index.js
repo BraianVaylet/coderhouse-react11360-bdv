@@ -63,7 +63,7 @@ const PaymentForm = () => {
         phone: phoneValue,
         address: streetNameValue,
         addressNum: streetNumberValue,
-        addressInfo: deptoValue,
+        addressInfo: deptoValue || "",
         products: cartItems,
         total: handleDiscuount(handleTotalPrice(cartItems))[0],
       })

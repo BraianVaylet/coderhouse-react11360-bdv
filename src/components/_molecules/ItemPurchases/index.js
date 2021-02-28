@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
@@ -34,6 +34,9 @@ const ItemPurchases = ({ item }) => {
   const timeago = useTimeAgo(item.createdAt)
   const dateFormated = useDateTimeFormat(item.createdAt)
   const { isOpen, onToggle } = useDisclosure()
+  const [products, setProducts] = useState([])
+
+  useEffect(() => item && setProducts(item.products), [item])
 
   /**
    * handleItemImg
@@ -42,7 +45,7 @@ const ItemPurchases = ({ item }) => {
    * @returns {string}
    */
   const handleItemImg = () =>
-    item.products && item.products.lenght === 1
+    item && products.length === 1
       ? item.products[0].pictureUrl
       : IMG.SHOPPING_BAG
 
@@ -53,9 +56,9 @@ const ItemPurchases = ({ item }) => {
    * @returns {string}
    */
   const handleItemTitle = () =>
-    item.products && item.products.lenght === 1
-      ? `${t("ItemNotification.bought")} ${item.products[0].title}`
-      : `${t("ItemNotification.bought")} ${item.products.lenght} ${t(
+    item && products.length === 1
+      ? `${t("ItemNotification.bought")} ${products[0].title}`
+      : `${t("ItemNotification.bought")} ${products.length} ${t(
           "ItemNotification.products"
         )}`
 
@@ -107,7 +110,7 @@ const ItemPurchases = ({ item }) => {
       <Collapse in={isOpen} animateOpacity>
         <Flex direction="column" align="flex-start" justify="center">
           <ItemProductList
-            data={handleItemCount(item.products)}
+            data={handleItemCount(products)}
             asComponent={Box}
             type="item"
             design={1}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
+import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Divider, Flex } from "@chakra-ui/react"
+import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // context
 import { NotificationContext } from "context"
 // components
@@ -13,6 +14,7 @@ import ItemNotificaton from "components/_molecules/ItemNotification"
  * @description componente listado de todas las notificaciones
  */
 const NotificationList = () => {
+  const [t] = useTranslation("global")
   const { notification } = useContext(NotificationContext)
   const count = notification.length
 
@@ -45,7 +47,9 @@ const NotificationList = () => {
             .reverse()}
         </Flex>
       ) : (
-        <Flex>No hay notificaciones que mostrar</Flex>
+        <Center w="100%" h="80vh">
+          <Flex fontSize="2rem">{t("NotificationList.noItems")}</Flex>
+        </Center>
       )}
     </Flex>
   )

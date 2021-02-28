@@ -187,10 +187,18 @@
   "NotificationsBtn": {
     "title": "Notifications",
     "seeMoreTooltip": "See more notifications",
-    "all": "All"
+    "all": "All",
+    "markAsViewed": "Mark as viewed"
+  },
+  "NotificationList": {
+    "noItems": "😶 We have no notifications to show you"
+  },
+  "PurchasesList": {
+    "noItems": "😑 You haven't made any purchases yet..."
   },
   "FavouritesTemplate": {
-    "title": "💕 My favourites"
+    "title": "💕 My favourites",
+    "noItems": "😕 You don't have any product saved in favorites yet"
   },
   "NotificationsTemplate": {
     "title": "📬 Notifications history"
@@ -202,7 +210,9 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "🛍 Purchases"
+    "title": "🛍 Purchases",
+    "purchasesMade": "Purchases made",
+    "productsPurchased": "Products purchased"
   },
   "AdminTemplate": {
     "dashboard": "Administration panel",
@@ -216,7 +226,13 @@
     "activeFalse": "Put the product into inactive state",
     "delete": "Remove the product from the database",
     "edit": "Edit the product",
-    "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open."
+    "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open.",
+    "purchases": "Purchases made",
+    "products": "Products",
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories"
   },
   "BannerLinks": {
     "jackets": "Jackets",

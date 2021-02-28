@@ -10,20 +10,23 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react"
-import { RepeatIcon } from "@chakra-ui/icons"
+import { InfoOutlineIcon, RepeatIcon } from "@chakra-ui/icons"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
+import { COLORS } from "styles/theme"
 // components
 import Card from "components/_atoms/Card"
 import CustomCollapse from "components/_atoms/CustomCollapse"
 import CustomModal from "components/_atoms/CustomModal"
 import BtnInfoAdmin from "components/_atoms/BtnInfoAdmin"
 import ButtonLink from "components/_atoms/ButtonLink"
+import CustomPopover from "components/_atoms/CustomPopover"
 import ItemComplete from "components/_molecules/ItemComplete"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
 import SkItemComplete from "components/_molecules/ItemComplete/SkItemComplete"
 import NewProductForm from "components/_organisms/NewProductForm"
+import StatisticsBox from "components/_atoms/StatisticsBox"
 // context
 import { ProductsContext } from "context"
 // firebase
@@ -32,6 +35,7 @@ import {
   changeIsActiveProductByID,
   deleteProductsByID,
   fetchProductsByID,
+  fetchAllPurchases,
 } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
@@ -55,9 +59,15 @@ const AdminTemplate = () => {
   const slide = useDisclosure()
   const [edit, setEdit] = useState(false)
   const [productSelected, setProductSelected] = useState(null)
+  const [purchases, setPurchases] = useState(null)
 
   useEffect(async () => !productsDb && getProductsFromDb(), [productsDb])
-  useEffect(() => slide.onOpen(), [])
+  useEffect(() => {
+    slide.onOpen()
+    fetchAllPurchases()
+      .then((value) => setPurchases(value))
+      .catch((error) => console.log("error", error))
+  }, [])
 
   /**
    * getProductsFromDb
@@ -160,6 +170,26 @@ const AdminTemplate = () => {
     onOpen()
   }
 
+  /**
+   * handleStatisticsProducts
+   * @function
+   * @description retorna estadisticas
+   */
+  const handleStatisticsProducts = () => {
+    const filterDataByCategory = (value) =>
+      productsDb.filter((product) => product.category === value).length
+
+    return (
+      productsDb && {
+        totalProducts: productsDb.length,
+        totalJackets: filterDataByCategory("jackets"),
+        totalShirts: filterDataByCategory("shirts"),
+        totalShoes: filterDataByCategory("shoes"),
+        totalAccesories: filterDataByCategory("accesories"),
+      }
+    )
+  }
+
   return (
     <>
       <CustomCollapse isOpen={slide.isOpen} onClose={slide.onClose}>
@@ -180,7 +210,43 @@ const AdminTemplate = () => {
           <Flex w="100%" justify="flex-start" mb={10}>
             <Flex justify="space-between" align="center" w="100%">
               <Flex align="center">
-                <ButtonLink to={ROUTES.HOME}>👈</ButtonLink>
+                <ButtonLink to={ROUTES.HOME} mr={4}>
+                  👈
+                </ButtonLink>
+                <CustomPopover
+                  btn={<InfoOutlineIcon />}
+                  withHeader
+                  header={"Info"}
+                >
+                  <Flex
+                    direction="column"
+                    mb="1rem"
+                    align="flex-start"
+                    justify="space-between"
+                    w="100%"
+                  >
+                    <BtnInfoAdmin
+                      mb={4}
+                      btnText="✔"
+                      infoText={t("AdminTemplate.activeTrue")}
+                    />
+                    <BtnInfoAdmin
+                      mb={4}
+                      btnText="❌"
+                      infoText={t("AdminTemplate.activeFalse")}
+                    />
+                    <BtnInfoAdmin
+                      mb={4}
+                      btnText="✏"
+                      infoText={t("AdminTemplate.edit")}
+                    />
+                    <BtnInfoAdmin
+                      mb={4}
+                      btnText="🗑"
+                      infoText={t("AdminTemplate.delete")}
+                    />
+                  </Flex>
+                </CustomPopover>
                 <Button onClick={getProductsFromDb} ml={4}>
                   <RepeatIcon />
                 </Button>
@@ -202,18 +268,48 @@ const AdminTemplate = () => {
             </CustomModal>
           </Flex>
 
-          <Flex mb="1rem" align="flex-start" justify="space-between" w="100%">
-            <BtnInfoAdmin
-              btnText="✔"
-              infoText={t("AdminTemplate.activeTrue")}
-            />
-            <BtnInfoAdmin
-              btnText="❌"
-              infoText={t("AdminTemplate.activeFalse")}
-            />
-            <BtnInfoAdmin btnText="✏" infoText={t("AdminTemplate.edit")} />
-            <BtnInfoAdmin btnText="🗑" infoText={t("AdminTemplate.delete")} />
-          </Flex>
+          <Card w="100%" mb={10} minH="20vh">
+            {productsDb && (
+              <Flex
+                p={10}
+                align="center"
+                justify="space-between"
+                w="100%"
+                flexWrap="wrap"
+              >
+                <StatisticsBox
+                  value={purchases && purchases.length}
+                  text={t("AdminTemplate.purchases")}
+                  color="brand.secundary"
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalProducts}
+                  text={t("AdminTemplate.products")}
+                  color="green.400"
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalJackets}
+                  text={t("AdminTemplate.jackets")}
+                  color={COLORS.jacket}
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalShirts}
+                  text={t("AdminTemplate.shirts")}
+                  color={COLORS.shirt}
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalShoes}
+                  text={t("AdminTemplate.shoes")}
+                  color={COLORS.shoes}
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalAccesories}
+                  text={t("AdminTemplate.accesories")}
+                  color={COLORS.accesories}
+                />
+              </Flex>
+            )}
+          </Card>
 
           <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
             <Flex

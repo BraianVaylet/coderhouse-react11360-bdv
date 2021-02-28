@@ -55,7 +55,7 @@ const ItemProductList = ({
       .slice(0, withSlice ? slice : items.length)
   ) : (
     <Center w="100%" h="80vh">
-      <Text fontSize="3rem">{t("ItemProductList.noProductsYet")} 😔 </Text>
+      <Text fontSize="2rem">{t("ItemProductList.noProductsYet")} 😔 </Text>
     </Center>
   )
 }

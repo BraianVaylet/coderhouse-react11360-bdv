@@ -187,10 +187,18 @@
   "NotificationsBtn": {
     "title": "Notificaciones",
     "seeMoreTooltip": "Ver más notificaciones",
-    "all": "Todas"
+    "all": "Todas",
+    "markAsViewed": "Marcar como vistas"
+  },
+  "NotificationList": {
+    "noItems": "😶 No tenemos notificaciones para mostrarte"
+  },
+  "PurchasesList": {
+    "noItems": "😑 Aún no has realizado ninguna compra..."
   },
   "FavouritesTemplate": {
-    "title": "💕 Mis favoritos"
+    "title": "💕 Mis favoritos",
+    "noItems": "😕 Aún no tienes ningún producto guardado en favoritos"
   },
   "NotificationsTemplate": {
     "title": "📬 Historial de notificaciones"
@@ -202,7 +210,9 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "🛍 Compras"
+    "title": "🛍 Compras",
+    "purchasesMade": "Compras realizadas",
+    "productsPurchased": "Productos comprados"
   },
   "AdminTemplate": {
     "dashboard": "Panel de administración",
@@ -216,7 +226,13 @@
     "activeFalse": "Pasa el producto a estado inactivo",
     "delete": "Elimina el producto de la Base de Datos",
     "edit": "Editar el producto",
-    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su acceso está abierto."
+    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su acceso está abierto.",
+    "purchases": "Compras realizadas",
+    "products": "Productos",
+    "jackets": "Camperas",
+    "shirts": "Remeras",
+    "shoes": "Zapatillas",
+    "accesories": "Accesorios"
   },
   "BannerLinks": {
     "jackets": "Camperas",

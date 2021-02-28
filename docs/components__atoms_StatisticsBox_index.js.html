@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/_atoms/CustomSelect/index.js</title>
+  <title> components/_atoms/StatisticsBox/index.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/_atoms/CustomSelect/index.js</h1>
+                    <h1>components/_atoms/StatisticsBox/index.js</h1>
                 </header>
                 
 
@@ -85,61 +85,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react"
+            <pre class="prettyprint source linenums"><code>import React from "react"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Select } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 
 /**
- * CustomSelect Component
+ * StatisticsBox Component
  * @component
  * @author Braian D. Vaylet
- * @description Componente select
+ * @description Componente tipo caja que muestra valor y text
  */
-const CustomSelect = ({
-  placeholder,
-  data,
-  onChange,
-  name,
-  value,
-  ...props
-}) => {
-  const [_data, setData] = useState([])
-
-  useEffect(() => setData(data), [data])
-
+const StatisticsBox = ({ value, text, color }) => {
   return (
-    &lt;Select
-      name={name}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
-      {...props}
+    &lt;Flex
+      direction="column"
+      align="center"
+      justify="flex-start"
+      p={4}
+      bg={color}
+      borderRadius="5px"
+      maxW="10vw"
+      w="10vw"
+      maxH="10vw"
+      h="10vw"
     >
-      {_data &amp;&amp;
-        _data.map((item, index) => (
-          &lt;option key={index} value={item.value}>
-            {item.text}
-          &lt;/option>
-        ))}
-    &lt;/Select>
+      &lt;Text fontSize="3rem" fontWeight="900">
+        {value}
+      &lt;/Text>
+      &lt;Text textAlign="center">{text}&lt;/Text>
+    &lt;/Flex>
   )
 }
 
-CustomSelect.propTypes = {
-  placeholder: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-      text: PropTypes.any,
-    })
-  ).isRequired,
-  onChange: PropTypes.func.isRequired,
+StatisticsBox.propTypes = {
+  value: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
-export default CustomSelect
+export default StatisticsBox
 </code></pre>
         </article>
     </section>

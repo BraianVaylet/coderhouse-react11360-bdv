@@ -11,7 +11,7 @@ import { CATEGORIES } from "utils/constants"
 // routes
 import { ROUTES } from "routes"
 // styles
-import { MY_BREAKPOINTS } from "styles/theme"
+import { COLORS, MY_BREAKPOINTS } from "styles/theme"
 
 /**
  * BannerLinks Component
@@ -22,13 +22,6 @@ import { MY_BREAKPOINTS } from "styles/theme"
 const BannerLinks = ({ design, active }) => {
   const [t] = useTranslation("global")
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
-
-  const colors = {
-    jacket: "orange.300",
-    shirt: "brand.primary",
-    shoes: "red.500",
-    accesories: "teal.400",
-  }
 
   return design === 1 ? (
     <Flex
@@ -53,7 +46,7 @@ const BannerLinks = ({ design, active }) => {
           _hover={{
             opacity: ".95",
           }}
-          bg={colors.jacket}
+          bg={COLORS.jacket}
           borderRadius="5px"
           align="center"
           w={mediaQueryMax600 ? "100%" : "60%"}
@@ -80,7 +73,7 @@ const BannerLinks = ({ design, active }) => {
           _hover={{
             opacity: ".95",
           }}
-          bg={colors.shirt}
+          bg={COLORS.shirt}
           w={mediaQueryMax600 ? "100%" : "40%"}
           align="center"
           m="1rem"
@@ -117,7 +110,7 @@ const BannerLinks = ({ design, active }) => {
           _hover={{
             opacity: ".95",
           }}
-          bg={colors.shoes}
+          bg={COLORS.shoes}
           w="100%"
           align="center"
           borderRadius="5px"
@@ -143,7 +136,7 @@ const BannerLinks = ({ design, active }) => {
           _hover={{
             opacity: ".95",
           }}
-          bg={colors.accesories}
+          bg={COLORS.accesories}
           w="100%"
           align="center"
           justify="flex-end"
@@ -175,28 +168,28 @@ const BannerLinks = ({ design, active }) => {
     <Flex w="100%" h="30vh">
       <BannerLinkImgBox
         active={active === CATEGORIES.JACKETS}
-        color={colors.jacket}
+        color={COLORS.jacket}
         text={t("BannerLinks.jackets")}
         image={IMG.JACKET}
         route={ROUTES.PRODUCTS + "/" + CATEGORIES.JACKETS}
       />
       <BannerLinkImgBox
         active={active === CATEGORIES.SHIRTS}
-        color={colors.shirt}
+        color={COLORS.shirt}
         text={t("BannerLinks.shirts")}
         image={IMG.SHIRT}
         route={ROUTES.PRODUCTS + "/" + CATEGORIES.SHIRTS}
       />
       <BannerLinkImgBox
         active={active === CATEGORIES.SHOES}
-        color={colors.shoes}
+        color={COLORS.shoes}
         text={t("BannerLinks.shoes")}
         image={IMG.SHOES}
         route={ROUTES.PRODUCTS + "/" + CATEGORIES.SHOES}
       />
       <BannerLinkImgBox
         active={active === CATEGORIES.ACCESORIES}
-        color={colors.accesories}
+        color={COLORS.accesories}
         text={t("BannerLinks.accesories")}
         image={IMG.WATCH}
         route={ROUTES.PRODUCTS + "/" + CATEGORIES.ACCESORIES}

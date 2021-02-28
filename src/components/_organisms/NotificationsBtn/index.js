@@ -9,6 +9,7 @@ import { NotificationContext } from "context"
 // components
 import ButtonLink from "components/_atoms/ButtonLink"
 import CustomMenu from "components/_atoms/CustomMenu"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 import ItemNotificationList from "components/_organisms/ItemNotificationList"
 // routes
 import { ROUTES } from "routes"
@@ -19,21 +20,25 @@ import { ROUTES } from "routes"
  * @author Braian D. Vaylet
  * @description Componente botón Favoritos con contador
  */
-const NotificationsBtn = ({ withText = false }) => {
-  const { notification } = useContext(NotificationContext)
+const NotificationsBtn = ({ withText }) => {
+  const {
+    notification,
+    getNotificationsViewedFalse,
+    handleNotificationsToViewedTrue,
+  } = useContext(NotificationContext)
   const [t] = useTranslation("global")
-  const count = notification.length
+  const count = getNotificationsViewedFalse().length
   const slice = 6
 
   return (
     <CustomMenu
       btnIcon={<BellIcon w="1.5rem" h="1.5rem" />}
       btnText={t("NotificationsBtn.title")}
-      withText
+      withText={withText}
       count={count}
       footer={
-        notification.length > slice && (
-          <Flex direction="row" align="center" justify="flex-end">
+        <Flex direction="row" align="center" justify="flex-end">
+          {count > slice && (
             <ButtonLink
               tooltipLabel={t("NotificationsBtn.seeMoreTooltip")}
               to={ROUTES.NOTIFICATIONS}
@@ -42,18 +47,33 @@ const NotificationsBtn = ({ withText = false }) => {
             >
               👇
             </ButtonLink>
-          </Flex>
-        )
+          )}
+          {count > 0 && (
+            <ButtonTooltip
+              mr={2}
+              tooltipLabel={t("NotificationsBtn.markAsViewed")}
+              onClick={() => handleNotificationsToViewedTrue()}
+            >
+              👁‍🗨
+            </ButtonTooltip>
+          )}
+        </Flex>
       }
     >
-      <ItemNotificationList
-        data={notification}
-        as={MenuItem}
-        withSlice
-        slice={slice}
-      />
+      {count && (
+        <ItemNotificationList
+          data={notification}
+          as={MenuItem}
+          withSlice
+          slice={slice}
+        />
+      )}
     </CustomMenu>
   )
+}
+
+NotificationsBtn.defaultProps = {
+  withText: false,
 }
 
 NotificationsBtn.propTypes = {

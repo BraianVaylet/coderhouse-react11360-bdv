@@ -12,6 +12,10 @@ export const TOOLTIP_TIME = 250
 export const COLORS = {
   primary: "#2564f7",
   secundary: "#67a9f0",
+  jacket: "orange.300",
+  shirt: "brand.primary",
+  shoes: "red.500",
+  accesories: "teal.400",
 }
 
 // my chakra theme
@@ -65,12 +69,6 @@ const theme = extendTheme({
     xl: "3rem",
   },
   colors: {
-    withOpacity: {
-      gray: {
-        800: addOpacityToColor("#1A202C", 0.75),
-      },
-      white: addOpacityToColor("#FFFFFF", 0.75),
-    },
     brand: {
       primary: COLORS.primary,
       secundary: COLORS.secundary,
