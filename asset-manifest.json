@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css",
-    "main.js": "/coderhouse-react11360-bdv/static/js/main.ab62626b.chunk.js",
-    "main.js.map": "/coderhouse-react11360-bdv/static/js/main.ab62626b.chunk.js.map",
-    "runtime-main.js": "/coderhouse-react11360-bdv/static/js/runtime-main.db487e8a.js",
-    "runtime-main.js.map": "/coderhouse-react11360-bdv/static/js/runtime-main.db487e8a.js.map",
+    "main.js": "/coderhouse-react11360-bdv/static/js/main.cc010691.chunk.js",
+    "main.js.map": "/coderhouse-react11360-bdv/static/js/main.cc010691.chunk.js.map",
+    "runtime-main.js": "/coderhouse-react11360-bdv/static/js/runtime-main.cd87b4cb.js",
+    "runtime-main.js.map": "/coderhouse-react11360-bdv/static/js/runtime-main.cd87b4cb.js.map",
     "static/css/2.55d8add8.chunk.css": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css",
-    "static/js/2.609c790a.chunk.js": "/coderhouse-react11360-bdv/static/js/2.609c790a.chunk.js",
-    "static/js/2.609c790a.chunk.js.map": "/coderhouse-react11360-bdv/static/js/2.609c790a.chunk.js.map",
-    "static/js/3.3f9c0026.chunk.js": "/coderhouse-react11360-bdv/static/js/3.3f9c0026.chunk.js",
-    "static/js/3.3f9c0026.chunk.js.map": "/coderhouse-react11360-bdv/static/js/3.3f9c0026.chunk.js.map",
+    "static/js/2.89cff6b3.chunk.js": "/coderhouse-react11360-bdv/static/js/2.89cff6b3.chunk.js",
+    "static/js/2.89cff6b3.chunk.js.map": "/coderhouse-react11360-bdv/static/js/2.89cff6b3.chunk.js.map",
+    "static/js/3.1ee5bf8f.chunk.js": "/coderhouse-react11360-bdv/static/js/3.1ee5bf8f.chunk.js",
+    "static/js/3.1ee5bf8f.chunk.js.map": "/coderhouse-react11360-bdv/static/js/3.1ee5bf8f.chunk.js.map",
     "index.html": "/coderhouse-react11360-bdv/index.html",
     "static/css/2.55d8add8.chunk.css.map": "/coderhouse-react11360-bdv/static/css/2.55d8add8.chunk.css.map",
     "static/css/main.d650f048.chunk.css.map": "/coderhouse-react11360-bdv/static/css/main.d650f048.chunk.css.map",
-    "static/js/2.609c790a.chunk.js.LICENSE.txt": "/coderhouse-react11360-bdv/static/js/2.609c790a.chunk.js.LICENSE.txt",
+    "static/js/2.89cff6b3.chunk.js.LICENSE.txt": "/coderhouse-react11360-bdv/static/js/2.89cff6b3.chunk.js.LICENSE.txt",
     "static/media/aquila.d8765a97.png": "/coderhouse-react11360-bdv/static/media/aquila.d8765a97.png",
     "static/media/jacket.d20eb309.png": "/coderhouse-react11360-bdv/static/media/jacket.d20eb309.png",
     "static/media/shirt.67eb7f56.png": "/coderhouse-react11360-bdv/static/media/shirt.67eb7f56.png",
@@ -27,10 +27,10 @@
     "static/media/watch.fe55c8f1.png": "/coderhouse-react11360-bdv/static/media/watch.fe55c8f1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.db487e8a.js",
+    "static/js/runtime-main.cd87b4cb.js",
     "static/css/2.55d8add8.chunk.css",
-    "static/js/2.609c790a.chunk.js",
+    "static/js/2.89cff6b3.chunk.js",
     "static/css/main.d650f048.chunk.css",
-    "static/js/main.ab62626b.chunk.js"
+    "static/js/main.cc010691.chunk.js"
   ]
 }
