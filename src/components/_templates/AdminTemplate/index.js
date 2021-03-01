@@ -6,6 +6,11 @@ import {
   Center,
   Divider,
   Flex,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Text,
   useDisclosure,
   useToast,
@@ -39,6 +44,7 @@ import {
 } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
+import PurchaseComplete from "components/_molecules/PurchaseComplete"
 
 /**
  * AdminTemplate Component
@@ -179,9 +185,17 @@ const AdminTemplate = () => {
     const filterDataByCategory = (value) =>
       productsDb.filter((product) => product.category === value).length
 
+    const filterDataByIsActive = (value) =>
+      productsDb.filter((product) => product.isActive === value).length
+
     return (
       productsDb && {
         totalProducts: productsDb.length,
+        totalProductsInactives: filterDataByIsActive(false),
+        totalProductsActives: filterDataByIsActive(true),
+        totalProductsOutStock: productsDb.filter(
+          (product) => product.stock === 0
+        ).length,
         totalJackets: filterDataByCategory("jackets"),
         totalShirts: filterDataByCategory("shirts"),
         totalShoes: filterDataByCategory("shoes"),
@@ -271,21 +285,37 @@ const AdminTemplate = () => {
           <Card w="100%" mb={10} minH="20vh">
             {productsDb && (
               <Flex
-                p={10}
+                p={6}
                 align="center"
-                justify="space-between"
+                justify="stretch"
+                h="100%"
                 w="100%"
                 flexWrap="wrap"
               >
                 <StatisticsBox
                   value={purchases && purchases.length}
-                  text={t("AdminTemplate.purchases")}
+                  text={t("AdminTemplate.purchasesMade")}
                   color="brand.secundary"
                 />
                 <StatisticsBox
                   value={handleStatisticsProducts().totalProducts}
                   text={t("AdminTemplate.products")}
                   color="green.400"
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalProductsActives}
+                  text={t("AdminTemplate.actives")}
+                  color="green.500"
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalProductsInactives}
+                  text={t("AdminTemplate.inactives")}
+                  color="red.500"
+                />
+                <StatisticsBox
+                  value={handleStatisticsProducts().totalProductsOutStock}
+                  text={t("AdminTemplate.noStock")}
+                  color="tomato"
                 />
                 <StatisticsBox
                   value={handleStatisticsProducts().totalJackets}
@@ -312,75 +342,126 @@ const AdminTemplate = () => {
           </Card>
 
           <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
-            <Flex
-              direction="column"
-              align="center"
-              justify="flex-start"
-              w="100%"
-              p={10}
-            >
-              {loadingProductsDb ? (
-                <SkItemComplete />
-              ) : productsDb && productsDb.length > 0 ? (
-                <Flex
-                  direction="column"
-                  align="flex-start"
-                  justify="flex-start"
-                  w="100%"
-                >
-                  {productsDb
-                    .map((prod, index) => {
-                      return (
-                        <>
-                          <Flex
-                            key={index}
-                            w="100%"
-                            justify="space-between"
-                            align="center"
-                          >
-                            <ItemComplete item={prod} />
-                            <Flex>
-                              {!prod.isActive ? (
-                                <Button
-                                  onClick={() =>
-                                    handleIsActiveClick(prod.id, true)
-                                  }
+            <Tabs variant="enclosed" w="100%">
+              <TabList w="100%">
+                <Tab>{t("AdminTemplate.products")}</Tab>
+                <Tab>{t("AdminTemplate.purchases")}</Tab>
+              </TabList>
+
+              <TabPanels w="100%">
+                <TabPanel w="100%">
+                  <Flex
+                    direction="column"
+                    align="center"
+                    justify="flex-start"
+                    w="100%"
+                    p={10}
+                  >
+                    {loadingProductsDb ? (
+                      <SkItemComplete />
+                    ) : productsDb && productsDb.length > 0 ? (
+                      <Flex
+                        direction="column"
+                        align="flex-start"
+                        justify="flex-start"
+                        w="100%"
+                      >
+                        {productsDb
+                          .map((prod, index) => {
+                            return (
+                              <>
+                                <Flex
+                                  key={index}
+                                  w="100%"
+                                  justify="space-between"
+                                  align="center"
                                 >
-                                  ✔
-                                </Button>
-                              ) : (
-                                <Button
-                                  onClick={() =>
-                                    handleIsActiveClick(prod.id, false)
-                                  }
+                                  <ItemComplete item={prod} />
+                                  <Flex>
+                                    {!prod.isActive ? (
+                                      <Button
+                                        onClick={() =>
+                                          handleIsActiveClick(prod.id, true)
+                                        }
+                                      >
+                                        ✔
+                                      </Button>
+                                    ) : (
+                                      <Button
+                                        onClick={() =>
+                                          handleIsActiveClick(prod.id, false)
+                                        }
+                                      >
+                                        ❌
+                                      </Button>
+                                    )}
+                                    <Button
+                                      onClick={() => handleEdit(prod.id)}
+                                      ml={2}
+                                    >
+                                      ✏
+                                    </Button>
+                                    <Button
+                                      onClick={() => handleDelete(prod.id)}
+                                      ml={2}
+                                    >
+                                      🗑
+                                    </Button>
+                                  </Flex>
+                                </Flex>
+                                <Divider m="1.5rem 0" />
+                              </>
+                            )
+                          })
+                          .reverse()}
+                      </Flex>
+                    ) : (
+                      <Flex>{t("AdminTemplate.noItems")}</Flex>
+                    )}
+                  </Flex>
+                </TabPanel>
+                <TabPanel w="100%">
+                  <Flex
+                    direction="column"
+                    align="center"
+                    justify="flex-start"
+                    w="100%"
+                    p={10}
+                  >
+                    {loadingProductsDb ? (
+                      <SkItemComplete />
+                    ) : purchases && purchases.length > 0 ? (
+                      <Flex
+                        direction="column"
+                        align="flex-start"
+                        justify="flex-start"
+                        w="100%"
+                      >
+                        {purchases
+                          .map((prod, index) => {
+                            return (
+                              <>
+                                <Flex
+                                  key={index}
+                                  w="100%"
+                                  justify="space-between"
+                                  align="center"
                                 >
-                                  ❌
-                                </Button>
-                              )}
-                              <Button
-                                onClick={() => handleEdit(prod.id)}
-                                ml={2}
-                              >
-                                ✏
-                              </Button>
-                              <Button
-                                onClick={() => handleDelete(prod.id)}
-                                ml={2}
-                              >
-                                🗑
-                              </Button>
-                            </Flex>
-                          </Flex>
-                          <Divider m="1.5rem 0" />
-                        </>
-                      )
-                    })
-                    .reverse()}
-                </Flex>
-              ) : (
-                <Flex>{t("AdminTemplate.noItems")}</Flex>
-              )}
-            </Flex>
+                                  <PurchaseComplete item={prod} />
+                                </Flex>
+                                <Divider m="1.5rem 0" />
+                              </>
+                            )
+                          })
+                          .reverse()}
+                      </Flex>
+                    ) : (
+                      <Flex>{t("AdminTemplate.noItems")}</Flex>
+                    )}
+                  </Flex>
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
           </Card>
         </Flex>
       </Center>

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Flex, Image, Text } from "@chakra-ui/react"
+import { Box, Flex, Image, Tag, Text } from "@chakra-ui/react"
 // components
 import CustomGender from "components/_atoms/CustomGender"
 import CustomColorsBoxList from "components/_molecules/CustomColorsBoxList"
@@ -45,10 +45,25 @@ const ItemComplete = ({ item }) => {
             justify="flex-start"
             mr="12px"
           >
-            <Text fontSize="1.25rem" fontWeight="bold">
-              {item.isActive ? "🟢" : "🔴"}
-              {item.title}
-            </Text>
+            <Flex align="center">
+              <Text fontSize="1.25rem" fontWeight="bold">
+                {item.title}
+              </Text>
+              {item.isActive ? (
+                <Tag bg="green.500" ml={2}>
+                  {t("ItemComplete.active")}
+                </Tag>
+              ) : (
+                <Tag bg="red.500" ml={2}>
+                  {t("ItemComplete.inactive")}
+                </Tag>
+              )}
+              {item.stock <= 0 && (
+                <Tag bg="tomato" ml={2}>
+                  {t("ItemComplete.noStock")}
+                </Tag>
+              )}
+            </Flex>
             <Text>{item.description}</Text>
             <Text>
               ${item.price} | Stock: {item.stock}

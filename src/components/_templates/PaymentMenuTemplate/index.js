@@ -86,24 +86,26 @@ const PaymentMenuTemplate = () => {
         isOpen={isOpen}
         withFooter
         withCloseBtn={false}
+        size="xl"
         color={purchaseStatus ? "green.400" : "red.400"}
         footer={
           purchaseStatus ? (
             <Flex align="center">
+              {/* <Text>{t("PaymentMenu.cuestion")}</Text> */}
               <ButtonLink
                 to={ROUTES.PURCHASES}
                 ml={4}
                 onClick={() => onClose()}
               >
-                Mis Compras
+                {t("PaymentMenu.goToPurchases")}
               </ButtonLink>
               <ButtonLink to={ROUTES.HOME} ml={4} onClick={() => onClose()}>
-                Seguir comprando
+                {t("PaymentMenu.goToHome")}
               </ButtonLink>
             </Flex>
           ) : (
             <Button ml={4} onClick={() => onClose()}>
-              Volver a intentar
+              {t("PaymentMenu.tryAgain")}
             </Button>
           )
         }
@@ -140,18 +142,24 @@ const PaymentMenuTemplate = () => {
           <TotalCart withDiscount />
         </Flex>
 
-        <Flex
-          justify="flex-start"
-          align="flex-start"
-          direction="column"
-          bgColor={backgroundColorItems}
-          p={4}
-          borderRadius="5px"
-          w="100%"
-          mt={10}
-        >
-          <ItemProductList data={items} asComponent={Box} withDelete={false} />
-        </Flex>
+        {items.length && (
+          <Flex
+            justify="flex-start"
+            align="flex-start"
+            direction="column"
+            bgColor={backgroundColorItems}
+            p={4}
+            borderRadius="5px"
+            w="100%"
+            mt={10}
+          >
+            <ItemProductList
+              data={items}
+              asComponent={Box}
+              withDelete={false}
+            />
+          </Flex>
+        )}
 
         <Flex
           direction="column"

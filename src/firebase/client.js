@@ -264,7 +264,10 @@ export const addPurchase = ({
 // GET ALL PURCHASES
 export const fetchAllPurchases = async () => {
   try {
-    const doc = await db.collection("purchases").get()
+    const doc = await db
+      .collection("purchases")
+      .orderBy("createdAt", "asc")
+      .get()
     return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
   } catch (error) {
     console.log("error", error)
@@ -277,6 +280,7 @@ export const fetchAllPurchasesByUser = async (email) => {
     const doc = await db
       .collection("purchases")
       .where("email", "==", email)
+      .orderBy("createdAt", "asc")
       .get()
     return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
   } catch (error) {

@@ -142,7 +142,11 @@
     "pay": "Pagar",
     "confirmForm": "Confirme el formulario para habilitar el pago",
     "success": "Compra exitosa",
-    "error": "Ups! hay un error al realizar tu compra"
+    "error": "Ups! hay un error al realizar tu compra",
+    "cuestion": "Qué es lo que quieres hacer?",
+    "goToPurchases": "Ir a mis compras",
+    "goToHome": "Continuar comprando",
+    "tryAgain": "Volver a intentar"
   },
   "PaymentForm": {
     "enterEmail": "Correo",
@@ -229,12 +233,16 @@
     "delete": "Elimina el producto de la Base de Datos",
     "edit": "Editar el producto",
     "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su acceso está abierto.",
-    "purchases": "Compras realizadas",
+    "purchasesMade": "Compras realizadas",
     "products": "Productos",
     "jackets": "Camperas",
     "shirts": "Remeras",
     "shoes": "Zapatillas",
-    "accesories": "Accesorios"
+    "accesories": "Accesorios",
+    "actives": "Productos activos",
+    "inactives": "Productos inactivos",
+    "noStock": "Sin stock",
+    "purchases": "Compras"
   },
   "BannerLinks": {
     "jackets": "Camperas",
@@ -275,7 +283,14 @@
     "sizes": "Talle",
     "colors": "Colores",
     "gender": "Género",
-    "deleteItem": "Eliminar producto"
+    "deleteItem": "Eliminar producto",
+    "active": "activo",
+    "inactive": "inactivo",
+    "noStock": "sin stock"
+  },
+  "PurchaseComplete": {
+    "bought": "Compra",
+    "products": "productos"
   }
 }
 

@@ -142,7 +142,11 @@
     "pay": "Pay",
     "confirmForm": "Confirm the form to enable payment",
     "success": "Successful purchase",
-    "error": "Ups! there is an error when making your purchase"
+    "error": "Ups! there is an error when making your purchase",
+    "cuestion": "What do you want to do?",
+    "goToPurchases": "go to my Purchases",
+    "goToHome": "Continue buying",
+    "tryAgain": "Try again"
   },
   "PaymentForm": {
     "enterEmail": "Email",
@@ -229,12 +233,16 @@
     "delete": "Remove the product from the database",
     "edit": "Edit the product",
     "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open.",
-    "purchases": "Purchases made",
+    "purchasesMade": "Purchases made",
     "products": "Products",
     "jackets": "Jackets",
     "shirts": "Shirts",
     "shoes": "Shoes",
-    "accesories": "Accesories"
+    "accesories": "Accesories",
+    "actives": "Active products",
+    "inactives": "Inactive Products",
+    "noStock": "Out of stock",
+    "purchases": "Purchases"
   },
   "BannerLinks": {
     "jackets": "Jackets",
@@ -275,6 +283,13 @@
     "sizes": "Sizes",
     "colors": "Colors",
     "gender": "Gender",
-    "deleteItem": "Delete product"
+    "deleteItem": "Delete product",
+    "active": "active",
+    "inactive": "inactive",
+    "noStock": "out of stock"
+  },
+  "PurchaseComplete": {
+    "bought": "Purchase",
+    "products": "products"
   }
 }

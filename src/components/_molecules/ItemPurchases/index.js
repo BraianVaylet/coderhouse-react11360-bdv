@@ -24,7 +24,7 @@ import useDateTimeFormat from "hooks/useDateTimeFormat"
 import ItemProductList from "components/_organisms/ItemProductList"
 
 /**
- * ItemNotification Component
+ * ItemPurchases Component
  * @component
  * @author Braian D. Vaylet
  * @description Componente de item de las notificaciones

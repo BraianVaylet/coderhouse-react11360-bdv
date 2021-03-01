@@ -47,7 +47,11 @@ const CartWidgetBtn = () => {
    */
   const handleIsOpen = (value = !isOpen) => setIsOpen(value)
 
-  return (
+  return cartItems.length > 6 ? (
+    <ButtonLink to={ROUTES.CART}>
+      <Icon as={MdShoppingCart} boxSize="1.5rem" /> ({cartCount})
+    </ButtonLink>
+  ) : (
     <CustomMenu
       onClick={handleIsOpen}
       btnIcon={<Icon as={MdShoppingCart} boxSize="1.5rem" />}
