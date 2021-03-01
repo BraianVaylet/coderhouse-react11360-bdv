@@ -16,7 +16,7 @@ import { CartContext } from "context"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 // utils
-import { handleItemCount } from "utils"
+import { handleMapArrayProducts } from "utils"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
@@ -39,7 +39,7 @@ const CartTemplate = () => {
   const { cartItems, deleteItemsFromCart } = useContext(CartContext)
   const [items, setItems] = useState([])
 
-  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
+  useEffect(() => setItems(handleMapArrayProducts(cartItems)), [cartItems])
 
   return (
     <Flex

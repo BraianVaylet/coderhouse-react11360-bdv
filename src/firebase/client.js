@@ -232,6 +232,19 @@ export const addPurchase = ({
   createdAt = firebase.firestore.Timestamp.fromDate(new Date()),
   status = "init",
 }) => {
+  products.forEach(async (product) => {
+    const productDb = await fetchProductsByID(product.id)
+    if (productDb.stock > 0 && productDb.stock >= product.count) {
+      // actualizo stock
+      await db
+        .collection("products")
+        .doc(product.id)
+        .update({ stock: productDb.stock - product.count })
+    } else {
+      return new Error("No hay Stock")
+    }
+  })
+  // creo una compra
   return db.collection("purchases").add({
     email,
     fullname,

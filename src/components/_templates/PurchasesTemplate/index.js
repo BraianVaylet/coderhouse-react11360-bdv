@@ -25,14 +25,20 @@ const PurchasesTemplate = () => {
   const [t] = useTranslation("global")
   const user = useUser()
   const [data, setData] = useState([])
+  const [loadingData, setLoadingData] = useState(false)
 
   useEffect(() => {
+    setLoadingData(true)
     user &&
       fetchAllPurchasesByUser(user.email)
         .then((value) => {
           setData(value)
+          setLoadingData(false)
         })
-        .catch((error) => console.log("error", error))
+        .catch((error) => {
+          console.log("error", error)
+          setLoadingData(false)
+        })
   }, [user])
 
   /**
@@ -86,7 +92,7 @@ const PurchasesTemplate = () => {
         }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
-        <PurchasesList data={data} />
+        <PurchasesList data={data} loading={loadingData} />
       </Card>
     </Flex>
   )

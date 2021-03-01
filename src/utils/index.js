@@ -15,13 +15,13 @@ export const setNavigatorLanguage = () => {
 }
 
 /**
- * handleItemCount
+ * handleMapArrayProducts
  * @function
  * @description cuento cuantos elemntos como item hay en el carrito
  * @param {array}
  * @returns {array}
  */
-export const handleItemCount = (cartItems) => {
+export const handleMapArrayProducts = (cartItems) => {
   // obtengo contadores de elementos repetidos
   const counters = cartItems.reduce((acc, item) => {
     acc[item.id] = ++acc[item.id] || 1

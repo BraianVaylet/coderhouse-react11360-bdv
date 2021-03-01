@@ -140,7 +140,9 @@
     "shipping": "Shipping",
     "free": "Free",
     "pay": "Pay",
-    "confirmForm": "Confirm the form to enable payment"
+    "confirmForm": "Confirm the form to enable payment",
+    "success": "Successful purchase",
+    "error": "Ups! there is an error when making your purchase"
   },
   "PaymentForm": {
     "enterEmail": "Email",

@@ -27,10 +27,11 @@ const CustomModal = ({
   withFooter,
   withHeader,
   withCloseBtn,
+  color,
 }) => (
   <Modal isOpen={isOpen} onClose={onClose} size={size}>
     <ModalOverlay />
-    <ModalContent>
+    <ModalContent bgColor={color}>
       {withHeader && <ModalHeader>{header}</ModalHeader>}
       {withCloseBtn && <ModalCloseButton />}
       <ModalBody>{children}</ModalBody>
@@ -56,6 +57,7 @@ CustomModal.propTypes = {
   withFooter: PropTypes.bool,
   withHeader: PropTypes.bool,
   withCloseBtn: PropTypes.bool,
+  color: PropTypes.string,
 }
 
 export default CustomModal

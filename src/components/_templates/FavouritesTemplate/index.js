@@ -42,13 +42,15 @@ const FavouritesTemplate = () => {
         backTo={ROUTES.HOME}
         withRightContent
         rightContent={
-          <ButtonTooltip
-            tooltipLabel={t("FavouritesBtn.clean")}
-            size="lg"
-            onClick={cleanFavourites}
-          >
-            🗑
-          </ButtonTooltip>
+          count > 0 && (
+            <ButtonTooltip
+              tooltipLabel={t("FavouritesBtn.clean")}
+              size="lg"
+              onClick={cleanFavourites}
+            >
+              🗑
+            </ButtonTooltip>
+          )
         }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>

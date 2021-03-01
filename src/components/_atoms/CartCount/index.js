@@ -17,14 +17,14 @@ const CartCount = ({ item }) => {
   const { cartItems } = useContext(CartContext)
   const [cartCount, setCartCount] = useState(0)
 
-  useEffect(() => handleItemCount(), [cartItems])
+  useEffect(() => handleMapArrayProducts(), [cartItems])
 
   /**
-   * handleItemCount
+   * handleMapArrayProducts
    * @function
    * @description cuento cuantos elemntos como item hay en el carrito
    */
-  const handleItemCount = () => {
+  const handleMapArrayProducts = () => {
     const counts = {}
     const idArr = cartItems.map((item) => item.id)
     for (let i = 0; i < idArr.length; i++) {

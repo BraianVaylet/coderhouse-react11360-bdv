@@ -16,7 +16,7 @@ import { CartContext } from "context"
 // routes
 import { ROUTES } from "routes"
 // utils
-import { handleItemCount } from "utils"
+import { handleMapArrayProducts } from "utils"
 // components
 import CustomMenu from "components/_atoms/CustomMenu"
 import TotalCart from "components/_molecules/TotalCart"
@@ -38,7 +38,7 @@ const CartWidgetBtn = () => {
 
   const cartCount = cartItems.length
 
-  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
+  useEffect(() => setItems(handleMapArrayProducts(cartItems)), [cartItems])
 
   /**
    * handleIsOpen

@@ -8,7 +8,11 @@ import { CartContext, CheckoutContext } from "context"
 // hooks
 import useUser from "hooks/useUser"
 // utils
-import { handleDiscuount, handleTotalPrice } from "utils"
+import {
+  handleDiscuount,
+  handleTotalPrice,
+  handleMapArrayProducts,
+} from "utils"
 
 /**
  * PaymentForm Component
@@ -64,7 +68,7 @@ const PaymentForm = () => {
         address: streetNameValue,
         addressNum: streetNumberValue,
         addressInfo: deptoValue || "",
-        products: cartItems,
+        products: handleMapArrayProducts(cartItems),
         total: handleDiscuount(handleTotalPrice(cartItems))[0],
       })
     } else {

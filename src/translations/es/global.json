@@ -140,7 +140,9 @@
     "shipping": "Envío",
     "free": "Gratis",
     "pay": "Pagar",
-    "confirmForm": "Confirme el formulario para habilitar el pago"
+    "confirmForm": "Confirme el formulario para habilitar el pago",
+    "success": "Compra exitosa",
+    "error": "Ups! hay un error al realizar tu compra"
   },
   "PaymentForm": {
     "enterEmail": "Correo",

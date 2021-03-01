@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // components
 import ItemPurchases from "components/_molecules/ItemPurchases"
+import SkItemPurchases from "components/_molecules/ItemPurchases/SkItemPurchases"
 
 /**
  * PurchasesList Component
@@ -12,7 +13,7 @@ import ItemPurchases from "components/_molecules/ItemPurchases"
  * @author Braian D. Vaylet
  * @description componente listado de todas las compras
  */
-const PurchasesList = ({ data }) => {
+const PurchasesList = ({ data, loading }) => {
   const [t] = useTranslation("global")
   const count = data && data.length
 
@@ -24,7 +25,9 @@ const PurchasesList = ({ data }) => {
       w="100%"
       p={10}
     >
-      {count > 0 ? (
+      {loading ? (
+        <SkItemPurchases />
+      ) : count > 0 ? (
         <Flex
           direction="column"
           align="flex-start"
@@ -55,6 +58,7 @@ const PurchasesList = ({ data }) => {
 
 PurchasesList.propTypes = {
   data: PropTypes.number,
+  loading: PropTypes.bool,
 }
 
 export default PurchasesList
