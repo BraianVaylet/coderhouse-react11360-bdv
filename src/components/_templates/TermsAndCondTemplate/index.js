@@ -12,7 +12,7 @@ import TitleAndText from "components/_molecules/TitleAndText"
  */
 const TermsAndCondTemplate = () => {
   return (
-    <Flex direction="column" justify="flex-start" align="center" p={20}>
+    <Flex direction="column" justify="flex-start" align="flex'start" p={20}>
       <Text fontSize="2rem" fontWeight="900">
         Términos y Condiciones de Uso
       </Text>

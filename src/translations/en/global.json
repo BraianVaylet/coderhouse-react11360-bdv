@@ -304,6 +304,12 @@
   },
   "MessageComplete": {
     "messageFrom": "Message from",
-    "replyEmail": "Reply email"
+    "replyEmail": "Reply email",
+    "work": "Work",
+    "help": "Help"
+  },
+  "HelpForm": {
+    "comment": "Leave us your comment"
   }
+
 }

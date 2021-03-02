@@ -1,7 +1,13 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Button, Flex, useDisclosure, useMediaQuery } from "@chakra-ui/react"
+import {
+  Button,
+  Flex,
+  Text,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"
 import { MY_BREAKPOINTS } from "styles/theme"
@@ -16,6 +22,7 @@ import ItemNavLink from "components/_atoms/ItemNavLink"
 import ExternalLink from "components/_atoms/ExternalLink"
 import CustomModal from "components/_atoms/CustomModal"
 import WorkWithUsForm from "../WorkWithUsForm"
+import HelpForm from "../HelpForm"
 
 /**
  * Footer Component
@@ -25,7 +32,8 @@ import WorkWithUsForm from "../WorkWithUsForm"
  */
 const Footer = () => {
   const [t] = useTranslation("global")
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const modalWorkWithUs = useDisclosure()
+  const modalHelp = useDisclosure()
   const backgroundColor = useSetColorTheme("gray.900", "white")
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
@@ -54,8 +62,7 @@ const Footer = () => {
         >
           <Button
             variant="ghost"
-            onClick={() => onOpen()}
-            to={ROUTES.HOME}
+            onClick={modalWorkWithUs.onOpen}
             m={setValueResponsiveMax600("1rem 0", "0 1rem")}
           >
             {t("Footer.workWithUs")}
@@ -68,12 +75,13 @@ const Footer = () => {
             {t("Footer.termsAndConditions")}
           </ItemNavLink>
 
-          <ItemNavLink
-            to={ROUTES.HELP}
+          <Button
+            variant="ghost"
+            onClick={modalHelp.onOpen}
             m={setValueResponsiveMax600("1rem 0", "0 1rem")}
           >
             {t("Footer.help")}
-          </ItemNavLink>
+          </Button>
 
           <ExternalLink
             href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
@@ -84,8 +92,23 @@ const Footer = () => {
         </Flex>
       </Flex>
       <SubFooter />
-      <CustomModal isOpen={isOpen} onClose={onClose}>
-        <WorkWithUsForm onClose={onClose} />
+
+      <CustomModal
+        isOpen={modalWorkWithUs.isOpen}
+        onClose={modalWorkWithUs.onClose}
+        withHeader
+        header={<Text>{t("Footer.workWithUs")}</Text>}
+      >
+        <WorkWithUsForm onClose={modalWorkWithUs.onClose} />
+      </CustomModal>
+
+      <CustomModal
+        isOpen={modalHelp.isOpen}
+        onClose={modalHelp.onClose}
+        withHeader
+        header={<Text>{t("Footer.help")}</Text>}
+      >
+        <HelpForm onClose={modalHelp.onClose} />
       </CustomModal>
     </Flex>
   )
