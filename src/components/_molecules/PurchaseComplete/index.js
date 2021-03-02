@@ -91,6 +91,10 @@ const PurchaseComplete = ({ item }) => {
             mr="12px"
           />
           <Flex direction="column" align="flex-start" justify="center">
+            <Flex align="center">
+              <Text mr={2}>{t("ItemNotification.order")}:</Text>{" "}
+              <Text color="brand.secundary">{item.id}</Text>
+            </Flex>
             <Text>
               <time title={dateFormated}>
                 <b>{dateFormated}</b>
@@ -141,6 +145,7 @@ const PurchaseComplete = ({ item }) => {
 
 PurchaseComplete.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     fullname: PropTypes.string.isRequired,
     dni: PropTypes.string.isRequired,

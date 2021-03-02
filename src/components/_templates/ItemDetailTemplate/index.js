@@ -20,6 +20,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import { ROUTES } from "routes"
 // utils
 import { PropTypesProduct } from "utils/propTypes"
+import Card from "components/_atoms/Card"
 
 /**
  * ItemDetailTemplate Page
@@ -48,12 +49,10 @@ const ItemDetailTemplate = ({ item }) => {
         mb={10}
       >
         {/* image */}
-        <Flex
+        <Card
           w={setValueResponsiveMin1280("72.5%", "100%")}
           minH={setValueResponsiveMin1280("80vh", "100%")}
           h={setValueResponsiveMin1280("80vh", "100%")}
-          bgColor={backgroundColor}
-          boxShadow={CustomShadow}
         >
           {item !== null ? (
             <ItemDetailImgBox
@@ -64,13 +63,13 @@ const ItemDetailTemplate = ({ item }) => {
           ) : (
             <SkeletonItemDetailImgBox />
           )}
-        </Flex>
+        </Card>
 
         {/* right :: info item */}
-        <Flex
+        <Card
           w={setValueResponsiveMin1280("25%", "100%")}
           minH={setValueResponsiveMin1280("80vh", "100%")}
-          h={setValueResponsiveMin1280("80vh", "100%")}
+          h={setValueResponsiveMin1280("80vh", "80vh")}
           p="20px"
           bgColor={backgroundColor}
           boxShadow={CustomShadow}
@@ -87,19 +86,17 @@ const ItemDetailTemplate = ({ item }) => {
           ) : (
             <SkeletonItemDetailAction />
           )}
-        </Flex>
+        </Card>
       </Flex>
 
       {/* bottom :: info item */}
-      <Flex
+      <Card
         direction="column"
         justify="flex-start"
         center="flex-start"
         w="100%"
         minH="20vh"
         p="20px"
-        bgColor={backgroundColor}
-        boxShadow={CustomShadow}
       >
         <Flex direction="column" justify="flex-start" center="flex-start">
           {item !== null ? (
@@ -127,7 +124,7 @@ const ItemDetailTemplate = ({ item }) => {
             <SkeletonItemDetailContent />
           )}
         </Flex>
-      </Flex>
+      </Card>
     </Flex>
   )
 }

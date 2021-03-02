@@ -188,7 +188,8 @@
   },
   "ItemNotification": {
     "bought": "You bought", 
-    "products": "products"
+    "products": "products",
+    "order": "#Order"
   },
   "NotificationsBtn": {
     "title": "Notifications",
@@ -226,6 +227,7 @@
     "noItems": "There are no products to show",
     "deleteSuccess": "Product removed",
     "deleteError": "Error deleting",
+    "deleteMessageSuccess": "Message removed",   
     "isActiveSuccess": "isActive changes to",
     "isActiveError": "Failed to change isActive",
     "activeTrue": "Make the product active",
@@ -242,7 +244,8 @@
     "actives": "Active products",
     "inactives": "Inactive Products",
     "noStock": "Out of stock",
-    "purchases": "Purchases"
+    "purchases": "Purchases",
+    "messages": "Messages"
   },
   "BannerLinks": {
     "jackets": "Jackets",
@@ -291,5 +294,16 @@
   "PurchaseComplete": {
     "bought": "Purchase",
     "products": "products"
+  },
+  "WorkWithUs": {
+    "sendOk": "Message sent succesfully",
+    "canNotSend": "An error occurred while trying to send the message. Retry.",
+    "name": "Name",
+    "phone": "Phone",
+    "send": "Send"
+  },
+  "MessageComplete": {
+    "messageFrom": "Message from",
+    "replyEmail": "Reply email"
   }
 }

@@ -44,6 +44,7 @@ export const NotificationContextProvider = ({ children }) => {
     <NotificationContext.Provider
       value={{
         notification,
+        setNotification,
         addNotification,
         deleteNotification,
         cleanNotification,

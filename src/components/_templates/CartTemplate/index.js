@@ -47,7 +47,7 @@ const CartTemplate = () => {
       mt={8}
       direction="column"
       align="center"
-      justify="center"
+      justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
       <SubHeader
@@ -70,12 +70,11 @@ const CartTemplate = () => {
         }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
-        <Tabs w="100%">
+        <Tabs w="100%" variant="enclosed">
           <TabList>
             <Tab>
               {t("Cart.cart")} ({cartItems.length})
             </Tab>
-            <Tab>{t("Cart.saves")}</Tab>
           </TabList>
 
           <TabPanels>
@@ -90,9 +89,6 @@ const CartTemplate = () => {
                   design={2}
                 />
               </CartItemList>
-            </TabPanel>
-            <TabPanel>
-              <p>Proximamente!</p>
             </TabPanel>
           </TabPanels>
         </Tabs>

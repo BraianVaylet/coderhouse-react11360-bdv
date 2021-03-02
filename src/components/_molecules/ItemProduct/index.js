@@ -94,7 +94,12 @@ const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
         align={setValueResponsiveMax600("flex-start ", "center")}
         wrap="nowrap"
       >
-        <Flex direction="row" justify="flex-start" align="center" w="40%">
+        <Flex
+          direction="row"
+          justify="flex-start"
+          align="center"
+          w={setValueResponsiveMax600("100%", "40%")}
+        >
           <Image
             boxSize={setValueResponsiveMax600("2.5rem", "5rem")}
             borderRadius="full"
@@ -123,15 +128,6 @@ const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
                 </ButtonTooltip>
               )}
 
-              <ButtonTooltip
-                mr={4}
-                size="xs"
-                onClick={onSave}
-                tooltipLabel={t("ItemProduct.saveText")}
-              >
-                {t("ItemProduct.save")}
-              </ButtonTooltip>
-
               <ButtonLink
                 to={ROUTES.PRODUCTS + "/" + item.category}
                 mr={4}
@@ -143,10 +139,10 @@ const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
           </Flex>
         </Flex>
         <Flex
-          direction={"row"}
+          direction={setValueResponsiveMax600("column", "row")}
           align={"center"}
           justify="space-between"
-          w="60%"
+          w={setValueResponsiveMax600("100%", "60%")}
           mt={setValueResponsiveMax600("2rem", "0")}
         >
           <Box mr={8} w="30%">

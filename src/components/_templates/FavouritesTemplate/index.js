@@ -29,11 +29,12 @@ const FavouritesTemplate = () => {
 
   return (
     <Flex
+      h="100%"
       p={4}
       mt={8}
       direction="column"
       align="center"
-      justify="center"
+      justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
       <SubHeader
@@ -76,6 +77,7 @@ const FavouritesTemplate = () => {
                         <ItemProduct
                           design={1}
                           item={fav}
+                          withDelete
                           onDelete={deleteItemFromFavourites}
                         />
                       </Box>

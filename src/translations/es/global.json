@@ -188,7 +188,8 @@
   },
   "ItemNotification": {
     "bought": "Compraste", 
-    "products": "productos"
+    "products": "productos",
+    "order": "#Orden"
   },
   "NotificationsBtn": {
     "title": "Notificaciones",
@@ -225,6 +226,7 @@
     "newProduct": "Nuevo Producto",
     "noItems": "No hay productos que mostrar",
     "deleteSuccess": "Producto eliminado",
+    "deleteMessageSuccess": "Mensaje eliminado",
     "deleteError": "Error al tratar de eliminar el producto",
     "isActiveSuccess": "isActive cambia a",
     "isActiveError": "Error al cambia isActive",
@@ -242,7 +244,8 @@
     "actives": "Productos activos",
     "inactives": "Productos inactivos",
     "noStock": "Sin stock",
-    "purchases": "Compras"
+    "purchases": "Compras",
+    "messages": "Mensajes"
   },
   "BannerLinks": {
     "jackets": "Camperas",
@@ -291,6 +294,17 @@
   "PurchaseComplete": {
     "bought": "Compra",
     "products": "productos"
+  },
+  "WorkWithUs": {
+    "sendOk": "Mensaje enviado con éxito",
+    "canNotSend": "Se produjo un error al intentar enviar el mensaje. Vuelve a intentarlo.",
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "send": "Enviar"
+  },
+  "MessageComplete": {
+    "messageFrom": "Mensaje de",
+    "replyEmail": "Responder email"
   }
 }
 

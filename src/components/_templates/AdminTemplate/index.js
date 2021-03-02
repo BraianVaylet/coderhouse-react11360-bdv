@@ -25,13 +25,15 @@ import CustomCollapse from "components/_atoms/CustomCollapse"
 import CustomModal from "components/_atoms/CustomModal"
 import BtnInfoAdmin from "components/_atoms/BtnInfoAdmin"
 import ButtonLink from "components/_atoms/ButtonLink"
+import StatisticsBox from "components/_atoms/StatisticsBox"
 import CustomPopover from "components/_atoms/CustomPopover"
 import ItemComplete from "components/_molecules/ItemComplete"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
 import SkItemComplete from "components/_molecules/ItemComplete/SkItemComplete"
+import PurchaseComplete from "components/_molecules/PurchaseComplete"
+import MessageComplete from "components/_molecules/MessageComplete"
 import NewProductForm from "components/_organisms/NewProductForm"
-import StatisticsBox from "components/_atoms/StatisticsBox"
 // context
 import { ProductsContext } from "context"
 // firebase
@@ -41,10 +43,10 @@ import {
   deleteProductsByID,
   fetchProductsByID,
   fetchAllPurchases,
+  fetchAllMessages,
 } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
-import PurchaseComplete from "components/_molecules/PurchaseComplete"
 
 /**
  * AdminTemplate Component
@@ -66,14 +68,21 @@ const AdminTemplate = () => {
   const [edit, setEdit] = useState(false)
   const [productSelected, setProductSelected] = useState(null)
   const [purchases, setPurchases] = useState(null)
+  const [messages, setMessages] = useState(null)
 
   useEffect(async () => !productsDb && getProductsFromDb(), [productsDb])
   useEffect(() => {
     slide.onOpen()
+
     fetchAllPurchases()
       .then((value) => setPurchases(value))
       .catch((error) => console.log("error", error))
   }, [])
+  useEffect(() => {
+    fetchAllMessages()
+      .then((value) => setMessages(value))
+      .catch((error) => console.log("error", error))
+  }, [messages])
 
   /**
    * getProductsFromDb
@@ -141,6 +150,36 @@ const AdminTemplate = () => {
           isClosable: true,
         })
         getProductsFromDb()
+      })
+      .catch(() => {
+        toast({
+          title: t("AdminTemplate.deleteError"),
+          description: "",
+          status: "error",
+          position: "bottom",
+          duration: 5000,
+          isClosable: true,
+        })
+      })
+  }
+
+  /**
+   * handleDelete
+   * @function
+   * @param {string} id
+   * @description Elimina el registro de la Base de datos ⚠
+   */
+  const handleDeleteMessage = async (id) => {
+    await deleteProductsByID(id)
+      .then(() => {
+        toast({
+          title: t("AdminTemplate.deleteMessageSuccess"),
+          description: "",
+          status: "success",
+          position: "bottom",
+          duration: 5000,
+          isClosable: true,
+        })
       })
       .catch(() => {
         toast({
@@ -337,6 +376,11 @@ const AdminTemplate = () => {
                   text={t("AdminTemplate.accesories")}
                   color={COLORS.accesories}
                 />
+                <StatisticsBox
+                  value={messages && messages.length}
+                  text={t("AdminTemplate.messages")}
+                  color="purple.300"
+                />
               </Flex>
             )}
           </Card>
@@ -346,6 +390,7 @@ const AdminTemplate = () => {
               <TabList w="100%">
                 <Tab>{t("AdminTemplate.products")}</Tab>
                 <Tab>{t("AdminTemplate.purchases")}</Tab>
+                <Tab>{t("AdminTemplate.messages")}</Tab>
               </TabList>
 
               <TabPanels w="100%">
@@ -448,6 +493,52 @@ const AdminTemplate = () => {
                                   align="center"
                                 >
                                   <PurchaseComplete item={prod} />
+                                </Flex>
+                                <Divider m="1.5rem 0" />
+                              </>
+                            )
+                          })
+                          .reverse()}
+                      </Flex>
+                    ) : (
+                      <Flex>{t("AdminTemplate.noItems")}</Flex>
+                    )}
+                  </Flex>
+                </TabPanel>
+                <TabPanel w="100%">
+                  <Flex
+                    direction="column"
+                    align="center"
+                    justify="flex-start"
+                    w="100%"
+                    p={10}
+                  >
+                    {loadingProductsDb ? (
+                      <SkItemComplete />
+                    ) : messages && messages.length > 0 ? (
+                      <Flex
+                        direction="column"
+                        align="flex-start"
+                        justify="flex-start"
+                        w="100%"
+                      >
+                        {messages
+                          .map((message, index) => {
+                            return (
+                              <>
+                                <Flex
+                                  key={index}
+                                  w="100%"
+                                  justify="space-between"
+                                  align="center"
+                                >
+                                  <MessageComplete
+                                    message={message}
+                                    withDelete
+                                    onDelete={() =>
+                                      handleDeleteMessage(message.id)
+                                    }
+                                  />
                                 </Flex>
                                 <Divider m="1.5rem 0" />
                               </>

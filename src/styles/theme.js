@@ -26,7 +26,7 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       "html, body": {
-        fontSize: "2vh",
+        fontSize: "1.5vh",
         color: props.colorMode === "dark" ? "white" : "gray.600",
         lineHeight: "tall",
         scrollBehavior: "smooth",

@@ -80,12 +80,12 @@ const PurchasesTemplate = () => {
         rightContent={
           <Flex align="center">
             <Text>
-              <b>{handleStatistics().totalPurchases}</b>{" "}
+              <b>{data.length && handleStatistics().totalPurchases}</b>{" "}
               {t("PurchasesTemplate.purchasesMade")}
             </Text>
             <Text m="0 1rem">|</Text>
             <Text>
-              <b>{handleStatistics().totalProducts}</b>{" "}
+              <b>{data.length && handleStatistics().totalProducts}</b>{" "}
               {t("PurchasesTemplate.productsPurchased")}
             </Text>
           </Flex>

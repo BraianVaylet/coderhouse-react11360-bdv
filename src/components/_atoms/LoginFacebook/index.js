@@ -28,7 +28,7 @@ const LoginFacebook = ({ ...props }) => {
   const handleClick = () =>
     loginWithFacebook()
       .then(() => {
-        user &&
+        if (user) {
           toast({
             title: `🙂 ${t("Authentication.welcome")}, ${user.username}`,
             description: "",
@@ -37,6 +37,7 @@ const LoginFacebook = ({ ...props }) => {
             duration: 5000,
             isClosable: true,
           })
+        }
       })
       .catch((error) => {
         console.log("error", error)

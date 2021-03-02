@@ -45,7 +45,12 @@ const ItemNotificaton = ({ item }) => {
 
   return (
     <Box minH="10vh">
-      <Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
+      <Flex
+        direction="row"
+        justify="flex-start"
+        align="flex-start"
+        wrap="nowrap"
+      >
         <Image
           boxSize="3rem"
           borderRadius="full"
@@ -64,12 +69,8 @@ const ItemNotificaton = ({ item }) => {
             </time>{" "}
             <Text ml={2}>| {handleItemTitle()}</Text>
           </Flex>
-          {item.count && (
-            <Badge ml="1" colorScheme="blue">
-              ${item.total}
-            </Badge>
-          )}
-          <Text fontSize=".75rem">
+          {item.count && <Badge colorScheme="blue">${item.total}</Badge>}
+          <Text fontSize=".75rem" mt={2}>
             <time title={dateFormated}>{timeago}</time>
           </Text>
         </Flex>
