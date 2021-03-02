@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 import { IoLogoLinkedin } from "react-icons/io5"
 // chakra-ui
-import { Button, Flex, Icon, Text } from "@chakra-ui/react"
-import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
+import { Button, Flex, Icon, Tag, Text } from "@chakra-ui/react"
+import { ChatIcon, EmailIcon, PhoneIcon } from "@chakra-ui/icons"
 // hooks
 import useTimeAgo from "hooks/useTimeAgo"
 import useDateTimeFormat from "hooks/useDateTimeFormat"
@@ -26,6 +26,16 @@ const MessageComplete = ({ message, onDelete, withDelete }) => {
     <Flex align="flex-start" justify="space-between" w="100%">
       <Flex direction="column" align="flex-start" justify="flex-start">
         <Text fontWeight="bold">
+          {message?.linkedin && (
+            <Tag bgColor="purple.500" mr={2}>
+              {t("MessageComplete.work")}
+            </Tag>
+          )}
+          {message?.comment && (
+            <Tag bgColor="yellow.500" mr={2}>
+              {t("MessageComplete.help")}
+            </Tag>
+          )}
           {dateFormat} ({timeago})
         </Text>
         <Text fontSize="1.5rem">
@@ -37,9 +47,16 @@ const MessageComplete = ({ message, onDelete, withDelete }) => {
         <Text>
           <PhoneIcon /> {message.phone}
         </Text>
-        <ExternalLink href={message.linkedin}>
-          <Icon as={IoLogoLinkedin} /> {message.linkedin}
-        </ExternalLink>
+        {message?.linkedin && (
+          <ExternalLink href={message.linkedin}>
+            <Icon as={IoLogoLinkedin} /> {message.linkedin}
+          </ExternalLink>
+        )}
+        {message?.comment && (
+          <Text>
+            <ChatIcon /> {message.comment}
+          </Text>
+        )}
       </Flex>
       <Flex>
         <Button as={ExternalLink} href={`mailto:${message.email}`}>
@@ -64,7 +81,8 @@ MessageComplete.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
-    linkedin: PropTypes.string.isRequired,
+    linkedin: PropTypes.string,
+    comment: PropTypes.string,
     createdAt: PropTypes.any.isRequired,
   }),
   withDelete: PropTypes.bool,

@@ -145,209 +145,215 @@ reactComponents['Help'] = Component39;
 import Component40 from '../src/components/_molecules/HelpBtn/index.js';
 reactComponents['HelpBtn'] = Component40;
 
-import Component41 from '../src/pages/Home/index.js';
-reactComponents['Home'] = Component41;
+import Component41 from '../src/components/_organisms/HelpForm/index.js';
+reactComponents['HelpForm'] = Component41;
 
-import Component42 from '../src/components/_atoms/HorizontalSeparator/index.js';
-reactComponents['HorizontalSeparator'] = Component42;
+import Component42 from '../src/pages/Home/index.js';
+reactComponents['Home'] = Component42;
 
-import Component43 from '../src/components/_atoms/IconButtonRotate/index.js';
-reactComponents['IconButtonRotate'] = Component43;
+import Component43 from '../src/components/_atoms/HorizontalSeparator/index.js';
+reactComponents['HorizontalSeparator'] = Component43;
 
-import Component44 from '../src/components/_atoms/ImageBox/index.js';
-reactComponents['ImageBox'] = Component44;
+import Component44 from '../src/components/_atoms/IconButtonRotate/index.js';
+reactComponents['IconButtonRotate'] = Component44;
 
-import Component45 from '../src/components/_molecules/Inputs/InputEmail.js';
-reactComponents['InputEmail'] = Component45;
+import Component45 from '../src/components/_atoms/ImageBox/index.js';
+reactComponents['ImageBox'] = Component45;
 
-import Component46 from '../src/components/_molecules/Inputs/InputPassword.js';
-reactComponents['InputPassword'] = Component46;
+import Component46 from '../src/components/_molecules/Inputs/InputEmail.js';
+reactComponents['InputEmail'] = Component46;
 
-import Component47 from '../src/components/_molecules/Inputs/InputTextNumber.js';
-reactComponents['InputTextNumber'] = Component47;
+import Component47 from '../src/components/_molecules/Inputs/InputPassword.js';
+reactComponents['InputPassword'] = Component47;
 
-import Component48 from '../src/components/_molecules/Item/index.js';
-reactComponents['Item'] = Component48;
+import Component48 from '../src/components/_molecules/Inputs/inputTextArea.js';
+reactComponents['InputTextArea'] = Component48;
 
-import Component49 from '../src/components/_molecules/ItemComplete/index.js';
-reactComponents['ItemComplete'] = Component49;
+import Component49 from '../src/components/_molecules/Inputs/InputTextNumber.js';
+reactComponents['InputTextNumber'] = Component49;
 
-import Component50 from '../src/components/_molecules/ItemCount/index.js';
-reactComponents['ItemCount'] = Component50;
+import Component50 from '../src/components/_molecules/Item/index.js';
+reactComponents['Item'] = Component50;
 
-import Component51 from '../src/pages/ItemDetail/index.js';
-reactComponents['ItemDetail'] = Component51;
+import Component51 from '../src/components/_molecules/ItemComplete/index.js';
+reactComponents['ItemComplete'] = Component51;
 
-import Component52 from '../src/components/_organisms/ItemDetail/ItemDetailAction.js';
-reactComponents['ItemDetailAction'] = Component52;
+import Component52 from '../src/components/_molecules/ItemCount/index.js';
+reactComponents['ItemCount'] = Component52;
 
-import Component53 from '../src/components/_organisms/ItemDetail/ItemDetailCharacteristics.js';
-reactComponents['ItemDetailCharacteristics'] = Component53;
+import Component53 from '../src/pages/ItemDetail/index.js';
+reactComponents['ItemDetail'] = Component53;
 
-import Component54 from '../src/components/_organisms/ItemDetail/ItemDetailDescription.js';
-reactComponents['ItemDetailDescription'] = Component54;
+import Component54 from '../src/components/_organisms/ItemDetail/ItemDetailAction.js';
+reactComponents['ItemDetailAction'] = Component54;
 
-import Component55 from '../src/components/_organisms/ItemDetail/ItemDetailImgBox.js';
-reactComponents['ItemDetailImgBox'] = Component55;
+import Component55 from '../src/components/_organisms/ItemDetail/ItemDetailCharacteristics.js';
+reactComponents['ItemDetailCharacteristics'] = Component55;
 
-import Component56 from '../src/components/_organisms/ItemDetail/ItemDetailQuestionsAndAnswers.js';
-reactComponents['ItemDetailQuestionsAndAnswers'] = Component56;
+import Component56 from '../src/components/_organisms/ItemDetail/ItemDetailDescription.js';
+reactComponents['ItemDetailDescription'] = Component56;
 
-import Component57 from '../src/components/_templates/ItemDetailTemplate/index.js';
-reactComponents['ItemDetailTemplate'] = Component57;
+import Component57 from '../src/components/_organisms/ItemDetail/ItemDetailImgBox.js';
+reactComponents['ItemDetailImgBox'] = Component57;
 
-import Component58 from '../src/components/_atoms/ItemNavLink/index.js';
-reactComponents['ItemNavLink'] = Component58;
+import Component58 from '../src/components/_organisms/ItemDetail/ItemDetailQuestionsAndAnswers.js';
+reactComponents['ItemDetailQuestionsAndAnswers'] = Component58;
 
-import Component59 from '../src/components/_organisms/ItemNotificationList/index.js';
-reactComponents['ItemNotificationList'] = Component59;
+import Component59 from '../src/components/_templates/ItemDetailTemplate/index.js';
+reactComponents['ItemDetailTemplate'] = Component59;
 
-import Component60 from '../src/components/_molecules/ItemNotification/index.js';
-reactComponents['ItemNotificaton'] = Component60;
+import Component60 from '../src/components/_atoms/ItemNavLink/index.js';
+reactComponents['ItemNavLink'] = Component60;
 
-import Component61 from '../src/components/_molecules/ItemProduct/index.js';
-reactComponents['ItemProduct'] = Component61;
+import Component61 from '../src/components/_organisms/ItemNotificationList/index.js';
+reactComponents['ItemNotificationList'] = Component61;
 
-import Component62 from '../src/components/_molecules/ItemCardList/index.js';
-reactComponents['ItemProductList'] = Component62;
+import Component62 from '../src/components/_molecules/ItemNotification/index.js';
+reactComponents['ItemNotificaton'] = Component62;
 
-import Component63 from '../src/components/_organisms/ItemProductList/index.js';
-reactComponents['ItemProductList'] = Component63;
+import Component63 from '../src/components/_molecules/ItemProduct/index.js';
+reactComponents['ItemProduct'] = Component63;
 
-import Component64 from '../src/components/_molecules/ItemPurchases/index.js';
-reactComponents['ItemPurchases'] = Component64;
+import Component64 from '../src/components/_molecules/ItemCardList/index.js';
+reactComponents['ItemProductList'] = Component64;
 
-import Component65 from '../src/containers/Layout/index.js';
-reactComponents['Layout'] = Component65;
+import Component65 from '../src/components/_organisms/ItemProductList/index.js';
+reactComponents['ItemProductList'] = Component65;
 
-import Component66 from '../src/components/_organisms/LoginAlert/index.js';
-reactComponents['LoginAlert'] = Component66;
+import Component66 from '../src/components/_molecules/ItemPurchases/index.js';
+reactComponents['ItemPurchases'] = Component66;
 
-import Component67 from '../src/components/_organisms/LoginBtn/index.js';
-reactComponents['LoginBtn'] = Component67;
+import Component67 from '../src/containers/Layout/index.js';
+reactComponents['Layout'] = Component67;
 
-import Component68 from '../src/components/_atoms/LoginFacebook/index.js';
-reactComponents['LoginFacebook'] = Component68;
+import Component68 from '../src/components/_organisms/LoginAlert/index.js';
+reactComponents['LoginAlert'] = Component68;
 
-import Component69 from '../src/components/_atoms/LoginGoogle/index.js';
-reactComponents['LoginGoogle'] = Component69;
+import Component69 from '../src/components/_organisms/LoginBtn/index.js';
+reactComponents['LoginBtn'] = Component69;
 
-import Component70 from '../src/components/_molecules/LogoOpc1/index.js';
-reactComponents['LogoOpc1'] = Component70;
+import Component70 from '../src/components/_atoms/LoginFacebook/index.js';
+reactComponents['LoginFacebook'] = Component70;
 
-import Component71 from '../src/components/_molecules/LogoOpc2/index.js';
-reactComponents['LogoOpc2'] = Component71;
+import Component71 from '../src/components/_atoms/LoginGoogle/index.js';
+reactComponents['LoginGoogle'] = Component71;
 
-import Component72 from '../src/components/_molecules/Logout/index.js';
-reactComponents['Logout'] = Component72;
+import Component72 from '../src/components/_molecules/LogoOpc1/index.js';
+reactComponents['LogoOpc1'] = Component72;
 
-import Component73 from '../src/components/_molecules/MessageComplete/index.js';
-reactComponents['MessageComplete'] = Component73;
+import Component73 from '../src/components/_molecules/LogoOpc2/index.js';
+reactComponents['LogoOpc2'] = Component73;
 
-import Component74 from '../src/components/_templates/NavBarTemplate/index.js';
-reactComponents['NavBarTemplate'] = Component74;
+import Component74 from '../src/components/_molecules/Logout/index.js';
+reactComponents['Logout'] = Component74;
 
-import Component75 from '../src/components/_organisms/NewProductForm/index.js';
-reactComponents['NewProductForm'] = Component75;
+import Component75 from '../src/components/_molecules/MessageComplete/index.js';
+reactComponents['MessageComplete'] = Component75;
 
-import Component76 from '../src/pages/NotFound/index.js';
-reactComponents['NotFound'] = Component76;
+import Component76 from '../src/components/_templates/NavBarTemplate/index.js';
+reactComponents['NavBarTemplate'] = Component76;
 
-import Component77 from '../src/components/_templates/NotFoundTemplate/index.js';
-reactComponents['NotFoundTemplate'] = Component77;
+import Component77 from '../src/components/_organisms/NewProductForm/index.js';
+reactComponents['NewProductForm'] = Component77;
 
-import Component78 from '../src/components/_organisms/NotificationList/index.js';
-reactComponents['NotificationList'] = Component78;
+import Component78 from '../src/pages/NotFound/index.js';
+reactComponents['NotFound'] = Component78;
 
-import Component79 from '../src/pages/Notifications/index.js';
-reactComponents['Notifications'] = Component79;
+import Component79 from '../src/components/_templates/NotFoundTemplate/index.js';
+reactComponents['NotFoundTemplate'] = Component79;
 
-import Component80 from '../src/components/_organisms/NotificationsBtn/index.js';
-reactComponents['NotificationsBtn'] = Component80;
+import Component80 from '../src/components/_organisms/NotificationList/index.js';
+reactComponents['NotificationList'] = Component80;
 
-import Component81 from '../src/components/_templates/NotificationsTemplate/index.js';
-reactComponents['NotificationsTemplate'] = Component81;
+import Component81 from '../src/pages/Notifications/index.js';
+reactComponents['Notifications'] = Component81;
 
-import Component82 from '../src/components/_organisms/PaymentForm/index.js';
-reactComponents['PaymentForm'] = Component82;
+import Component82 from '../src/components/_organisms/NotificationsBtn/index.js';
+reactComponents['NotificationsBtn'] = Component82;
 
-import Component83 from '../src/components/_templates/PaymentMenuTemplate/index.js';
-reactComponents['PaymentMenuTemplate'] = Component83;
+import Component83 from '../src/components/_templates/NotificationsTemplate/index.js';
+reactComponents['NotificationsTemplate'] = Component83;
 
-import Component84 from '../src/components/_organisms/PresentationLinks/index.js';
-reactComponents['PresentationLinks'] = Component84;
+import Component84 from '../src/components/_organisms/PaymentForm/index.js';
+reactComponents['PaymentForm'] = Component84;
 
-import Component85 from '../src/pages/Products/index.js';
-reactComponents['Products'] = Component85;
+import Component85 from '../src/components/_templates/PaymentMenuTemplate/index.js';
+reactComponents['PaymentMenuTemplate'] = Component85;
 
-import Component86 from '../src/components/_templates/ProductsListTemplate/index.js';
-reactComponents['ProductsListTemplate'] = Component86;
+import Component86 from '../src/components/_organisms/PresentationLinks/index.js';
+reactComponents['PresentationLinks'] = Component86;
 
-import Component87 from '../src/components/_molecules/PurchaseComplete/index.js';
-reactComponents['PurchaseComplete'] = Component87;
+import Component87 from '../src/pages/Products/index.js';
+reactComponents['Products'] = Component87;
 
-import Component88 from '../src/pages/Purchases/index.js';
-reactComponents['Purchases'] = Component88;
+import Component88 from '../src/components/_templates/ProductsListTemplate/index.js';
+reactComponents['ProductsListTemplate'] = Component88;
 
-import Component89 from '../src/components/_organisms/PurchasesList/index.js';
-reactComponents['PurchasesList'] = Component89;
+import Component89 from '../src/components/_molecules/PurchaseComplete/index.js';
+reactComponents['PurchaseComplete'] = Component89;
 
-import Component90 from '../src/components/_templates/PurchasesTemplate/index.js';
-reactComponents['PurchasesTemplate'] = Component90;
+import Component90 from '../src/pages/Purchases/index.js';
+reactComponents['Purchases'] = Component90;
 
-import Component91 from '../src/routes/index.js';
-reactComponents['Routes'] = Component91;
+import Component91 from '../src/components/_organisms/PurchasesList/index.js';
+reactComponents['PurchasesList'] = Component91;
 
-import Component92 from '../src/components/_molecules/Select/index.js';
-reactComponents['Select'] = Component92;
+import Component92 from '../src/components/_templates/PurchasesTemplate/index.js';
+reactComponents['PurchasesTemplate'] = Component92;
 
-import Component93 from '../src/components/_atoms/SimpleBanner/index.js';
-reactComponents['SimpleBanner'] = Component93;
+import Component93 from '../src/routes/index.js';
+reactComponents['Routes'] = Component93;
 
-import Component94 from '../src/components/_molecules/Item/SkItem.js';
-reactComponents['SkeletonItem'] = Component94;
+import Component94 from '../src/components/_molecules/Select/index.js';
+reactComponents['Select'] = Component94;
 
-import Component95 from '../src/components/_organisms/ItemDetail/SkItemDetailAction.js';
-reactComponents['SkeletonItemDetailAction'] = Component95;
+import Component95 from '../src/components/_atoms/SimpleBanner/index.js';
+reactComponents['SimpleBanner'] = Component95;
 
-import Component96 from '../src/components/_organisms/ItemDetail/SkItemDetailContent.js';
-reactComponents['SkeletonItemDetailContent'] = Component96;
+import Component96 from '../src/components/_molecules/Item/SkItem.js';
+reactComponents['SkeletonItem'] = Component96;
 
-import Component97 from '../src/components/_organisms/ItemDetail/SkItemDetailImgBox.js';
-reactComponents['SkeletonItemDetailImgBox'] = Component97;
+import Component97 from '../src/components/_organisms/ItemDetail/SkItemDetailAction.js';
+reactComponents['SkeletonItemDetailAction'] = Component97;
 
-import Component98 from '../src/components/_molecules/ItemComplete/SkItemComplete.js';
-reactComponents['SkItemComplete'] = Component98;
+import Component98 from '../src/components/_organisms/ItemDetail/SkItemDetailContent.js';
+reactComponents['SkeletonItemDetailContent'] = Component98;
 
-import Component99 from '../src/components/_molecules/ItemPurchases/SkItemPurchases.js';
-reactComponents['SkItemPurchases'] = Component99;
+import Component99 from '../src/components/_organisms/ItemDetail/SkItemDetailImgBox.js';
+reactComponents['SkeletonItemDetailImgBox'] = Component99;
 
-import Component100 from '../src/components/_atoms/StatisticsBox/index.js';
-reactComponents['StatisticsBox'] = Component100;
+import Component100 from '../src/components/_molecules/ItemComplete/SkItemComplete.js';
+reactComponents['SkItemComplete'] = Component100;
 
-import Component101 from '../src/components/_molecules/SubFooter/index.js';
-reactComponents['SubFooter'] = Component101;
+import Component101 from '../src/components/_molecules/ItemPurchases/SkItemPurchases.js';
+reactComponents['SkItemPurchases'] = Component101;
 
-import Component102 from '../src/components/_molecules/SubHeader/index.js';
-reactComponents['SubHeader'] = Component102;
+import Component102 from '../src/components/_atoms/StatisticsBox/index.js';
+reactComponents['StatisticsBox'] = Component102;
 
-import Component103 from '../src/pages/TermsAndCond/index.js';
-reactComponents['TermsAndCond'] = Component103;
+import Component103 from '../src/components/_molecules/SubFooter/index.js';
+reactComponents['SubFooter'] = Component103;
 
-import Component104 from '../src/components/_templates/TermsAndCondTemplate/index.js';
-reactComponents['TermsAndCondTemplate'] = Component104;
+import Component104 from '../src/components/_molecules/SubHeader/index.js';
+reactComponents['SubHeader'] = Component104;
 
-import Component105 from '../src/components/_molecules/TitleAndText/index.js';
-reactComponents['TitleAndText'] = Component105;
+import Component105 from '../src/pages/TermsAndCond/index.js';
+reactComponents['TermsAndCond'] = Component105;
 
-import Component106 from '../src/components/_molecules/TotalCart/index.js';
-reactComponents['TotalCart'] = Component106;
+import Component106 from '../src/components/_templates/TermsAndCondTemplate/index.js';
+reactComponents['TermsAndCondTemplate'] = Component106;
 
-import Component107 from '../src/components/_organisms/WorkWithUsForm/index.js';
-reactComponents['WorkWithUsForm'] = Component107;
+import Component107 from '../src/components/_molecules/TitleAndText/index.js';
+reactComponents['TitleAndText'] = Component107;
 
-import Component108 from '../src/containers/Wrapper/index.js';
-reactComponents['Wrapper'] = Component108;
+import Component108 from '../src/components/_molecules/TotalCart/index.js';
+reactComponents['TotalCart'] = Component108;
 
-import Component109 from '../src/containers/WrapperContext/index.js';
-reactComponents['WrapperContext'] = Component109;
+import Component109 from '../src/components/_organisms/WorkWithUsForm/index.js';
+reactComponents['WorkWithUsForm'] = Component109;
+
+import Component110 from '../src/containers/Wrapper/index.js';
+reactComponents['Wrapper'] = Component110;
+
+import Component111 from '../src/containers/WrapperContext/index.js';
+reactComponents['WrapperContext'] = Component111;

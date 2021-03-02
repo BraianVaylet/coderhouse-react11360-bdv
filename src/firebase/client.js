@@ -213,6 +213,19 @@ export const addMessageWorkWithUs = ({ email, name, phone, linkedin }) => {
   })
 }
 
+// ADD MESSAGE WORK WITH US
+export const addMessageHelp = ({ email, name, phone, comment }) => {
+  return db.collection("messages").add({
+    email,
+    name,
+    phone,
+    comment,
+    viewed: false,
+    type: "help",
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+  })
+}
+
 // * EDIT FUNC
 // EDIT PRODUCT
 export const editProduct = (
