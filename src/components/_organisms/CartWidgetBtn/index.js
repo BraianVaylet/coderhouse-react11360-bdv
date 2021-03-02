@@ -16,7 +16,7 @@ import { CartContext } from "context"
 // routes
 import { ROUTES } from "routes"
 // utils
-import { handleItemCount } from "utils"
+import { handleMapArrayProducts } from "utils"
 // components
 import CustomMenu from "components/_atoms/CustomMenu"
 import TotalCart from "components/_molecules/TotalCart"
@@ -38,7 +38,7 @@ const CartWidgetBtn = () => {
 
   const cartCount = cartItems.length
 
-  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
+  useEffect(() => setItems(handleMapArrayProducts(cartItems)), [cartItems])
 
   /**
    * handleIsOpen
@@ -47,7 +47,11 @@ const CartWidgetBtn = () => {
    */
   const handleIsOpen = (value = !isOpen) => setIsOpen(value)
 
-  return (
+  return cartItems.length > 6 ? (
+    <ButtonLink to={ROUTES.CART}>
+      <Icon as={MdShoppingCart} boxSize="1.5rem" /> ({cartCount})
+    </ButtonLink>
+  ) : (
     <CustomMenu
       onClick={handleIsOpen}
       btnIcon={<Icon as={MdShoppingCart} boxSize="1.5rem" />}

@@ -140,7 +140,13 @@
     "shipping": "Shipping",
     "free": "Free",
     "pay": "Pay",
-    "confirmForm": "Confirm the form to enable payment"
+    "confirmForm": "Confirm the form to enable payment",
+    "success": "Successful purchase",
+    "error": "Ups! there is an error when making your purchase",
+    "cuestion": "What do you want to do?",
+    "goToPurchases": "go to my Purchases",
+    "goToHome": "Continue buying",
+    "tryAgain": "Try again"
   },
   "PaymentForm": {
     "enterEmail": "Email",
@@ -182,15 +188,24 @@
   },
   "ItemNotification": {
     "bought": "You bought", 
-    "products": "products"
+    "products": "products",
+    "order": "#Order"
   },
   "NotificationsBtn": {
     "title": "Notifications",
     "seeMoreTooltip": "See more notifications",
-    "all": "All"
+    "all": "All",
+    "markAsViewed": "Mark as viewed"
+  },
+  "NotificationList": {
+    "noItems": "😶 We have no notifications to show you"
+  },
+  "PurchasesList": {
+    "noItems": "😑 You haven't made any purchases yet..."
   },
   "FavouritesTemplate": {
-    "title": "💕 My favourites"
+    "title": "💕 My favourites",
+    "noItems": "😕 You don't have any product saved in favorites yet"
   },
   "NotificationsTemplate": {
     "title": "📬 Notifications history"
@@ -202,12 +217,35 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "🛍 Purchases"
+    "title": "🛍 Purchases",
+    "purchasesMade": "Purchases made",
+    "productsPurchased": "Products purchased"
   },
   "AdminTemplate": {
     "dashboard": "Administration panel",
     "newProduct": "New Product",
-    "noItems": "There are no products to show"
+    "noItems": "There are no products to show",
+    "deleteSuccess": "Product removed",
+    "deleteError": "Error deleting",
+    "deleteMessageSuccess": "Message removed",   
+    "isActiveSuccess": "isActive changes to",
+    "isActiveError": "Failed to change isActive",
+    "activeTrue": "Make the product active",
+    "activeFalse": "Put the product into inactive state",
+    "delete": "Remove the product from the database",
+    "edit": "Edit the product",
+    "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open.",
+    "purchasesMade": "Purchases made",
+    "products": "Products",
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "shoes": "Shoes",
+    "accesories": "Accesories",
+    "actives": "Active products",
+    "inactives": "Inactive Products",
+    "noStock": "Out of stock",
+    "purchases": "Purchases",
+    "messages": "Messages"
   },
   "BannerLinks": {
     "jackets": "Jackets",
@@ -226,8 +264,8 @@
     "purchases": "Purchases"
   },
   "NewProductForm": {
-    "success": "The product was added successfully",
-    "error": "Error creating product",
+    "success": "👍 Ok",
+    "error": "👎 Error",
     "title": "Title",
     "description": "Description",
     "pictureUrl": "PictureUrl",
@@ -240,7 +278,32 @@
     "sizes": "Sizes",
     "colors": "Colors",
     "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
-    "infoExampleColors": "enter separated by commas, without spaces. Ex: black,red,blue,green",
+    "infoExampleColors": "enter separated by commas, for two colors separate them with a dash. Without spaces. Ex: black,red,blue-red,green",
     "confirm": "Confirm"
+  },
+  "ItemComplete": {
+    "brandModel": "Brand & model",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "gender": "Gender",
+    "deleteItem": "Delete product",
+    "active": "active",
+    "inactive": "inactive",
+    "noStock": "out of stock"
+  },
+  "PurchaseComplete": {
+    "bought": "Purchase",
+    "products": "products"
+  },
+  "WorkWithUs": {
+    "sendOk": "Message sent succesfully",
+    "canNotSend": "An error occurred while trying to send the message. Retry.",
+    "name": "Name",
+    "phone": "Phone",
+    "send": "Send"
+  },
+  "MessageComplete": {
+    "messageFrom": "Message from",
+    "replyEmail": "Reply email"
   }
 }

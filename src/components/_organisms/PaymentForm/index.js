@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Divider, Flex, Text } from "@chakra-ui/react"
-import {
-  InputEmail,
-  // InputPassword,
-  InputTextNumber,
-} from "components/_molecules/Inputs"
+import { InputEmail, InputTextNumber } from "components/_molecules/Inputs"
 // context
-import { CheckoutContext } from "context"
+import { CartContext, CheckoutContext } from "context"
 // hooks
 import useUser from "hooks/useUser"
+// utils
+import {
+  handleDiscuount,
+  handleTotalPrice,
+  handleMapArrayProducts,
+} from "utils"
 
 /**
  * PaymentForm Component
@@ -19,17 +21,17 @@ import useUser from "hooks/useUser"
  * @description Componente con formulario para la compra
  */
 const PaymentForm = () => {
-  const { setActivePayment } = useContext(CheckoutContext)
+  const { setActivePayment, setPurchase } = useContext(CheckoutContext)
+  const { cartItems } = useContext(CartContext)
   const user = useUser()
   const [t] = useTranslation("global")
   const [emailValue, setEmailValue] = useState(null)
-  // const [passwordValue, setPasswordValue] = useState(null)
   const [nameValue, setNameValue] = useState(null)
   const [dniValue, setDniValue] = useState(null)
+  const [phoneValue, setPhoneValue] = useState(null)
   const [streetNameValue, setStreetNameValue] = useState(null)
   const [streetNumberValue, setStreetNumberValue] = useState(null)
   const [deptoValue, setDeptoValue] = useState(null)
-  const [data, setData] = useState({})
   const [isDisabled, setIsDisabled] = useState(false)
 
   useEffect(() => {
@@ -49,27 +51,29 @@ const PaymentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (
+      cartItems &&
       emailValue &&
-      // passwordValue &&
       nameValue &&
       dniValue &&
+      phoneValue &&
       streetNameValue &&
       streetNumberValue
     ) {
       setIsDisabled(true)
-      setData({
-        emailValue,
-        // passwordValue,
-        nameValue,
-        dniValue,
-        streetNameValue,
-        streetNumberValue,
-        deptoValue,
+      setPurchase({
+        email: emailValue,
+        fullname: nameValue,
+        dni: dniValue,
+        phone: phoneValue,
+        address: streetNameValue,
+        addressNum: streetNumberValue,
+        addressInfo: deptoValue || "",
+        products: handleMapArrayProducts(cartItems),
+        total: handleDiscuount(handleTotalPrice(cartItems))[0],
       })
     } else {
       setIsDisabled(false)
     }
-    console.log("data", data)
   }
 
   /**
@@ -117,7 +121,7 @@ const PaymentForm = () => {
             name="phone"
             label={t("PaymentForm.enterPhone")}
             type="number"
-            onChange={(value) => setDniValue(value)}
+            onChange={(value) => setPhoneValue(value)}
           />
         </Flex>
         <Flex direction="row" align="center" justify="space-between">

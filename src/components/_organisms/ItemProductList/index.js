@@ -29,7 +29,7 @@ const ItemProductList = ({
 
   useEffect(() => setItems(data), [data])
 
-  return items.length > 0 ? (
+  return items && items.length > 0 ? (
     items
       .map((item, index) => {
         return (
@@ -55,7 +55,7 @@ const ItemProductList = ({
       .slice(0, withSlice ? slice : items.length)
   ) : (
     <Center w="100%" h="80vh">
-      <Text fontSize="3rem">{t("ItemProductList.noProductsYet")} 😔 </Text>
+      <Text fontSize="2rem">{t("ItemProductList.noProductsYet")} 😔 </Text>
     </Center>
   )
 }

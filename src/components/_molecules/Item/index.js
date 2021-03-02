@@ -12,6 +12,8 @@ import ButtonModalFullImage from "components/_molecules/ButtonModalFullImage" //
 import FavouriteIconBtn from "components/_molecules/FavouriteIconBtn" // ! AtomicDesignError
 // routes
 import { ROUTES } from "routes"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 // const
 const MAX_HEIGHT = "75vh"
@@ -95,16 +97,7 @@ const Item = ({ item }) => {
 }
 
 Item.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    pictureName: PropTypes.string.isRequired,
-    pictureUrl: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired,
-    category: PropTypes.string.isRequired,
-  }),
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default Item

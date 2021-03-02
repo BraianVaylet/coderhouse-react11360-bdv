@@ -2,8 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Flex, Image, Text } from "@chakra-ui/react"
-import ButtonTooltip from "../ButtonTooltip"
+import { Box, Flex, Image, Tag, Text } from "@chakra-ui/react"
+// components
+import CustomGender from "components/_atoms/CustomGender"
+import CustomColorsBoxList from "components/_molecules/CustomColorsBoxList"
+import CustomSizeBoxList from "components/_molecules/CustomSizeBoxList"
+import Calification from "components/_molecules/Calification"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * ItemComplete Component
@@ -11,78 +17,82 @@ import ButtonTooltip from "../ButtonTooltip"
  * @author Braian D. Vaylet
  * @description Componente Item con toda la info
  */
-const ItemComplete = ({ item, onDelete, onSave, design, withDelete }) => {
+const ItemComplete = ({ item }) => {
   const [t] = useTranslation("global")
 
   return (
-    <Box minH="20vh">
-      <Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
-        <Flex align="center">
-          <Image
-            boxSize="3rem"
-            borderRadius="full"
-            src={item.pictureUrl}
-            alt={item.title}
+    <Box minH="20vh" w="100%">
+      <Flex
+        direction="row"
+        justify="space-between"
+        align="center"
+        wrap="nowrap"
+        w="100%"
+      >
+        <Flex justify="flex-start" align="flex-start">
+          <Flex align="center">
+            <Image
+              boxSize="3rem"
+              borderRadius="full"
+              src={item.pictureUrl}
+              alt={item.title}
+              mr="12px"
+            />
+          </Flex>
+          <Flex
+            direction="column"
+            align="flex-start"
+            justify="flex-start"
             mr="12px"
-          />
-        </Flex>
-        <Flex
-          direction="column"
-          align="flex-start"
-          justify="flex-start"
-          mr="12px"
-        >
-          <Text>{item.title}</Text>
-          <Text>{item.description}</Text>
-          <Text>
-            ${item.price} | Stock: {item.stock} | Calification:{" "}
-            {item.calification}
-          </Text>
-          <Text>
-            Marca y Modelo: {item.brand} - {item.model}
-          </Text>
-          <Text>
-            Sizes: {item.sizes} - Colors: {item.colors} - Gender: {item.gender}
-          </Text>
-        </Flex>
-        {onDelete && withDelete && (
-          <ButtonTooltip
-            ml={6}
-            onClick={onDelete}
-            tooltipLabel={t("ItemProduct.deleteItem")}
           >
-            ❌
-          </ButtonTooltip>
-        )}
+            <Flex align="center">
+              <Text fontSize="1.25rem" fontWeight="bold">
+                {item.title}
+              </Text>
+              {item.isActive ? (
+                <Tag bg="green.500" ml={2}>
+                  {t("ItemComplete.active")}
+                </Tag>
+              ) : (
+                <Tag bg="red.500" ml={2}>
+                  {t("ItemComplete.inactive")}
+                </Tag>
+              )}
+              {item.stock <= 0 && (
+                <Tag bg="tomato" ml={2}>
+                  {t("ItemComplete.noStock")}
+                </Tag>
+              )}
+            </Flex>
+            <Text>{item.description}</Text>
+            <Text>
+              ${item.price} | Stock: {item.stock}
+            </Text>
+            <Calification value={item.calification} />
+            <Text>
+              {t("ItemComplete.brandModel")}: {item.brand} - {item.model}
+            </Text>
+            <Flex align="center">
+              <Text mr={2}>{t("ItemComplete.sizes")}:</Text>
+              <CustomSizeBoxList value={item.sizes} />
+            </Flex>
+            <Flex align="center">
+              <Text mr={2}>{t("ItemComplete.colors")}:</Text>
+              <CustomColorsBoxList value={item.colors} />
+            </Flex>
+            <Flex align="center">
+              <Text mr={2}>{t("ItemComplete.gender")}:</Text>
+              <CustomGender value={item.gender} />
+            </Flex>
+          </Flex>
+        </Flex>
       </Flex>
     </Box>
   )
 }
 
 ItemComplete.propTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    pictureName: PropTypes.string.isRequired,
-    pictureUrl: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired,
-    brand: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
-    calification: PropTypes.number.isRequired,
-    gender: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    sizes: PropTypes.string.isRequired,
-    colors: PropTypes.string.isRequired,
-  }),
-  onDelete: PropTypes.func,
-  onSave: PropTypes.func,
-  /**
-   * design = 1: Preparado para ser usado en el menu desplegable de la NavBar
-   * design = 2: Preparado para ser usado en la pagina del carrito
-   */
-  design: PropTypes.number,
-  withDelete: PropTypes.bool,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default ItemComplete

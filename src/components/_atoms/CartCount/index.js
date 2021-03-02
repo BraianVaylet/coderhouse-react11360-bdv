@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 import { Badge } from "@chakra-ui/react"
 // context
 import { CartContext } from "context"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * CartCount Component
@@ -15,14 +17,14 @@ const CartCount = ({ item }) => {
   const { cartItems } = useContext(CartContext)
   const [cartCount, setCartCount] = useState(0)
 
-  useEffect(() => handleItemCount(), [cartItems])
+  useEffect(() => handleMapArrayProducts(), [cartItems])
 
   /**
-   * handleItemCount
+   * handleMapArrayProducts
    * @function
    * @description cuento cuantos elemntos como item hay en el carrito
    */
-  const handleItemCount = () => {
+  const handleMapArrayProducts = () => {
     const counts = {}
     const idArr = cartItems.map((item) => item.id)
     for (let i = 0; i < idArr.length; i++) {
@@ -49,13 +51,7 @@ const CartCount = ({ item }) => {
 }
 
 CartCount.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    pictureUrl: PropTypes.string,
-    category: PropTypes.string.isRequired,
-  }).isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default CartCount

@@ -175,13 +175,6 @@ const NavBarTemplate = () => {
             <Divider m="1rem 0" />
             {renderLinks()}
           </Flex>
-          {mediaQueryMax600 && (
-            <>
-              <Divider m={"1.5rem 0"} />
-              <FavoritesBtn withText />
-              <NotificationsBtn withText />
-            </>
-          )}
         </Flex>
       </CustomDrawer>
     </>

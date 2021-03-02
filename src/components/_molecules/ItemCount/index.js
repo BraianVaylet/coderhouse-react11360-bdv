@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import PropTypes from "prop-types"
+import { useHistory } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Box, Button, Flex, IconButton, Text, useToast } from "@chakra-ui/react"
@@ -8,6 +9,10 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // context
 import { CartContext } from "context"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
+// routes
+import { ROUTES } from "routes"
 
 /**
  * ItemCount Component
@@ -15,19 +20,14 @@ import { CartContext } from "context"
  * @author Braian D. Vaylet
  * @description Componente ItemCount para seleccionar items validando el stock y con acción de agregar al carrito o comprar.
  */
-const ItemCount = ({
-  initial = 1,
-  stock,
-  item,
-  onBuy = () => {},
-  design = 1,
-}) => {
+const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
+  const [t] = useTranslation("global")
+  const routerHistory = useHistory()
+  const toast = useToast()
   const { cartItems, addItemToCart, deleteOneItemFromCart } = useContext(
     CartContext
   )
   const backgroundColor = useSetColorTheme("gray.900", "gray.200")
-  const toast = useToast()
-  const [t] = useTranslation("global")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
 
@@ -88,16 +88,16 @@ const ItemCount = ({
    * @returns {undefined} return a function || a toast
    */
   const handleOnBuyClick = () => {
-    return (
-      onBuy() ||
-      toast({
-        title: t("ItemCount.canNotBuy"),
-        description: t("ItemCount.canNotBuyDescription"),
-        status: "info",
-        duration: 5000,
-        isClosable: true,
-      })
-    )
+    addItemToCart(handleItemsByCounter())
+    toast({
+      title: t("ItemCount.addedToCart"),
+      description: "",
+      status: "success",
+      position: "bottom-right",
+      duration: 5000,
+      isClosable: true,
+    })
+    routerHistory.push(ROUTES.CART)
   }
 
   /**
@@ -261,12 +261,7 @@ const ItemCount = ({
 ItemCount.propTypes = {
   stock: PropTypes.number.isRequired,
   initial: PropTypes.number,
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    pictureUrl: PropTypes.string,
-  }).isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
   onBuy: PropTypes.func,
   /**
    * design = 1: Preparado para ser usado en los componentes Item, ItemDetail

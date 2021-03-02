@@ -7,6 +7,8 @@ import { Button, Icon } from "@chakra-ui/react"
 import useSetColorTheme from "hooks/useSetColorTheme"
 // context
 import { FavouriteContext } from "context"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * FavouriteIconBtn Component
@@ -77,13 +79,7 @@ const FavouriteIconBtn = ({ item }) => {
 }
 
 FavouriteIconBtn.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    pictureUrl: PropTypes.string,
-    category: PropTypes.string.isRequired,
-  }).isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default FavouriteIconBtn

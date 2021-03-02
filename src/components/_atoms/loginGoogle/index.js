@@ -6,6 +6,8 @@ import { Button, Flex, Image, useToast } from "@chakra-ui/react"
 import { loginWithGoogle } from "firebase/client"
 // utils
 import { IMG } from "utils/images"
+// hooks
+import useUser from "hooks/useUser"
 
 /**
  * LoginGoogle Component
@@ -16,6 +18,7 @@ import { IMG } from "utils/images"
 const LoginGoogle = ({ ...props }) => {
   const [t] = useTranslation("global")
   const toast = useToast()
+  const user = useUser()
 
   /**
    * handleClick
@@ -24,26 +27,31 @@ const LoginGoogle = ({ ...props }) => {
    */
   const handleClick = () =>
     loginWithGoogle()
-      .then((value) => {
-        toast({
-          title: `🙂 ${t("Authentication.welcome")}, ${value.user.displayName}`,
-          description: "",
-          status: "success",
-          position: "bottom",
-          duration: 5000,
-          isClosable: true,
-        })
+      .then(async (value) => {
+        if (user) {
+          toast({
+            title: `🙂 ${t("Authentication.welcome")}, ${
+              value.user.displayName
+            }`,
+            description: "",
+            status: "success",
+            position: "bottom",
+            duration: 5000,
+            isClosable: true,
+          })
+        }
       })
       .catch((error) => {
         console.log("error", error)
-        toast({
-          title: t("Authentication.errorLogin"),
-          description: "",
-          status: "error",
-          position: "bottom",
-          duration: 5000,
-          isClosable: true,
-        })
+        user &&
+          toast({
+            title: t("Authentication.errorLogin"),
+            description: "",
+            status: "error",
+            position: "bottom",
+            duration: 5000,
+            isClosable: true,
+          })
       })
 
   return (

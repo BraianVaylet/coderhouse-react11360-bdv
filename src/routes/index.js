@@ -15,6 +15,8 @@ import NotFound from "pages/NotFound"
 import TermsAndCond from "pages/TermsAndCond"
 import Purchases from "pages/Purchases"
 import Admin from "pages/Admin"
+// hooks
+import useStorageByUser from "hooks/useStorageByUser"
 
 /**
  * Project routes
@@ -44,6 +46,8 @@ const URL_PUBLIC = process.env.REACT_APP_API_URL
  * @description Router con React-Router
  */
 const Routes = () => {
+  useStorageByUser()
+
   return (
     <BrowserRouter basename={URL_PUBLIC}>
       <Switch>

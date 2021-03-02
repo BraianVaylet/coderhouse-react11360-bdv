@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
@@ -15,12 +16,13 @@ import { CartContext } from "context"
 // styles
 import { setValueResponsiveMin1280 } from "styles/utils"
 // utils
-import { handleItemCount } from "utils"
+import { handleMapArrayProducts } from "utils"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
 import CartItemList from "components/_organisms/CartItemList"
 import ItemProductList from "components/_organisms/ItemProductList"
+import ButtonTooltip from "components/_molecules/ButtonTooltip"
 // routes
 import { ROUTES } from "routes"
 
@@ -32,10 +34,12 @@ import { ROUTES } from "routes"
  */
 const CartTemplate = () => {
   const [t] = useTranslation("global")
+  const routerHistory = useHistory()
+  const { cleanCart } = useContext(CartContext)
   const { cartItems, deleteItemsFromCart } = useContext(CartContext)
   const [items, setItems] = useState([])
 
-  useEffect(() => setItems(handleItemCount(cartItems)), [cartItems])
+  useEffect(() => setItems(handleMapArrayProducts(cartItems)), [cartItems])
 
   return (
     <Flex
@@ -43,21 +47,34 @@ const CartTemplate = () => {
       mt={8}
       direction="column"
       align="center"
-      justify="center"
+      justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
       <SubHeader
         withTitle
         title={t("CartTemplate.title")}
         backTo={ROUTES.HOME}
+        withRightContent
+        rightContent={
+          <ButtonTooltip
+            mr={2}
+            size="lg"
+            onClick={() => {
+              cleanCart()
+              routerHistory.push(ROUTES.HOME)
+            }}
+            tooltipLabel={t("CartWidgetBtn.clean")}
+          >
+            🗑
+          </ButtonTooltip>
+        }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
-        <Tabs w="100%">
+        <Tabs w="100%" variant="enclosed">
           <TabList>
             <Tab>
               {t("Cart.cart")} ({cartItems.length})
             </Tab>
-            <Tab>{t("Cart.saves")}</Tab>
           </TabList>
 
           <TabPanels>
@@ -72,9 +89,6 @@ const CartTemplate = () => {
                   design={2}
                 />
               </CartItemList>
-            </TabPanel>
-            <TabPanel>
-              <p>Proximamente!</p>
             </TabPanel>
           </TabPanels>
         </Tabs>

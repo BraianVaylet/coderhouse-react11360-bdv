@@ -9,9 +9,9 @@ import { Link } from "@chakra-ui/react"
  * @author Braian D. Vaylet
  * @description link a una web externa
  */
-const ExternalLink = ({ href, children }) => {
+const ExternalLink = ({ href, children, ...props }) => {
   return (
-    <Link href={href} isExternal>
+    <Link href={href} isExternal {...props}>
       {children}
     </Link>
   )

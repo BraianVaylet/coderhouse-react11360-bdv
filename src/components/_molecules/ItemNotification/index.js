@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import { Badge, Box, Flex, Image, Text } from "@chakra-ui/react"
 // utils
 import { IMG } from "utils/images"
+import { PropTypesProduct } from "utils/propTypes"
 // hooks
 import useTimeAgo from "hooks/useTimeAgo"
 import useDateTimeFormat from "hooks/useDateTimeFormat"
@@ -44,7 +45,12 @@ const ItemNotificaton = ({ item }) => {
 
   return (
     <Box minH="10vh">
-      <Flex direction="row" justify="flex-start" align="center" wrap="nowrap">
+      <Flex
+        direction="row"
+        justify="flex-start"
+        align="flex-start"
+        wrap="nowrap"
+      >
         <Image
           boxSize="3rem"
           borderRadius="full"
@@ -52,18 +58,19 @@ const ItemNotificaton = ({ item }) => {
           mr="12px"
         />
         <Flex direction="column" align="flex-start" justify="center">
-          <Text>
+          <Flex align="center" mb={2}>
+            {!item.viewed && (
+              <Badge mr={2} fontSize="1rem" colorScheme="green">
+                NEW
+              </Badge>
+            )}
             <time title={dateFormated}>
               <b>{dateFormated}</b>
             </time>{" "}
-            | {handleItemTitle()}
-          </Text>
-          {item.count && (
-            <Badge ml="1" colorScheme="blue">
-              ${item.total}
-            </Badge>
-          )}
-          <Text fontSize=".75rem">
+            <Text ml={2}>| {handleItemTitle()}</Text>
+          </Flex>
+          {item.count && <Badge colorScheme="blue">${item.total}</Badge>}
+          <Text fontSize=".75rem" mt={2}>
             <time title={dateFormated}>{timeago}</time>
           </Text>
         </Flex>
@@ -77,17 +84,8 @@ ItemNotificaton.propTypes = {
     date: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        pictureUrl: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        count: PropTypes.number,
-        stock: PropTypes.number,
-        category: PropTypes.string.isRequired,
-      })
-    ),
+    items: PropTypes.arrayOf(PropTypes.shape(PropTypesProduct).isRequired),
+    viewed: PropTypes.bool.isRequired,
   }),
 }
 

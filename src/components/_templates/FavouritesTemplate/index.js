@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Box, Divider, Flex } from "@chakra-ui/react"
+import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // components
 import Card from "components/_atoms/Card"
 import SubHeader from "components/_molecules/SubHeader"
@@ -29,11 +29,12 @@ const FavouritesTemplate = () => {
 
   return (
     <Flex
+      h="100%"
       p={4}
       mt={8}
       direction="column"
       align="center"
-      justify="center"
+      justify="flex-start"
       w={setValueResponsiveMin1280("72.5%", "100%")}
     >
       <SubHeader
@@ -42,13 +43,15 @@ const FavouritesTemplate = () => {
         backTo={ROUTES.HOME}
         withRightContent
         rightContent={
-          <ButtonTooltip
-            tooltipLabel={t("FavouritesBtn.clean")}
-            size="lg"
-            onClick={cleanFavourites}
-          >
-            🗑
-          </ButtonTooltip>
+          count > 0 && (
+            <ButtonTooltip
+              tooltipLabel={t("FavouritesBtn.clean")}
+              size="lg"
+              onClick={cleanFavourites}
+            >
+              🗑
+            </ButtonTooltip>
+          )
         }
       />
       <Card w="100%" minH={setValueResponsiveMin1280("80vh", "100%")} p={4}>
@@ -74,6 +77,7 @@ const FavouritesTemplate = () => {
                         <ItemProduct
                           design={1}
                           item={fav}
+                          withDelete
                           onDelete={deleteItemFromFavourites}
                         />
                       </Box>
@@ -84,7 +88,9 @@ const FavouritesTemplate = () => {
                 .reverse()}
             </Flex>
           ) : (
-            <Flex>No hay items que mostrar</Flex>
+            <Center w="100%" h="80vh">
+              <Flex fontSize="2rem">{t("FavouritesTemplate.noItems")}</Flex>
+            </Center>
           )}
         </Flex>
       </Card>

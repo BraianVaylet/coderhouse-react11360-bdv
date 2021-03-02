@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, useMediaQuery } from "@chakra-ui/react"
+import { Button, Flex, useDisclosure, useMediaQuery } from "@chakra-ui/react"
 // styles
 import { setValueResponsiveMax600 } from "styles/utils"
 import { MY_BREAKPOINTS } from "styles/theme"
@@ -14,6 +14,8 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 import { ROUTES } from "routes"
 import ItemNavLink from "components/_atoms/ItemNavLink"
 import ExternalLink from "components/_atoms/ExternalLink"
+import CustomModal from "components/_atoms/CustomModal"
+import WorkWithUsForm from "../WorkWithUsForm"
 
 /**
  * Footer Component
@@ -23,6 +25,7 @@ import ExternalLink from "components/_atoms/ExternalLink"
  */
 const Footer = () => {
   const [t] = useTranslation("global")
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const backgroundColor = useSetColorTheme("gray.900", "white")
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
 
@@ -49,12 +52,14 @@ const Footer = () => {
           justify="flex-end"
           align={setValueResponsiveMax600("flex-start", "center")}
         >
-          <ItemNavLink
+          <Button
+            variant="ghost"
+            onClick={() => onOpen()}
             to={ROUTES.HOME}
             m={setValueResponsiveMax600("1rem 0", "0 1rem")}
           >
             {t("Footer.workWithUs")}
-          </ItemNavLink>
+          </Button>
 
           <ItemNavLink
             to={ROUTES.TERMS_AND_COND}
@@ -79,6 +84,9 @@ const Footer = () => {
         </Flex>
       </Flex>
       <SubFooter />
+      <CustomModal isOpen={isOpen} onClose={onClose}>
+        <WorkWithUsForm onClose={onClose} />
+      </CustomModal>
     </Flex>
   )
 }

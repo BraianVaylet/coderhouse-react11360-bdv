@@ -140,7 +140,13 @@
     "shipping": "Envío",
     "free": "Gratis",
     "pay": "Pagar",
-    "confirmForm": "Confirme el formulario para habilitar el pago"
+    "confirmForm": "Confirme el formulario para habilitar el pago",
+    "success": "Compra exitosa",
+    "error": "Ups! hay un error al realizar tu compra",
+    "cuestion": "Qué es lo que quieres hacer?",
+    "goToPurchases": "Ir a mis compras",
+    "goToHome": "Continuar comprando",
+    "tryAgain": "Volver a intentar"
   },
   "PaymentForm": {
     "enterEmail": "Correo",
@@ -182,15 +188,24 @@
   },
   "ItemNotification": {
     "bought": "Compraste", 
-    "products": "productos"
+    "products": "productos",
+    "order": "#Orden"
   },
   "NotificationsBtn": {
     "title": "Notificaciones",
     "seeMoreTooltip": "Ver más notificaciones",
-    "all": "Todas"
+    "all": "Todas",
+    "markAsViewed": "Marcar como vistas"
+  },
+  "NotificationList": {
+    "noItems": "😶 No tenemos notificaciones para mostrarte"
+  },
+  "PurchasesList": {
+    "noItems": "😑 Aún no has realizado ninguna compra..."
   },
   "FavouritesTemplate": {
-    "title": "💕 Mis favoritos"
+    "title": "💕 Mis favoritos",
+    "noItems": "😕 Aún no tienes ningún producto guardado en favoritos"
   },
   "NotificationsTemplate": {
     "title": "📬 Historial de notificaciones"
@@ -202,12 +217,35 @@
     "title": "✔ Checkout"
   },
   "PurchasesTemplate": {
-    "title": "📦 Compras"
+    "title": "🛍 Compras",
+    "purchasesMade": "Compras realizadas",
+    "productsPurchased": "Productos comprados"
   },
   "AdminTemplate": {
     "dashboard": "Panel de administración",
     "newProduct": "Nuevo Producto",
-    "noItems": "No hay productos que mostrar"
+    "noItems": "No hay productos que mostrar",
+    "deleteSuccess": "Producto eliminado",
+    "deleteMessageSuccess": "Mensaje eliminado",
+    "deleteError": "Error al tratar de eliminar el producto",
+    "isActiveSuccess": "isActive cambia a",
+    "isActiveError": "Error al cambia isActive",
+    "activeTrue": "Pasa el producto a estado activo",
+    "activeFalse": "Pasa el producto a estado inactivo",
+    "delete": "Elimina el producto de la Base de Datos",
+    "edit": "Editar el producto",
+    "slideAlert": "👉 Este panel es solo para uso del administrador, desde él puede administrar los productos de la tienda. Para propósitos de prueba, su acceso está abierto.",
+    "purchasesMade": "Compras realizadas",
+    "products": "Productos",
+    "jackets": "Camperas",
+    "shirts": "Remeras",
+    "shoes": "Zapatillas",
+    "accesories": "Accesorios",
+    "actives": "Productos activos",
+    "inactives": "Productos inactivos",
+    "noStock": "Sin stock",
+    "purchases": "Compras",
+    "messages": "Mensajes"
   },
   "BannerLinks": {
     "jackets": "Camperas",
@@ -240,8 +278,33 @@
     "sizes": "Talles",
     "colors": "Colores",
     "infoExampleSizes": "Ingresar separando por comas, sin espacios. Ej: S,M,L,XL",
-    "infoExampleColors": "Ingresar separando por comas, sin espacios. Ej: black,red,blue,green",
+    "infoExampleColors": "Ingresar separando por comas, para dos colores separar con guión medio. Sin espacios. Ej: black,red,blue,green",
     "confirm": "Confirmar"
+  },
+  "ItemComplete": {
+    "brandModel": "Marca y modelo",
+    "sizes": "Talle",
+    "colors": "Colores",
+    "gender": "Género",
+    "deleteItem": "Eliminar producto",
+    "active": "activo",
+    "inactive": "inactivo",
+    "noStock": "sin stock"
+  },
+  "PurchaseComplete": {
+    "bought": "Compra",
+    "products": "productos"
+  },
+  "WorkWithUs": {
+    "sendOk": "Mensaje enviado con éxito",
+    "canNotSend": "Se produjo un error al intentar enviar el mensaje. Vuelve a intentarlo.",
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "send": "Enviar"
+  },
+  "MessageComplete": {
+    "messageFrom": "Mensaje de",
+    "replyEmail": "Responder email"
   }
 }
 
