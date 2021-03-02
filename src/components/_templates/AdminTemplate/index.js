@@ -44,6 +44,7 @@ import {
   fetchProductsByID,
   fetchAllPurchases,
   fetchAllMessages,
+  deleteMessagesByID,
 } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
@@ -170,7 +171,7 @@ const AdminTemplate = () => {
    * @description Elimina el registro de la Base de datos ⚠
    */
   const handleDeleteMessage = async (id) => {
-    await deleteProductsByID(id)
+    await deleteMessagesByID(id)
       .then(() => {
         toast({
           title: t("AdminTemplate.deleteMessageSuccess"),
