@@ -1,6 +1,67 @@
-# Getting Started with Create React App
+# Proyecto ECOMMERCE en ReactJs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue desarrollado para el curso de ReactJs de la plataforma [CODERHOUSE](https://www.coderhouse.com/)
+
+- Author:
+
+  - Braian D. Vaylet
+  - Contacto: braianvaylet@gmail.com
+  - [linkedin](https://www.linkedin.com/in/braianvaylet/)
+
+- Demo: [AquilaStore](https://braianvaylet.github.io/coderhouse-react11360-bdv/)
+
+- Info:
+
+  - Camada: 11360
+  - Profesor: Cristian Hourcade (Toto)
+  - Tutor: Ramiro D' Accorso
+
+- Librerias principales utilizadas en el proyecto:
+
+  - [ReactJs](https://es.reactjs.org/)
+  - [Create React App](https://github.com/facebook/create-react-app).
+  - [PropTypes](https://www.npmjs.com/package/prop-types)
+  - [Chakra-UI](https://chakra-ui.com/)
+  - [React Helmet](https://www.npmjs.com/package/react-helmet)
+  - [Firebase](https://firebase.google.com/?hl=es)
+  - [i18next](https://react.i18next.com/)
+  - [React Router](https://reactrouter.com/)
+  - [jsDocs](https://jsdoc.app/)
+
+- Se utiliza [Atomic Design](https://atomicdesign.bradfrost.com/) como patron de diseño para la arquitectura del proyecto
+
+- Arquitectura de carpetas del proyecto:
+
+  - build
+  - docs
+  - public
+  - src
+    - assets
+      - images
+      - logos
+      - sliders
+    - components
+      - \_atoms
+      - \_molecules
+      - \_organisms
+      - \_templates
+    - containers
+    - context
+    - firebase
+    - hooks
+    - pages
+    - routes
+    - styles
+    - translations
+    - utils
+
+- Pendientes principales:
+  - Agregar pasarela de pagos
+  - Responsive
+  - Control de estado de pedidos (init, enProgreso, enViaje, recibido)
+  - mover notificaciones y favoritos a firebase
+  - registro de usuarios en firebase
+  - Restringir acceso al panel de administración (solo usuario admin)
 
 ## Available Scripts
 
