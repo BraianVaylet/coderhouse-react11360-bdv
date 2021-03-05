@@ -36,7 +36,7 @@ const PurchasesTemplate = () => {
           setLoadingData(false)
         })
         .catch((error) => {
-          console.log("error", error)
+          console.error("error", error)
           setLoadingData(false)
         })
   }, [user])

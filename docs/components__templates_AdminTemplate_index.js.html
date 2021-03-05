@@ -164,12 +164,12 @@ const AdminTemplate = () => {
 
     fetchAllPurchases()
       .then((value) => setPurchases(value))
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
   }, [])
   useEffect(() => {
     fetchAllMessages()
       .then((value) => setMessages(value))
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
   }, [messages])
 
   /**
@@ -184,7 +184,7 @@ const AdminTemplate = () => {
       setProductsDb(value)
       setLoadingProductsDb(false)
     } catch (error) {
-      console.log("error", error)
+      console.error("error", error)
     }
   }
 

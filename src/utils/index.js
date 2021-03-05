@@ -1,5 +1,3 @@
-import { DISCOUNTS } from "./constants"
-
 /**
  * setNavigatorLanguage
  * @function
@@ -56,24 +54,6 @@ export const handleMapArrayProducts = (cartItems) => {
  */
 export const handleMapArraySelectFormat = (data) =>
   data && data.length && data.map((item) => ({ value: item, text: item }))
-
-/**
- * handleDiscount
- * @function
- * @description reotrna el valor con un descuento aplicado.
- * @param {number} total
- * @returns {array} total with discount
- */
-export const handleDiscuount = (total) => {
-  let totalDiscuount = total
-  let discount = 0
-  for (let i = 0; i < DISCOUNTS.length; i++) {
-    totalDiscuount =
-      total >= DISCOUNTS[i].limit ? total - total * DISCOUNTS[i].value : total
-    discount = DISCOUNTS[i].value
-  }
-  return [totalDiscuount, discount]
-}
 
 /**
  * handleTotalPrice

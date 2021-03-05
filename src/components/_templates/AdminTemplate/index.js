@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next"
 import {
   Button,
   Center,
-  Divider,
   Flex,
   Tab,
   TabList,
@@ -23,16 +22,11 @@ import { COLORS } from "styles/theme"
 import Card from "components/_atoms/Card"
 import CustomCollapse from "components/_atoms/CustomCollapse"
 import CustomModal from "components/_atoms/CustomModal"
-import BtnInfoAdmin from "components/_atoms/BtnInfoAdmin"
 import ButtonLink from "components/_atoms/ButtonLink"
-import StatisticsBox from "components/_atoms/StatisticsBox"
+import StatisticsBox from "components/_molecules/StatisticsBox"
 import CustomPopover from "components/_atoms/CustomPopover"
-import ItemComplete from "components/_molecules/ItemComplete"
 import ChangeLanguageBtn from "components/_molecules/ChangeLanguageBtn"
 import ChangeThemeBtn from "components/_molecules/ChangeThemeBtn"
-import SkItemComplete from "components/_molecules/ItemComplete/SkItemComplete"
-import PurchaseComplete from "components/_molecules/PurchaseComplete"
-import MessageComplete from "components/_molecules/MessageComplete"
 import NewProductForm from "components/_organisms/NewProductForm"
 // context
 import { ProductsContext } from "context"
@@ -44,10 +38,13 @@ import {
   fetchProductsByID,
   fetchAllPurchases,
   fetchAllMessages,
-  deleteMessagesByID,
 } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
+import PurchasesList from "components/_organisms/PurchasesList"
+import MessagesList from "components/_organisms/MessagesList"
+import ProductsCompleteList from "components/_organisms/ProductsCompleteList"
+import BtnInfoAdminList from "components/_molecules/BtnInfoAdminList"
 
 /**
  * AdminTemplate Component
@@ -69,20 +66,28 @@ const AdminTemplate = () => {
   const [edit, setEdit] = useState(false)
   const [productSelected, setProductSelected] = useState(null)
   const [purchases, setPurchases] = useState(null)
+  const [loadingPurchasesDb, setLoadingPurchasesDb] = useState(false)
   const [messages, setMessages] = useState(null)
+  const [loadingMessagesDb, setLoadingMessagesDb] = useState(false)
 
   useEffect(async () => !productsDb && getProductsFromDb(), [productsDb])
+
   useEffect(() => {
     slide.onOpen()
 
+    setLoadingPurchasesDb(true)
     fetchAllPurchases()
-      .then((value) => setPurchases(value))
+      .then(setPurchases)
       .catch((error) => console.log("error", error))
+    setLoadingPurchasesDb(false)
   }, [])
+
   useEffect(() => {
+    setLoadingMessagesDb(true)
     fetchAllMessages()
-      .then((value) => setMessages(value))
+      .then(setMessages)
       .catch((error) => console.log("error", error))
+    setLoadingMessagesDb(false)
   }, [messages])
 
   /**
@@ -151,36 +156,6 @@ const AdminTemplate = () => {
           isClosable: true,
         })
         getProductsFromDb()
-      })
-      .catch(() => {
-        toast({
-          title: t("AdminTemplate.deleteError"),
-          description: "",
-          status: "error",
-          position: "bottom",
-          duration: 5000,
-          isClosable: true,
-        })
-      })
-  }
-
-  /**
-   * handleDelete
-   * @function
-   * @param {string} id
-   * @description Elimina el registro de la Base de datos ⚠
-   */
-  const handleDeleteMessage = async (id) => {
-    await deleteMessagesByID(id)
-      .then(() => {
-        toast({
-          title: t("AdminTemplate.deleteMessageSuccess"),
-          description: "",
-          status: "success",
-          position: "bottom",
-          duration: 5000,
-          isClosable: true,
-        })
       })
       .catch(() => {
         toast({
@@ -268,38 +243,15 @@ const AdminTemplate = () => {
                   👈
                 </ButtonLink>
                 <CustomPopover
-                  btn={<InfoOutlineIcon />}
+                  btn={
+                    <Button>
+                      <InfoOutlineIcon />
+                    </Button>
+                  }
                   withHeader
                   header={"Info"}
                 >
-                  <Flex
-                    direction="column"
-                    mb="1rem"
-                    align="flex-start"
-                    justify="space-between"
-                    w="100%"
-                  >
-                    <BtnInfoAdmin
-                      mb={4}
-                      btnText="✔"
-                      infoText={t("AdminTemplate.activeTrue")}
-                    />
-                    <BtnInfoAdmin
-                      mb={4}
-                      btnText="❌"
-                      infoText={t("AdminTemplate.activeFalse")}
-                    />
-                    <BtnInfoAdmin
-                      mb={4}
-                      btnText="✏"
-                      infoText={t("AdminTemplate.edit")}
-                    />
-                    <BtnInfoAdmin
-                      mb={4}
-                      btnText="🗑"
-                      infoText={t("AdminTemplate.delete")}
-                    />
-                  </Flex>
+                  <BtnInfoAdminList />
                 </CustomPopover>
                 <Button onClick={getProductsFromDb} ml={4}>
                   <RepeatIcon />
@@ -333,7 +285,7 @@ const AdminTemplate = () => {
                 flexWrap="wrap"
               >
                 <StatisticsBox
-                  value={purchases && purchases.length}
+                  value={(purchases && purchases.length) || 0}
                   text={t("AdminTemplate.purchasesMade")}
                   color="brand.secundary"
                 />
@@ -378,7 +330,7 @@ const AdminTemplate = () => {
                   color={COLORS.accesories}
                 />
                 <StatisticsBox
-                  value={messages && messages.length}
+                  value={(messages && messages.length) || 0}
                   text={t("AdminTemplate.messages")}
                   color="purple.300"
                 />
@@ -395,162 +347,29 @@ const AdminTemplate = () => {
               </TabList>
 
               <TabPanels w="100%">
+                {/* PRODUCTS */}
                 <TabPanel w="100%">
-                  <Flex
-                    direction="column"
-                    align="center"
-                    justify="flex-start"
-                    w="100%"
-                    p={10}
-                  >
-                    {loadingProductsDb ? (
-                      <SkItemComplete />
-                    ) : productsDb && productsDb.length > 0 ? (
-                      <Flex
-                        direction="column"
-                        align="flex-start"
-                        justify="flex-start"
-                        w="100%"
-                      >
-                        {productsDb
-                          .map((prod, index) => {
-                            return (
-                              <>
-                                <Flex
-                                  key={index}
-                                  w="100%"
-                                  justify="space-between"
-                                  align="center"
-                                >
-                                  <ItemComplete item={prod} />
-                                  <Flex>
-                                    {!prod.isActive ? (
-                                      <Button
-                                        onClick={() =>
-                                          handleIsActiveClick(prod.id, true)
-                                        }
-                                      >
-                                        ✔
-                                      </Button>
-                                    ) : (
-                                      <Button
-                                        onClick={() =>
-                                          handleIsActiveClick(prod.id, false)
-                                        }
-                                      >
-                                        ❌
-                                      </Button>
-                                    )}
-                                    <Button
-                                      onClick={() => handleEdit(prod.id)}
-                                      ml={2}
-                                    >
-                                      ✏
-                                    </Button>
-                                    <Button
-                                      onClick={() => handleDelete(prod.id)}
-                                      ml={2}
-                                    >
-                                      🗑
-                                    </Button>
-                                  </Flex>
-                                </Flex>
-                                <Divider m="1.5rem 0" />
-                              </>
-                            )
-                          })
-                          .reverse()}
-                      </Flex>
-                    ) : (
-                      <Flex>{t("AdminTemplate.noItems")}</Flex>
-                    )}
-                  </Flex>
+                  <ProductsCompleteList
+                    data={productsDb}
+                    loading={loadingProductsDb}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
+                    handleIsActiveClick={handleIsActiveClick}
+                  />
                 </TabPanel>
+
+                {/* COMPRAS */}
                 <TabPanel w="100%">
-                  <Flex
-                    direction="column"
-                    align="center"
-                    justify="flex-start"
-                    w="100%"
-                    p={10}
-                  >
-                    {loadingProductsDb ? (
-                      <SkItemComplete />
-                    ) : purchases && purchases.length > 0 ? (
-                      <Flex
-                        direction="column"
-                        align="flex-start"
-                        justify="flex-start"
-                        w="100%"
-                      >
-                        {purchases
-                          .map((prod, index) => {
-                            return (
-                              <>
-                                <Flex
-                                  key={index}
-                                  w="100%"
-                                  justify="space-between"
-                                  align="center"
-                                >
-                                  <PurchaseComplete item={prod} />
-                                </Flex>
-                                <Divider m="1.5rem 0" />
-                              </>
-                            )
-                          })
-                          .reverse()}
-                      </Flex>
-                    ) : (
-                      <Flex>{t("AdminTemplate.noItems")}</Flex>
-                    )}
-                  </Flex>
+                  <PurchasesList
+                    data={purchases}
+                    loading={loadingPurchasesDb}
+                    complete
+                  />
                 </TabPanel>
+
+                {/* MENSAJES */}
                 <TabPanel w="100%">
-                  <Flex
-                    direction="column"
-                    align="center"
-                    justify="flex-start"
-                    w="100%"
-                    p={10}
-                  >
-                    {loadingProductsDb ? (
-                      <SkItemComplete />
-                    ) : messages && messages.length > 0 ? (
-                      <Flex
-                        direction="column"
-                        align="flex-start"
-                        justify="flex-start"
-                        w="100%"
-                      >
-                        {messages
-                          .map((message, index) => {
-                            return (
-                              <>
-                                <Flex
-                                  key={index}
-                                  w="100%"
-                                  justify="space-between"
-                                  align="center"
-                                >
-                                  <MessageComplete
-                                    message={message}
-                                    withDelete
-                                    onDelete={() =>
-                                      handleDeleteMessage(message.id)
-                                    }
-                                  />
-                                </Flex>
-                                <Divider m="1.5rem 0" />
-                              </>
-                            )
-                          })
-                          .reverse()}
-                      </Flex>
-                    ) : (
-                      <Flex>{t("AdminTemplate.noItems")}</Flex>
-                    )}
-                  </Flex>
+                  <MessagesList data={messages} loading={loadingMessagesDb} />
                 </TabPanel>
               </TabPanels>
             </Tabs>

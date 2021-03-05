@@ -117,7 +117,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
               onClose()
             })
             .catch((error) => {
-              console.log("error", error)
+              console.error("error", error)
               toast({
                 title: t("NewProductForm.error"),
                 description: "",
@@ -140,7 +140,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
               onClose()
             })
             .catch((error) => {
-              console.log("error", error)
+              console.error("error", error)
               toast({
                 title: t("NewProductForm.error"),
                 description: "",
@@ -179,6 +179,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
           name="price"
           label={t("NewProductForm.price")}
           type="number"
+          min="0"
           value={priceValue}
           onChange={(value) => setPriceValue(value)}
         />
@@ -186,6 +187,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
           name="stock"
           label={t("NewProductForm.stock")}
           type="number"
+          min="0"
           value={stockValue}
           onChange={(value) => setStockValue(value)}
         />

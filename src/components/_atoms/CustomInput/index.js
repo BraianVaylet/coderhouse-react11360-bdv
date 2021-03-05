@@ -16,6 +16,7 @@ const CustomInput = ({
   type,
   placeholder,
   disabled,
+  ...props
 }) => {
   return (
     <Input
@@ -25,6 +26,7 @@ const CustomInput = ({
       type={type}
       placeholder={placeholder}
       disabled={disabled}
+      {...props}
     />
   )
 }

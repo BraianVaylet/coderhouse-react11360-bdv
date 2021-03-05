@@ -127,7 +127,7 @@ const LoginFacebook = ({ ...props }) => {
         }
       })
       .catch((error) => {
-        console.log("error", error)
+        console.error("error", error)
         !user &amp;&amp;
           toast({
             title: t("Authentication.errorLogin"),

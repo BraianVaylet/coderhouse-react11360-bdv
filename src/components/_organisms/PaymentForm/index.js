@@ -8,11 +8,7 @@ import { CartContext, CheckoutContext } from "context"
 // hooks
 import useUser from "hooks/useUser"
 // utils
-import {
-  handleDiscuount,
-  handleTotalPrice,
-  handleMapArrayProducts,
-} from "utils"
+import { handleTotalPrice, handleMapArrayProducts } from "utils"
 
 /**
  * PaymentForm Component
@@ -69,7 +65,7 @@ const PaymentForm = () => {
         addressNum: streetNumberValue,
         addressInfo: deptoValue || "",
         products: handleMapArrayProducts(cartItems),
-        total: handleDiscuount(handleTotalPrice(cartItems))[0],
+        total: handleTotalPrice(cartItems),
       })
     } else {
       setIsDisabled(false)
@@ -97,9 +93,6 @@ const PaymentForm = () => {
             value={emailValue}
             onChange={(value) => setEmailValue(value)}
           />
-          {/* {!emailValue && (
-            <InputPassword onChange={(value) => setPasswordValue(value)} />
-          )} */}
         </Flex>
         <Flex direction="row" align="center" justify="space-between">
           <InputTextNumber

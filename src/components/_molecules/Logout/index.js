@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
 import {
@@ -8,6 +8,7 @@ import {
   useMediaQuery,
   Portal,
   useToast,
+  Spinner,
 } from "@chakra-ui/react"
 // styles
 import { MY_BREAKPOINTS } from "styles/theme"
@@ -36,6 +37,7 @@ const Logout = () => {
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
+  const [loading, setLoading] = useState(false)
 
   const handleLogout = () => {
     // save storage in db
@@ -46,15 +48,18 @@ const Logout = () => {
       notifications: notification,
     })
       .then(() => {
+        setLoading(true)
         onAuthSignOut()
           .then(() => {
             cleanFavourites()
             cleanCart()
             cleanNotification()
             onClose()
+            setLoading(false)
           })
           .catch((error) => {
-            console.log("error", error)
+            console.error("error", error)
+            setLoading(false)
             toast({
               title: t("Logout.youCanNot"),
               description: "",
@@ -65,7 +70,7 @@ const Logout = () => {
             })
           })
       })
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
   }
 
   const renderTitle = () => t("Logout.logout")
@@ -76,7 +81,7 @@ const Logout = () => {
         {t("Logout.close")}
       </Button>
       <Button variant="ghost" onClick={handleLogout}>
-        {t("Logout.ok")}
+        {loading ? <Spinner color="brand.primary" /> : t("Logout.ok")}
       </Button>
     </>
   )

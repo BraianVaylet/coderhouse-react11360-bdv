@@ -15,7 +15,7 @@ const firebaseConfig = {
 try {
   !firebase.apps.length && firebase.initializeApp(firebaseConfig)
 } catch (error) {
-  console.log("firebase-error", error)
+  console.error("firebase-error", error)
 }
 
 const db = firebase.firestore()
@@ -196,7 +196,7 @@ export const addStorage = async ({
       )
     }
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -273,7 +273,7 @@ export const changeIsActiveProductByID = async (id, active) => {
   try {
     return await db.collection("products").doc(id).update({ isActive: active })
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -284,7 +284,7 @@ export const fetchAllProducts = async () => {
     const doc = await db.collection("products").get()
     return doc.docs.map(mapProductFromFirebaseToProduct)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -297,7 +297,7 @@ export const fetchProducts = async () => {
       .get()
     return doc.docs.map(mapProductFromFirebaseToProduct)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -311,7 +311,7 @@ export const fetchProductsByCategory = async (category) => {
       .get()
     return doc.docs.map(mapProductFromFirebaseToProduct)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -322,11 +322,11 @@ export const fetchProductsByID = async (id) => {
     if (doc.exists) {
       return mapProductFromFirebaseToProduct(doc)
     } else {
-      console.log("error", "Error, el producto no existe")
+      console.error("error", "Error, el producto no existe")
       return {}
     }
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -339,7 +339,7 @@ export const fetchAllPurchases = async () => {
       .get()
     return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -352,7 +352,7 @@ export const fetchAllPurchasesByUser = async (email) => {
       .get()
     return doc.docs.map(mapPurchaseFromFirebaseToPurchase)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -362,7 +362,7 @@ export const fetchStorageByUser = async (email) => {
     const doc = await db.collection("storage").where("email", "==", email).get()
     return doc.docs.map(mapStorageFromFirebaseToStorage)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -375,7 +375,7 @@ export const fetchAllMessages = async () => {
       .get()
     return doc.docs.map(mapMessagesFromFirebaseToPurchase)
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -385,7 +385,7 @@ export const deleteProductsByID = async (id) => {
   try {
     return await db.collection("products").doc(id).delete()
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }
 
@@ -394,6 +394,6 @@ export const deleteMessagesByID = async (id) => {
   try {
     return await db.collection("messages").doc(id).delete()
   } catch (error) {
-    console.log("error", error)
+    console.error("error", error)
   }
 }

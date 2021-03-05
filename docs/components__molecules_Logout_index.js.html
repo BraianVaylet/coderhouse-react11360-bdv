@@ -141,7 +141,7 @@ const Logout = () => {
             onClose()
           })
           .catch((error) => {
-            console.log("error", error)
+            console.error("error", error)
             toast({
               title: t("Logout.youCanNot"),
               description: "",
@@ -152,7 +152,7 @@ const Logout = () => {
             })
           })
       })
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
   }
 
   const renderTitle = () => t("Logout.logout")

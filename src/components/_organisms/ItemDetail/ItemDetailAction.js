@@ -9,6 +9,8 @@ import ItemCount from "components/_molecules/ItemCount"
 import Calification from "components/_molecules/Calification"
 // styles
 import { titleSizeResponsiveMin1280 } from "styles/utils"
+// utils
+import { PropTypesProduct } from "utils/propTypes"
 
 /**
  * ItemDetail/ItemDetailAction Component
@@ -16,14 +18,7 @@ import { titleSizeResponsiveMin1280 } from "styles/utils"
  * @author Braian D. Vaylet
  * @description Componente información principal y acciones del producto, es una seccion del componente ItemDetail.
  */
-const ItemDetailAction = ({
-  title,
-  price,
-  stock,
-  calification,
-  pictureUrl,
-  id,
-}) => {
+const ItemDetailAction = ({ item }) => {
   return (
     <>
       <Flex
@@ -41,14 +36,14 @@ const ItemDetailAction = ({
         >
           <Flex direction="row" align="center" justify="space-between" w="100%">
             <Text fontSize="1rem">Status | Vendidos</Text>
-            <FavouriteIconBtn item={{ title, pictureUrl, price, id }} />
+            <FavouriteIconBtn item={item} />
           </Flex>
-          <Text fontSize={titleSizeResponsiveMin1280(2)}>{title}</Text>
-          <Calification value={calification} />
+          <Text fontSize={titleSizeResponsiveMin1280(2)}>{item.title}</Text>
+          <Calification value={item.calification} />
           <Text fontSize={titleSizeResponsiveMin1280(3)} fontWeight="bold">
-            ${price}
+            ${item.price}
           </Text>
-          <CartCount item={{ title, price, pictureUrl, id }} />
+          <CartCount item={item} />
           <Text mt={4}>(envío gratis)</Text>
         </Flex>
 
@@ -61,7 +56,7 @@ const ItemDetailAction = ({
           h="40%"
         >
           <Box w="100%">
-            <ItemCount stock={stock} item={{ id, title, price, pictureUrl }} />
+            <ItemCount stock={item.stock} item={item} />
           </Box>
         </Flex>
       </Flex>
@@ -70,12 +65,7 @@ const ItemDetailAction = ({
 }
 
 ItemDetailAction.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  stock: PropTypes.number.isRequired,
-  calification: PropTypes.number.isRequired,
-  pictureUrl: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  item: PropTypes.shape(PropTypesProduct).isRequired,
 }
 
 export default ItemDetailAction

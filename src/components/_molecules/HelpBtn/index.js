@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
 // chokra-ui
-import { Link, Text } from "@chakra-ui/react"
+import { Button, Link, Text } from "@chakra-ui/react"
 import { InfoOutlineIcon } from "@chakra-ui/icons"
 // router
 import { ROUTES } from "routes"
@@ -21,7 +21,11 @@ const HelpBtn = ({ children }) => {
 
   return (
     <CustomPopover
-      btn={<InfoOutlineIcon />}
+      btn={
+        <Button>
+          <InfoOutlineIcon />
+        </Button>
+      }
       header={t("HelpBtn.help")}
       footer={
         <Text>

@@ -47,6 +47,7 @@ const StatisticsBox = ({ value, text, color, design }) => {
 
 StatisticsBox.defaultProps = {
   design: 1,
+  value: 0,
 }
 
 StatisticsBox.propTypes = {

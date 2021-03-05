@@ -49,7 +49,7 @@ const HelpForm = ({ onClose }) => {
           onClose()
         })
         .catch((error) => {
-          console.log("error", error)
+          console.error("error", error)
           toast({
             title: t("WorkWithUs.canNotSend"),
             description: "",

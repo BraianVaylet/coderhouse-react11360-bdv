@@ -21,6 +21,7 @@ export const InputTextNumber = ({
   isRequired = true,
   value,
   disabled,
+  ...props
 }) => {
   const [valueState, setValueState] = useState(value)
 
@@ -46,6 +47,7 @@ export const InputTextNumber = ({
         name={name}
         type={type}
         placeholder={placeholder}
+        {...props}
       />
       <FormHelperText maxH="1.5rem" minH="1.5rem" h="1.5rem" mt="5px" />
     </FormControl>

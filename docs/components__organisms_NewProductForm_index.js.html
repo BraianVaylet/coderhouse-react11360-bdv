@@ -204,7 +204,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
               onClose()
             })
             .catch((error) => {
-              console.log("error", error)
+              console.error("error", error)
               toast({
                 title: t("NewProductForm.error"),
                 description: "",
@@ -227,7 +227,7 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
               onClose()
             })
             .catch((error) => {
-              console.log("error", error)
+              console.error("error", error)
               toast({
                 title: t("NewProductForm.error"),
                 description: "",

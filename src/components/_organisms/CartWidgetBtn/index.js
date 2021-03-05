@@ -30,7 +30,7 @@ import ItemProductList from "components/_organisms/ItemProductList" // ! AtomicD
  * @author Braian D. Vaylet
  * @description Componente carrito con contador
  */
-const CartWidgetBtn = () => {
+const CartWidgetBtn = ({ ...props }) => {
   const { cartItems, cleanCart, deleteItemsFromCart } = useContext(CartContext)
   const [t] = useTranslation("global")
   const [items, setItems] = useState([])
@@ -48,7 +48,7 @@ const CartWidgetBtn = () => {
   const handleIsOpen = (value = !isOpen) => setIsOpen(value)
 
   return cartItems.length > 6 ? (
-    <ButtonLink to={ROUTES.CART}>
+    <ButtonLink to={ROUTES.CART} {...props}>
       <Icon as={MdShoppingCart} boxSize="1.5rem" /> ({cartCount})
     </ButtonLink>
   ) : (

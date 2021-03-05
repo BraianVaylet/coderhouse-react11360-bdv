@@ -33,6 +33,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
 import { addOpacityToColor } from "styles/utils"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
+import useUser from "hooks/useUser"
 // routes
 import { ROUTES } from "routes"
 // utils
@@ -48,6 +49,7 @@ import ButtonLink from "components/_atoms/ButtonLink"
  */
 const NavBarTemplate = () => {
   const [t] = useTranslation("global")
+  const user = useUser()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const backgroundColor = useSetColorTheme(
     addOpacityToColor("#1A202C", 0.75),
@@ -136,10 +138,10 @@ const NavBarTemplate = () => {
         <Flex direction="row" justify="flex-start" align="center">
           {mediaQueryMin1280 && renderLinks(false)}
           <Box ml={4} mr={4}>
-            {!mediaQueryMax600 && <FavoritesBtn />}
-            {!mediaQueryMax600 && <NotificationsBtn />}
+            {!mediaQueryMax600 && user && <FavoritesBtn />}
+            {!mediaQueryMax600 && user && <NotificationsBtn />}
             <CartWidgetBtn />
-            <LoginBtn />
+            <LoginBtn ml={10} />
           </Box>
         </Flex>
       </Flex>

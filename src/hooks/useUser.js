@@ -13,9 +13,5 @@ export default function useUser() {
     onAuthStateChanged(setUser)
   }, [])
 
-  useEffect(() => {
-    user === USER_STATES.NOT_LOGGED && console.log("User no esta logueado")
-  }, [user])
-
   return user
 }

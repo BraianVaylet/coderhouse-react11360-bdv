@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 // chakra-ui
 import {
-  Button,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -29,9 +28,7 @@ const CustomPopover = ({
 }) => {
   return (
     <Popover zIndex="1000000">
-      <PopoverTrigger>
-        <Button>{btn}</Button>
-      </PopoverTrigger>
+      <PopoverTrigger>{btn}</PopoverTrigger>
       <PopoverContent>
         <PopoverArrow />
         {withHeader && <PopoverHeader>{header}</PopoverHeader>}
@@ -49,7 +46,7 @@ CustomPopover.defaultProps = {
 }
 
 CustomPopover.propTypes = {
-  btn: PropTypes.node.isRequired,
+  btn: PropTypes.element.isRequired,
   header: PropTypes.string,
   children: PropTypes.element.isRequired,
   footer: PropTypes.node,

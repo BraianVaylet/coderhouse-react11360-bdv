@@ -29,7 +29,7 @@ const ButtonModalFullImage = ({ pictureName, pictureUrl, title }) => {
           icon={
             <Box
               p="2.5px"
-              bgColor={addOpacityToColor("#cccccc", 0.3)}
+              bgColor={addOpacityToColor("#cccccc", 0.1)}
               borderRadius="5px"
               _focus={{
                 borderStyle: "none",
@@ -38,7 +38,7 @@ const ButtonModalFullImage = ({ pictureName, pictureUrl, title }) => {
             >
               <Icon
                 as={IoExpand}
-                color="brand.primary"
+                color="black"
                 boxSize="1rem"
                 borderRadius="9999px"
                 fill="brand.primary"

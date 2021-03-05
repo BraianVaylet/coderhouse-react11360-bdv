@@ -33,11 +33,10 @@ const ItemDetail = () => {
       setLoadingProductsDb(true)
       try {
         const value = await fetchProductsByID(id)
-        // console.log("value", value)
         setItem(value)
         setLoadingProductsDb(false)
       } catch (error) {
-        console.log("error", error)
+        console.error("error", error)
       }
     }
   }, [id])

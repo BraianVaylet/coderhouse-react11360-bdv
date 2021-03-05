@@ -6,6 +6,7 @@ import { Box, Center, Divider, Flex } from "@chakra-ui/react"
 // components
 import ItemPurchases from "components/_molecules/ItemPurchases"
 import SkItemPurchases from "components/_molecules/ItemPurchases/SkItemPurchases"
+import PurchaseComplete from "components/_molecules/PurchaseComplete"
 
 /**
  * PurchasesList Component
@@ -13,7 +14,7 @@ import SkItemPurchases from "components/_molecules/ItemPurchases/SkItemPurchases
  * @author Braian D. Vaylet
  * @description componente listado de todas las compras
  */
-const PurchasesList = ({ data, loading }) => {
+const PurchasesList = ({ data, loading, complete }) => {
   const [t] = useTranslation("global")
   const count = data && data.length
 
@@ -38,9 +39,20 @@ const PurchasesList = ({ data, loading }) => {
             .map((purchase, index) => {
               return (
                 <>
-                  <Box key={index} w="100%">
-                    <ItemPurchases item={purchase} />
-                  </Box>
+                  {!complete ? (
+                    <Box key={index} w="100%">
+                      <ItemPurchases item={purchase} />
+                    </Box>
+                  ) : (
+                    <Flex
+                      key={index}
+                      w="100%"
+                      justify="space-between"
+                      align="center"
+                    >
+                      <PurchaseComplete item={purchase} />
+                    </Flex>
+                  )}
                   <Divider m="1.5rem 0" />
                 </>
               )
@@ -57,8 +69,13 @@ const PurchasesList = ({ data, loading }) => {
 }
 
 PurchasesList.propTypes = {
+  complete: false,
+}
+
+PurchasesList.propTypes = {
   data: PropTypes.number,
   loading: PropTypes.bool,
+  complete: PropTypes.bool,
 }
 
 export default PurchasesList

@@ -30,8 +30,10 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
   const backgroundColor = useSetColorTheme("gray.900", "gray.200")
   const [count, setCount] = useState(initial)
   const [noStock, setNoStock] = useState(false)
+  const [newStock, setNewStock] = useState(false)
 
   useEffect(() => setNoStock(count >= stock), [count])
+  useEffect(() => setNewStock(stock - count - handleCount()), [count, stock])
 
   /**
    * handleIncrementConuter
@@ -184,7 +186,7 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
           </Text>
         ) : (
           <Text fontWeight="600">
-            {t("ItemCount.available")} {stock - count - handleCount()}u.
+            {t("ItemCount.available")} {newStock < 0 ? 0 : newStock}u.
           </Text>
         )}
       </Box>
@@ -192,7 +194,7 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
         <Button
           w="100%"
           mt={4}
-          disabled={noStock || count === 0}
+          disabled={noStock || count === 0 || newStock < 0}
           onClick={handleOnAddClick}
         >
           {t("ItemCount.addToCart")}
@@ -200,7 +202,7 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
         <Button
           w="100%"
           mt={4}
-          disabled={noStock || count === 0}
+          disabled={noStock || count === 0 || newStock < 0}
           onClick={handleOnBuyClick}
         >
           {t("ItemCount.buyNow")}
@@ -214,7 +216,6 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
       justify="space-between"
       w="100%"
       h="100%"
-      p="5px"
     >
       <Flex
         justify="space-between"
@@ -222,11 +223,9 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
         align="center"
         borderRadius="5px"
         w="100%"
-        m="5px 0px"
         bg={backgroundColor}
       >
         <IconButton
-          disabled={stock - handleCount() === 0}
           mr={4}
           w="50%"
           h="100%"
@@ -234,7 +233,7 @@ const ItemCount = ({ initial = 1, stock, item, design = 1 }) => {
           icon={<MinusIcon w={5} h={10} />}
         />
         <IconButton
-          disabled={stock - handleCount() === 0}
+          disabled={stock - handleCount() <= 0}
           w="50%"
           h="100%"
           onClick={handleIncrementConuterV2}

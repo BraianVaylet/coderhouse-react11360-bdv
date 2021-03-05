@@ -9,7 +9,7 @@ import useUser from "./useUser"
 const useStorageByUser = () => {
   const user = useUser()
   const { setFavourites } = useContext(FavouriteContext)
-  const { setCartItems } = useContext(CartContext)
+  const { cartItems, setCartItems } = useContext(CartContext)
   const { setNotification } = useContext(NotificationContext)
 
   useEffect(() => {
@@ -17,10 +17,10 @@ const useStorageByUser = () => {
       fetchStorageByUser(user.email)
         .then((value) => {
           setFavourites(value[0].favourites)
-          setCartItems(value[0].cart)
           setNotification(value[0].notifications)
+          cartItems.length === 0 && setCartItems(value[0].cart) // Si el usuario ya tenia articulos en el carrito antes de la autentificación, no actualizo el carrito con la info de la BD
         })
-        .catch((error) => console.log("error", error))
+        .catch((error) => console.error("error", error))
   }, [user])
 }
 

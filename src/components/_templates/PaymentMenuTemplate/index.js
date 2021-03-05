@@ -66,6 +66,7 @@ const PaymentMenuTemplate = () => {
               count: cartItems.length,
               viewed: false,
               total: purchase.total,
+              discount: purchase.discount,
             })
             // limpio carrito
             cleanCart()
@@ -74,7 +75,7 @@ const PaymentMenuTemplate = () => {
           }
         })
         .catch((error) => {
-          console.log("error", error)
+          console.error("error", error)
           setPurchasesStatus(false)
         })
     }
@@ -139,7 +140,7 @@ const PaymentMenuTemplate = () => {
         <Divider m="10px 0" />
         <Flex align="center" justify="space-between" w="100%">
           <Text fontWeight="bold">Total</Text>
-          <TotalCart withDiscount />
+          <TotalCart />
         </Flex>
 
         {items.length && (

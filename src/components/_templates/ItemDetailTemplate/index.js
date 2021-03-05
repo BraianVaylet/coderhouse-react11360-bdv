@@ -22,6 +22,8 @@ import { ROUTES } from "routes"
 import { PropTypesProduct } from "utils/propTypes"
 import Card from "components/_atoms/Card"
 
+const withQuestionsAndAnswer = false
+
 /**
  * ItemDetailTemplate Page
  * @Component
@@ -75,14 +77,7 @@ const ItemDetailTemplate = ({ item }) => {
           boxShadow={CustomShadow}
         >
           {item !== null ? (
-            <ItemDetailAction
-              id={item.id}
-              title={item.title}
-              price={item.price}
-              stock={item.stock}
-              calification={item.calification}
-              pictureUrl={item.pictureUrl}
-            />
+            <ItemDetailAction item={item} />
           ) : (
             <SkeletonItemDetailAction />
           )}
@@ -118,7 +113,7 @@ const ItemDetailTemplate = ({ item }) => {
               <Divider mt={10} mb={10} />
 
               {/* comments */}
-              <ItemDetailQuestionsAndAnswers />
+              {withQuestionsAndAnswer && <ItemDetailQuestionsAndAnswers />}
             </>
           ) : (
             <SkeletonItemDetailContent />

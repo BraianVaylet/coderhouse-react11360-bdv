@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 // chakra-ui
-import { Center } from "@chakra-ui/react"
+import { Box, Center } from "@chakra-ui/react"
 // constants
 import ImageBox from "components/_atoms/ImageBox"
+import ButtonModalFullImage from "components/_molecules/ButtonModalFullImage"
 
 /**
  * ItemDetail/ItemDetailImgBox Component
@@ -13,7 +14,7 @@ import ImageBox from "components/_atoms/ImageBox"
  */
 const ItemDetailImgBox = ({ pictureName, pictureUrl, pictureId }) => {
   return (
-    <Center p="20px" w="100%">
+    <Center p="20px" w="100%" position="relative">
       <ImageBox
         id={pictureId}
         name={pictureName}
@@ -25,6 +26,13 @@ const ItemDetailImgBox = ({ pictureName, pictureUrl, pictureId }) => {
         minH="300px"
         maxH="300px"
       />
+      <Box position="absolute" top="10" left="10">
+        <ButtonModalFullImage
+          pictureName={pictureName}
+          pictureUrl={pictureUrl}
+          title={pictureName}
+        />
+      </Box>
     </Center>
   )
 }

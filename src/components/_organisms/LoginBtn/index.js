@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 // chakra-ui
-import { Flex, useMediaQuery } from "@chakra-ui/react"
+import { Button, Flex, useMediaQuery } from "@chakra-ui/react"
 // components
 import CustomPopover from "components/_atoms/CustomPopover"
 import LoginFacebook from "components/_atoms/LoginFacebook"
@@ -17,7 +17,7 @@ import useUser from "hooks/useUser"
  * @author Braian D. Vaylet
  * @description Componente button para el login en menu
  */
-const LoginBtn = () => {
+const LoginBtn = ({ ...props }) => {
   const [t] = useTranslation("global")
   const user = useUser()
   const [mediaQueryMax600] = useMediaQuery(MY_BREAKPOINTS.BREAK_MAX_600)
@@ -27,7 +27,11 @@ const LoginBtn = () => {
       <CustomPopover
         header={t("LoginBtn.login2")}
         withFooter={false}
-        btn={mediaQueryMax600 ? "🚀" : t("LoginBtn.login")}
+        btn={
+          <Button {...props}>
+            {mediaQueryMax600 ? "🚀" : t("LoginBtn.login")}
+          </Button>
+        }
       >
         <Flex w="100%" direction="column" align="flex-start" justify="center">
           <LoginGoogle mb={2} />

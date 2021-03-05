@@ -33,7 +33,8 @@ const CustomMenu = ({
         leftIcon={
           <Flex direction="row" align="center">
             {btnIcon}
-            {btnWithTex && <Text m="0 .5rem">{btnText}</Text>}({count})
+            {btnWithTex && <Text m="0 .5rem">{btnText}</Text>}
+            {count !== 0 && " (" + count + ")"}
           </Flex>
         }
       />

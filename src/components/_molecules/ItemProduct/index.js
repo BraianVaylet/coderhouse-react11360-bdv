@@ -140,7 +140,7 @@ const ItemProduct = ({ item, onDelete, onSave, design, withDelete }) => {
         </Flex>
         <Flex
           direction={setValueResponsiveMax600("column", "row")}
-          align={"center"}
+          align={"flex-start"}
           justify="space-between"
           w={setValueResponsiveMax600("100%", "60%")}
           mt={setValueResponsiveMax600("2rem", "0")}

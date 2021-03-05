@@ -42,7 +42,7 @@ const LoginGoogle = ({ ...props }) => {
         }
       })
       .catch((error) => {
-        console.log("error", error)
+        console.error("error", error)
         user &&
           toast({
             title: t("Authentication.errorLogin"),
