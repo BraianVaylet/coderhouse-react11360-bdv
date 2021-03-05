@@ -91,7 +91,6 @@ const BannerLinks = ({ design, active }) => {
             fontWeight="900"
             fontSize="3rem"
             letterSpacing="-4px"
-            textOrientation="vertical"
           >
             {t("BannerLinks.shirts")}
           </Text>

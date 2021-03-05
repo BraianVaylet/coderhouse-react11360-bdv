@@ -24,5 +24,5 @@ export const PropTypesProduct = {
   colors: PropTypes.array.isRequired,
   color: PropTypes.string,
   isActive: PropTypes.bool.isRequired,
-  createdAt: PropTypes.string,
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }

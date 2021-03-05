@@ -49,7 +49,7 @@ CustomModal.defaultProps = {
 
 CustomModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
   header: PropTypes.node,
   footer: PropTypes.node,
   children: PropTypes.element.isRequired,

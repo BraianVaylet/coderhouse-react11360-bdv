@@ -45,7 +45,7 @@ const CustomColorsBox = ({ color }) => {
       )
     } else {
       return (
-        <Button
+        <Box
           p={0}
           w="1.25rem"
           h="1.25rem"
@@ -62,7 +62,7 @@ const CustomColorsBox = ({ color }) => {
 }
 
 CustomColorsBox.propTypes = {
-  color: PropTypes.array.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 export default CustomColorsBox

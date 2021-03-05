@@ -36,12 +36,12 @@ const NotificationList = () => {
           {notification
             .map((_notification, index) => {
               return (
-                <>
-                  <Box key={index} w="100%">
+                <Box key={index} w="100%">
+                  <Box w="100%">
                     <ItemNotificaton item={_notification} />
                   </Box>
                   <Divider m="1.5rem 0" />
-                </>
+                </Box>
               )
             })
             .reverse()}

@@ -72,8 +72,8 @@ const FavouritesTemplate = () => {
               {favourites
                 .map((fav, index) => {
                   return (
-                    <>
-                      <Box key={index} w="100%">
+                    <Box key={index} w="100%">
+                      <Box w="100%">
                         <ItemProduct
                           design={1}
                           item={fav}
@@ -82,7 +82,7 @@ const FavouritesTemplate = () => {
                         />
                       </Box>
                       <Divider m="1.5rem 0" />
-                    </>
+                    </Box>
                   )
                 })
                 .reverse()}

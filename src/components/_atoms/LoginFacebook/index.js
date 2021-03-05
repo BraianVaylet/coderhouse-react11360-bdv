@@ -27,7 +27,7 @@ const LoginFacebook = ({ ...props }) => {
    */
   const handleClick = () =>
     loginWithFacebook()
-      .then(() => {
+      .then((value) => {
         if (user) {
           toast({
             title: `🙂 ${t("Authentication.welcome")}, ${user.username}`,

@@ -7,7 +7,7 @@ import useSetColorTheme from "hooks/useSetColorTheme"
 // styles
 import { TOOLTIP_TIME } from "styles/theme"
 
-const CustomTooltip = ({ children, label }) => {
+const CustomTooltip = ({ children, label, ...props }) => {
   const backgroundColorTooltip = useSetColorTheme("black", "white")
 
   return (
@@ -18,6 +18,7 @@ const CustomTooltip = ({ children, label }) => {
       fontSize="md"
       openDelay={TOOLTIP_TIME}
       color
+      {...props}
     >
       {children}
     </Tooltip>

@@ -125,7 +125,7 @@ const ItemDetailTemplate = ({ item }) => {
 }
 
 ItemDetailTemplate.propTypes = {
-  item: PropTypes.shape(PropTypesProduct).isRequired,
+  item: PropTypes.shape(PropTypesProduct),
 }
 
 export default ItemDetailTemplate
