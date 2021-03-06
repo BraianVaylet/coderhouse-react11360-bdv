@@ -31,14 +31,7 @@ import NewProductForm from "components/_organisms/NewProductForm"
 // context
 import { ProductsContext } from "context"
 // firebase
-import {
-  fetchAllProducts,
-  changeIsActiveProductByID,
-  deleteProductsByID,
-  fetchProductsByID,
-  fetchAllPurchases,
-  fetchAllMessages,
-} from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 // routes
 import { ROUTES } from "routes"
 import PurchasesList from "components/_organisms/PurchasesList"
@@ -54,6 +47,7 @@ import BtnInfoAdminList from "components/_molecules/BtnInfoAdminList"
  */
 const AdminTemplate = () => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const {
     productsDb,
     setProductsDb,
@@ -76,17 +70,19 @@ const AdminTemplate = () => {
     slide.onOpen()
 
     setLoadingPurchasesDb(true)
-    fetchAllPurchases()
+    firebase
+      .fetchAllPurchases()
       .then(setPurchases)
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
     setLoadingPurchasesDb(false)
   }, [])
 
   useEffect(() => {
     setLoadingMessagesDb(true)
-    fetchAllMessages()
+    firebase
+      .fetchAllMessages()
       .then(setMessages)
-      .catch((error) => console.log("error", error))
+      .catch((error) => console.error("error", error))
     setLoadingMessagesDb(false)
   }, [messages])
 
@@ -98,11 +94,11 @@ const AdminTemplate = () => {
   const getProductsFromDb = async () => {
     setLoadingProductsDb(true)
     try {
-      const value = await fetchAllProducts()
+      const value = await firebase.fetchAllProducts()
       setProductsDb(value)
       setLoadingProductsDb(false)
     } catch (error) {
-      console.log("error", error)
+      console.error("error", error)
     }
   }
 
@@ -114,7 +110,8 @@ const AdminTemplate = () => {
    * @description Cambia el estado del producto de activo a inactivo
    */
   const handleIsActiveClick = async (id, active) => {
-    await changeIsActiveProductByID(id, active)
+    await firebase
+      .changeIsActiveProductByID(id, active)
       .then(() => {
         toast({
           title: t("AdminTemplate.isActiveSuccess") + ": " + active,
@@ -145,7 +142,8 @@ const AdminTemplate = () => {
    * @description Elimina el registro de la Base de datos ⚠
    */
   const handleDelete = async (id) => {
-    await deleteProductsByID(id)
+    await firebase
+      .deleteProductsByID(id)
       .then(() => {
         toast({
           title: t("AdminTemplate.deleteSuccess"),
@@ -176,7 +174,7 @@ const AdminTemplate = () => {
    */
   const handleEdit = async (id) => {
     setEdit(true)
-    const product = await fetchProductsByID(id)
+    const product = await firebase.fetchProductsByID(id)
     setProductSelected(product)
     onOpen()
   }

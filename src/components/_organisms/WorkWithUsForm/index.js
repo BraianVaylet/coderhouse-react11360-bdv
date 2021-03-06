@@ -6,7 +6,7 @@ import { Button, Flex, useToast } from "@chakra-ui/react"
 // components
 import { InputEmail, InputTextNumber } from "components/_molecules/Inputs"
 // firebase
-import { addMessageWorkWithUs } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 /**
  * WorkWithUsForm Component
@@ -17,6 +17,7 @@ import { addMessageWorkWithUs } from "firebase/client"
 const WorkWithUsForm = ({ onClose }) => {
   const toast = useToast()
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const [emailValue, setEmailValue] = useState(null)
   const [nameValue, setNameValue] = useState(null)
   const [phoneValue, setPhoneValue] = useState(null)
@@ -30,12 +31,13 @@ const WorkWithUsForm = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (emailValue && nameValue && phoneValue && linkedinValue) {
-      addMessageWorkWithUs({
-        email: emailValue,
-        name: nameValue,
-        phone: phoneValue,
-        linkedin: linkedinValue,
-      })
+      firebase
+        .addMessageWorkWithUs({
+          email: emailValue,
+          name: nameValue,
+          phone: phoneValue,
+          linkedin: linkedinValue,
+        })
         .then(() => {
           toast({
             title: t("WorkWithUs.sendOk"),

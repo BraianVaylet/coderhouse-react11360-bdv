@@ -16,7 +16,6 @@ import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
 // utils
 import { IMG } from "utils/images"
 import { PropTypesProduct } from "utils/propTypes"
-import { handleMapArrayProducts } from "utils"
 // hooks
 import useTimeAgo from "hooks/useTimeAgo"
 import useDateTimeFormat from "hooks/useDateTimeFormat"
@@ -114,7 +113,7 @@ const ItemPurchases = ({ item }) => {
       <Collapse in={isOpen} animateOpacity>
         <Flex direction="column" align="flex-start" justify="center">
           <ItemProductList
-            data={handleMapArrayProducts(products)}
+            data={products}
             asComponent={Box}
             type="item"
             design={1}

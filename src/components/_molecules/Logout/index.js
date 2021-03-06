@@ -16,7 +16,7 @@ import { MY_BREAKPOINTS } from "styles/theme"
 import CustomModal from "components/_atoms/CustomModal"
 import CustomDrawer from "components/_atoms/CustomDrawer"
 // firebase
-import { addStorage, onAuthSignOut } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 // context
 import { CartContext, FavouriteContext, NotificationContext } from "context"
 // hooks
@@ -30,6 +30,7 @@ import useUser from "hooks/useUser"
  */
 const Logout = () => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const { favourites, cleanFavourites } = useContext(FavouriteContext)
   const { cartItems, cleanCart } = useContext(CartContext)
   const { notification, cleanNotification } = useContext(NotificationContext)
@@ -41,15 +42,17 @@ const Logout = () => {
 
   const handleLogout = () => {
     // save storage in db
-    addStorage({
-      email: user.email,
-      favourites,
-      cart: cartItems,
-      notifications: notification,
-    })
+    firebase
+      .addStorage({
+        email: user.email,
+        favourites,
+        cart: cartItems,
+        notifications: notification,
+      })
       .then(() => {
         setLoading(true)
-        onAuthSignOut()
+        firebase
+          .onAuthSignOut()
           .then(() => {
             cleanFavourites()
             cleanCart()

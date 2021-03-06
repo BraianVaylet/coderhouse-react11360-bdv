@@ -1,315 +1,314 @@
 {
-  "HelmetSEO": {
-    "title": {
-      "home": "Aquila 🦅 | Home",
-      "products": "Aquila 🦅 | Products | ",
-      "itemDetail": "Aquila 🦅 | Product | ",
-      "notFound": "Aquila 🦅 | 404",
-      "notifications": "Aquila 🦅 | Notifications",
-      "favourites": "Aquila 🦅 | Favourites",
-      "checkout": "Aquila 🦅 | checkout",
-      "cart": "Aquila 🦅 | cart",
-      "help": "Aquila 🦅 | help",
-      "termsAndConditions": "Aquila 🦅 | Terms & Conditions",
-      "purchases": "Aquila 🦅 | purchases"
-    },
-    "description": {
-      "home": "Main page of the store for the sale of clothing",
-      "products": "List of store products under the category: ",
-      "itemDetail": "Product selected from the store: ",
-      "notFound": "Not found",
-      "notifications": "notifications history",
-      "favourites": "favourites history",
-      "checkout": "Products checkout",
-      "cart": "Shopping cart",      
-      "help": "Help section",
-      "termsAndConditions": "Terms & Conditions",
-      "purchases": "purchases"
-    }
-  },
-  "Authentication": {
-    "welcome": "Welcome",
-    "errorLogin": "We were unable to authenticate your account 😞"
-  },
-  "App": {
-    "helloWorld": "Hello World!"
-  },
-  "NavBarTemplate": {
-    "constructionTools": "Construction tools",
-    "sports": "Sports",
-    "entertainment": "Entertainment",
-    "estate": "Estate",
-    "mobility": "Mobility",
-    "logout": "Logout",
-    "jackets": "Jackets",
-    "shirts": "Shirts",
-    "shoes": "Shoes",
-    "accesories": "Accesories",
-    "categories": "Categories"
-  },
-  "ChangeLanguageBtn": {
-    "es": "ES",
-    "en": "EN"
-  },
-  "ItemCount": {
-    "noStock": "No stock",
-    "available": "Available",
-    "addToCart": "Add to cart",
-    "addedToCart": "Added to cart 👍",
-    "buyNow": "Buy now",
-    "canNotBuy": "Purchases are disabled",
-    "canNotBuyDescription": "It is not possible to buy this item at this time",
-    "canNotAdd": "Purchases are disabled",
-    "canNotAddDescription": "It is not possible to add this item to your cart at this time."
-  },
-  "Logout": {
-    "logout": "Logout",
-    "doYouWantToLogout": "Do you want to log out?",
-    "close": "Close",
-    "ok": "Ok",
-    "youCanNot": "You can not go out 😈" 
-  },
-  "ItemList": {
-    "productsList": "Products list 🔥🔥🔥"
-  },
-  "ItemProductList": {
-    "noProductsYet": "No products yet 😔"  
-  },
-  "ItemDetailQuestionsAndAnswers": {
-    "title": "Questions and answers"
-  },
-  "ItemDetailDescription": {
-    "title": "Description"
-  },
-  "ItemDetailCharacteristics": {
-    "title": "Characteristics",
-    "brand": "Brand",
-    "model": "Model",
-    "withLoveTo": "With 💖 to",
-    "availableColours": "Available colours",
-    "availableSizes": "Available sizes"
-  },
-  "SubHeader": {
-    "back": "👈 Back"
-  },
-  "FavouriteIconBtn": {
-    "deleteFromFavourites": "Delete from favourites 💔",
-    "addToFavourites": "Add to favourites 😍"
-  },
-  "FavouritesBtn": {
-    "clean": "Clean favourites",
-    "title": "Favourites",
-    "all": "All"
-  },
-  "CartWidgetBtn": {
-    "clean": "Clean cart",
-    "goToCart": "Go to cart",
-    "deleteItem": "Remove from cart"
-  },
-  "ItemProduct": {
-    "deleteItem": "Remove product",
-    "delete": "Delete",
-    "save": "Save",
-    "saveText": "Save for later",
-    "similarProducts": "See similar products",
-    "seeMore": "See more"
-  },
-  "NotFound": {
-    "title": "Not Found"
-  },
-  "Footer": {
-    "workWithUs": "Work with us 💪",
-    "termsAndConditions": "Terms and conditions",
-    "help": "Help",
-    "covidPrecautions": "Precautions in times of COVID"
-  },
-  "Cart": {
-    "cart": "Cart",
-    "saves": "Saves"
-  },
-  "BtnModalImg": {
-    "zoomIn": "Zoom in"
-  },
-  "CartItemList": {
-    "keepBuying": "Keep buying",
-    "continueShopping": "Continue shopping"
-  },
-  "PaymentMenu": {
-    "resumen": "Purchase Summary",
-    "products": "Products",
-    "shipping": "Shipping",
-    "free": "Free",
-    "pay": "Pay",
-    "confirmForm": "Confirm the form to enable payment",
-    "success": "Successful purchase",
-    "error": "Ups! there is an error when making your purchase",
-    "cuestion": "What do you want to do?",
-    "goToPurchases": "go to my Purchases",
-    "goToHome": "Continue buying",
-    "tryAgain": "Try again"
-  },
-  "PaymentForm": {
-    "enterEmail": "Email",
-    "enterPassword": "Password",
-    "enterName": "Full Name",
-    "enterDni": "DNI",
-    "enterPhone": "Phone",
-    "enterStreetName": "Street name",
-    "enterStreetNumber": "Street number",
-    "enterDepto": "Floor and apartment",
-    "completeForm": "Complete the form",
-    "confirm": "Confirm",
-    "edit": "Edit form"
-  },
-  "InputEmail": {
-    "title": "Email",
-    "error": "Enter a real email"
-  },
-  "InputPassword": {
-    "title": "Password",
-    "error": "Enter a password",
-    "veryWeak": "Very weak",
-    "weak": "Weak",
-    "normal": "Normal",
-    "good": "Good",
-    "veryGood": "Very good",
-    "useHelp": "Use aA-zZ, 0-9 and characters"
-  },
-  "HelpBtn": {
-    "help": "Help",
-    "forMoreHelp": "For more help, click",
-    "here": "here"
-  },
-  "Checkout": {
-    "helpStage1": "Complete / verify the form",
-    "helpStage2": "Confirm the form, the payment button will be enabled",
-    "helpStage3": "Click on pay to make the payment.",
-    "hello": "Hello"
-  },
-  "ItemNotification": {
-    "bought": "You bought", 
-    "products": "products",
-    "order": "#Order"
-  },
-  "NotificationsBtn": {
-    "title": "Notifications",
-    "seeMoreTooltip": "See more notifications",
-    "all": "All",
-    "markAsViewed": "Mark as viewed"
-  },
-  "NotificationList": {
-    "noItems": "😶 We have no notifications to show you"
-  },
-  "PurchasesList": {
-    "noItems": "😑 You haven't made any purchases yet..."
-  },
-  "FavouritesTemplate": {
-    "title": "💕 My favourites",
-    "noItems": "😕 You don't have any product saved in favorites yet"
-  },
-  "NotificationsTemplate": {
-    "title": "📬 Notifications history"
-  },
-  "CartTemplate": {
-    "title": "🛒 My Cart"
-  },
-  "CheckoutTemplate": {
-    "title": "✔ Checkout"
-  },
-  "PurchasesTemplate": {
-    "title": "🛍 Purchases",
-    "purchasesMade": "Purchases made",
-    "productsPurchased": "Products purchased"
-  },
-  "AdminTemplate": {
-    "dashboard": "Administration panel",
-    "newProduct": "New Product",
-    "noItems": "There are no products to show",
-    "deleteSuccess": "Product removed",
-    "deleteError": "Error deleting",
-    "deleteMessageSuccess": "Message removed",   
-    "isActiveSuccess": "isActive changes to",
-    "isActiveError": "Failed to change isActive",
-    "activeTrue": "Make the product active",
-    "activeFalse": "Put the product into inactive state",
-    "delete": "Remove the product from the database",
-    "edit": "Edit the product",
-    "slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open.",
-    "purchasesMade": "Purchases made",
-    "products": "Products",
-    "jackets": "Jackets",
-    "shirts": "Shirts",
-    "shoes": "Shoes",
-    "accesories": "Accesories",
-    "actives": "Active products",
-    "inactives": "Inactive Products",
-    "noStock": "Out of stock",
-    "purchases": "Purchases",
-    "messages": "Messages"
-  },
-  "BannerLinks": {
-    "jackets": "Jackets",
-    "shirts": "Shirts",
-    "shoes": "Shoes",
-    "accesories": "Accesories"
-  },
-  "LoginBtn": {
-    "login": "Log in",
-    "login2": "🚀 LOG IN"
-  },
-  "PresentationLinks": {
-    "favourites": "Favourites",
-    "notifications": "Notifications",
-    "cart": "Cart",
-    "purchases": "Purchases"
-  },
-  "NewProductForm": {
-    "success": "👍 Ok",
-    "error": "👎 Error",
-    "title": "Title",
-    "description": "Description",
-    "pictureUrl": "PictureUrl",
-    "price": "Price",
-    "stock": "Stock",
-    "brand": "Brand",
-    "model": "Model",
-    "category": "Category",
-    "gender": "Gender",
-    "sizes": "Sizes",
-    "colors": "Colors",
-    "infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
-    "infoExampleColors": "enter separated by commas, for two colors separate them with a dash. Without spaces. Ex: black,red,blue-red,green",
-    "confirm": "Confirm"
-  },
-  "ItemComplete": {
-    "brandModel": "Brand & model",
-    "sizes": "Sizes",
-    "colors": "Colors",
-    "gender": "Gender",
-    "deleteItem": "Delete product",
-    "active": "active",
-    "inactive": "inactive",
-    "noStock": "out of stock"
-  },
-  "PurchaseComplete": {
-    "bought": "Purchase",
-    "products": "products"
-  },
-  "WorkWithUs": {
-    "sendOk": "Message sent succesfully",
-    "canNotSend": "An error occurred while trying to send the message. Retry.",
-    "name": "Name",
-    "phone": "Phone",
-    "send": "Send"
-  },
-  "MessageComplete": {
-    "messageFrom": "Message from",
-    "replyEmail": "Reply email",
-    "work": "Work",
-    "help": "Help"
-  },
-  "HelpForm": {
-    "comment": "Leave us your comment"
-  }
-
+	"AdminTemplate": {
+		"dashboard": "Administration panel",
+		"newProduct": "New Product",
+		"noItems": "There are no products to show",
+		"deleteSuccess": "Product removed",
+		"deleteError": "Error deleting",
+		"deleteMessageSuccess": "Message removed",
+		"isActiveSuccess": "isActive changes to",
+		"isActiveError": "Failed to change isActive",
+		"activeTrue": "Make the product active",
+		"activeFalse": "Put the product into inactive state",
+		"delete": "Remove the product from the database",
+		"edit": "Edit the product",
+		"slideAlert": "👉 This panel is only for administrator use, from it you can manage store products. For testing purposes your access is open.",
+		"purchasesMade": "Purchases made",
+		"products": "Products",
+		"jackets": "Jackets",
+		"shirts": "Shirts",
+		"shoes": "Shoes",
+		"accesories": "Accesories",
+		"actives": "Active products",
+		"inactives": "Inactive Products",
+		"noStock": "Out of stock",
+		"purchases": "Purchases",
+		"messages": "Messages"
+	},
+	"App": {
+		"helloWorld": "Hello World!"
+	},
+	"Authentication": {
+		"welcome": "Welcome",
+		"errorLogin": "We were unable to authenticate your account 😞"
+	},
+	"BannerLinks": {
+		"jackets": "Jackets",
+		"shirts": "Shirts",
+		"shoes": "Shoes",
+		"accesories": "Accesories"
+	},
+	"BtnModalImg": {
+		"zoomIn": "Zoom in"
+	},
+	"Cart": {
+		"cart": "Cart",
+		"saves": "Saves"
+	},
+	"CartItemList": {
+		"keepBuying": "Keep buying",
+		"continueShopping": "Continue shopping"
+	},
+	"CartTemplate": {
+		"title": "🛒 My Cart"
+	},
+	"CartWidgetBtn": {
+		"clean": "Clean cart",
+		"goToCart": "Go to cart",
+		"deleteItem": "Remove from cart"
+	},
+	"ChangeLanguageBtn": {
+		"es": "ES",
+		"en": "EN"
+	},
+	"Checkout": {
+		"helpStage1": "Complete / verify the form",
+		"helpStage2": "Confirm the form, the payment button will be enabled",
+		"helpStage3": "Click on pay to make the payment.",
+		"hello": "Hello"
+	},
+	"CheckoutTemplate": {
+		"title": "✔ Checkout"
+	},
+	"FavouriteIconBtn": {
+		"deleteFromFavourites": "Delete from favourites 💔",
+		"addToFavourites": "Add to favourites 😍"
+	},
+	"FavouritesBtn": {
+		"clean": "Clean favourites",
+		"title": "Favourites",
+		"all": "All"
+	},
+	"FavouritesTemplate": {
+		"title": "💕 My favourites",
+		"noItems": "😕 You don't have any product saved in favorites yet"
+	},
+	"Footer": {
+		"workWithUs": "Work with us 💪",
+		"termsAndConditions": "Terms and conditions",
+		"help": "Help",
+		"covidPrecautions": "Precautions in times of COVID"
+	},
+	"HelmetSEO": {
+		"title": {
+			"home": "Aquila 🦅 | Home",
+			"products": "Aquila 🦅 | Products | ",
+			"itemDetail": "Aquila 🦅 | Product | ",
+			"notFound": "Aquila 🦅 | 404",
+			"notifications": "Aquila 🦅 | Notifications",
+			"favourites": "Aquila 🦅 | Favourites",
+			"checkout": "Aquila 🦅 | checkout",
+			"cart": "Aquila 🦅 | cart",
+			"help": "Aquila 🦅 | help",
+			"termsAndConditions": "Aquila 🦅 | Terms & Conditions",
+			"purchases": "Aquila 🦅 | purchases"
+		},
+		"description": {
+			"home": "Main page of the store for the sale of clothing",
+			"products": "List of store products under the category: ",
+			"itemDetail": "Product selected from the store: ",
+			"notFound": "Not found",
+			"notifications": "notifications history",
+			"favourites": "favourites history",
+			"checkout": "Products checkout",
+			"cart": "Shopping cart",
+			"help": "Help section",
+			"termsAndConditions": "Terms & Conditions",
+			"purchases": "purchases"
+		}
+	},
+	"HelpBtn": {
+		"help": "Help",
+		"forMoreHelp": "For more help, click",
+		"here": "here"
+	},
+	"HelpForm": {
+		"comment": "Leave us your comment"
+	},
+	"InputEmail": {
+		"title": "Email",
+		"error": "Enter a real email"
+	},
+	"InputPassword": {
+		"title": "Password",
+		"error": "Enter a password",
+		"veryWeak": "Very weak",
+		"weak": "Weak",
+		"normal": "Normal",
+		"good": "Good",
+		"veryGood": "Very good",
+		"useHelp": "Use aA-zZ, 0-9 and characters"
+	},
+	"ItemComplete": {
+		"brandModel": "Brand & model",
+		"sizes": "Sizes",
+		"colors": "Colors",
+		"gender": "Gender",
+		"deleteItem": "Delete product",
+		"active": "active",
+		"inactive": "inactive",
+		"noStock": "out of stock"
+	},
+	"ItemCount": {
+		"noStock": "No stock",
+		"available": "Available",
+		"addToCart": "Add to cart",
+		"addedToCart": "Added to cart 👍",
+		"buyNow": "Buy now",
+		"canNotBuy": "Purchases are disabled",
+		"canNotBuyDescription": "It is not possible to buy this item at this time",
+		"canNotAdd": "Purchases are disabled",
+		"canNotAddDescription": "It is not possible to add this item to your cart at this time."
+	},
+	"ItemDetailCharacteristics": {
+		"title": "Characteristics",
+		"brand": "Brand",
+		"model": "Model",
+		"withLoveTo": "With 💖 to",
+		"availableColours": "Available colours",
+		"availableSizes": "Available sizes"
+	},
+	"ItemDetailDescription": {
+		"title": "Description"
+	},
+	"ItemDetailQuestionsAndAnswers": {
+		"title": "Questions and answers"
+	},
+	"ItemList": {
+		"productsList": "Products list 🔥🔥🔥"
+	},
+	"ItemNotification": {
+		"bought": "You bought",
+		"products": "products",
+		"order": "#Order"
+	},
+	"ItemProduct": {
+		"deleteItem": "Remove product",
+		"delete": "Delete",
+		"save": "Save",
+		"saveText": "Save for later",
+		"similarProducts": "See similar products",
+		"seeMore": "See more"
+	},
+	"ItemProductList": {
+		"noProductsYet": "No products yet 😔"
+	},
+	"LoginBtn": {
+		"login": "Log in",
+		"login2": "🚀 LOG IN"
+	},
+	"Logout": {
+		"logout": "Logout",
+		"doYouWantToLogout": "Do you want to log out?",
+		"close": "Close",
+		"ok": "Ok",
+		"youCanNot": "You can not go out 😈"
+	},
+	"MessageComplete": {
+		"messageFrom": "Message from",
+		"replyEmail": "Reply email",
+		"work": "Work",
+		"help": "Help"
+	},
+	"NavBarTemplate": {
+		"constructionTools": "Construction tools",
+		"sports": "Sports",
+		"entertainment": "Entertainment",
+		"estate": "Estate",
+		"mobility": "Mobility",
+		"logout": "Logout",
+		"jackets": "Jackets",
+		"shirts": "Shirts",
+		"shoes": "Shoes",
+		"accesories": "Accesories",
+		"categories": "Categories"
+	},
+	"NewProductForm": {
+		"success": "👍 Ok",
+		"error": "👎 Error",
+		"title": "Title",
+		"description": "Description",
+		"pictureUrl": "PictureUrl",
+		"price": "Price",
+		"stock": "Stock",
+		"brand": "Brand",
+		"model": "Model",
+		"category": "Category",
+		"gender": "Gender",
+		"sizes": "Sizes",
+		"colors": "Colors",
+		"infoExampleSizes": "enter separated by commas, without spaces. Ex: S,M,L,XL",
+		"infoExampleColors": "enter separated by commas, for two colors separate them with a dash. Without spaces. Ex: black,red,blue-red,green",
+		"confirm": "Confirm"
+	},
+	"NotFound": {
+		"title": "Not Found"
+	},
+	"NotificationList": {
+		"noItems": "😶 We have no notifications to show you"
+	},
+	"NotificationsBtn": {
+		"title": "Notifications",
+		"seeMoreTooltip": "See more notifications",
+		"all": "All",
+		"markAsViewed": "Mark as viewed"
+	},
+	"NotificationsTemplate": {
+		"title": "📬 Notifications history"
+	},
+	"PaymentForm": {
+		"enterEmail": "Email",
+		"enterPassword": "Password",
+		"enterName": "Full Name",
+		"enterDni": "DNI",
+		"enterPhone": "Phone",
+		"enterStreetName": "Street name",
+		"enterStreetNumber": "Street number",
+		"enterDepto": "Floor and apartment",
+		"completeForm": "Complete the form",
+		"confirm": "Confirm",
+		"edit": "Edit form"
+	},
+	"PaymentMenu": {
+		"resumen": "Purchase Summary",
+		"products": "Products",
+		"shipping": "Shipping",
+		"free": "Free",
+		"pay": "Pay",
+		"confirmForm": "Confirm the form to enable payment",
+		"success": "Successful purchase",
+		"error": "Ups! there is an error when making your purchase",
+		"cuestion": "What do you want to do?",
+		"goToPurchases": "go to my Purchases",
+		"goToHome": "Continue buying",
+		"tryAgain": "Try again"
+	},
+	"PresentationLinks": {
+		"favourites": "Favourites",
+		"notifications": "Notifications",
+		"cart": "Cart",
+		"purchases": "Purchases"
+	},
+	"PurchaseComplete": {
+		"bought": "Purchase",
+		"products": "products"
+	},
+	"PurchasesList": {
+		"noItems": "😑 You haven't made any purchases yet..."
+	},
+	"PurchasesTemplate": {
+		"title": "🛍 Purchases",
+		"purchasesMade": "Purchases made",
+		"productsPurchased": "Products purchased"
+	},
+	"SubHeader": {
+		"back": "👈 Back"
+	},
+	"WorkWithUs": {
+		"sendOk": "Message sent succesfully",
+		"canNotSend": "An error occurred while trying to send the message. Retry.",
+		"name": "Name",
+		"phone": "Phone",
+		"send": "Send"
+	}
 }

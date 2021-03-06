@@ -1,67 +1,52 @@
-# Proyecto ECOMMERCE en ReactJs
+# 🦅 AQUILA STORE
 
-Este proyecto fue desarrollado para el curso de ReactJs de la plataforma [CODERHOUSE](https://www.coderhouse.com/)
+## _Proyecto ECOMMERCE en ReactJs_ 💙
 
-- Author:
+Este proyecto fue desarrollado para el curso de ReactJs de la plataforma CoderHouse [![coderhouse](https://emprelatam.com/wp-content/uploads/2019/10/logos-coderhouse-01.png)](https://www.coderhouse.com/)
 
-  - Braian D. Vaylet
-  - Contacto: braianvaylet@gmail.com
-  - [linkedin](https://www.linkedin.com/in/braianvaylet/)
+### Demo: [AquilaStore](https://braianvaylet.github.io/coderhouse-react11360-bdv/)
 
-- Demo: [AquilaStore](https://braianvaylet.github.io/coderhouse-react11360-bdv/)
+### Documentation: [AquilaStore Doc](https://braianvaylet.github.io/AquilaStoreDoc/)
 
-- Info:
+---
 
-  - Camada: 11360
-  - Profesor: Cristian Hourcade (Toto)
-  - Tutor: Ramiro D' Accorso
+### Author
 
-- Librerias principales utilizadas en el proyecto:
+> Braian D. Vaylet
+> Contacto: braianvaylet@gmail.com > [linkedin](https://www.linkedin.com/in/braianvaylet/)
 
-  - [ReactJs](https://es.reactjs.org/)
-  - [Create React App](https://github.com/facebook/create-react-app).
-  - [PropTypes](https://www.npmjs.com/package/prop-types)
-  - [Chakra-UI](https://chakra-ui.com/)
-  - [React Helmet](https://www.npmjs.com/package/react-helmet)
-  - [Firebase](https://firebase.google.com/?hl=es)
-  - [i18next](https://react.i18next.com/)
-  - [React Router](https://reactrouter.com/)
-  - [jsDocs](https://jsdoc.app/)
+### Info
 
-- Se utiliza [Atomic Design](https://atomicdesign.bradfrost.com/) como patron de diseño para la arquitectura del proyecto
+> Camada: 11360
+> Profesor: Cristian Hourcade (Toto)
+> Tutor: Ramiro D' Accorso
 
-- Arquitectura de carpetas del proyecto:
+### Librerias principales utilizadas en el proyecto
 
-  - build
-  - docs
-  - public
-  - src
-    - assets
-      - images
-      - logos
-      - sliders
-    - components
-      - \_atoms
-      - \_molecules
-      - \_organisms
-      - \_templates
-    - containers
-    - context
-    - firebase
-    - hooks
-    - pages
-    - routes
-    - styles
-    - translations
-    - utils
+| libreria                                                         | uso                                      |
+| ---------------------------------------------------------------- | ---------------------------------------- |
+| [ReactJs](https://es.reactjs.org/)                               | framework principal                      |
+| [Create React App](https://github.com/facebook/create-react-app) | creación del proyecto                    |
+| [PropTypes](https://www.npmjs.com/package/prop-types)            | validación de tipado                     |
+| [Chakra-UI](https://chakra-ui.com/)                              | libreria UI para componentes             |
+| [React Helmet](https://www.npmjs.com/package/react-helmet)       | control del SEO de la aplicación         |
+| [Firebase](https://firebase.google.com/?hl=es)                   | autentificación y base de datos          |
+| [i18next](https://react.i18next.com/)                            | traducciones                             |
+| [React Router](https://reactrouter.com/)                         | libreria para el control de las rutas    |
+| [jsDocs](https://jsdoc.app/)                                     | libreria para autodocumentar el proyecto |
 
-- Pendientes principales:
-  - Agregar pasarela de pagos
-  - Responsive
-  - Control de estado de pedidos (init, enProgreso, enViaje, recibido)
-  - mover notificaciones y favoritos a firebase
-  - registro de usuarios en firebase
-  - Restringir acceso al panel de administración (solo usuario admin)
+### Se utiliza _[Atomic Design](https://atomicdesign.bradfrost.com/)_ como patron de diseño para la arquitectura del proyecto
+
+### Pendientes principales
+
+- Agregar pasarela de pagos
+- Responsive
+- Control de estado de pedidos (init, enProgreso, enViaje, recibido)
+- mover notificaciones y favoritos a firebase
+- registro de usuarios en firebase
+- Restringir acceso al panel de administración (solo usuario admin)
+
+---
 
 ## Available Scripts
 
@@ -94,6 +79,12 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run deploy`
+
+To deploy the project in Github Pages
+
+Before executing this command remember to compile the project to production through `npm run build`
 
 ### `npm run eject`
 

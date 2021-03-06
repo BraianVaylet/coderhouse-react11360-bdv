@@ -10,6 +10,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react"
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons"
 // hooks
 import useSetColorTheme from "hooks/useSetColorTheme"
 // utils
@@ -17,14 +18,14 @@ import { handleMapArrayProducts } from "utils"
 // context
 import { CartContext, CheckoutContext, NotificationContext } from "context"
 // components
+import CustomModal from "components/_atoms/CustomModal"
+import ButtonLink from "components/_atoms/ButtonLink"
 import TotalCart from "components/_molecules/TotalCart"
 import ItemProductList from "components/_organisms/ItemProductList"
 // routes
 import { ROUTES } from "routes"
-import { addPurchase } from "firebase/client"
-import CustomModal from "components/_atoms/CustomModal"
-import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons"
-import ButtonLink from "components/_atoms/ButtonLink"
+// firebase
+import { FirebaseClient } from "firebase/client"
 
 /**
  * PaymentMenuTemplate Component
@@ -34,6 +35,7 @@ import ButtonLink from "components/_atoms/ButtonLink"
  */
 const PaymentMenuTemplate = () => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const backToHome = useHistory()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { activePayment, purchase } = useContext(CheckoutContext)
@@ -56,7 +58,8 @@ const PaymentMenuTemplate = () => {
     const test = true
     if (purchase) {
       // guardo compra
-      addPurchase(purchase)
+      firebase
+        .addPurchase(purchase)
         .then(() => {
           if (test) {
             // creo notificacion

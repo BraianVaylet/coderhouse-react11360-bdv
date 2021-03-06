@@ -22,7 +22,6 @@ import {
 // utils
 import { IMG } from "utils/images"
 import { PropTypesProduct } from "utils/propTypes"
-import { handleMapArrayProducts } from "utils"
 // components
 import ItemProductList from "components/_organisms/ItemProductList"
 // hooks
@@ -130,7 +129,7 @@ const PurchaseComplete = ({ item }) => {
       <Collapse in={isOpen} animateOpacity>
         <Flex direction="column" align="flex-start" justify="center">
           <ItemProductList
-            data={handleMapArrayProducts(products)}
+            data={products}
             asComponent={Box}
             type="item"
             design={1}

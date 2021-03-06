@@ -7,7 +7,7 @@ import { Button, Flex, useToast } from "@chakra-ui/react"
 import { InputEmail, InputTextNumber } from "components/_molecules/Inputs"
 import { InputTextArea } from "components/_molecules/Inputs/inputTextArea"
 // firebase
-import { addMessageHelp } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 /**
  * HelpForm Component
@@ -18,6 +18,7 @@ import { addMessageHelp } from "firebase/client"
 const HelpForm = ({ onClose }) => {
   const toast = useToast()
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const [emailValue, setEmailValue] = useState(null)
   const [nameValue, setNameValue] = useState(null)
   const [phoneValue, setPhoneValue] = useState(null)
@@ -31,12 +32,13 @@ const HelpForm = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (emailValue && nameValue && phoneValue && commentValue) {
-      addMessageHelp({
-        email: emailValue,
-        name: nameValue,
-        phone: phoneValue,
-        comment: commentValue,
-      })
+      firebase
+        .addMessageHelp({
+          email: emailValue,
+          name: nameValue,
+          phone: phoneValue,
+          comment: commentValue,
+        })
         .then(() => {
           toast({
             title: t("WorkWithUs.sendOk"),

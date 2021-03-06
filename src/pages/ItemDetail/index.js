@@ -8,7 +8,8 @@ import ItemDetailTemplate from "components/_templates/ItemDetailTemplate"
 import { ROUTES } from "routes"
 // context
 import { ProductsContext } from "context"
-import { fetchProductsByID } from "firebase/client"
+// firebase
+import { FirebaseClient } from "firebase/client"
 
 /**
  * ItemDetail Page
@@ -17,6 +18,7 @@ import { fetchProductsByID } from "firebase/client"
  * @description Page ItemDetail, detalle del producto seleccionado
  */
 const ItemDetail = () => {
+  const firebase = new FirebaseClient()
   const { productsDb, setLoadingProductsDb } = useContext(ProductsContext)
   const { id } = useParams()
   const routerHistory = useHistory()
@@ -32,7 +34,7 @@ const ItemDetail = () => {
     } else {
       setLoadingProductsDb(true)
       try {
-        const value = await fetchProductsByID(id)
+        const value = await firebase.fetchProductsByID(id)
         setItem(value)
         setLoadingProductsDb(false)
       } catch (error) {

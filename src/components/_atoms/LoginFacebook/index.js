@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Flex, Image, useToast } from "@chakra-ui/react"
 // firebase
-import { loginWithFacebook } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 // utils
 import { IMG } from "utils/images"
 // hooks
@@ -19,6 +19,7 @@ const LoginFacebook = ({ ...props }) => {
   const [t] = useTranslation("global")
   const user = useUser()
   const toast = useToast()
+  const firebase = new FirebaseClient()
 
   /**
    * handleClick
@@ -26,7 +27,8 @@ const LoginFacebook = ({ ...props }) => {
    * @description Autentificación con firebase y facebook
    */
   const handleClick = () =>
-    loginWithFacebook()
+    firebase
+      .loginWithFacebook()
       .then((value) => {
         if (user) {
           toast({

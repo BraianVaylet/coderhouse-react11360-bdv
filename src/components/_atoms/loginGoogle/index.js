@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 // chakra-ui
 import { Button, Flex, Image, useToast } from "@chakra-ui/react"
 // firebase
-import { loginWithGoogle } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 // utils
 import { IMG } from "utils/images"
 // hooks
@@ -19,6 +19,7 @@ const LoginGoogle = ({ ...props }) => {
   const [t] = useTranslation("global")
   const toast = useToast()
   const user = useUser()
+  const firebase = new FirebaseClient()
 
   /**
    * handleClick
@@ -26,7 +27,8 @@ const LoginGoogle = ({ ...props }) => {
    * @description Autentificación con firebase y google
    */
   const handleClick = () =>
-    loginWithGoogle()
+    firebase
+      .loginWithGoogle()
       .then(async (value) => {
         if (user) {
           toast({

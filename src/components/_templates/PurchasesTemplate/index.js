@@ -13,7 +13,7 @@ import { ROUTES } from "routes"
 // hooks
 import useUser from "hooks/useUser"
 // firebase
-import { fetchAllPurchasesByUser } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 /**
  * PurchasesTemplate Component
@@ -23,6 +23,7 @@ import { fetchAllPurchasesByUser } from "firebase/client"
  */
 const PurchasesTemplate = () => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const user = useUser()
   const [data, setData] = useState([])
   const [loadingData, setLoadingData] = useState(false)
@@ -30,7 +31,8 @@ const PurchasesTemplate = () => {
   useEffect(() => {
     setLoadingData(true)
     user &&
-      fetchAllPurchasesByUser(user.email)
+      firebase
+        .fetchAllPurchasesByUser(user.email)
         .then((value) => {
           setData(value)
           setLoadingData(false)

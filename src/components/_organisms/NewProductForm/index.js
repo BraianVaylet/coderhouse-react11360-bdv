@@ -5,8 +5,9 @@ import { useTranslation } from "react-i18next"
 import { Button, Flex, useToast } from "@chakra-ui/react"
 // components
 import { InputTextNumber } from "components/_molecules/Inputs"
-import { addProduct, editProduct } from "firebase/client"
 import Select from "components/_molecules/Select"
+// firebase
+import { FirebaseClient } from "firebase/client"
 // utils
 import { CATEGORIES, GENDERS } from "utils/constants"
 
@@ -19,6 +20,7 @@ import { CATEGORIES, GENDERS } from "utils/constants"
 const NewProductForm = ({ itsEditable, data, onClose }) => {
   const [t] = useTranslation("global")
   const toast = useToast()
+  const firebase = new FirebaseClient()
   const [titleValue, setTitleValue] = useState(null)
   const [descriptionValue, setDescriptionValue] = useState(null)
   const [pictureUrlValue, setPictureUrlValue] = useState(null)
@@ -104,7 +106,8 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
         colors: handleArray(colorsValue),
       }
       itsEditable
-        ? await editProduct(data.id, _data)
+        ? await firebase
+            .editProduct(data.id, _data)
             .then(() => {
               toast({
                 title: t("NewProductForm.success"),
@@ -127,7 +130,8 @@ const NewProductForm = ({ itsEditable, data, onClose }) => {
                 isClosable: true,
               })
             })
-        : await addProduct(_data)
+        : await firebase
+            .addProduct(_data)
             .then((value) => {
               toast({
                 title: t("NewProductForm.success"),

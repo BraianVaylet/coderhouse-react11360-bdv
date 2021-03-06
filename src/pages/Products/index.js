@@ -8,7 +8,7 @@ import HelmetSEO from "components/_atoms/HelmetSEO"
 // context
 import { ProductsContext } from "context"
 // firebase
-import { fetchProductsByCategory } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 /**
  * Products Page
@@ -18,6 +18,7 @@ import { fetchProductsByCategory } from "firebase/client"
  */
 const Products = () => {
   const { category } = useParams("category")
+  const firebase = new FirebaseClient()
   const { productsDb, setLoadingProductsDb } = useContext(ProductsContext)
   const [t] = useTranslation("global")
   const [data, setData] = useState(null)
@@ -28,7 +29,7 @@ const Products = () => {
     } else {
       setLoadingProductsDb(true)
       try {
-        const value = await fetchProductsByCategory(category)
+        const value = await firebase.fetchProductsByCategory(category)
         setData(value)
         setLoadingProductsDb(false)
       } catch (error) {

@@ -7,7 +7,7 @@ import { Divider, Flex, toast } from "@chakra-ui/react"
 import SkItemComplete from "components/_molecules/ItemComplete/SkItemComplete"
 import MessageComplete from "components/_molecules/MessageComplete"
 // firebase
-import { deleteMessagesByID } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 /**
  * MessagesList Component
@@ -17,6 +17,7 @@ import { deleteMessagesByID } from "firebase/client"
  */
 const MessagesList = ({ data, loading }) => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
 
   /**
    * handleDelete
@@ -25,7 +26,8 @@ const MessagesList = ({ data, loading }) => {
    * @description Elimina el registro de la Base de datos ⚠
    */
   const handleDeleteMessage = async (id) => {
-    await deleteMessagesByID(id)
+    await firebase
+      .deleteMessagesByID(id)
       .then(() => {
         toast({
           title: t("AdminTemplate.deleteMessageSuccess"),

@@ -6,7 +6,7 @@ import HelmetSEO from "components/_atoms/HelmetSEO"
 // styles
 import ProductsListTemplate from "components/_templates/ProductsListTemplate"
 // firebase
-import { fetchProducts } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 // context
 import { ProductsContext } from "context"
 
@@ -18,6 +18,7 @@ import { ProductsContext } from "context"
  */
 const Home = () => {
   const [t] = useTranslation("global")
+  const firebase = new FirebaseClient()
   const { productsDb, setProductsDb, setLoadingProductsDb } = useContext(
     ProductsContext
   )
@@ -25,7 +26,7 @@ const Home = () => {
   useEffect(async () => {
     setLoadingProductsDb(true)
     try {
-      const data = await fetchProducts()
+      const data = await firebase.fetchProducts()
       setProductsDb(data)
       setLoadingProductsDb(false)
     } catch (error) {

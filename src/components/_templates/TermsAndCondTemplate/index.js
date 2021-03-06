@@ -32,7 +32,7 @@ const TermsAndCondTemplate = () => {
           elegir y cambiar la clave para su acceso de administración de la
           cuenta en cualquier momento, en caso de que se haya registrado y que
           sea necesario para la compra de alguno de nuestros productos.
-          https://coderhouse-react11360-bdv.vercel.app/ no asume la
+          https://braianvaylet.github.io/coderhouse-react11360-bdv/ no asume la
           responsabilidad en caso de que entregue dicha clave a terceros. Todas
           las compras y transacciones que se lleven a cabo por medio de este
           sitio web, están sujetas a un proceso de confirmación y verificación,
@@ -100,7 +100,7 @@ const TermsAndCondTemplate = () => {
       />
       <TitleAndText
         title="PRIVACIDAD"
-        text="Este https://coderhouse-react11360-bdv.vercel.app/ garantiza que la fc
+        text="Este https://braianvaylet.github.io/coderhouse-react11360-bdv/ garantiza que la fc
           barcelona noticias información personal que usted envía cuenta con la
           seguridad necesaria. Los datos ingresados por usuario o en el caso de
           requerir una validación de los pedidos no serán entregados a terceros,

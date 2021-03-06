@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { onAuthStateChanged } from "firebase/client"
+import { FirebaseClient } from "firebase/client"
 
 export const USER_STATES = {
   NOT_LOGGED: null,
@@ -7,10 +7,11 @@ export const USER_STATES = {
 }
 
 export default function useUser() {
+  const firebase = new FirebaseClient()
   const [user, setUser] = useState(USER_STATES.NOT_KNOWN)
 
   useEffect(() => {
-    onAuthStateChanged(setUser)
+    firebase.onAuthStateChanged(setUser)
   }, [])
 
   return user

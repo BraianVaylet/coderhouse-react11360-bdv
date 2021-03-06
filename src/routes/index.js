@@ -51,64 +51,77 @@ const Routes = () => {
   return (
     <BrowserRouter basename={URL_PUBLIC}>
       <Switch>
+        {/* Homepage */}
         <Route path={ROUTES.HOME}>
           <Layout>
             <Home />
           </Layout>
         </Route>
+        {/* Shopping cart page */}
         <Route path={ROUTES.CART}>
           <Layout>
             <Cart />
           </Layout>
         </Route>
+        {/* Checkout page */}
         <Route path={ROUTES.CHECKOUT}>
           <Layout>
             <Checkout />
           </Layout>
         </Route>
+        {/* Help page (not used at the moment) */}
         <Route path={ROUTES.HELP}>
           <Layout>
             <Help />
           </Layout>
         </Route>
+        {/* Terms and conditions of use page */}
         <Route path={ROUTES.TERMS_AND_COND}>
           <Layout>
             <TermsAndCond />
           </Layout>
         </Route>
+        {/* Notifications page */}
         <Route path={ROUTES.NOTIFICATIONS}>
           <Layout>
             <Notifications />
           </Layout>
         </Route>
+        {/* Favourites page */}
         <Route path={ROUTES.FAVOURITES}>
           <Layout>
             <Favourites />
           </Layout>
         </Route>
+        {/* Purchases page */}
         <Route path={ROUTES.PURCHASES}>
           <Layout>
             <Purchases />
           </Layout>
         </Route>
+        {/* Admin dashboard page */}
         <Route path={ROUTES.ADMIN}>
           <Admin />
         </Route>
+        {/* Product detail page by id */}
         <Route path={ROUTES.ITEM_DETAIL + "/:id"}>
           <Layout>
             <ItemDetail />
           </Layout>
         </Route>
+        {/* Product page by category */}
         <Route path={ROUTES.PRODUCTS + "/:category"}>
           <Layout>
             <Products />
           </Layout>
         </Route>
+        {/* Entry point page === Homepage */}
         <Route exact path={ROUTES.ENTRYPOINT}>
           <Layout>
             <Home />
           </Layout>
         </Route>
+        {/* Not found page */}
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

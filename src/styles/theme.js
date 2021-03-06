@@ -7,8 +7,10 @@ export const MY_BREAKPOINTS = {
   BREAK_MIN_1280: "(min-width: 1280px)",
 }
 
+// tooltip time
 export const TOOLTIP_TIME = 250
 
+// color palette
 export const COLORS = {
   primary: "#2564f7",
   secundary: "#67a9f0",
